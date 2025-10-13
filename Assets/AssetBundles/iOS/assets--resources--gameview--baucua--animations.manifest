@@ -1,0 +1,45 @@
+ManifestFileVersion: 0
+CRC: 2864150726
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 6f1e96c2106ba37bf390ea95ebfcb32e
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 0d0b4c284cc7e207abf3d7e9b9962155
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 8046e20a7fac9af0000564c0a6b255b1
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 49
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: a6b194f808b1af6499c93410e504af42, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f1b3b4b945939a54ea0b23d3396115fb, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers:
+- AssemblyName: spine-unity
+  ClassName: Spine.Unity.BlendModeMaterials
+Assets:
+- Assets/Resources/GameView/Baucua/animations/win 2/New folder/skeleton.png
+- Assets/Resources/GameView/Baucua/animations/win 2/New folder/skeleton.atlas.txt
+- Assets/Resources/GameView/Baucua/animations/win 2/New folder/skeleton_Atlas.asset
+- Assets/Resources/GameView/Baucua/animations/win 2/New folder/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/Baucua/animations/lose/skeleton.atlas.txt
+- Assets/Resources/GameView/Baucua/animations/win 2/New folder/skeleton_Material.mat
+- Assets/Resources/GameView/Baucua/animations/lose/skeleton_Atlas.asset
+- Assets/Resources/GameView/Baucua/animations/lose/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/Baucua/animations/win 2/New folder/skeleton.json
+- Assets/Resources/GameView/Baucua/animations/lose/skeleton.png
+- Assets/Resources/GameView/Baucua/animations/lose/skeleton_Material.mat
+- Assets/Resources/GameView/Baucua/animations/lose/skeleton.json
+Dependencies: []

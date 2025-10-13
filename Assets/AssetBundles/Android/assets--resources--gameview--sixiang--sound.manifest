@@ -1,0 +1,58 @@
+ManifestFileVersion: 0
+CRC: 3086498378
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 69044482fb6d038dfe93bf9c737ac049
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 9a2ca7bdbd1871f7131daf57de908e0c
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: da63bb969f9fa2a272faefa7c3db5dd9
+HashAppended: 0
+ClassTypes:
+- Class: 83
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Resources/GameView/SiXiang/Sound/scatterWinHighlight.mp3
+- Assets/Resources/GameView/SiXiang/Sound/bgm_jackpot_start.mp3
+- Assets/Resources/GameView/SiXiang/Sound/click_trung_minigame.mp3
+- Assets/Resources/GameView/SiXiang/Sound/wildExpand.mp3
+- Assets/Resources/GameView/SiXiang/Sound/pearl_tiger.mp3
+- Assets/Resources/GameView/SiXiang/Sound/buttonClick.mp3
+- Assets/Resources/GameView/SiXiang/Sound/LuckyDrawItemJackpot.mp3
+- Assets/Resources/GameView/SiXiang/Sound/reward.mp3
+- Assets/Resources/GameView/SiXiang/Sound/prizeInfobarTotalwinMedMain.mp3
+- Assets/Resources/GameView/SiXiang/Sound/bgm_bigwin_main.mp3
+- Assets/Resources/GameView/SiXiang/Sound/cut_scene.mp3
+- Assets/Resources/GameView/SiXiang/Sound/nearFsStart.mp3
+- Assets/Resources/GameView/SiXiang/Sound/bgm_jackpot_end.mp3
+- Assets/Resources/GameView/SiXiang/Sound/prizeInfobarTotalwinMedEnd.mp3
+- Assets/Resources/GameView/SiXiang/Sound/Pear_ItemNormal.mp3
+- Assets/Resources/GameView/SiXiang/Sound/run-item.mp3
+- Assets/Resources/GameView/SiXiang/Sound/showAnimal.mp3
+- Assets/Resources/GameView/SiXiang/Sound/bgDragonPealSpin.mp3
+- Assets/Resources/GameView/SiXiang/Sound/pearlItem.mp3
+- Assets/Resources/GameView/SiXiang/Sound/wildSymbol.mp3
+- Assets/Resources/GameView/SiXiang/Sound/coin_flying.mp3
+- Assets/Resources/GameView/SiXiang/Sound/Pearl_Dragon.mp3
+- Assets/Resources/GameView/SiXiang/Sound/nearFsEnd.mp3
+- Assets/Resources/GameView/SiXiang/Sound/background.mp3
+- Assets/Resources/GameView/SiXiang/Sound/bgm_bigwin_end.mp3
+- Assets/Resources/GameView/SiXiang/Sound/Pearl_Phoenix.mp3
+- Assets/Resources/GameView/SiXiang/Sound/Pearl-Turtle.mp3
+- Assets/Resources/GameView/SiXiang/Sound/chon_x_minigame.mp3
+- Assets/Resources/GameView/SiXiang/Sound/luckyDrawItemNormal.mp3
+- Assets/Resources/GameView/SiXiang/Sound/quay.mp3
+- Assets/Resources/GameView/SiXiang/Sound/item_Stop.mp3
+- Assets/Resources/GameView/SiXiang/Sound/Scatter_spin.mp3
+- Assets/Resources/GameView/SiXiang/Sound/symScatter.mp3
+- Assets/Resources/GameView/SiXiang/Sound/rapid_itemWin.mp3
+- Assets/Resources/GameView/SiXiang/Sound/show_popup_minigame.mp3
+- Assets/Resources/GameView/SiXiang/Sound/LuckyDraw_Win_Jackpot.mp3
+- Assets/Resources/GameView/SiXiang/Sound/line-win.mp3
+- Assets/Resources/GameView/SiXiang/Sound/Pearl_RunItem.mp3
+- Assets/Resources/GameView/SiXiang/Sound/click_truot_minigame.mp3
+Dependencies: []

@@ -1,0 +1,10 @@
+﻿fileFormatVersion: 2
+guid: ab7566d7f9cc402c9fd49f1f8d89957e
+timeCreated: 1626278669
+AssetOrigin:
+  serializedVersion: 1
+  productId: 193316
+  packageName: OneSignal SDK
+  packageVersion: 5.1.14
+  assetPath: Assets/OneSignal/Editor/Setup/OneSignalSetupWindow.cs
+  uploadId: 785824

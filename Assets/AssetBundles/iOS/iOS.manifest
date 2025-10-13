@@ -1,0 +1,31 @@
+ManifestFileVersion: 0
+CRC: 4169475375
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: assets--resources--animicongame
+      Dependencies: {}
+    Info_1:
+      Name: assets--resources--gameview--slotspine
+      Dependencies: {}
+    Info_2:
+      Name: assets--resources--gameview--baucua--animations
+      Dependencies: {}
+    Info_3:
+      Name: assets--resources--gameview--sixiang--spine
+      Dependencies: {}
+    Info_4:
+      Name: assets--resources--gameview--emo
+      Dependencies: {}
+    Info_5:
+      Name: assets--resources--gameview--threepoker--animation
+      Dependencies: {}
+    Info_6:
+      Name: assets--resources--sounds
+      Dependencies: {}
+    Info_7:
+      Name: assets--resources--gameview--roulette--res--spine
+      Dependencies: {}
+    Info_8:
+      Name: assets--resources--gameview--sixiang--sound
+      Dependencies: {}
