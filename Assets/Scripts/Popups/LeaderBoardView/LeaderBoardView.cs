@@ -89,8 +89,8 @@ public class LeaderBoardView : BaseView
         Config.listRankGame = listRankGame;
         List<int> gameIds = new(){
                 (int)GAMEID.PUSOY,
-                (int)GAMEID.SLOT20FRUIT,(int)GAMEID.LUCKY_89,(int)GAMEID.SLOT_INCA,
-                (int)GAMEID.SICBO,(int)GAMEID.SLOTNOEL,(int)GAMEID.SLOTTARZAN,(int)GAMEID.SLOT_JUICY_GARDEN,(int)GAMEID.SLOT_SIXIANG,
+                (int)GAMEID.SLOT20FRUIT,(int)GAMEID.SHAN_KOE_MEE,(int)GAMEID.SLOT_INCA,
+                (int)GAMEID.SICBO,(int)GAMEID.SLOTNOEL,(int)GAMEID.SLOTTARZAN,(int)GAMEID.SLOT_JUICY_GARDEN,(int)GAMEID.SLOT_SIXIANG,(int)GAMEID.DRAGONTIGER,(int)GAMEID.SESKU,
             };
         for (int i = 0; i < Config.listRankGame.Count; i++)
         {

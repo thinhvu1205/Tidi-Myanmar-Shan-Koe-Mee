@@ -106,7 +106,7 @@ public class PlayerView : MonoBehaviour
             //         case 2: vecPos.x = 100; break;
             //     }
             // }
-            if (Config.curGameId == (int)GAMEID.LUCKY_89)
+            if (Config.curGameId == (int)GAMEID.SHAN_KOE_MEE)
             {
                 vecPos.x = vecPosThis.x < 0 ? 100 : -100;
                 vecPos.y = -60;
@@ -557,7 +557,7 @@ public class PlayerView : MonoBehaviour
         if (!isShow) return;
         float posx = isLeft == true ? -60 : 60;
         float posy = isUp == true ? 25 : -25;
-        if (Globals.Config.curGameId == (int)Globals.GAMEID.LUCKY_89)
+        if (Globals.Config.curGameId == (int)Globals.GAMEID.SHAN_KOE_MEE)
         {
             posx = isLeft == true ? -85 : 85;
             posy = isUp == true ? 50 : -50;

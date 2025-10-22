@@ -20,14 +20,25 @@ public class ChatWorldInGame : BaseView
     [SerializeField] private GameObject ItemChat, m_PanelRecording;
     [SerializeField] private TMP_InputField m_Message;
     // [SerializeField] private ScrollRect scrListWorld;
-    [SerializeField] private VerticalPoolGroup m_ChatTableVPG;
     [SerializeField] private MicrophoneRecorder m_ThisMR;
     [SerializeField] private AudioSource m_ThisAS;
-    private List<ChatWorldLobbyData> _PoolDataCWLDs = new();
+    [SerializeField] private VerticalPool m_ChatTableVPG;
+    private List<PoolInfo> _ControlPIs = new();
     [SerializeField] private GameObject m_Mic_on, m_Mic_off;
+    [SerializeField] private TextMeshProUGUI m_Test;
 
 
-
+    private void Start()
+    {
+        if (COMMON_DATA.ListDataChatInGame.Count > 0)
+        {
+            _ControlPIs.Clear();
+            _ControlPIs.AddRange(
+         COMMON_DATA.ListDataChatInGame.Select(data => new PoolInfo { Data = data }).ToList()
+         );
+            m_ChatTableVPG.SetControlInfo(_ControlPIs, _ControlPIs.Count - 1);
+        }
+    }
 
     protected override void Awake()
     {
@@ -36,37 +47,17 @@ public class ChatWorldInGame : BaseView
         m_Mic_on.SetActive(false);
         Globals.CURRENT_VIEW.isInChatVoice = true;
         instance = this;
-        m_ChatTableVPG.SetCellDataCallback<ChatWorldLobbyData>((go, data, index) =>
+        m_ChatTableVPG.SetApplyDataCb((go, data, index) =>
         {
             ItemChat aIC = go.GetComponent<ItemChat>();
-            aIC.SetInfo(data, m_ThisAS, index);
-        });
-        // for (var i = 1; i <= 10; i++)
-        // {
-        //     string msg = Config.getTextConfig($"chat_text_{i}");
+            ChatWorldLobbyData aCWLD = (ChatWorldLobbyData)data.Data;
+            aIC.SetInfo(aCWLD, m_ThisAS, index, (cellW, cellH) =>
+                {
+                    data.SetCellWidth(cellW + 20);
+                    data.SetCellHeight(cellH + 40);
+                });
+        }, true);
 
-        //     var item = Instantiate(ItemChat, scrListWorld.content);
-        //     var txt = item.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-
-        //     txt.text = msg;
-
-        //     // force rebuild để text tính lại chiều cao
-        //     LayoutRebuilder.ForceRebuildLayoutImmediate(item.GetComponent<RectTransform>());
-
-        //     item.transform.localScale = Vector3.one;
-
-        //     item.GetComponent<Button>().onClick.AddListener(() =>
-        //     {
-        //         onClickChatText(msg);
-        //     });
-        // }
-        if (COMMON_DATA.ListDataChatInGame.Count > 0)
-        {
-            _PoolDataCWLDs.Clear(); // Clear list hiện tại
-            _PoolDataCWLDs.AddRange(COMMON_DATA.ListDataChatInGame); // Add tất cả items từ list gốc
-            m_ChatTableVPG.SetAdapter(_PoolDataCWLDs);
-            m_ChatTableVPG.ScrollToLast(0);
-        }
         m_ThisMR.SetData(30, null, null, () =>
         {
             byte[] returnedBytes;
@@ -92,6 +83,27 @@ public class ChatWorldInGame : BaseView
             m_ThisMR.DoClickClose();
         });
     }
+    private const float LOBBY_MAX_WIDTH = 450f;
+    private const float PADDING = 12f;
+    private const float MIN_WIDTH = 100f;
+    private Vector2 CalculateTextSizeTMP(string text, TextMeshProUGUI font)
+    {
+        if (string.IsNullOrEmpty(text))
+            return Vector2.zero;
+        font.text = text;
+        font.enableWordWrapping = true;
+        font.ForceMeshUpdate();
+        float textWidth = font.preferredWidth;
+        float finalWidth = Mathf.Clamp(textWidth + PADDING, MIN_WIDTH, LOBBY_MAX_WIDTH);
+        font.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, finalWidth);
+        font.ForceMeshUpdate();
+
+        float finalHeight = font.preferredHeight + PADDING;
+
+        return new Vector2(finalWidth + PADDING * 6, finalHeight + PADDING);
+    }
+
+
     private void OnEnable()
     {
         m_Mic_off.SetActive(true);
@@ -117,7 +129,7 @@ public class ChatWorldInGame : BaseView
             return;
         }
 
-        int maxLength = 120;
+        int maxLength = 190;
         if (mess.Length >= maxLength)
         {
             UIManager.instance.showToast($"Message too long! Max {maxLength} characters allowed.");
@@ -148,11 +160,12 @@ public class ChatWorldInGame : BaseView
                 Time = timeStr,
                 IsAudio = (bool)dataChat["IsAudio"],
             };
-            _PoolDataCWLDs.Add(chatData);
+
+            _ControlPIs.Add(new PoolInfo { Data = chatData });
             COMMON_DATA.ListDataChatInGame.Add(chatData);
-            Debug.Log("đếm count sau khi add" + _PoolDataCWLDs.Count);
-            m_ChatTableVPG.SetAdapter(_PoolDataCWLDs, false);
-            m_ChatTableVPG.ScrollToLast(0);
+
+            m_ChatTableVPG.SetControlInfo(_ControlPIs, _ControlPIs.Count - 1);
+
         }
         else
         {   // at least 2 requests sent
@@ -188,10 +201,10 @@ public class ChatWorldInGame : BaseView
                         }
                     }
                 }
-                _PoolDataCWLDs.Add(chatData);
+
+                _ControlPIs.Add(new PoolInfo { Data = chatData });
                 COMMON_DATA.ListDataChatInGame.Add(chatData);
-                m_ChatTableVPG.SetAdapter(_PoolDataCWLDs, false);
-                m_ChatTableVPG.ScrollToLast(0);
+                m_ChatTableVPG.SetControlInfo(_ControlPIs, _ControlPIs.Count - 1);
                 for (int i = 0; i < chunksData.Count; i++) if (sameTimeSentData.Contains(chunksData[i])) chunksData.RemoveAt(i--);
             }
         }
@@ -210,7 +223,6 @@ public class ChatWorldInGame : BaseView
             {
                 m_Mic_off.transform.GetChild(1).gameObject.SetActive(false);
                 m_Mic_off.transform.GetChild(2).gameObject.SetActive(true);
-                Debug.Log("Có chữ trong TMP_InputField, thực hiện hành động!");
             }
             else
             {

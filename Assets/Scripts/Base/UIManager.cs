@@ -546,7 +546,7 @@ public class UIManager : MonoBehaviour
                     gameView = Instantiate(loadPrefabGame("SlotFruitView"), parentGame).GetComponent<SlotFruitView>();
                     break;
                 }
-            case (int)Globals.GAMEID.LUCKY_89:
+            case (int)Globals.GAMEID.SHAN_KOE_MEE:
                 {
                     Globals.Logging.Log("showGame Lucky89");
                     gameView = Instantiate(loadPrefabGame("Lucky89View"), parentGame).GetComponent<Lucky89View>();
@@ -567,66 +567,24 @@ public class UIManager : MonoBehaviour
                     Debug.Log("Set Game View Binh:" + gameView);
                     break;
                 }
-            // case (int)Globals.GAMEID.TONGITS_OLD:
-            //     {
-            //         Globals.Logging.Log("showGame TONGITS thuong");
-            //         gameView = Instantiate(loadPrefabGame("TongitsView"), parentGame).GetComponent<TongitsView>();
-            //         break;
-            //     }
-            // case (int)Globals.GAMEID.TONGITS:
-            //     {
-            //         Globals.Logging.Log("showGame TONGITS butasan");
-            //         gameView = Instantiate(loadPrefabGame("TongitsView"), parentGame).GetComponent<TongitsView>();
-            //         break;
-            //     }
-            // case (int)Globals.GAMEID.TONGITS_JOKER:
-            //     {
-            //         Globals.Logging.Log("showGame TONGITS joker");
-            //         gameView = Instantiate(loadPrefabGame("TongitsView"), parentGame).GetComponent<TongitsView>();
-            //         break;
-            //     }
-            // case (int)Globals.GAMEID.LUCKY9:
-            //     {
-            //         Globals.Logging.Log("showGame LUCKY9");
-            //         gameView = Instantiate(loadPrefabGame("Lucky9View"), parentGame).GetComponent<Lucky9View>();
-            //         break;
-            //     }
-            // case (int)Globals.GAMEID.SABONG:
-            //     {
-            //         Globals.Logging.Log("showGame SABONG");
-            //         gameView = Instantiate(loadPrefabGame("SabongView"), parentGame).GetComponent<SabongGameView>();
-            //         break;
-            //     }
-            // case (int)Globals.GAMEID.MINE_FINDING:
-            //     {
-            //         Globals.Logging.Log("showGame MineFinding");
-            //         gameView = Instantiate(loadPrefabGame("PopupMineFinding"), parentGame).GetComponent<MineFindingView>();
-            //         break;
-            //     }
             case (int)Globals.GAMEID.BAUCUA:
                 {
                     Globals.Logging.Log("showGame BAUCUA");
                     gameView = Instantiate(loadPrefabGame("BaucuaView"), parentGame).GetComponent<BaucuaGameView>();
                     break;
                 }
-            // case (int)Globals.GAMEID.THREE_CARD_POKER:
-            //     {
-            //         Globals.Logging.Log("showGame 3 lá bài");
-            //         gameView = Instantiate(loadPrefabGame("ThreePokerView"), parentGame).GetComponent<ThreePokerCardGameView>();
-            //         break;
-            //     }
-            // case (int)Globals.GAMEID.ROULETTE:
-            //     {
-            //         Globals.Logging.Log("showGame RouLette");
-            //         gameView = Instantiate(loadPrefabGame("RouLetteView"), parentGame).GetComponent<RouLetteView>();
-            //         break;
-            //     }
-            // case (int)Globals.GAMEID.HONGKONG_POKER:
-            //     {
-            //         Globals.Logging.Log("showGame Hong Kong Poker");
-            //         gameView = Instantiate(loadPrefabGame("HongKongPokerView"), parentGame).GetComponent<HongKongPokerView>();
-            //         break;
-            //     }
+            case (int)Globals.GAMEID.DRAGONTIGER:
+                {
+                    Globals.Logging.Log("showGame DragonTiger");
+                    gameView = Instantiate(loadPrefabGame("DragonTigerView"), parentGame).GetComponent<DragonTigerView>();
+                    break;
+                }
+            case (int)Globals.GAMEID.SESKU:
+                {
+                    Globals.Logging.Log("showGame Xocdia");
+                    gameView = Instantiate(loadPrefabGame("XocdiaView"), parentGame).GetComponent<XocdiaView>();
+                    break;
+                }
             default:
                 {
                     Globals.Logging.Log("-=-= chua co game nao ma vao. Lm thi tu them vao di;;;;");

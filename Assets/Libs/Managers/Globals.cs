@@ -258,7 +258,7 @@ namespace Globals
         // TONGITS_JOKER = 8088,
         // HONGKONG_POKER = 8808,
         BAUCUA = 8803,//lay
-        LUCKY_89 = 8802,//lay
+        SHAN_KOE_MEE = 8802,//lay
         PUSOY = 8044,//lay
         // BACCARAT = 9500,
         // LUCKY9 = 6688,
@@ -270,8 +270,10 @@ namespace Globals
         SLOT_JUICY_GARDEN = 9900,//lay
         SLOTTARZAN = 9950,//lay
         SLOT_SIXIANG = 9011,//lay
-                            // MINE_FINDING = 8804
-                            //thieu game 4,5
+        DRAGONTIGER = 8009,//lay
+        SESKU = 8815,//lay
+                     // MINE_FINDING = 8804
+                     //thieu game 4,5
 
     }
     public enum DOTWEEN_TAG
@@ -585,6 +587,7 @@ namespace Globals
         //TODO: sua ServerIp
 
         public static string curServerIp = "app1.davaogames.com";
+        // public static string curServerIp = "app1.mmshan.net";
         // public static string curServerIp = "test.app.1707casino.com";
         public static int curGameId = 0;
         public static bool isBackGame = false;
@@ -673,7 +676,7 @@ namespace Globals
         public static JArray arrOnlistTrue = new JArray();
         public static JArray arrBannerLobby = new JArray();
 
-        public static List<int> listGamePlaynow = new List<int>() { (int)GAMEID.SLOT_SIXIANG, (int)GAMEID.SLOT20FRUIT, (int)GAMEID.SLOT_INCA, (int)GAMEID.SLOTNOEL, (int)GAMEID.SLOT_JUICY_GARDEN, (int)GAMEID.SLOTTARZAN, (int)GAMEID.BAUCUA };
+        public static List<int> listGamePlaynow = new List<int>() { (int)GAMEID.SHAN_KOE_MEE, (int)GAMEID.SLOT_SIXIANG, (int)GAMEID.SLOT20FRUIT, (int)GAMEID.SLOT_INCA, (int)GAMEID.SLOTNOEL, (int)GAMEID.SLOT_JUICY_GARDEN, (int)GAMEID.SLOTTARZAN, (int)GAMEID.BAUCUA };
         public static List<int> listGameSlot = new List<int>() { (int)GAMEID.SLOT_SIXIANG, (int)GAMEID.SLOT_INCA, (int)GAMEID.SLOT20FRUIT, (int)GAMEID.SLOT_JUICY_GARDEN, (int)GAMEID.SLOTTARZAN, (int)GAMEID.SLOTNOEL };
 
 
@@ -745,7 +748,7 @@ namespace Globals
             S = ((code - 1) / 13) + 1; //>=1 <=4
             N = ((code - 1) % 13) + 2; // >=2 , <=14
 
-            if (curGameId == (int)GAMEID.LUCKY_89)
+            if (curGameId == (int)GAMEID.SHAN_KOE_MEE)
             {
                 N = ((code - 1) % 13) + 1;
             }

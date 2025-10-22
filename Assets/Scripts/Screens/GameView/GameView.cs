@@ -959,7 +959,7 @@ public class GameView : BaseView
 
         switch (Config.curGameId)
         {
-            case (int)GAMEID.LUCKY_89:
+            case (int)GAMEID.SHAN_KOE_MEE:
                 {
                     return plView.GetComponent<PlayerViewLucky89>();
                 }

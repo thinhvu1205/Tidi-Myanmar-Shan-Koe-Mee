@@ -269,12 +269,12 @@ public class LobbyView : BaseView
             var index = i;
             Texture2D texture = await Config.GetRemoteTexture(urlImg);
             if (texture == null) return;
-            var nodeBanner = Instantiate(bannerTemp).GetComponent<BannerView>();
+            // var nodeBanner = Instantiate(bannerTemp).GetComponent<BannerView>();
 
-            nodeBanner.isBannerType9 = true;
-            nodeBanner.gameObject.SetActive(true);
-            m_BannersPS.AddPage(nodeBanner.GetComponent<RectTransform>());
-            nodeBanner.setInfo(dataBanner, false);
+            // nodeBanner.isBannerType9 = true;
+            // nodeBanner.gameObject.SetActive(true);
+            // m_BannersPS.AddPage(nodeBanner.GetComponent<RectTransform>());
+            // nodeBanner.setInfo(dataBanner, false);
             if (!updatePos)
             {
                 _SetPosWhenBannerActive();
@@ -489,6 +489,76 @@ public class LobbyView : BaseView
         foreach (Transform childTf in m_MiniGameIconTf) Destroy(childTf.gameObject);
         foreach (Transform childTf in m_OnlySloticonTf) Destroy(childTf.gameObject);
     }
+    // void _ReloadListGames()
+    // {
+    //     _ClearButtonGames();
+    //     for (int i = 0; i < Config.listGame.Count; i++)
+    //     {
+    //         JObject dt = new()
+    //         {
+    //             ["id"] = (int)Config.listGame[i]["id"],
+    //             ["ip_dm"] = (string)Config.listGame[i]["ip_dm"],
+    //         };
+    //     }
+
+    //     _AllGameIGs.Clear();
+    //     List<int> slotGames = new() { (int)GAMEID.SLOT_SIXIANG, (int)GAMEID.SLOTTARZAN, (int)GAMEID.SLOTNOEL, (int)GAMEID.SLOT_INCA, (int)GAMEID.SLOT_JUICY_GARDEN, (int)GAMEID.SLOT20FRUIT };
+    //     Rect sizeCell = m_GamesSR.GetComponent<RectTransform>().rect;
+    //     List<int> listGameRemove = new() { 1111, 6688, 8011, 8012, 8044, 8088, 8090, 8091, 8808, 9500 };
+
+    //     Config.listGame = new JArray(
+    //         Config.listGame
+    //             .Where(g => !listGameRemove.Contains((int)((JObject)g)["id"]))
+    //     );
+
+    //     for (var i = 0; i < Config.listGame.Count; i++)
+    //     {
+    //         JObject data = (JObject)Config.listGame[i];
+    //         int gameId = (int)data["id"];
+    //         Debug.Log($"GameID: {gameId}");
+    //         Sprite spriteIconGame = Resources.Load<Sprite>("IconGame/" + gameId);
+
+    //         SkeletonDataAsset skeAsset = BundleHandler.LoadSkeletonDataAsset("AnimIconGame/" + gameId + "/skeleton_SkeletonData");
+    //         if (skeAsset == null) continue;
+    //         if (spriteIconGame == null) continue;
+    //         ItemGame item = null;
+    //         switch (gameId)
+    //         {
+    //             // case (int)GAMEID.LUCKY9:
+    //             // case (int)GAMEID.TONGITS_OLD:
+    //             case (int)GAMEID.PUSOY:
+    //                 item = Instantiate(gameItemObject, m_GamesSR.content).GetComponent<ItemGame>();
+    //                 item.transform.SetSiblingIndex(0);
+    //                 break;
+    //             default:
+    //                 item = Instantiate(gameItemObject, m_MiniGameIconTf).GetComponent<ItemGame>();
+
+    //                 break;
+    //         }
+    //         item.name = gameId.ToString();
+    //         item.transform.localScale = Vector3.one;
+    //         item.transform.position = Vector3.zero;
+    //         item.gameObject.SetActive(true);
+    //         item.setInfo(gameId, skeAsset, materialDefault, spriteIconGame, () => onClickGame(item), true);
+    //         if (gameId == (int)GAMEID.PUSOY && UIManager.instance.PusoyJackPot > 0) item.UpdateJackpot(UIManager.instance.PusoyJackPot);
+    //         _AllGameIGs.Add(item);
+    //     }
+    //     foreach (ItemGame ig in _AllGameIGs)
+    //     {
+    //         if (!slotGames.Contains(ig.GameId)) continue;
+    //         Sprite spriteIconGameBig = Resources.Load<Sprite>("IconGame" + ig.GameId + "_Big");
+    //         SkeletonDataAsset bigSlotGameSDA = BundleHandler.LoadSkeletonDataAsset("AnimIconGame/" + ig.GameId + "-big" + "/skeleton_SkeletonData");
+    //         if (bigSlotGameSDA == null) continue;
+    //         ItemGame bigSlotIconIG = Instantiate(gameItemObject, m_OnlySloticonTf).GetComponent<ItemGame>();
+
+    //         bigSlotIconIG.name = ig.GameId.ToString();
+    //         bigSlotIconIG.transform.localScale = Vector3.one;
+    //         bigSlotIconIG.transform.position = Vector3.zero;
+    //         bigSlotIconIG.gameObject.SetActive(true);
+    //         bigSlotIconIG.setInfo(ig.GameId, bigSlotGameSDA, materialDefault, spriteIconGameBig, () => onClickGame(bigSlotIconIG), false);
+    //     }
+    //     _ChangeTabGameProversion();
+    // }
     void _ReloadListGames()
     {
         _ClearButtonGames();
@@ -504,54 +574,43 @@ public class LobbyView : BaseView
         _AllGameIGs.Clear();
         List<int> slotGames = new() { (int)GAMEID.SLOT_SIXIANG, (int)GAMEID.SLOTTARZAN, (int)GAMEID.SLOTNOEL, (int)GAMEID.SLOT_INCA, (int)GAMEID.SLOT_JUICY_GARDEN, (int)GAMEID.SLOT20FRUIT };
         Rect sizeCell = m_GamesSR.GetComponent<RectTransform>().rect;
-        List<int> listGameRemove = new() { 1111, 6688, 8011, 8012, 8044, 8088, 8090, 8091, 8808, 9500 };
-
-        Config.listGame = new JArray(
-            Config.listGame
-                .Where(g => !listGameRemove.Contains((int)((JObject)g)["id"]))
-        );
-
         for (var i = 0; i < Config.listGame.Count; i++)
         {
             JObject data = (JObject)Config.listGame[i];
             int gameId = (int)data["id"];
-            Debug.Log($"GameID: {gameId}");
-            SkeletonDataAsset skeAsset = BundleHandler.LoadSkeletonDataAsset("AnimIconGame/" + gameId + "/skeleton_SkeletonData");
-            if (skeAsset == null) continue;
+            Sprite iconS = Resources.Load<Sprite>("IconGame/" + gameId);
+            if (iconS == null) continue;
             ItemGame item = null;
             switch (gameId)
             {
-                // case (int)GAMEID.LUCKY9:
-                // case (int)GAMEID.TONGITS_OLD:
-                case (int)GAMEID.PUSOY:
+                case (int)GAMEID.SHAN_KOE_MEE:
                     item = Instantiate(gameItemObject, m_GamesSR.content).GetComponent<ItemGame>();
                     item.transform.SetSiblingIndex(0);
                     break;
                 default:
                     item = Instantiate(gameItemObject, m_MiniGameIconTf).GetComponent<ItemGame>();
-
                     break;
             }
             item.name = gameId.ToString();
             item.transform.localScale = Vector3.one;
             item.transform.position = Vector3.zero;
             item.gameObject.SetActive(true);
-            item.setInfo(gameId, skeAsset, materialDefault, () => onClickGame(item), true);
+            item.setInfo(gameId, null, materialDefault, iconS, () => onClickGame(item), true);
             if (gameId == (int)GAMEID.PUSOY && UIManager.instance.PusoyJackPot > 0) item.UpdateJackpot(UIManager.instance.PusoyJackPot);
             _AllGameIGs.Add(item);
         }
         foreach (ItemGame ig in _AllGameIGs)
         {
             if (!slotGames.Contains(ig.GameId)) continue;
-            SkeletonDataAsset bigSlotGameSDA = BundleHandler.LoadSkeletonDataAsset("AnimIconGame/" + ig.GameId + "-big" + "/skeleton_SkeletonData");
-            if (bigSlotGameSDA == null) continue;
+            Sprite iconS = Resources.Load<Sprite>("IconGame/" + ig.GameId + "_Big");
+            if (iconS == null) continue;
             ItemGame bigSlotIconIG = Instantiate(gameItemObject, m_OnlySloticonTf).GetComponent<ItemGame>();
 
             bigSlotIconIG.name = ig.GameId.ToString();
             bigSlotIconIG.transform.localScale = Vector3.one;
             bigSlotIconIG.transform.position = Vector3.zero;
             bigSlotIconIG.gameObject.SetActive(true);
-            bigSlotIconIG.setInfo(ig.GameId, bigSlotGameSDA, materialDefault, () => onClickGame(bigSlotIconIG), false);
+            bigSlotIconIG.setInfo(ig.GameId, null, materialDefault, iconS, () => onClickGame(bigSlotIconIG), false);
         }
         _ChangeTabGameProversion();
     }

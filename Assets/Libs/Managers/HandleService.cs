@@ -873,7 +873,7 @@ public class HandleService
                         // {
                         //     ((BorkKDengView)UIManager.instance.gameView).handleUpdateJackpot(jsonData);
                         // }
-                        if (Config.curGameId == (int)GAMEID.LUCKY_89 && UIManager.instance.gameView != null)
+                        if (Config.curGameId == (int)GAMEID.SHAN_KOE_MEE && UIManager.instance.gameView != null)
                         {
                             ((ThreePokerCardGameView)UIManager.instance.gameView).handleUpdateJackpot(jsonData);
                         }

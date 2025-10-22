@@ -7,10 +7,10 @@ using DG.Tweening;
 
 public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerClickHandler
 {
-
+    public bool isMoved = false;
     [HideInInspector]
     public int code = 0, N = 0, S = 0;
-    bool isJoker = false, isSelect = false, isTouch = true;
+    public bool isJoker = false, isSelect = false, isTouch = true;
     public string nameCard = "";
     [SerializeField]
     Image imgBackground, imgValue, imgSuitSmall, imgSuitLarge;
@@ -23,6 +23,8 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     public SkeletonGraphic animSmoke;
     [SerializeField]
     public SkeletonDataAsset animSmokeData;
+    [SerializeField]
+    public SkeletonGraphic animBorderCatte;
 
     [SerializeField]
     public SkeletonGraphic anim_laplanh;
@@ -32,7 +34,7 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     private Button buttonClick;
 
     //BINH
-    [SerializeField] Sprite spriteCardUp;
+    [SerializeField] Sprite spriteCardUp, spriteCardRed;
     [SerializeField] GameObject ic_starBinh;
     [SerializeField] Card card;
     //BINH
@@ -143,6 +145,7 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
             code = cod;
             if (code == Globals.Config.CODE_JOKER_RED || code == Globals.Config.CODE_JOKER_BLACK)
             {
+
                 decodeCard(code);
                 imgValue.gameObject.SetActive(true);
                 imgSuitSmall.gameObject.SetActive(false);
@@ -176,6 +179,10 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
                 //imgBackground.sprite = UIManager.instance.cardAtlas.GetSprite("card_back");
                 // BINH comment
                 imgBackground.sprite = spriteCardUp;
+                // if (Globals.Config.curGameId == 8012)
+                // {
+                //     imgBackground.sprite = spriteCardRed;
+                // }
             }
             else
             {
@@ -221,28 +228,6 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
                 }
             }
             var gameId = Globals.Config.curGameId;
-            // if (gameId == (int)Globals.GAMEID.TONGITS_OLD || gameId == (int)Globals.GAMEID.TONGITS || gameId == (int)Globals.GAMEID.TONGITS_JOKER)
-            // {
-            //     if (N == 14 || N == 13 || N == 1)
-            //     {
-            //         if (code != 0)
-            //         {
-            //             showSpecialTg(true);
-            //         }
-            //         else
-            //         {
-            //             showSpecialTg(false);
-            //         }
-            //     }
-            //     else
-            //     {
-            //         showSpecialTg(false);
-            //     }
-            //     if (card_bg_yellow.activeSelf == true || card_border_blue.activeSelf == true || bkgMask.activeSelf == true)
-            //     {
-            //         showSpecialTg(false);
-            //     }
-            // }
             if (isShan == true)
             {
                 showShanCard();
@@ -321,6 +306,8 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
         // // mỗi game có 1 điều encode # nhau
         if (N == Globals.Config.CODE_JOKER_RED || N == Globals.Config.CODE_JOKER_BLACK)
             return N;
+        // if (Globals.Config.curGameId == (int)Globals.GAMEID.BORKDENG)
+        //     return 13 * (S - 1) + N;
         return 13 * (S - 1) + N - 1;
     }
     public void decodeCard(int cod)
@@ -335,19 +322,19 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
             return;
         }
         // // mỗi game có 1 điều decode # nhau
-        if (Globals.Config.curGameId != (int)Globals.GAMEID.LUCKY_89)
+        S = ((cod - 1) / 13) + 1; //>=1 <=4
+        N = ((cod - 1) % 13) + 2; // >=2 , <=14
+
+        // if (Globals.Config.curGameId == (int)Globals.GAMEID.BORKDENG)
+        // {
+        //     N = ((cod - 1) % 13) + 1;
+        // }
+        if (Globals.Config.curGameId == (int)Globals.GAMEID.DRAGONTIGER)
         {
             S = ((cod - 1) / 13) + 1; //>=1 <=4
-            N = ((cod - 1) % 13) + 2; // >=2 , <=14
-        }
+            N = ((cod - 1) % 13) + 1; // >=2 , <=14
 
-        // if (Globals.Config.curGameId == (int)Globals.GAMEID.TONGITS ||
-        //     Globals.Config.curGameId == (int)Globals.GAMEID.TONGITS_OLD ||
-        //     Globals.Config.curGameId == (int)Globals.GAMEID.TONGITS_JOKER)
-        // {
-        //     if (N == 14) N = 1;
-        // }
-        //nameCard = N + getSuitInVN();
+        }
     }
 
     int getValue()
@@ -574,5 +561,13 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
         card_border_blue.SetActive(isShow);
         showSpecialTg(false);
     }
+    public void StateCatteBorder(bool state = false)
+    {
+        animBorderCatte.gameObject.SetActive(state);
+    }
 
+    public bool GetStateBorder()
+    {
+        return animBorderCatte != null && animBorderCatte.gameObject.activeSelf;
+    }
 }

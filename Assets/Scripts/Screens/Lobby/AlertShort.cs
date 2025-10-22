@@ -58,21 +58,11 @@ public class AlertShort : MonoBehaviour
             switch (Globals.Config.curGameId)
             {
                 case (int)Globals.GAMEID.SLOT_SIXIANG:
-                // case (int)Globals.GAMEID.LUCKY9:
-                //     {
-                //         posType = POSITION.CLOCK_8H30;
-                //         break;
-                //     }
                 case (int)Globals.GAMEID.SICBO:
                     {
                         posType = POSITION.CLOCK_4H00;
                         break;
                     }
-                // case (int)Globals.GAMEID.BACCARAT:
-                //     {
-                //         posType = POSITION.CLOCK_8H00;
-                //         break;
-                //     }
                 case (int)Globals.GAMEID.SLOTNOEL:
                 case (int)Globals.GAMEID.SLOT_JUICY_GARDEN:
                 case (int)Globals.GAMEID.SLOTTARZAN:
@@ -82,28 +72,11 @@ public class AlertShort : MonoBehaviour
                         break;
                     }
                 case (int)Globals.GAMEID.PUSOY:
-                case (int)Globals.GAMEID.LUCKY_89:
+                case (int)Globals.GAMEID.SHAN_KOE_MEE:
                     {
                         posType = POSITION.CLOCK_4H15;
                         break;
                     }
-                    // case (int)Globals.GAMEID.TONGITS:
-                    // case (int)Globals.GAMEID.TONGITS_OLD:
-                    // case (int)Globals.GAMEID.TONGITS_JOKER:
-                    //     {
-                    //         posType = POSITION.CLOCK_3H30;
-                    //         break;
-                    //     }
-                    // case (int)Globals.GAMEID.SABONG:
-                    //     {
-                    //         posType = POSITION.CLOCK_3H45;
-                    //         break;
-                    //     }
-                    // case (int)Globals.GAMEID.MINE_FINDING:
-                    //     {
-                    //         posType = POSITION.CLOCK_11H00;
-                    //         break;
-                    //     }
             }
         }
         else if (TableView.instance != null && TableView.instance.gameObject.activeSelf)

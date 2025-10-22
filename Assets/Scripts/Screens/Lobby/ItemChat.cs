@@ -45,6 +45,7 @@ public class ItemChat : MonoBehaviour
     private Transform _activeLineGroup; // nhóm vạch đang phát (16 child)
     public int indexItem = -1;
     private static ItemChat _currentlyPlayingItem;
+    private float height = 0, width = 0;
 
 
     private void AdjustFrameContent(GameObject frameContent, TextMeshProUGUI messageText, string message)
@@ -70,6 +71,8 @@ public class ItemChat : MonoBehaviour
         {
             frameRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, finalWidth + PADDING * 6);
             frameRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, finalHeight + PADDING);
+            height = finalHeight + PADDING;
+            width = finalWidth + PADDING * 6;
         }
     }
 
@@ -212,10 +215,10 @@ public class ItemChat : MonoBehaviour
     }
 
     // Gọi từ bên ngoài để setup item
-    public void SetInfo(ChatWorldLobbyData dataCWLD, AudioSource dataAS = null, int index = -1)
+    public void SetInfo(ChatWorldLobbyData dataCWLD, AudioSource dataAS = null, int index = -1, Action<float, float> onSizeCalculated = null)
     {
         indexItem = index;
-        Debug.Log(index + "check xem index item" + (Globals.COMMON_DATA.IndexItemChatChoose != indexItem));
+        //Debug.Log(index + "check xem index item" + (Globals.COMMON_DATA.IndexItemChatChoose != indexItem));
 
         _isPlaying = Globals.COMMON_DATA.IndexItemChatChoose == indexItem;
         // if (_isPlaying)
@@ -258,7 +261,7 @@ public class ItemChat : MonoBehaviour
             if (imgL != null) imgL.color = _defaultAudioBtnColor;
         }
 
-        Debug.Log("xem có audio ko" + dataCWLD.IsAudio);
+        //        Debug.Log("xem có audio ko" + dataCWLD.IsAudio);
 
         _DataCWLD = dataCWLD;
         _AudioAS = dataAS;
@@ -298,13 +301,14 @@ public class ItemChat : MonoBehaviour
             {
                 m_MessageL.text = dataCWLD.Content;
                 AdjustFrameContent(m_FrameContentL, m_MessageL, dataCWLD.Content);
+                onSizeCalculated?.Invoke(width, height);
                 if (isLobby && dataCWLD.Vip >= Config.text_chat_gold_by_vip)
                 {
                     m_MessageL.color = Color.yellow;
                 }
                 else
                 {
-                      m_MessageL.color = Color.white;
+                    m_MessageL.color = Color.white;
                 }
             }
             m_TimeL.text = dataCWLD.Time;
@@ -333,13 +337,14 @@ public class ItemChat : MonoBehaviour
             {
                 m_MessageR.text = dataCWLD.Content;
                 AdjustFrameContent(m_FrameContentR, m_MessageR, dataCWLD.Content);
+                onSizeCalculated?.Invoke(width, height);
                 if (isLobby && dataCWLD.Vip >= Config.text_chat_gold_by_vip)
                 {
                     m_MessageR.color = Color.yellow;
                 }
                 else
                 {
-                       m_MessageR.color = Color.white;
+                    m_MessageR.color = Color.white;
                 }
             }
             m_TimeR.text = dataCWLD.Time;

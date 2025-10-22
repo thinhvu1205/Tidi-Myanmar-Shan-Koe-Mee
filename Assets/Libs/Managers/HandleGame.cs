@@ -175,68 +175,28 @@ public class HandleGame
                     ((BinhGameView)gameView).ProcessResponseData(jData);
                     break;
                 }
-            // case (int)Globals.GAMEID.BACCARAT:
-            //     {
-            //         HandleBaccarat.processData(jData);
-            //         break;
-            //     }
-            // case (int)Globals.GAMEID.TONGITS_OLD:
-            //     {
-            //         HandleTongits.processData(jData);
-            //         break;
-            //     }
-            // case (int)Globals.GAMEID.LUCKY9:
-            //     {
-            //         HandleLucky9.processData(jData);
-            //         break;
-            //     }
-            // case (int)Globals.GAMEID.SABONG:
-            //     {
-            //         ((SabongGameView)gameView).ProcessResponseData(jData);
-            //         break;
-            //     }
-            case (int)Globals.GAMEID.LUCKY_89:
+            case (int)Globals.GAMEID.SHAN_KOE_MEE:
                 {
                     ((Lucky89View)gameView).ProcessResponseData(jData);
                     break;
                 }
-            // case (int)Globals.GAMEID.TONGITS:
-            //     {
-            //         HandleTongits.processData(jData);
-            //         break;
-            //     }
-            // case (int)Globals.GAMEID.TONGITS_JOKER:
-            //     {
-            //         HandleTongits.processData(jData);
-            //         break;
-            //     }
-            // case (int)Globals.GAMEID.MINE_FINDING:
-            //     {
-            //         ((MineFindingView)gameView).ProcessResponseData(jData);
-            //         break;
-            //     }
             case (int)Globals.GAMEID.BAUCUA:
                 {
                     Debug.Log("check var xem data baucua tra ve nhu nào" + jData.ToString());
                     HandleBaucua.processData(jData);
                     break;
                 }
-                // case (int)Globals.GAMEID.THREE_CARD_POKER:
-                //     {
-                //         Debug.Log("check var xem data baucua tra ve nhu nào" + jData.ToString());
-                //         HandlePokerCard.processData(jData);
-                //         break;
-                //     }
-                // case (int)Globals.GAMEID.ROULETTE:
-                //     {
-                //         ((RouLetteView)gameView).ProcessResponseData(jData);
-                //         break;
-                //     }
-                // case (int)Globals.GAMEID.HONGKONG_POKER:
-                //     {
-                //         HandleDataHongKongView.processData(jData);
-                //         break;
-                //     }
+            case (int)Globals.GAMEID.DRAGONTIGER:
+                {
+                    Debug.Log("check var xem data baucua tra ve nhu nào" + jData.ToString());
+                    HandleDragonTiger.processData(jData);
+                    break;
+                }
+            case (int)Globals.GAMEID.SESKU:
+                {
+                    HandleXocdiaView.processData(jData);
+                    break;
+                }
         }
     }
     public static void nextEvt()

@@ -95,7 +95,42 @@ public class SocketSend
         Globals.Logging.Log("-=-=accPlayNow2 " + UIManager.instance.loginView.accPlayNow);
         sendLogin(UIManager.instance.loginView.accPlayNow, UIManager.instance.loginView.passPlayNow, isReg);
     }
+    public static void sendBuyBet(int totalChip)
+    {
+        JObject data = new JObject();
+        data["evt"] = "buybet";
+        data["chip"] = totalChip;
 
+        WebSocketManager.getInstance().sendDataGame(data.ToString(Newtonsoft.Json.Formatting.None));
+    }
+    public static void sendSellBet(int N)
+    {
+        JObject data = new JObject();
+        data["evt"] = "sellbet";
+        data["N"] = N;
+        WebSocketManager.getInstance().sendDataGame(data.ToString(Newtonsoft.Json.Formatting.None));
+    }
+    public static void sendCancelSell()
+    {
+        JObject data = new JObject();
+        data["evt"] = "cancelsell";
+        WebSocketManager.getInstance().sendDataGame(data.ToString(Newtonsoft.Json.Formatting.None));
+    }
+    public static void sendHistoryXocDia(int userId)
+    {
+        JObject data = new JObject();
+        data["evt"] = "lastGameResult";
+        data["pid"] = userId;
+        WebSocketManager.getInstance().sendDataGame(data.ToString(Newtonsoft.Json.Formatting.None));
+    }
+    public static void sendBetXocDia(int money, int gate)
+    {
+        JObject data = new JObject();
+        data["evt"] = "bet";
+        data["M"] = money.ToString(); //string
+        data["N"] = gate.ToString(); //string
+        WebSocketManager.getInstance().sendDataGame(data.ToString(Newtonsoft.Json.Formatting.None));
+    }
     public static void sendPing()
     {
         JObject data = new JObject();

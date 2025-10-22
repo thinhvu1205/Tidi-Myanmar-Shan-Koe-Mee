@@ -1,0 +1,85 @@
+{
+"skeleton": {
+	"hash": "0+cyFfv8QuVKkRf3L2eYvLt6dpI",
+	"spine": "3.8.99",
+	"x": -54.73,
+	"y": -52.5,
+	"width": 109.46,
+	"height": 105,
+	"images": "",
+	"audio": ""
+},
+"bones": [
+	{ "name": "root" },
+	{ "name": "bone", "parent": "root", "length": 22.75, "rotation": 91.22, "x": -15.01, "y": -19.22 },
+	{ "name": "bone3", "parent": "root" },
+	{ "name": "bone2", "parent": "bone3" }
+],
+"slots": [
+	{ "name": "bg", "bone": "bone2", "attachment": "bg" },
+	{ "name": "loa", "bone": "bone", "attachment": "loa" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"bg": {
+				"bg": { "scaleX": 0.799, "width": 137, "height": 105 }
+			},
+			"loa": {
+				"loa": { "x": 23.74, "y": -15.52, "rotation": -91.22, "width": 65, "height": 66 }
+			}
+		}
+	}
+],
+"animations": {
+	"animation": {
+		"bones": {
+			"bone": {
+				"rotate": [
+					{ "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.5, "angle": 6.88, "curve": 0.25, "c3": 0.75 },
+					{ "time": 1, "curve": 0.25, "c3": 0.75 },
+					{ "time": 1.5, "angle": 6.88, "curve": 0.25, "c3": 0.75 },
+					{ "time": 2, "curve": 0.25, "c3": 0.75 },
+					{ "time": 2.5, "angle": 6.88, "curve": 0.25, "c3": 0.75 },
+					{ "time": 3, "curve": 0.25, "c3": 0.75 },
+					{ "time": 3.5, "angle": 6.88, "curve": 0.25, "c3": 0.75 },
+					{ "time": 4, "curve": 0.25, "c3": 0.75 },
+					{ "time": 4.5, "angle": 6.88, "curve": 0.25, "c3": 0.75 },
+					{ "time": 5, "curve": 0.25, "c3": 0.75 },
+					{ "time": 5.5, "angle": 6.88, "curve": 0.25, "c3": 0.75 },
+					{ "time": 6 }
+				],
+				"scale": [
+					{},
+					{ "time": 0.5, "x": 0.98, "y": 0.98 },
+					{ "time": 1 },
+					{ "time": 1.5, "x": 0.98, "y": 0.98 },
+					{ "time": 2 },
+					{ "time": 2.5, "x": 0.98, "y": 0.98 },
+					{ "time": 3 },
+					{ "time": 3.5, "x": 0.98, "y": 0.98 },
+					{ "time": 4 },
+					{ "time": 4.5, "x": 0.98, "y": 0.98 },
+					{ "time": 5 },
+					{ "time": 5.5, "x": 0.98, "y": 0.98 },
+					{ "time": 6 }
+				]
+			},
+			"bone2": {
+				"rotate": [
+					{},
+					{ "time": 3, "angle": 180 },
+					{ "time": 6 }
+				]
+			},
+			"bone3": {
+				"scale": [
+					{ "y": 0.81 }
+				]
+			}
+		}
+	}
+}
+}

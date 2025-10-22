@@ -422,8 +422,8 @@ public class LoadConfig : MonoBehaviour
         {
             List<int> sortedListId = new() {
                 (int)GAMEID.PUSOY,
-                 (int)GAMEID.LUCKY_89,(int)GAMEID.SICBO, (int)GAMEID.SLOTTARZAN,
-                (int)GAMEID.SLOT_INCA, (int)GAMEID.SLOT20FRUIT, (int)GAMEID.SLOTNOEL, (int)GAMEID.SLOT_JUICY_GARDEN, (int)GAMEID.SLOT_SIXIANG
+                 (int)GAMEID.SHAN_KOE_MEE,(int)GAMEID.SICBO, (int)GAMEID.SLOTTARZAN,
+                (int)GAMEID.SLOT_INCA, (int)GAMEID.SLOT20FRUIT, (int)GAMEID.SLOTNOEL, (int)GAMEID.SLOT_JUICY_GARDEN, (int)GAMEID.SLOT_SIXIANG, (int)GAMEID.DRAGONTIGER, (int)GAMEID.SESKU
             };
             Config.listGame = new();
             JArray tempListGameJA = jConfig["listGame"] as JArray, sortedListGameJA = new();
