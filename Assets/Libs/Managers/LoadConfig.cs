@@ -421,8 +421,8 @@ public class LoadConfig : MonoBehaviour
         if (jConfig.ContainsKey("listGame"))
         {
             List<int> sortedListId = new() {
-                (int)GAMEID.TONGITS_OLD, (int)GAMEID.LUCKY9, (int)GAMEID.PUSOY, (int)GAMEID.TONGITS, (int)GAMEID.TONGITS_JOKER,
-                (int)GAMEID.BACCARAT, (int)GAMEID.LUCKY_89, (int)GAMEID.SABONG, (int)GAMEID.SICBO, (int)GAMEID.SLOTTARZAN,
+                (int)GAMEID.PUSOY,
+                 (int)GAMEID.LUCKY_89,(int)GAMEID.SICBO, (int)GAMEID.SLOTTARZAN,
                 (int)GAMEID.SLOT_INCA, (int)GAMEID.SLOT20FRUIT, (int)GAMEID.SLOTNOEL, (int)GAMEID.SLOT_JUICY_GARDEN, (int)GAMEID.SLOT_SIXIANG
             };
             Config.listGame = new();

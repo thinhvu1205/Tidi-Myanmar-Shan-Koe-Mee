@@ -9,6 +9,7 @@ using System;
 using Globals;
 using TS.PageSlider;
 using System.Collections;
+using System.Linq;
 
 public class LobbyView : BaseView
 {
@@ -503,18 +504,26 @@ public class LobbyView : BaseView
         _AllGameIGs.Clear();
         List<int> slotGames = new() { (int)GAMEID.SLOT_SIXIANG, (int)GAMEID.SLOTTARZAN, (int)GAMEID.SLOTNOEL, (int)GAMEID.SLOT_INCA, (int)GAMEID.SLOT_JUICY_GARDEN, (int)GAMEID.SLOT20FRUIT };
         Rect sizeCell = m_GamesSR.GetComponent<RectTransform>().rect;
+        List<int> listGameRemove = new() { 1111, 6688, 8011, 8012, 8044, 8088, 8090, 8091, 8808, 9500 };
+
+        Config.listGame = new JArray(
+            Config.listGame
+                .Where(g => !listGameRemove.Contains((int)((JObject)g)["id"]))
+        );
+
         for (var i = 0; i < Config.listGame.Count; i++)
         {
             JObject data = (JObject)Config.listGame[i];
             int gameId = (int)data["id"];
+            Debug.Log($"GameID: {gameId}");
             SkeletonDataAsset skeAsset = BundleHandler.LoadSkeletonDataAsset("AnimIconGame/" + gameId + "/skeleton_SkeletonData");
             if (skeAsset == null) continue;
             ItemGame item = null;
             switch (gameId)
             {
-                case (int)GAMEID.LUCKY9:
+                // case (int)GAMEID.LUCKY9:
+                // case (int)GAMEID.TONGITS_OLD:
                 case (int)GAMEID.PUSOY:
-                case (int)GAMEID.TONGITS_OLD:
                     item = Instantiate(gameItemObject, m_GamesSR.content).GetComponent<ItemGame>();
                     item.transform.SetSiblingIndex(0);
                     break;

@@ -29,7 +29,7 @@ public class ItemGame : MonoBehaviour
             alphaGAK[0] = new(1, 0);
             alphaGAK[1] = new(1, 1);
             if ((!isShowAllGames && Config.listGameSlot.Contains(GameId)) ||
-                        GameId == (int)GAMEID.TONGITS_OLD || GameId == (int)GAMEID.PUSOY || GameId == (int)GAMEID.LUCKY9)
+                        GameId == (int)GAMEID.PUSOY)
             {
                 shownSG = m_LargeSG;
                 borderG2 = m_LargeBorderG2;
@@ -44,46 +44,46 @@ public class ItemGame : MonoBehaviour
             Destroy(m_LeanBorderG2.transform.parent.gameObject);
             switch (GameId)
             {
-                case (int)GAMEID.LUCKY9:
-                    {
-                        colorsGCK[0] = new GradientColorKey(new(0.4705883f, 0.5294118f, 0.9686275f), 0);
-                        break;
-                    }
-                case (int)GAMEID.TONGITS_OLD:
-                    {
-                        colorsGCK[0] = new GradientColorKey(new(0.4901961f, 0.509804f, 0.9843138f), 0);
-                        break;
-                    }
+                // case (int)GAMEID.LUCKY9:
+                //     {
+                //         colorsGCK[0] = new GradientColorKey(new(0.4705883f, 0.5294118f, 0.9686275f), 0);
+                //         break;
+                //     }
+                // case (int)GAMEID.TONGITS_OLD:
+                //     {
+                //         colorsGCK[0] = new GradientColorKey(new(0.4901961f, 0.509804f, 0.9843138f), 0);
+                //         break;
+                //     }
                 case (int)GAMEID.PUSOY:
                     {
                         colorsGCK[0] = new GradientColorKey(new(0.9725491f, 0.7254902f, 0.4235294f), 0);
                         break;
                     }
-                case (int)GAMEID.TONGITS_JOKER:
-                    {
-                        colorsGCK[0] = new GradientColorKey(new(0.764706f, 0.6666667f, 1f), 0);
-                        break;
-                    }
-                case (int)GAMEID.TONGITS:
-                    {
-                        colorsGCK[0] = new GradientColorKey(new(0.6901961f, 0.8901961f, 0.8392158f), 0);
-                        break;
-                    }
-                case (int)GAMEID.BACCARAT:
-                    {
-                        colorsGCK[0] = new GradientColorKey(new(0.7411765f, 0.7843138f, 1), 0);
-                        break;
-                    }
+                // case (int)GAMEID.TONGITS_JOKER:
+                //     {
+                //         colorsGCK[0] = new GradientColorKey(new(0.764706f, 0.6666667f, 1f), 0);
+                //         break;
+                //     }
+                // case (int)GAMEID.TONGITS:
+                //     {
+                //         colorsGCK[0] = new GradientColorKey(new(0.6901961f, 0.8901961f, 0.8392158f), 0);
+                //         break;
+                //     }
+                // case (int)GAMEID.BACCARAT:
+                //     {
+                //         colorsGCK[0] = new GradientColorKey(new(0.7411765f, 0.7843138f, 1), 0);
+                //         break;
+                //     }
                 case (int)GAMEID.LUCKY_89:
                     {
                         colorsGCK[0] = new GradientColorKey(new(1, 0.7882354f, 0.5803922f), 0);
                         break;
                     }
-                case (int)GAMEID.SABONG:
-                    {
-                        colorsGCK[0] = new GradientColorKey(new(0.7411765f, 0.7843138f, 1), 0);
-                        break;
-                    }
+                // case (int)GAMEID.SABONG:
+                //     {
+                //         colorsGCK[0] = new GradientColorKey(new(0.7411765f, 0.7843138f, 1), 0);
+                //         break;
+                //     }
                 case (int)GAMEID.SICBO:
                     {
                         colorsGCK[0] = new GradientColorKey(new(0.7725491f, 0.6745098f, 0.9960785f), 0);
@@ -119,11 +119,11 @@ public class ItemGame : MonoBehaviour
                         colorsGCK[0] = new GradientColorKey(new(0.5647059f, 0.5960785f, 0.9764706f), 0);
                         break;
                     }
-                case (int)GAMEID.MINE_FINDING:
-                    {
-                        colorsGCK[0] = new GradientColorKey(new(0.9568628f, 0.5686275f, 0.7843138f), 0);
-                        break;
-                    }
+                    // case (int)GAMEID.MINE_FINDING:
+                    //     {
+                    //         colorsGCK[0] = new GradientColorKey(new(0.9568628f, 0.5686275f, 0.7843138f), 0);
+                    //         break;
+                    //     }
             }
             borderG2.transform.parent.gameObject.SetActive(true);
             UnityEngine.Gradient gradientG = new();

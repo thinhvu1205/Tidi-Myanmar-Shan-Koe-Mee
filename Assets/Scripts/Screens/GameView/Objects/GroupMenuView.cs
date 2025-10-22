@@ -42,17 +42,17 @@ public class GroupMenuView : BaseView
         {
             btnChangeTable.gameObject.SetActive(false);
         }
-        if (curGameId == (int)Globals.GAMEID.TONGITS || curGameId == (int)Globals.GAMEID.TONGITS_OLD || curGameId == (int)Globals.GAMEID.TONGITS_JOKER)
-        {
-            btnFightTongits.transform.Find("on").GetComponent<Image>().sprite = TongitsView.IsFight ? listCheck[0] : listCheck[1];
-            btnSetting.gameObject.SetActive(false);
-            btnFightTongits.gameObject.SetActive(true);
-            btnMusic.gameObject.SetActive(true);
-            btnSound.gameObject.SetActive(true);
-            btnSound.transform.Find("on").GetComponent<Image>().sprite = Globals.Config.isSound ? listCheck[0] : listCheck[1];
-            btnMusic.transform.Find("on").GetComponent<Image>().sprite = Globals.Config.isMusic ? listCheck[0] : listCheck[1];
-        }
-        if (curGameId == (int)GAMEID.THREE_CARD_POKER) btnRule.gameObject.SetActive(false);
+        // if (curGameId == (int)Globals.GAMEID.TONGITS || curGameId == (int)Globals.GAMEID.TONGITS_OLD || curGameId == (int)Globals.GAMEID.TONGITS_JOKER)
+        // {
+        //     btnFightTongits.transform.Find("on").GetComponent<Image>().sprite = TongitsView.IsFight ? listCheck[0] : listCheck[1];
+        //     btnSetting.gameObject.SetActive(false);
+        //     btnFightTongits.gameObject.SetActive(true);
+        //     btnMusic.gameObject.SetActive(true);
+        //     btnSound.gameObject.SetActive(true);
+        //     btnSound.transform.Find("on").GetComponent<Image>().sprite = Globals.Config.isSound ? listCheck[0] : listCheck[1];
+        //     btnMusic.transform.Find("on").GetComponent<Image>().sprite = Globals.Config.isMusic ? listCheck[0] : listCheck[1];
+        // }
+        // if (curGameId == (int)GAMEID.THREE_CARD_POKER) btnRule.gameObject.SetActive(false);
         background.GetComponent<LayoutSizeControl>().updateSizeContent();
         var sizee2 = background.GetComponent<RectTransform>().sizeDelta;
         setOriginPosition(-transform.parent.GetComponent<RectTransform>().rect.width * .5f + sizee2.x * .5f + 10f, 720.0f * .5f - sizee2.y * .5f - 30f);
@@ -70,7 +70,7 @@ public class GroupMenuView : BaseView
         var language = "thai";
         urlRule = urlRule.Replace("%language%", language);
         // https://conf.topbangkokclub.com/rule/index.html?gameid=%gameid%&language=%language%&list=true
-        List<int> listGameOther = new List<int> { (int)Globals.GAMEID.SLOT20FRUIT, (int)Globals.GAMEID.SLOT_SIXIANG, (int)Globals.GAMEID.SLOT_INCA, (int)Globals.GAMEID.SLOTNOEL, (int)Globals.GAMEID.SLOTTARZAN, (int)Globals.GAMEID.LUCKY9, (int)Globals.GAMEID.SICBO, (int)Globals.GAMEID.SABONG, (int)Globals.GAMEID.SLOT_INCA, (int)Globals.GAMEID.SLOT_JUICY_GARDEN, (int)Globals.GAMEID.LUCKY9 };
+        List<int> listGameOther = new List<int> { (int)Globals.GAMEID.SLOT20FRUIT, (int)Globals.GAMEID.SLOT_SIXIANG, (int)Globals.GAMEID.SLOT_INCA, (int)Globals.GAMEID.SLOTNOEL, (int)Globals.GAMEID.SLOTTARZAN, (int)Globals.GAMEID.SICBO, (int)Globals.GAMEID.SLOT_INCA, (int)Globals.GAMEID.SLOT_JUICY_GARDEN, };
         if (listGameOther.Contains(curGameId))
         {
             UIManager.instance.gameView.onClickRule();

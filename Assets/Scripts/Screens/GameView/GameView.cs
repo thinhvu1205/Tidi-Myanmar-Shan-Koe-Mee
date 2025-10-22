@@ -922,31 +922,31 @@ public class GameView : BaseView
 
     protected virtual void updatePositionPlayerView()
     {
-        bool isTongits = Config.curGameId == (int)GAMEID.TONGITS || Config.curGameId == (int)GAMEID.TONGITS_OLD || Config.curGameId == (int)GAMEID.TONGITS_JOKER;
-        bool isHkPoker = Config.curGameId == (int)GAMEID.HONGKONG_POKER;
+        // bool isTongits = Config.curGameId == (int)GAMEID.TONGITS || Config.curGameId == (int)GAMEID.TONGITS_OLD || Config.curGameId == (int)GAMEID.TONGITS_JOKER;
+        // bool isHkPoker = Config.curGameId == (int)GAMEID.HONGKONG_POKER;
         for (var i = 0; i < players.Count; i++)
         {
             var idPos = getDynamicIndex(getIndexOf(players[i]));
             players[i].playerView.transform.localPosition = listPosView[idPos];
             players[i]._indexDynamic = idPos;
             players[i].updateItemVip(players[i].vip, idPos);
-            if (isHkPoker && idPos is 1 or 4)
-            {
-                players[i].playerView.transform.SetAsLastSibling();
-            }
+            // if (isHkPoker && idPos is 1 or 4)
+            // {
+            //     players[i].playerView.transform.SetAsLastSibling();
+            // }
         }
-        if (isTongits) thisPlayer.playerView.setPosThanhBarThisPlayer();
+        // if (isTongits) thisPlayer.playerView.setPosThanhBarThisPlayer();
     }
 
     protected virtual int getDynamicIndex(int index)
     {
         if (index == 0) return 0;
         var _index = index;
-        if (players.Count == 2 && Config.curGameId != (int)GAMEID.TONGITS && Config.curGameId != (int)GAMEID.TONGITS_OLD && Config.curGameId != (int)GAMEID.TONGITS_JOKER)
-        {
-            _index++;
-            return _index;
-        }
+        // if (players.Count == 2 && Config.curGameId != (int)GAMEID.TONGITS && Config.curGameId != (int)GAMEID.TONGITS_OLD && Config.curGameId != (int)GAMEID.TONGITS_JOKER)
+        // {
+        //     _index++;
+        //     return _index;
+        // }
 
         return _index;
     }
@@ -963,11 +963,11 @@ public class GameView : BaseView
                 {
                     return plView.GetComponent<PlayerViewLucky89>();
                 }
-            case (int)GAMEID.SABONG:
-                {
-                    plView.transform.localScale = new Vector2(.75f, .75f);
-                    return plView.GetComponent<PlayerViewSabong>();
-                }
+                // case (int)GAMEID.SABONG:
+                //     {
+                //         plView.transform.localScale = new Vector2(.75f, .75f);
+                //         return plView.GetComponent<PlayerViewSabong>();
+                //     }
         }
 
         return plView.GetComponent<PlayerView>();

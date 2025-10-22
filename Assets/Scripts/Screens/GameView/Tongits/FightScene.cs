@@ -258,11 +258,11 @@ public class FightScene : MonoBehaviour
 
     public Vector2 getChallengerPosition(int type)
     {
-        if (Globals.Config.curGameId == (int)Globals.GAMEID.TONGITS_OLD || Globals.Config.curGameId == (int)Globals.GAMEID.TONGITS || Globals.Config.curGameId == (int)Globals.GAMEID.TONGITS_JOKER)
-        {
-            return (type == 0) ? new Vector2(-325, -200) : new Vector2(325, -200);
-        }
-        else
+        // if (Globals.Config.curGameId == (int)Globals.GAMEID.TONGITS_OLD || Globals.Config.curGameId == (int)Globals.GAMEID.TONGITS || Globals.Config.curGameId == (int)Globals.GAMEID.TONGITS_JOKER)
+        // {
+        //     return (type == 0) ? new Vector2(-325, -200) : new Vector2(325, -200);
+        // }
+        // else
         {
             return (type == 0) ? new Vector2(-310, 50) : new Vector2(310, -50);
         }

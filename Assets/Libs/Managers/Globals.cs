@@ -251,26 +251,28 @@ namespace Globals
     }
     public enum GAMEID
     {
-        ROULETTE = 1111,
-        SLOT_INCA = 9008,
-        TONGITS_OLD = 8091,
-        TONGITS = 8090,
-        TONGITS_JOKER = 8088,
-        HONGKONG_POKER = 8808,
-        BAUCUA = 8803,
-        LUCKY_89 = 8802,
-        PUSOY = 8044,
-        BACCARAT = 9500,
-        LUCKY9 = 6688,
-        SLOT20FRUIT = 9007,
-        THREE_CARD_POKER = 8012,
-        SABONG = 8011,
-        SICBO = 8010,
-        SLOTNOEL = 8818,
-        SLOT_JUICY_GARDEN = 9900,
-        SLOTTARZAN = 9950,
-        SLOT_SIXIANG = 9011,
-        MINE_FINDING = 8804
+        // ROULETTE = 1111,
+        SLOT_INCA = 9008,//lay
+        // TONGITS_OLD = 8091,
+        // TONGITS = 8090,
+        // TONGITS_JOKER = 8088,
+        // HONGKONG_POKER = 8808,
+        BAUCUA = 8803,//lay
+        LUCKY_89 = 8802,//lay
+        PUSOY = 8044,//lay
+        // BACCARAT = 9500,
+        // LUCKY9 = 6688,
+        SLOT20FRUIT = 9007,//lay
+        // THREE_CARD_POKER = 8012,
+        // SABONG = 8011,
+        SICBO = 8010,//lay
+        SLOTNOEL = 8818,//lay
+        SLOT_JUICY_GARDEN = 9900,//lay
+        SLOTTARZAN = 9950,//lay
+        SLOT_SIXIANG = 9011,//lay
+                            // MINE_FINDING = 8804
+                            //thieu game 4,5
+
     }
     public enum DOTWEEN_TAG
     {
@@ -671,7 +673,7 @@ namespace Globals
         public static JArray arrOnlistTrue = new JArray();
         public static JArray arrBannerLobby = new JArray();
 
-        public static List<int> listGamePlaynow = new List<int>() { (int)GAMEID.ROULETTE, (int)GAMEID.SLOT_SIXIANG, (int)GAMEID.SLOT20FRUIT, (int)GAMEID.SLOT_INCA, (int)GAMEID.SLOTNOEL, (int)GAMEID.SLOT_JUICY_GARDEN, (int)GAMEID.SLOTTARZAN, (int)GAMEID.MINE_FINDING, (int)GAMEID.BAUCUA };
+        public static List<int> listGamePlaynow = new List<int>() { (int)GAMEID.SLOT_SIXIANG, (int)GAMEID.SLOT20FRUIT, (int)GAMEID.SLOT_INCA, (int)GAMEID.SLOTNOEL, (int)GAMEID.SLOT_JUICY_GARDEN, (int)GAMEID.SLOTTARZAN, (int)GAMEID.BAUCUA };
         public static List<int> listGameSlot = new List<int>() { (int)GAMEID.SLOT_SIXIANG, (int)GAMEID.SLOT_INCA, (int)GAMEID.SLOT20FRUIT, (int)GAMEID.SLOT_JUICY_GARDEN, (int)GAMEID.SLOTTARZAN, (int)GAMEID.SLOTNOEL };
 
 
@@ -686,8 +688,6 @@ namespace Globals
                 case (int)GAMEID.SLOTTARZAN:
                 case (int)GAMEID.SLOT_SIXIANG:
                 case (int)GAMEID.BAUCUA:
-                case (int)GAMEID.MINE_FINDING:
-                case (int)GAMEID.ROULETTE:
                     {
                         return false;
                     }
@@ -749,12 +749,6 @@ namespace Globals
             {
                 N = ((code - 1) % 13) + 1;
             }
-
-            if (curGameId == (int)GAMEID.TONGITS_JOKER)
-            {
-                if (N == 14) N = 1;
-            }
-            //nameCard = N + getSuitInVN();
         }
 
         public static byte[] getByte(string str)

@@ -180,13 +180,13 @@ public class TongitsView : GameView
         base.setGameInfo(m, id, maxBet);
         int countMode = 0, gameId = Globals.Config.curGameId;
         m_TextTableImg.sprite = m_GameNameImgs[0];
-        if (gameId == (int)Globals.GAMEID.TONGITS)
-            countMode = 1;
-        else if (gameId == (int)Globals.GAMEID.TONGITS_JOKER)
-        {
-            countMode = 2;
-            m_TextTableImg.sprite = m_GameNameImgs[1];
-        }
+        // if (gameId == (int)Globals.GAMEID.TONGITS)
+        //     countMode = 1;
+        // else if (gameId == (int)Globals.GAMEID.TONGITS_JOKER)
+        // {
+        //     countMode = 2;
+        //     m_TextTableImg.sprite = m_GameNameImgs[1];
+        // }
         for (int index = 0; index < m_Modes.Count; index++)
         {
             m_Modes[index].SetActive(index < countMode);

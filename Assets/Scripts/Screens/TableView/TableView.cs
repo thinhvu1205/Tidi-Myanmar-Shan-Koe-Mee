@@ -80,7 +80,7 @@ public class TableView : BaseView
             SocketSend.sendSelectGame(Config.curGameId);
         }
 
-        if (Config.curGameId == (int)GAMEID.PUSOY || Config.curGameId == (int)GAMEID.THREE_CARD_POKER)
+        if (Config.curGameId == (int)GAMEID.PUSOY)
         {
             nodeJackpot.Stop();
             nodeJackpot.gameObject.SetActive(true);
@@ -129,10 +129,10 @@ public class TableView : BaseView
         {
             UIManager.instance.openRuleJPBinh();
         }
-        if (Config.curGameId == (int)GAMEID.THREE_CARD_POKER)
-        {
-            UIManager.instance.openRuleJPThreeCard();
-        }
+        // if (Config.curGameId == (int)GAMEID.THREE_CARD_POKER)
+        // {
+        //     UIManager.instance.openRuleJPThreeCard();
+        // }
     }
     void updateInfo()
     {

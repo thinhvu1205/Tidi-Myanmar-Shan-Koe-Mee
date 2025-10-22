@@ -221,28 +221,28 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
                 }
             }
             var gameId = Globals.Config.curGameId;
-            if (gameId == (int)Globals.GAMEID.TONGITS_OLD || gameId == (int)Globals.GAMEID.TONGITS || gameId == (int)Globals.GAMEID.TONGITS_JOKER)
-            {
-                if (N == 14 || N == 13 || N == 1)
-                {
-                    if (code != 0)
-                    {
-                        showSpecialTg(true);
-                    }
-                    else
-                    {
-                        showSpecialTg(false);
-                    }
-                }
-                else
-                {
-                    showSpecialTg(false);
-                }
-                if (card_bg_yellow.activeSelf == true || card_border_blue.activeSelf == true || bkgMask.activeSelf == true)
-                {
-                    showSpecialTg(false);
-                }
-            }
+            // if (gameId == (int)Globals.GAMEID.TONGITS_OLD || gameId == (int)Globals.GAMEID.TONGITS || gameId == (int)Globals.GAMEID.TONGITS_JOKER)
+            // {
+            //     if (N == 14 || N == 13 || N == 1)
+            //     {
+            //         if (code != 0)
+            //         {
+            //             showSpecialTg(true);
+            //         }
+            //         else
+            //         {
+            //             showSpecialTg(false);
+            //         }
+            //     }
+            //     else
+            //     {
+            //         showSpecialTg(false);
+            //     }
+            //     if (card_bg_yellow.activeSelf == true || card_border_blue.activeSelf == true || bkgMask.activeSelf == true)
+            //     {
+            //         showSpecialTg(false);
+            //     }
+            // }
             if (isShan == true)
             {
                 showShanCard();
@@ -341,12 +341,12 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
             N = ((cod - 1) % 13) + 2; // >=2 , <=14
         }
 
-        if (Globals.Config.curGameId == (int)Globals.GAMEID.TONGITS ||
-            Globals.Config.curGameId == (int)Globals.GAMEID.TONGITS_OLD ||
-            Globals.Config.curGameId == (int)Globals.GAMEID.TONGITS_JOKER)
-        {
-            if (N == 14) N = 1;
-        }
+        // if (Globals.Config.curGameId == (int)Globals.GAMEID.TONGITS ||
+        //     Globals.Config.curGameId == (int)Globals.GAMEID.TONGITS_OLD ||
+        //     Globals.Config.curGameId == (int)Globals.GAMEID.TONGITS_JOKER)
+        // {
+        //     if (N == 14) N = 1;
+        // }
         //nameCard = N + getSuitInVN();
     }
 
