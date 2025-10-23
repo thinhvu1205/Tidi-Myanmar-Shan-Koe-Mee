@@ -444,6 +444,7 @@ public class LoadConfig : MonoBehaviour
             //TODO: sua ServerIp
             Config.curServerIp = (string)Config.listGame[0]["ip_dm"];
             // Config.curServerIp = "test.app.1707casino.com";
+            // Config.curServerIp = "app1.mmshan.net";
             PlayerPrefs.SetString("curServerIp", Config.curServerIp);
         }
         Debug.Log("=-=-=-=-=-=-=-=-=- list agam");

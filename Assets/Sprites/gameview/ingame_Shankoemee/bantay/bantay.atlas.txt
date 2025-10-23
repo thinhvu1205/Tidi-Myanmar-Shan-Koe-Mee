@@ -1,0 +1,13 @@
+
+bantay.png
+size: 233,233
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+1
+  rotate: false
+  xy: 2, 2
+  size: 202, 229
+  orig: 210, 233
+  offset: 4, 4
+  index: -1

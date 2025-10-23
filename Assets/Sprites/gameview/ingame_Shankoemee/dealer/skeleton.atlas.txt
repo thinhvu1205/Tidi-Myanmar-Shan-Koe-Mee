@@ -1,0 +1,118 @@
+
+skeleton.png
+size: 376,376
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+01ko
+  rotate: true
+  xy: 79, 28
+  size: 55, 85
+  orig: 64, 92
+  offset: 9, 7
+  index: -1
+02cam
+  rotate: true
+  xy: 198, 32
+  size: 64, 92
+  orig: 64, 92
+  offset: 0, 0
+  index: -1
+eye1
+  rotate: false
+  xy: 166, 101
+  size: 46, 68
+  orig: 160, 185
+  offset: 59, 100
+  index: -1
+eye2
+  rotate: false
+  xy: 310, 306
+  size: 46, 68
+  orig: 160, 185
+  offset: 59, 100
+  index: -1
+eye4
+  rotate: false
+  xy: 310, 236
+  size: 46, 68
+  orig: 160, 185
+  offset: 59, 100
+  index: -1
+model
+  rotate: false
+  xy: 2, 160
+  size: 123, 214
+  orig: 134, 226
+  offset: 5, 3
+  index: -1
+model2
+  rotate: true
+  xy: 127, 214
+  size: 160, 181
+  orig: 160, 186
+  offset: 0, 1
+  index: -1
+tayphai10
+  rotate: false
+  xy: 2, 2
+  size: 35, 80
+  orig: 101, 106
+  offset: 60, 5
+  index: -1
+tayphai2-copy
+  rotate: true
+  xy: 166, 4
+  size: 95, 30
+  orig: 99, 107
+  offset: 0, 1
+  index: -1
+tayphai3-copy
+  rotate: false
+  xy: 127, 171
+  size: 92, 41
+  orig: 103, 106
+  offset: 3, 6
+  index: -1
+tayphai4-copy
+  rotate: true
+  xy: 295, 126
+  size: 86, 60
+  orig: 87, 106
+  offset: 1, 8
+  index: -1
+tayphai5-copy
+  rotate: true
+  xy: 2, 84
+  size: 74, 75
+  orig: 87, 106
+  offset: 13, 6
+  index: -1
+tayphai6-copy
+  rotate: true
+  xy: 79, 85
+  size: 73, 85
+  orig: 87, 106
+  offset: 14, 4
+  index: -1
+tayphai7-copy
+  rotate: false
+  xy: 292, 9
+  size: 54, 89
+  orig: 87, 106
+  offset: 32, 4
+  index: -1
+tayphai8-copy
+  rotate: false
+  xy: 221, 98
+  size: 38, 114
+  orig: 87, 128
+  offset: 49, 14
+  index: -1
+tayphai9-copy
+  rotate: false
+  xy: 261, 100
+  size: 32, 112
+  orig: 123, 134
+  offset: 74, 18
+  index: -1

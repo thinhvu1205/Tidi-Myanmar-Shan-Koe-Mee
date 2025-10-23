@@ -1,0 +1,76 @@
+
+draw.png
+size: 480,112
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+I
+  rotate: false
+  xy: 443, 56
+  size: 34, 41
+  orig: 34, 41
+  offset: 0, 0
+  index: -1
+Layer 1
+  rotate: true
+  xy: 405, 56
+  size: 52, 36
+  orig: 52, 36
+  offset: 0, 0
+  index: -1
+Layer 109 copy
+  rotate: false
+  xy: 2, 21
+  size: 114, 87
+  orig: 114, 88
+  offset: 0, 0
+  index: -1
+Layer 2
+  rotate: true
+  xy: 346, 45
+  size: 63, 57
+  orig: 63, 57
+  offset: 0, 0
+  index: -1
+N
+  rotate: false
+  xy: 397, 2
+  size: 37, 41
+  orig: 37, 41
+  offset: 0, 0
+  index: -1
+W
+  rotate: false
+  xy: 436, 13
+  size: 35, 41
+  orig: 35, 41
+  offset: 0, 0
+  index: -1
+WIN
+  rotate: false
+  xy: 205, 8
+  size: 139, 41
+  orig: 139, 41
+  offset: 0, 0
+  index: -1
+drawmyr
+  rotate: false
+  xy: 205, 51
+  size: 115, 57
+  orig: 115, 57
+  offset: 0, 0
+  index: -1
+star
+  rotate: false
+  xy: 118, 23
+  size: 85, 85
+  orig: 100, 100
+  offset: 10, 8
+  index: -1
+wee
+  rotate: false
+  xy: 346, 2
+  size: 49, 41
+  orig: 49, 41
+  offset: 0, 0
+  index: -1

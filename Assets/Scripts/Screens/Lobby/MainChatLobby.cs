@@ -134,12 +134,12 @@ public class MainChatLobby : MonoBehaviour
 
     public void SendChat()
     {
-        if (Globals.User.userMain.VIP <= Config.vip_block_chat)
-        {
-            m_Message.text = "";
-            UIManager.instance.showToast("You need to reach at least VIP " + (Config.vip_block_chat + 1));
-            return;
-        }
+        // if (Globals.User.userMain.VIP <= Config.vip_block_chat)
+        // {
+        //     m_Message.text = "";
+        //     UIManager.instance.showToast("You need to reach at least VIP " + (Config.vip_block_chat + 1));
+        //     return;
+        // }
 
         string mess = m_Message.text.Trim(); // bỏ khoảng trắng đầu/cuối
         if (string.IsNullOrEmpty(mess))

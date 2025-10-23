@@ -13,6 +13,8 @@ using System.Linq;
 
 public class LobbyView : BaseView
 {
+    public bool isFull = false;
+    [SerializeField] private GameObject shop, shopFull, exChange;
     [SerializeField] List<Button> listTabs = new();
     [SerializeField]
     GameObject objDot, btnEx, btnChatLobby, gameItemObject, modelLobby, iconSafe, btnSafe, btnGiftCode, btnLeaderboard,
@@ -48,7 +50,7 @@ public class LobbyView : BaseView
     {
         isRunStart = true;
         base.Start();
-        refreshUIFromConfig(true);
+        refreshUIFromConfig(true, isFull);
         for (var i = 0; i < listTabs.Count; i++)
         {
             var btn = listTabs[i];
@@ -780,31 +782,58 @@ public class LobbyView : BaseView
         icNotiMessage.gameObject.SetActive(state);
     }
 
-    public void refreshUIFromConfig(bool isStart = false)
+    public void refreshUIFromConfig(bool isStart = false, bool showFull = false)
     {
-        // btnChatLobby.SetActive(Config.is_show_chat);
-        btnEx.SetActive(Config.is_dt);
-        var issket = Config.ket;
+        if (btnEx != null)
+            btnEx.SetActive(Config.is_dt);
+
+        bool issket = Config.ket;
         if (User.userMain != null && User.userMain.VIP == 0)
-        {
             issket = false;
-        }
-        iconSafe.SetActive(Config.ket);
-        btnSafe.SetActive(issket);
-        m_Lottery.SetActive(Config.enableLottery);
-        lb_safe.transform.parent.gameObject.SetActive(issket);
+
+        if (iconSafe != null)
+            iconSafe.SetActive(Config.ket);
+
+        if (m_Lottery != null)
+            m_Lottery.SetActive(Config.enableLottery);
+
+        if (lb_safe != null && lb_safe.transform.parent != null)
+            lb_safe.transform.parent.gameObject.SetActive(issket);
 
         if (issket)
             updateAgSafe();
-        btnLeaderboard.gameObject.SetActive(Config.listRankGame.Count > 0);
-        btnGiftCode.SetActive(Config.ismaqt);
-        if (User.userMain != null)
-        {
+
+        if (btnLeaderboard != null)
+            btnLeaderboard.gameObject.SetActive(Config.listRankGame != null && Config.listRankGame.Count > 0);
+
+        if (btnGiftCode != null)
+            btnGiftCode.SetActive(Config.ismaqt);
+
+        if (User.userMain != null && m_VipFarmBVF != null)
             m_VipFarmBVF.gameObject.SetActive(User.userMain.VIP > 1);
+
+        if (!isStart)
+            _ReloadListGames();
+
+        if (shop != null && shopFull != null && exChange != null)
+        {
+            if (showFull)
+            {
+                shop.SetActive(true);
+                shopFull.SetActive(false);
+                exChange.SetActive(true);
+            }
+            else
+            {
+                shop.SetActive(false);
+                shopFull.SetActive(true);
+                exChange.SetActive(false);
+            }
         }
-        if (!isStart) _ReloadListGames();
-        //setDefaultPosBtnMore();
+
+        // setDefaultPosBtnMore();
     }
+
     public void onClickChatLobby()
     {
         UIManager.instance.onClickChatLobby();

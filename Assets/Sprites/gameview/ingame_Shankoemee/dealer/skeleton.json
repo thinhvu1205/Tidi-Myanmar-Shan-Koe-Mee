@@ -1,0 +1,179 @@
+{
+"skeleton": {
+	"hash": "S/Zc6PLLZoXOk3eKgPafDOAWpmY",
+	"spine": "3.8.99",
+	"x": -80,
+	"y": -135.38,
+	"width": 160.06,
+	"height": 235.39,
+	"images": "",
+	"audio": "E:/Z.CAMBODIA/Diamond 777/png/bork kdeng/dealer"
+},
+"bones": [
+	{ "name": "root" },
+	{ "name": "eye1", "parent": "root", "y": 3.73, "color": "b42f2fff" },
+	{ "name": "hand", "parent": "root", "rotation": -116.28, "x": 42.99, "y": -48 },
+	{ "name": "hand2", "parent": "root", "x": 63.8, "y": -13.51 }
+],
+"slots": [
+	{ "name": "model", "bone": "root", "attachment": "model" },
+	{ "name": "model2", "bone": "root", "attachment": "model2" },
+	{ "name": "eye1", "bone": "eye1", "attachment": "eye2" },
+	{ "name": "01ko", "bone": "hand", "attachment": "01ko" },
+	{ "name": "02cam", "bone": "hand", "attachment": "02cam" },
+	{ "name": "tayphai10", "bone": "hand2", "attachment": "tayphai2-copy" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"01ko": {
+				"01ko": { "x": 47.32, "y": -2.36, "rotation": 116.28, "width": 64, "height": 92 }
+			},
+			"02cam": {
+				"02cam": { "x": 47.32, "y": -2.36, "rotation": 116.28, "width": 64, "height": 92 }
+			},
+			"eye1": {
+				"eye1": { "width": 160, "height": 185 },
+				"eye2": { "width": 160, "height": 185 },
+				"eye4": { "width": 160, "height": 185 }
+			},
+			"model": {
+				"model": { "x": -4.58, "y": -12.99, "width": 134, "height": 226 }
+			},
+			"model2": {
+				"model2": { "y": 3.26, "width": 160, "height": 186 }
+			},
+			"tayphai10": {
+				"tayphai2-copy": { "x": -27.24, "y": -23.18, "width": 99, "height": 107 },
+				"tayphai3-copy": { "x": -27.24, "y": -23.18, "width": 103, "height": 106 },
+				"tayphai4-copy": { "x": -27.24, "y": -23.18, "width": 87, "height": 106 },
+				"tayphai5-copy": { "x": -27.24, "y": -23.18, "width": 87, "height": 106 },
+				"tayphai6-copy": { "x": -27.24, "y": -23.18, "width": 87, "height": 106 },
+				"tayphai7-copy": { "x": -27.24, "y": -23.18, "width": 87, "height": 106 },
+				"tayphai8-copy": { "x": -27.24, "y": -23.18, "width": 87, "height": 128 },
+				"tayphai9-copy": { "x": -27.24, "y": -23.18, "width": 123, "height": 134 },
+				"tayphai10": { "x": -27.24, "y": -23.18, "width": 101, "height": 106 }
+			}
+		}
+	}
+],
+"animations": {
+	"chiabai": {
+		"slots": {
+			"02cam": {
+				"color": [
+					{ "color": "ffffffff" },
+					{ "time": 0.1667, "color": "ffffff00", "curve": "stepped" },
+					{ "time": 0.3333, "color": "ffffff00" }
+				]
+			},
+			"eye1": {
+				"attachment": [
+					{ "name": null }
+				]
+			},
+			"model2": {
+				"color": [
+					{ "color": "ffffff00" }
+				]
+			},
+			"tayphai10": {
+				"color": [
+					{ "color": "ffffff00" }
+				]
+			}
+		},
+		"bones": {
+			"hand": {
+				"rotate": [
+					{ "angle": -16.21 },
+					{ "time": 0.1667, "angle": 6 },
+					{ "time": 0.3333, "angle": -16.21 }
+				]
+			}
+		}
+	},
+	"kiss": {
+		"slots": {
+			"01ko": {
+				"color": [
+					{ "color": "ffffff00" }
+				]
+			},
+			"02cam": {
+				"color": [
+					{ "color": "ffffff00" }
+				]
+			},
+			"eye1": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 0.2333, "name": "eye2" },
+					{ "time": 0.2667, "name": "eye1" },
+					{ "time": 0.7, "name": "eye2" },
+					{ "time": 0.7333, "name": null }
+				]
+			},
+			"model": {
+				"color": [
+					{ "color": "ffffff00" }
+				]
+			},
+			"tayphai10": {
+				"attachment": [
+					{ "name": "tayphai2-copy" },
+					{ "time": 0.0333, "name": "tayphai3-copy" },
+					{ "time": 0.0667, "name": "tayphai4-copy" },
+					{ "time": 0.1, "name": "tayphai5-copy" },
+					{ "time": 0.1333, "name": "tayphai6-copy" },
+					{ "time": 0.1667, "name": "tayphai7-copy" },
+					{ "time": 0.2, "name": "tayphai8-copy" },
+					{ "time": 0.2333, "name": "tayphai9-copy" },
+					{ "time": 0.2667, "name": "tayphai10" },
+					{ "time": 0.7667, "name": "tayphai9-copy" },
+					{ "time": 0.8, "name": "tayphai8-copy" },
+					{ "time": 0.8333, "name": "tayphai7-copy" },
+					{ "time": 0.8667, "name": "tayphai6-copy" },
+					{ "time": 0.9, "name": "tayphai5-copy" },
+					{ "time": 0.9333, "name": "tayphai4-copy" },
+					{ "time": 0.9667, "name": "tayphai3-copy" },
+					{ "time": 1, "name": "tayphai2-copy" }
+				]
+			}
+		}
+	},
+	"normal": {
+		"slots": {
+			"01ko": {
+				"color": [
+					{ "color": "ffffff00" }
+				]
+			},
+			"02cam": {
+				"color": [
+					{ "color": "ffffff00" }
+				]
+			},
+			"eye1": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 0.2667, "name": "eye4" },
+					{ "time": 0.3333, "name": null },
+					{ "time": 2.1667, "name": null }
+				]
+			},
+			"model": {
+				"color": [
+					{ "color": "ffffff00" }
+				]
+			},
+			"tayphai10": {
+				"attachment": [
+					{ "name": "tayphai2-copy" }
+				]
+			}
+		}
+	}
+}
+}

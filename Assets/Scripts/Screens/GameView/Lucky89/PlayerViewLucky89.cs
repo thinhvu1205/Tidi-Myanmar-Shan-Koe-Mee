@@ -26,7 +26,7 @@ public class PlayerViewLucky89 : PlayerView
         m_LoseSg.gameObject.SetActive(show && isLose);
         if (!show) return this;
         if (isWin) m_WinSg.AnimationState.SetAnimation(0, "win", false);
-        if (isDraw) m_DrawSG.AnimationState.SetAnimation(0, "draw", false);
+        if (isDraw) m_DrawSG.AnimationState.SetAnimation(0, "eng", false);
         if (isLose) m_LoseSg.AnimationState.SetAnimation(0, "lose", false);
         return this;
     }

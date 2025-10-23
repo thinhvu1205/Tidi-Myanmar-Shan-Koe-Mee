@@ -341,6 +341,7 @@ public class SocketSend
                     //TODO: sua ServerIp
                     severIp = (string)itemGa["ip_dm"];
                     // severIp = "test.app.1707casino.com";
+                    // severIp = "app1.mmshan.net";
                     break;
                 }
             }
