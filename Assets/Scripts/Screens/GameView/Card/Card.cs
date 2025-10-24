@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using TMPro;
 using Spine.Unity;
 using DG.Tweening;
+using Globals;
 
 public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerClickHandler
 {
@@ -179,10 +180,10 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
                 //imgBackground.sprite = UIManager.instance.cardAtlas.GetSprite("card_back");
                 // BINH comment
                 imgBackground.sprite = spriteCardUp;
-                // if (Globals.Config.curGameId == 8012)
-                // {
-                //     imgBackground.sprite = spriteCardRed;
-                // }
+                if (Globals.Config.curGameId == (int)GAMEID.SHAN_KOE_MEE)
+                {
+                    imgBackground.sprite = spriteCardRed;
+                }
             }
             else
             {
@@ -322,8 +323,11 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
             return;
         }
         // // mỗi game có 1 điều decode # nhau
-        S = ((cod - 1) / 13) + 1; //>=1 <=4
-        N = ((cod - 1) % 13) + 2; // >=2 , <=14
+        if (Globals.Config.curGameId != (int)Globals.GAMEID.SHAN_KOE_MEE)
+        {
+            S = ((cod - 1) / 13) + 1; //>=1 <=4
+            N = ((cod - 1) % 13) + 2; // >=2 , <=14
+        }
 
         // if (Globals.Config.curGameId == (int)Globals.GAMEID.BORKDENG)
         // {

@@ -564,6 +564,8 @@ public class LobbyView : BaseView
     void _ReloadListGames()
     {
         _ClearButtonGames();
+        Debug.Log($"[Config] listGame = {Config.listGame.ToString(Newtonsoft.Json.Formatting.None)}");
+
         for (int i = 0; i < Config.listGame.Count; i++)
         {
             JObject dt = new()

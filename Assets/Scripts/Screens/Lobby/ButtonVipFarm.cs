@@ -48,7 +48,10 @@ public class ButtonVipFarm : MonoBehaviour
     }
     private void OnEnable()
     {
-        SocketSend.getFarmInfo();
+        DOVirtual.DelayedCall(1f, () =>
+        {
+            SocketSend.getFarmInfo();
+        });
     }
     private void Start()
     {

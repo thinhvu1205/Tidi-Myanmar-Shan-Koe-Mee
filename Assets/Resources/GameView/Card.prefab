@@ -1698,9 +1698,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 279e70d00317f4ed98a0861f9e614257, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMoved: 0
   code: 0
   N: 0
   S: 0
+  isJoker: 0
+  isSelect: 0
+  isTouch: 1
   nameCard: 
   imgBackground: {fileID: 7503219407528448569}
   imgValue: {fileID: 8540707174514177257}
@@ -1713,9 +1717,11 @@ MonoBehaviour:
   animFire: {fileID: 7326427412701777515}
   animSmoke: {fileID: 3844687890381963404}
   animSmokeData: {fileID: 11400000, guid: 2c4e6a3ee7df347ac8a80beaee4ffb20, type: 2}
+  animBorderCatte: {fileID: 0}
   anim_laplanh: {fileID: 3634137877468421551}
   anim_border: {fileID: 0}
   spriteCardUp: {fileID: 4805568382377912380, guid: fd5e3be56506aa94cb9170a2d7b20257, type: 3}
+  spriteCardRed: {fileID: 21300000, guid: c43ddaf67e79342bb983c4df086e0e97, type: 3}
   ic_starBinh: {fileID: 7192415889024974875}
   card: {fileID: 0}
   card_bg_yellow: {fileID: 8167133936358511791}

@@ -87,7 +87,6 @@ public class UIManager : MonoBehaviour
         TimeOpenApp = DateTimeOffset.Now.ToUnixTimeMilliseconds();
         Input.multiTouchEnabled = false;
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
-        refreshUIFromConfig();
     }
     private void OnEnable()
     {
@@ -165,6 +164,7 @@ public class UIManager : MonoBehaviour
     //}
     void Start()
     {
+        refreshUIFromConfig();
         lobbyView.hide(false);
         videoPlayer.Prepare();
 #if UNITY_ANDROID

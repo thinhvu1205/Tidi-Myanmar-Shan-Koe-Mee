@@ -202,7 +202,7 @@ public class BaucuaGameView : GameView
     }
     public void handleStart(string data)
     {
-        Debug.Log("check xem từ đây là ban đầu như nào" + Config.isBackGame);
+        Debug.Log("check xem từ đây là ban đầu như nào " + Config.isBackGame + " | data = " + data);
         m_LbWin.gameObject.SetActive(true);
         int timeData = int.Parse(data);
         stateGame = STATE_GAME.WAITING;

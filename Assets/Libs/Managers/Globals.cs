@@ -271,10 +271,8 @@ namespace Globals
         SLOTTARZAN = 9950,//lay
         SLOT_SIXIANG = 9011,//lay
         DRAGONTIGER = 8009,//lay
-        SESKU = 8815,//lay
+        SESKU = 9006,//lay
                      // MINE_FINDING = 8804
-                     //thieu game 4,5
-
     }
     public enum DOTWEEN_TAG
     {
