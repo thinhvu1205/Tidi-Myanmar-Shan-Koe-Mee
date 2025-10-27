@@ -15,23 +15,47 @@ public class Lucky89View : GameView
     {
         LUCKY_8 = 5088, LUCKY_9 = 5099, THREE_OF_A_KIND = 4000, FACE_CARDS = 3000, STRAIGHT_FLUSH = 2000, FLUSH = 1000
     }
-    [SerializeField] private List<TextMeshProUGUI> m_BetOptionTMPs;
+    [SerializeField] private List<TextMeshProUGUI> m_BetOptionTMPs, listTextJackPot;
     [SerializeField] private GameObject m_Actions, m_TickDraw, m_TickDontDraw;
     [SerializeField] private Transform m_PrefabChipTf, m_ChipsTf;
-    [SerializeField] private TextMeshProUGUI m_TipChipsTMP, m_TipThanksTMP;
-    [SerializeField] private SkeletonGraphic m_BeginGameSG, m_DealerSG;
+    [SerializeField] private TextMeshProUGUI m_TipChipsTMP, m_TipThanksTMP, textTimeStartCountDown;
+    [SerializeField] private SkeletonGraphic m_DealerSG;
     [SerializeField] private PlayerViewLucky89 m_DealerPVL89;
+    [SerializeField] private GameObject boxTimeStart;
     private List<int> _BetValues = new();
     private Action _WaitForFinishCompleteCb = null;
     private const float CARD_FLYING_DURATION = .25f, CARD_ROTATING_DURATION = .3f, WIN_CHIP_DURATION = .5f, LOSE_CHIP_DURATION = .5f;
     private bool _IsMyDrawTime;
     private bool? _DrawACard = null;
+    private int _CurBankerId;
+    protected override void Awake()
+    {
+        base.Awake();
+        agTable = 0;
+        SocketSend.sendUpdateJackpot((int)GAMEID.SHAN_KOE_MEE);
+    }
+    protected override void Start()
+    {
+        base.Start();
+        if (TableView.instance != null)
+        {
+            handleUpdateJackpot(TableView.instance.currentJackpot);
+        }
+
+        // m_BeginGameSG.AnimationState.Complete += (x) => m_BeginGameSG.gameObject.SetActive(false);
+        // m_BeginGameSG.gameObject.SetActive(false);
+        m_DealerSG.AnimationState.Complete += (x) => m_DealerSG.AnimationState.SetAnimation(0, "normal", true);
+    }
 
     #region Button
     public void DoClickBetButton(int buttonId)
     {
         playSound(SOUND_GAME.CLICK);
         SocketSend.SendBetLucky89((int)Mathf.Min(User.userMain.AG, _BetValues[buttonId]));
+    }
+    public void onClickRuleJP()
+    {
+        UIManager.instance.openRuleJPShanKoeMee();
     }
     public void DoClickDraw()
     {
@@ -58,30 +82,46 @@ public class Lucky89View : GameView
     #endregion
     public void ProcessResponseData(JObject jData)
     {
-        switch ((string)jData["evt"])
+        switch ((string)jData["evt"]) //timeToStart//banker_info//bm//lc//bc//cbc//cdco//finish
         {
-            case "startdealer":
+            case "timeToStart":
+                Debug.Log($"Tinh=))timeToStart: {jData.ToString(Newtonsoft.Json.Formatting.None)}");
                 _HandleStartGame(jData);
                 break;
+            case "banker_info":
+                _HandleBankerInfor(jData);
+                Debug.Log($"Tinh=))banker_info: {jData.ToString(Newtonsoft.Json.Formatting.None)}");
+                break;
             case "bm":
+                Debug.Log($"Tinh=))bm: {jData.ToString(Newtonsoft.Json.Formatting.None)}");
                 _HandleAnyoneBets(jData);
                 break;
             case "lc":
+                Debug.Log($"Tinh=))lc: {jData.ToString(Newtonsoft.Json.Formatting.None)}");
                 _HandleReceiveMyCards(jData);
                 break;
-            case "pokpok":
-                _HandleAnyoneReceivesLuckyCards(jData);
-                break;
-            case "timeout":
-                _HandleAnyoneTimeOut(jData);
-                break;
+            // case "pokpok":
+            // _HandleAnyoneReceivesLuckyCards(jData);
+            // break;
+            // case "timeout":
+            // _HandleAnyoneTimeOut(jData);
+            // break;
             case "bc":
+                Debug.Log($"Tinh=))bc: {jData.ToString(Newtonsoft.Json.Formatting.None)}");
                 _HandleAnyoneDrawsCard(jData);
                 break;
+            case "cbc":
+                Debug.Log($"Tinh=))cbc: {jData.ToString(Newtonsoft.Json.Formatting.None)}");
+                break;
+            case "cdco":
+                Debug.Log($"Tinh=))cdco: {jData.ToString(Newtonsoft.Json.Formatting.None)}");
+                break;
             case "finish":
+                Debug.Log($"Tinh=))finish: {jData.ToString(Newtonsoft.Json.Formatting.None)}");
                 _HandleFinishGame(jData);
                 break;
             case "tip":
+                Debug.Log($"Tinh=))tip: {jData.ToString(Newtonsoft.Json.Formatting.None)}");
                 HandlerTip(jData);
                 break;
         }
@@ -118,9 +158,9 @@ public class Lucky89View : GameView
         JObject data = JObject.Parse(strData);
         setGameInfo(m: (int)data["M"], id: (int)data["Id"], maxBett: data.ContainsKey("maxBet") ? (int)data["maxBet"] : 0);
         JArray dataDealerCards = (JArray)data["ArrDealer"];
-        List<int> dealerCardCodes = new();
-        foreach (JToken item in dataDealerCards) dealerCardCodes.Add((int)item);
-        _DistributeCardsToAPlayer(m_DealerPVL89, dealerCardCodes, (int)data["rateDealer"], (int)data["scoreDealer"]);
+        // List<int> dealerCardCodes = new();
+        // foreach (JToken item in dataDealerCards) dealerCardCodes.Add((int)item);
+        // _DistributeCardsToAPlayer(m_DealerPVL89, dealerCardCodes, (int)data["rateDealer"], (int)data["scoreDealer"]);
         for (int i = 0; i < players.Count; i++) Destroy(players[i].playerView.gameObject);
         players.Clear();
         thisPlayer = new()
@@ -205,66 +245,67 @@ public class Lucky89View : GameView
     }
     public override void handleRJTable(string strData)
     {
-        stateGame = STATE_GAME.PLAYING;
-        _ShowAnimOnBegin(false);
-        JObject data = JObject.Parse(strData);
-        setGameInfo(m: (int)data["M"], id: (int)data["Id"], maxBett: data.ContainsKey("maxBet") ? (int)data["maxBet"] : 0);
-        JArray dataDealerCards = (JArray)data["ArrDealer"];
-        for (int i = 0; i < players.Count; i++) Destroy(players[i].playerView.gameObject);
-        players.Clear();
-        JArray dataPlayers = (JArray)data["ArrP"];
-        for (int i = 0; i < dataPlayers.Count; i++)
-        {
-            Player player = new();
-            readDataPlayer(player, (JObject)dataPlayers[i]);
-            player.playerView = createPlayerView();
-            player.agBet = (int)dataPlayers[i]["AGC"];
-            if (player.id == User.userMain.Userid)
-            {
-                thisPlayer = player;
-                players.Insert(0, player);
-            }
-            else players.Add(player);
-        }
-        for (int i = 0; i < players.Count; i++)
-        {
-            PlayerViewLucky89 pv = (PlayerViewLucky89)players[i].playerView;
-            players[i].updatePlayerView();
-            pv.SetBetPosition(i).ShowHideBetChips(players[i].agBet > 0, players[i].agBet).HideAllCards().UpdateCardsParentPositionAndRotation();
-        }
-        updatePositionPlayerView();
-        List<DataPlayer> dps = new();
-        bool distributeCards = false;
-        for (int i = 0; i < dataPlayers.Count; i++)
-        {
-            JArray dataPlayerCards = (JArray)dataPlayers[i]["Arr"];
-            DataPlayer dp = new()
-            {
-                PlayerP = players.Find(x => x.id == (int)dataPlayers[i]["id"]),
-                rate = (int)dataPlayers[i]["rate"],
-                score = (int)dataPlayers[i]["score"],
-            };
-            foreach (JToken item in dataPlayerCards) dp.cardCodes.Add((int)item);
-            dps.Add(dp);
-            if (dp.PlayerP == thisPlayer)
-                foreach (int num in dp.cardCodes)
-                    if (num > 0)
-                    {
-                        distributeCards = true;
-                        break;
-                    }
-        }
-        if (distributeCards)
-        {
-            List<int> dealerCardCodes = new();
-            foreach (JToken item in dataDealerCards) dealerCardCodes.Add((int)item);
-            _DistributeCardsToAPlayer(m_DealerPVL89, dealerCardCodes, (int)data["rateDealer"], (int)data["scoreDealer"]);
-            foreach (DataPlayer dp in dps)
-            {
-                PlayerViewLucky89 playerView = (PlayerViewLucky89)(players.Find(x => x == dp.PlayerP).playerView);
-                _DistributeCardsToAPlayer(playerView, dp.cardCodes, dp.rate, dp.score);
-            }
-        }
+        Debug.Log($"Tinh=))handleRJTable: {strData}");
+        // stateGame = STATE_GAME.PLAYING;
+        // _ShowAnimOnBegin(false);
+        // JObject data = JObject.Parse(strData);
+        // setGameInfo(m: (int)data["M"], id: (int)data["Id"], maxBett: data.ContainsKey("maxBet") ? (int)data["maxBet"] : 0);
+        // JArray dataDealerCards = (JArray)data["ArrDealer"];
+        // for (int i = 0; i < players.Count; i++) Destroy(players[i].playerView.gameObject);
+        // players.Clear();
+        // JArray dataPlayers = (JArray)data["ArrP"];
+        // for (int i = 0; i < dataPlayers.Count; i++)
+        // {
+        //     Player player = new();
+        //     readDataPlayer(player, (JObject)dataPlayers[i]);
+        //     player.playerView = createPlayerView();
+        //     player.agBet = (int)dataPlayers[i]["AGC"];
+        //     if (player.id == User.userMain.Userid)
+        //     {
+        //         thisPlayer = player;
+        //         players.Insert(0, player);
+        //     }
+        //     else players.Add(player);
+        // }
+        // for (int i = 0; i < players.Count; i++)
+        // {
+        //     PlayerViewLucky89 pv = (PlayerViewLucky89)players[i].playerView;
+        //     players[i].updatePlayerView();
+        //     pv.SetBetPosition(i).ShowHideBetChips(players[i].agBet > 0, players[i].agBet).HideAllCards().UpdateCardsParentPositionAndRotation();
+        // }
+        // updatePositionPlayerView();
+        // List<DataPlayer> dps = new();
+        // bool distributeCards = false;
+        // for (int i = 0; i < dataPlayers.Count; i++)
+        // {
+        //     JArray dataPlayerCards = (JArray)dataPlayers[i]["Arr"];
+        //     DataPlayer dp = new()
+        //     {
+        //         PlayerP = players.Find(x => x.id == (int)dataPlayers[i]["id"]),
+        //         rate = (int)dataPlayers[i]["rate"],
+        //         score = (int)dataPlayers[i]["score"],
+        //     };
+        //     foreach (JToken item in dataPlayerCards) dp.cardCodes.Add((int)item);
+        //     dps.Add(dp);
+        //     if (dp.PlayerP == thisPlayer)
+        //         foreach (int num in dp.cardCodes)
+        //             if (num > 0)
+        //             {
+        //                 distributeCards = true;
+        //                 break;
+        //             }
+        // }
+        // if (distributeCards)
+        // {
+        //     List<int> dealerCardCodes = new();
+        //     foreach (JToken item in dataDealerCards) dealerCardCodes.Add((int)item);
+        //     _DistributeCardsToAPlayer(m_DealerPVL89, dealerCardCodes, (int)data["rateDealer"], (int)data["scoreDealer"]);
+        //     foreach (DataPlayer dp in dps)
+        //     {
+        //         PlayerViewLucky89 playerView = (PlayerViewLucky89)(players.Find(x => x == dp.PlayerP).playerView);
+        //         _DistributeCardsToAPlayer(playerView, dp.cardCodes, dp.rate, dp.score);
+        //     }
+        // }
     }
     public override void handleLTable(JObject data)
     {
@@ -273,31 +314,58 @@ public class Lucky89View : GameView
     }
     private void _HandleStartGame(JObject data)
     {
-        StartCoroutine(handleData());
-        IEnumerator handleData()
+        StartCoroutine(ShowBetOption());
+        playSound(SOUND_GAME.START_GAME);
+        stateGame = STATE_GAME.PLAYING;
+        float time = (float)data["timeAction"] / 1000;
+        boxTimeStart.SetActive(true);
+        StartCoroutine(RunCountDown(time));
+        // m_DealerPVL89.ShowHideBetChips(false).ShowAnimResult(false, 0).ShowScore(false, 0).ShowRate(0).HideAllCards();
+        // foreach (Player p in players) ((PlayerViewLucky89)p.playerView).ShowHideBetChips(false).ShowAnimResult(false, 0).ShowScore(false, 0).ShowRate(0).HideAllCards();
+        // m_Actions.SetActive(false);
+        // _SetTickDraw(true, 0);
+        // yield return new WaitForSeconds((int)m_BeginGameSG.SkeletonData.FindAnimation(_ShowAnimOnBegin(true)).Duration);
+        // foreach (Player player in players)
+        // {
+        //     if (player.id == User.userMain.Userid) player.setTurn(true, (float)data["T"] / 1000, timeVibrate: 3f);
+        //     else player.setTurn(true, (float)data["T"] / 1000, timeVibrate: -1f);
+        // }
+    }
+    IEnumerator RunCountDown(float timeCountDown)
+    {
+        while (timeCountDown > 0)
         {
-            playSound(SOUND_GAME.START_GAME);
-            stateGame = STATE_GAME.PLAYING;
-            m_DealerPVL89.ShowHideBetChips(false).ShowAnimResult(false, 0).ShowScore(false, 0).ShowRate(0).HideAllCards();
-            foreach (Player p in players) ((PlayerViewLucky89)p.playerView).ShowHideBetChips(false).ShowAnimResult(false, 0).ShowScore(false, 0).ShowRate(0).HideAllCards();
-            m_Actions.SetActive(false);
-            _SetTickDraw(true, 0);
-            yield return new WaitForSeconds((int)m_BeginGameSG.SkeletonData.FindAnimation(_ShowAnimOnBegin(true)).Duration);
-            foreach (Player player in players)
-            {
-                if (player.id == User.userMain.Userid) player.setTurn(true, (float)data["T"] / 1000, timeVibrate: 3f);
-                else player.setTurn(true, (float)data["T"] / 1000, timeVibrate: -1f);
-            }
-            for (int i = 0; i < m_BetOptionTMPs.Count; i++)
-            {
-                Transform tf = m_BetOptionTMPs[i].transform;
-                m_BetOptionTMPs[i].text = i == m_BetOptionTMPs.Count - 1 ? "Max Bet" : Config.FormatMoney3(_BetValues[i]);
-                tf.parent.gameObject.SetActive(true);
-                tf.DOLocalJump(tf.localPosition, 20f, 1, .1f);
-                yield return new WaitForSeconds(.1f);
-            }
+            textTimeStartCountDown.text = Mathf.CeilToInt(timeCountDown).ToString();
+            yield return new WaitForSeconds(1f);
+            timeCountDown -= 1f;
+        }
+        boxTimeStart.SetActive(false);
+    }
+    IEnumerator ShowBetOption()
+    {
+        for (int i = 0; i < m_BetOptionTMPs.Count; i++)
+        {
+            Transform tf = m_BetOptionTMPs[i].transform;
+            m_BetOptionTMPs[i].text = i == m_BetOptionTMPs.Count - 1 ? "Max Bet" : Config.FormatMoney3(_BetValues[i]);
+            tf.parent.gameObject.SetActive(true);
+            tf.DOLocalJump(tf.localPosition, 20f, 1, .1f);
+            yield return new WaitForSeconds(.1f);
         }
     }
+
+    private void _HandleBankerInfor(JObject data)
+    {
+        for (int i = 0; i < players.Count; i++)
+        {
+            PlayerViewLucky89 playerView = getPlayerView(players[i]);
+            playerView.ShowIconBanker(false);
+        }
+        int idBanker = getInt(data, "pid");
+        var playerBanker = getPlayerWithID(idBanker);
+        PlayerViewLucky89 plViewLucky89 = getPlayerView(playerBanker);
+        plViewLucky89.ShowIconBanker(true);
+    }
+
     private void _HandleAnyoneBets(JObject data)
     {
         playSound(SOUND_GAME.CLICK);
@@ -309,6 +377,15 @@ public class Lucky89View : GameView
         player.ag -= ((PlayerViewLucky89)player.playerView).GetBetValue();
         player.updatePlayerView();
         if (player == thisPlayer) foreach (TextMeshProUGUI tmp in m_BetOptionTMPs) tmp.transform.parent.gameObject.SetActive(false);
+    }
+    private PlayerViewLucky89 getPlayerView(Player player)
+    {
+        if (player != null)
+        {
+            return (PlayerViewLucky89)player.playerView;
+        }
+        return null;
+
     }
     // private void _HandleReceiveMyCards(JObject data)
     // {
@@ -467,12 +544,12 @@ public class Lucky89View : GameView
         PlayerViewLucky89 playerView = isDealer ? m_DealerPVL89 : (PlayerViewLucky89)player.playerView;
         if (!isDealer) player.setTurn(false);
         else m_DealerPVL89.setTurn(false);
-        int cardCode = (int)data["C"];
-        if (cardCode > 0)
-        {
-            StartCoroutine(_DrawCard(playerView, isMe ? cardCode : 0));
-            playerView.UpdateCardsParentPositionAndRotation();
-        }
+        // int cardCode = (int)data["C"];
+        // if (cardCode > 0)
+        // {
+        //     StartCoroutine(_DrawCard(playerView, isMe ? cardCode : 0));
+        //     playerView.UpdateCardsParentPositionAndRotation();
+        // }
         if (isMe)
         {
             m_Actions.SetActive(false);
@@ -482,7 +559,7 @@ public class Lucky89View : GameView
     }
     private void _HandleFinishGame(JObject data)
     {
-        StartCoroutine(handleData());
+        // StartCoroutine(handleData());
         //======================================================
         IEnumerator handleData()
         {
@@ -492,39 +569,39 @@ public class Lucky89View : GameView
             _SetTickDraw(false, 0);
             List<Action> playerWinCbs = new(), playerLoseCbs = new();
             Action finalDealerCb = null;
-            JArray dataResults = JArray.Parse((string)data["data"]);
-            foreach (JToken result in dataResults)
-            {
-                Player player = players.Find(x => x.namePl.Equals((string)result["N"]));
-                PlayerViewLucky89 playerView = null;
-                if (player == null) playerView = m_DealerPVL89;
-                else playerView = (PlayerViewLucky89)player.playerView;
-                if ((int)result["S"] < (int)SCORE.LUCKY_8)
-                {
-                    List<Card> cardCs = playerView.GetListCards();
-                    JArray dataCards = (JArray)result["ArrCard"];
-                    for (int i = 0; i < dataCards.Count; i++)
-                        _RevealACard(cardCs[i], (int)dataCards[i], cardCs[i].transform.localEulerAngles);
-                    playerView.ShowScore(true, (int)result["S"]).ShowRate((int)result["rate"]);
-                }
-                long chips = (long)result["M"];
-                playerView.ShowAnimResult(true, chips);
-                if (playerView != m_DealerPVL89)
-                {
-                    if (chips > 0) playerWinCbs.Add(() => StartCoroutine(playerWinChips(player.id, chips, (long)result["AG"])));
-                    else if (chips < 0) playerLoseCbs.Add(() => StartCoroutine(playerLoseChips(player.id, chips, (long)result["AG"])));
-                    else
-                    {
-                        player.ag += ((PlayerViewLucky89)player.playerView).GetBetValue();
-                        player.updatePlayerView();
-                    }
-                }
-                else finalDealerCb = () => m_DealerPVL89.effectFlyMoney(chips);
-            }
-            foreach (Action cb in playerLoseCbs) cb.Invoke();
-            if (playerLoseCbs.Count > 0) yield return new WaitForSeconds(2 * LOSE_CHIP_DURATION + 1);
-            foreach (Action cb in playerWinCbs) cb.Invoke();
-            if (playerWinCbs.Count > 0) yield return new WaitForSeconds(3 * WIN_CHIP_DURATION);
+            // JArray dataResults = JArray.Parse((string)data["data"]);
+            // foreach (JToken result in dataResults)
+            // {
+            //     Player player = players.Find(x => x.namePl.Equals((string)result["N"]));
+            //     PlayerViewLucky89 playerView = null;
+            //     if (player == null) playerView = m_DealerPVL89;
+            //     else playerView = (PlayerViewLucky89)player.playerView;
+            //     if ((int)result["S"] < (int)SCORE.LUCKY_8)
+            //     {
+            //         List<Card> cardCs = playerView.GetListCards();
+            //         JArray dataCards = (JArray)result["ArrCard"];
+            //         for (int i = 0; i < dataCards.Count; i++)
+            //             _RevealACard(cardCs[i], (int)dataCards[i], cardCs[i].transform.localEulerAngles);
+            //         playerView.ShowScore(true, (int)result["S"]).ShowRate((int)result["rate"]);
+            //     }
+            //     long chips = (long)result["M"];
+            //     playerView.ShowAnimResult(true, chips);
+            //     if (playerView != m_DealerPVL89)
+            //     {
+            //         if (chips > 0) playerWinCbs.Add(() => StartCoroutine(playerWinChips(player.id, chips, (long)result["AG"])));
+            //         else if (chips < 0) playerLoseCbs.Add(() => StartCoroutine(playerLoseChips(player.id, chips, (long)result["AG"])));
+            //         else
+            //         {
+            //             player.ag += ((PlayerViewLucky89)player.playerView).GetBetValue();
+            //             player.updatePlayerView();
+            //         }
+            //     }
+            //     else finalDealerCb = () => m_DealerPVL89.effectFlyMoney(chips);
+            // }
+            // foreach (Action cb in playerLoseCbs) cb.Invoke();
+            // if (playerLoseCbs.Count > 0) yield return new WaitForSeconds(2 * LOSE_CHIP_DURATION + 1);
+            // foreach (Action cb in playerWinCbs) cb.Invoke();
+            // if (playerWinCbs.Count > 0) yield return new WaitForSeconds(3 * WIN_CHIP_DURATION);
             finalDealerCb.Invoke();
             yield return new WaitForSeconds(1);
             _WaitForFinishCompleteCb?.Invoke();
@@ -614,12 +691,53 @@ public class Lucky89View : GameView
             parentObject.SetActive(false);
         }
     }
-    private string _ShowAnimOnBegin(bool isStart = true)
+    // private string _ShowAnimOnBegin(bool isStart = true)
+    // {
+    //     string animName = isStart ? "start" : "continue";
+    //     m_BeginGameSG.gameObject.SetActive(true);
+    //     m_BeginGameSG.AnimationState.SetAnimation(0, animName, false);
+    //     return animName;
+    // }
+    public void handleUpdateJackpot(JObject jsonData)
     {
-        string animName = isStart ? "start" : "continue";
-        m_BeginGameSG.gameObject.SetActive(true);
-        m_BeginGameSG.AnimationState.SetAnimation(0, animName, false);
-        return animName;
+        var curJackPotBinh = "0";
+        if (jsonData != null && jsonData.ContainsKey("M"))
+        {
+            curJackPotBinh = (long)jsonData["M"] + "";
+        }
+        var indexRun = curJackPotBinh.Length - 1;
+        for (var i = listTextJackPot.Count - 1; i >= 0; i--)
+        {
+            if (indexRun >= 0)
+            {
+                listTextJackPot[i].text = curJackPotBinh[indexRun] + "";
+            }
+            else
+            {
+                listTextJackPot[i].text = "0";
+            }
+            indexRun--;
+            StartCoroutine(animateJackPot(listTextJackPot[i].gameObject));
+        }
+    }
+    private IEnumerator animateJackPot(GameObject node)
+    {
+        float duration = 0.15f, time = 0;
+        Vector3 initialScale = node.transform.localScale, targetScale = initialScale * 1.2f;
+        while (time < duration)
+        {
+            time += Time.deltaTime;
+            node.transform.localScale = Vector3.Lerp(initialScale, targetScale, time / duration);
+            yield return null;
+        }
+        time = 0;
+        while (time < duration)
+        {
+            time += Time.deltaTime;
+            node.transform.localScale = Vector3.Lerp(targetScale, initialScale, time / duration);
+            yield return null;
+        }
+        node.transform.localScale = initialScale;
     }
     private void _SetTickDraw(bool show, int draw)
     {
@@ -686,13 +804,7 @@ public class Lucky89View : GameView
         foreach (int code in codes) totalCode += code;
         playerView.UpdateCardsParentPositionAndRotation().ShowRate(totalCode > 0 ? rate : 0).ShowScore(totalCode > 0, score);
     }
-    protected override void Start()
-    {
-        base.Start();
-        m_BeginGameSG.AnimationState.Complete += (x) => m_BeginGameSG.gameObject.SetActive(false);
-        m_BeginGameSG.gameObject.SetActive(false);
-        m_DealerSG.AnimationState.Complete += (x) => m_DealerSG.AnimationState.SetAnimation(0, "normal", true);
-    }
+
     private class DataPlayer
     {
         public List<int> cardCodes = new();

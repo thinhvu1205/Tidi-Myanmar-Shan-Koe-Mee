@@ -7,6 +7,7 @@ using Globals;
 using Spine.Unity;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerViewLucky89 : PlayerView
 {
@@ -15,8 +16,13 @@ public class PlayerViewLucky89 : PlayerView
     [SerializeField] private List<GameObject> m_Rates;
     [SerializeField] private SkeletonGraphic m_LuckySG, m_WinSg, m_LoseSg, m_DrawSG;
     [SerializeField] private TextMeshProUGUI m_BetTMP, m_ScoreTMP;
+    [SerializeField] private Image imageIconBanker;
     private BetInfoPosition _BetInfoBIP = BetInfoPosition.ABOVE;
     private int _BetValue;
+    public void ShowIconBanker(bool isShow)
+    {
+        imageIconBanker.gameObject.SetActive(isShow);
+    }
 
     public PlayerViewLucky89 ShowAnimResult(bool show, long changedChips)
     {

@@ -1185,8 +1185,6 @@ public class RouLetteView : GameView
     {
         stateGame = STATE_GAME.VIEWING;
     }
-
-    //TODO: dung override Starrt khi o mainscene
     // protected override void Start()
     // {
     //     base.Start();

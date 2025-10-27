@@ -258,7 +258,7 @@ namespace Globals
         // TONGITS_JOKER = 8088,
         // HONGKONG_POKER = 8808,
         BAUCUA = 8803,//lay
-        SHAN_KOE_MEE = 8802,//lay
+        SHAN_KOE_MEE = 1001,//lay
         PUSOY = 8044,//lay
         // BACCARAT = 9500,
         // LUCKY9 = 6688,
@@ -584,8 +584,8 @@ namespace Globals
         public static LOGIN_TYPE typeLogin = LOGIN_TYPE.NORMAL;
         //TODO: sua ServerIp
 
-        public static string curServerIp = "app1.davaogames.com";
-        // public static string curServerIp = "app1.mmshan.net";
+        // public static string curServerIp = "app1.davaogames.com";
+        public static string curServerIp = "app1.mmshan.net";
         // public static string curServerIp = "test.app.1707casino.com";
         public static int curGameId = 0;
         public static bool isBackGame = false;

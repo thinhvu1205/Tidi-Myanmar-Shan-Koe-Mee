@@ -875,7 +875,7 @@ public class HandleService
                         // }
                         if (Config.curGameId == (int)GAMEID.SHAN_KOE_MEE && UIManager.instance.gameView != null)
                         {
-                            ((ThreePokerCardGameView)UIManager.instance.gameView).handleUpdateJackpot(jsonData);
+                            ((Lucky89View)UIManager.instance.gameView).handleUpdateJackpot(jsonData);
                         }
                         break;
                     }

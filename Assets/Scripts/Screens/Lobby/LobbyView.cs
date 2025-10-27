@@ -817,21 +817,25 @@ public class LobbyView : BaseView
         if (!isStart)
             _ReloadListGames();
 
-        if (shop != null && shopFull != null && exChange != null)
-        {
-            if (showFull)
-            {
-                shop.SetActive(true);
-                shopFull.SetActive(false);
-                exChange.SetActive(true);
-            }
-            else
-            {
-                shop.SetActive(false);
-                shopFull.SetActive(true);
-                exChange.SetActive(false);
-            }
-        }
+        bool isShow = Config.arrOnlistTrue.Count >= 1;
+        shop.SetActive(isShow);
+        shopFull.SetActive(!isShow);
+        exChange.SetActive(isShow);
+        // if (shop != null && shopFull != null && exChange != null)
+        // {
+        //     if (showFull)
+        //     {
+        //         shop.SetActive(true);
+        //         shopFull.SetActive(false);
+        //         exChange.SetActive(true);
+        //     }
+        //     else
+        //     {
+        //         shop.SetActive(false);
+        //         shopFull.SetActive(true);
+        //         exChange.SetActive(false);
+        //     }
+        // }
 
         // setDefaultPosBtnMore();
     }

@@ -20,7 +20,8 @@ public class CertificateWhore : CertificateHandler
 public class LoadConfig : MonoBehaviour
 {
     public static LoadConfig instance;
-    string url_start = "https://n.cfg.davaogames.com/info";
+    // string url_start = "https://n.cfg.davaogames.com/info";
+    string url_start = "https://cfg.mmshan.net/info";
     string config_info = "";
 
 
@@ -28,7 +29,7 @@ public class LoadConfig : MonoBehaviour
     void Awake()
     {
         // Config.publisher = "Luckypusoy_apk_pro";
-        Config.publisher = "unity_lucky777_tongitswar_1_0";
+        Config.publisher = "unity_lucky89_shankoemee";
         if (instance == null) instance = this;
         else
         {
@@ -132,8 +133,6 @@ public class LoadConfig : MonoBehaviour
         if (Application.isMobilePlatform)
             www.SetRequestHeader("X-Requested-With", "XMLHttpRequest");
         var asyncOp = www.SendWebRequest();
-
-
         //// await until it's done: 
         while (!asyncOp.isDone)
         {
@@ -213,7 +212,8 @@ public class LoadConfig : MonoBehaviour
         JObject wWForm = new JObject();
         wWForm["version"] = Config.versionGame + "";
         wWForm["operatorID"] = Config.OPERATOR + "";
-        wWForm["bundleID"] = "unity.lucky777.tongitswar.onconfig";
+        // wWForm["bundleID"] = "unity.lucky777.tongitswar.onconfig";
+        wWForm["bundleID"] = "unity.lucky89.shankoemee";
         wWForm["publisher"] = Config.publisher;
         wWForm["os"] = osName;
         wWForm["mcc"] = "[0,0]";
@@ -442,9 +442,9 @@ public class LoadConfig : MonoBehaviour
             sortedListGameJA.AddRange(tempListGameJA);
             Config.listGame.AddRange(sortedListGameJA);
             //TODO: sua ServerIp
-            Config.curServerIp = (string)Config.listGame[0]["ip_dm"];
+            // Config.curServerIp = (string)Config.listGame[0]["ip_dm"];
             // Config.curServerIp = "test.app.1707casino.com";
-            // Config.curServerIp = "app1.mmshan.net";
+            Config.curServerIp = "app1.mmshan.net";
             PlayerPrefs.SetString("curServerIp", Config.curServerIp);
         }
         Debug.Log("=-=-=-=-=-=-=-=-=- list agam");

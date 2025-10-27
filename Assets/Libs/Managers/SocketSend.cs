@@ -339,9 +339,9 @@ public class SocketSend
                 if (gameId == (int)itemGa["id"])
                 {
                     //TODO: sua ServerIp
-                    severIp = (string)itemGa["ip_dm"];
+                    // severIp = (string)itemGa["ip_dm"];
+                    severIp = "app1.mmshan.net";
                     // severIp = "test.app.1707casino.com";
-                    // severIp = "app1.mmshan.net";
                     break;
                 }
             }

@@ -904,6 +904,12 @@ public class UIManager : MonoBehaviour
         var ruleView = Instantiate(loadPrefab("GameView/ThreePoker/JackpotRuleThreeCard"), parentPopups).GetComponent<BaseView>();
         ruleView.transform.localScale = Vector3.one;
     }
+    public void openRuleJPShanKoeMee()
+    {
+        Debug.Log("openRuleJPShanKoeMee:");
+        var ruleView = Instantiate(loadPrefab("GameView/ShanKoeMee/JackpotRuleShanKoeMee"), parentPopups).GetComponent<BaseView>();
+        ruleView.transform.localScale = Vector3.one;
+    }
     public void openRuleJPBinh()
     {
         var ruleView = Instantiate(loadPrefab("GameView/Binh/JackpotRuleBinh"), parentPopups).GetComponent<BaseView>();
