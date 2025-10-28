@@ -323,7 +323,7 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
             return;
         }
         // // mỗi game có 1 điều decode # nhau
-        if (Globals.Config.curGameId != (int)Globals.GAMEID.SHAN_KOE_MEE)
+        // if (Globals.Config.curGameId != (int)Globals.GAMEID.SHAN_KOE_MEE)
         {
             S = ((cod - 1) / 13) + 1; //>=1 <=4
             N = ((cod - 1) % 13) + 2; // >=2 , <=14

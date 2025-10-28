@@ -11,14 +11,16 @@ using UnityEngine.UI;
 
 public class PlayerViewLucky89 : PlayerView
 {
-    public enum BetInfoPosition { NONE, ABOVE, RIGHT, BELLOW, LEFT }
+    public enum BetInfoPosition { NONE, ABOVE, RIGHT, BELLOW, LEFT, BELLOW_RIGHT, BELLOW_LEFT }
     [SerializeField] private List<Card> m_CardCs;
     [SerializeField] private List<GameObject> m_Rates;
     [SerializeField] private SkeletonGraphic m_LuckySG, m_WinSg, m_LoseSg, m_DrawSG;
     [SerializeField] private TextMeshProUGUI m_BetTMP, m_ScoreTMP;
     [SerializeField] private Image imageIconBanker;
+    [SerializeField] private GameObject CardParent, scoreParent;
     private BetInfoPosition _BetInfoBIP = BetInfoPosition.ABOVE;
     private int _BetValue;
+    public bool isBanker;
     public void ShowIconBanker(bool isShow)
     {
         imageIconBanker.gameObject.SetActive(isShow);
@@ -47,7 +49,7 @@ public class PlayerViewLucky89 : PlayerView
         bool isShowAll = thirdCard.gameObject.activeSelf;
         RectTransform cardsParentRT = thirdCard.transform.parent.GetComponent<RectTransform>();
         float tweenDuration = .2f;
-        cardsParentRT.DOLocalMoveX(isShowAll ? 0 : 10, tweenDuration);
+        // cardsParentRT.DOLocalMoveX(isShowAll ? 0 : 10, tweenDuration);
         cardsParentRT.DOLocalRotate(new Vector3(0, 0, isShowAll ? 0 : -15), tweenDuration);
         return this;
     }
@@ -78,23 +80,44 @@ public class PlayerViewLucky89 : PlayerView
         else for (int i = 0; i < m_Rates.Count; i++) m_Rates[i].SetActive(i == rate - 2);
         return this;
     }
-    public PlayerViewLucky89 SetBetPosition(int idPlayerview)
+    public void SetCardPosition(int idPlayerview)
     {
         switch (idPlayerview)
         {
             case 0:
             case 1:
+            case 2:
+            case 3:
+                CardParent.transform.localPosition = new Vector2(152, -16);
+                scoreParent.transform.localPosition = new Vector2(152, -60);
+                break;
+            case 4:
+            case 5:
             case 6:
+                CardParent.transform.localPosition = new Vector2(-152, -16);
+                scoreParent.transform.localPosition = new Vector2(-152, -60);
+                break;
+        }
+    }
+    public PlayerViewLucky89 SetBetPosition(int idPlayerview)
+    {
+        switch (idPlayerview)
+        {
+            case 0:
                 _BetInfoBIP = BetInfoPosition.ABOVE;
                 break;
+            case 1:
             case 2:
                 _BetInfoBIP = BetInfoPosition.RIGHT;
                 break;
             case 3:
+                _BetInfoBIP = BetInfoPosition.BELLOW_RIGHT;
+                break;
             case 4:
-                _BetInfoBIP = BetInfoPosition.BELLOW;
+                _BetInfoBIP = BetInfoPosition.BELLOW_RIGHT;
                 break;
             case 5:
+            case 6:
                 _BetInfoBIP = BetInfoPosition.LEFT;
                 break;
         }
@@ -125,15 +148,27 @@ public class PlayerViewLucky89 : PlayerView
         {
             case BetInfoPosition.ABOVE:
                 rt.anchoredPosition = new Vector2(5, 70);
+                imageIconBanker.transform.localPosition = new Vector2(5, 70);
                 break;
             case BetInfoPosition.RIGHT:
-                rt.anchoredPosition = new Vector2(130, -5);
+                rt.anchoredPosition = new Vector2(280, -52);
+                imageIconBanker.transform.localPosition = new Vector2(280, -52);
                 break;
             case BetInfoPosition.BELLOW:
                 rt.anchoredPosition = new Vector2(5, -130);
+                imageIconBanker.transform.localPosition = new Vector2(5, -130);
                 break;
             case BetInfoPosition.LEFT:
-                rt.anchoredPosition = new Vector2(-130, -5);
+                rt.anchoredPosition = new Vector2(-280, -52);
+                imageIconBanker.transform.localPosition = new Vector2(-280, -52);
+                break;
+            case BetInfoPosition.BELLOW_LEFT:
+                rt.anchoredPosition = new Vector2(-158, -124);
+                imageIconBanker.transform.localPosition = new Vector2(-158, -124);
+                break;
+            case BetInfoPosition.BELLOW_RIGHT:
+                rt.anchoredPosition = new Vector2(158, -124);
+                imageIconBanker.transform.localPosition = new Vector2(158, -124);
                 break;
             default:
                 rt.anchoredPosition = Vector2.zero;
