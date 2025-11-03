@@ -1,0 +1,5 @@
+C:/Users/Phan Tinh/Desktop/Project_TIDI/Tidi-Myanmar-Shan-Koe-Mee/.utmp/RelWithDebInfo/6to56233/arm64-v8a/CMakeFiles/edit_cache.dir
+C:/Users/Phan Tinh/Desktop/Project_TIDI/Tidi-Myanmar-Shan-Koe-Mee/.utmp/RelWithDebInfo/6to56233/arm64-v8a/CMakeFiles/rebuild_cache.dir
+C:/Users/Phan Tinh/Desktop/Project_TIDI/Tidi-Myanmar-Shan-Koe-Mee/.utmp/RelWithDebInfo/6to56233/arm64-v8a/FramePacing/CMakeFiles/swappywrapper.dir
+C:/Users/Phan Tinh/Desktop/Project_TIDI/Tidi-Myanmar-Shan-Koe-Mee/.utmp/RelWithDebInfo/6to56233/arm64-v8a/FramePacing/CMakeFiles/edit_cache.dir
+C:/Users/Phan Tinh/Desktop/Project_TIDI/Tidi-Myanmar-Shan-Koe-Mee/.utmp/RelWithDebInfo/6to56233/arm64-v8a/FramePacing/CMakeFiles/rebuild_cache.dir

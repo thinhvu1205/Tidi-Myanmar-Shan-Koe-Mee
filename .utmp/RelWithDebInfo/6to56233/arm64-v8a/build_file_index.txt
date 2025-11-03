@@ -1,0 +1,2 @@
+C:\Users\Phan Tinh\Desktop\Project_TIDI\Tidi-Myanmar-Shan-Koe-Mee\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\CMakeLists.txt
+C:\Users\Phan Tinh\Desktop\Project_TIDI\Tidi-Myanmar-Shan-Koe-Mee\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\FramePacing\CMakeLists.txt

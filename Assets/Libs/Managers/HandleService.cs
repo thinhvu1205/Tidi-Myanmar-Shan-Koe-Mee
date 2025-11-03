@@ -873,10 +873,10 @@ public class HandleService
                         // {
                         //     ((BorkKDengView)UIManager.instance.gameView).handleUpdateJackpot(jsonData);
                         // }
-                        if (Config.curGameId == (int)GAMEID.SHAN_KOE_MEE && UIManager.instance.gameView != null)
-                        {
-                            ((Lucky89View)UIManager.instance.gameView).handleUpdateJackpot(jsonData);
-                        }
+                        // if (Config.curGameId == (int)GAMEID.SHAN_KOE_MEE && UIManager.instance.gameView != null)
+                        // {
+                        //     ((Lucky89View)UIManager.instance.gameView).handleUpdateJackpot(jsonData);
+                        // }
                         break;
                     }
                 case "jackpothistory":

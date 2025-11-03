@@ -1,0 +1,20 @@
+
+start game.png
+size: 1056,168
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+bet time
+  rotate: false
+  xy: 704, 61
+  size: 347, 103
+  orig: 347, 103
+  offset: 0, 0
+  index: -1
+ribbon
+  rotate: false
+  xy: 2, 2
+  size: 700, 162
+  orig: 700, 162
+  offset: 0, 0
+  index: -1

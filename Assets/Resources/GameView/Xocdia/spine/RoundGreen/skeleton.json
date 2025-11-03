@@ -1,0 +1,57 @@
+{
+"skeleton": {
+	"hash": "fmZzfy5/EGqMipDsGBC52HNXjTU",
+	"spine": "3.8.99",
+	"x": -116,
+	"y": -79.5,
+	"width": 232,
+	"height": 166.66,
+	"images": "./images/",
+	"audio": "G:/game/anim edit/3.8/RoundGreen"
+},
+"bones": [
+	{ "name": "root" },
+	{ "name": "muiten", "parent": "root", "y": 72.66 },
+	{ "name": "round_green", "parent": "root" }
+],
+"slots": [
+	{ "name": "round_green", "bone": "round_green", "attachment": "round_green" },
+	{ "name": "muiten", "bone": "muiten", "attachment": "muiten" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"muiten": {
+				"muiten": { "width": 39, "height": 29 }
+			},
+			"round_green": {
+				"round_green": { "width": 232, "height": 159 }
+			}
+		}
+	}
+],
+"animations": {
+	"animation": {
+		"slots": {
+			"round_green": {
+				"color": [
+					{ "color": "ffffff7f", "curve": 0.375, "c2": 0.5, "c3": 0.75 },
+					{ "time": 0.1667, "color": "ffffff00", "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.5, "color": "ffffffff", "curve": 0.25, "c3": 0.625, "c4": 0.5 },
+					{ "time": 0.6667, "color": "ffffff7f" }
+				]
+			}
+		},
+		"bones": {
+			"muiten": {
+				"translate": [
+					{ "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.3333, "y": -3.93, "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.6667 }
+				]
+			}
+		}
+	}
+}
+}

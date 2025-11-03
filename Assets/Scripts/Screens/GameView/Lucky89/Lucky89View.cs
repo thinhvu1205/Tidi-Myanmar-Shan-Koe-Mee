@@ -14,7 +14,7 @@ public class Lucky89View : GameView
 {
     public enum SCORE
     {
-        LUCKY_8 = 5088, LUCKY_9 = 5099, THREE_OF_A_KIND = 4000, FACE_CARDS = 3000, STRAIGHT_FLUSH = 2000, FLUSH = 1000
+        LUCKY_8 = 8, LUCKY_9 = 9, THREE_OF_A_KIND = 4000, FACE_CARDS = 3000, STRAIGHT_FLUSH = 2000, FLUSH = 1000
     }
     [SerializeField] private List<TextMeshProUGUI> m_BetOptionTMPs, listTextJackPot;
     [SerializeField] private Transform m_PrefabChipTf, m_ChipsTf;
@@ -24,15 +24,18 @@ public class Lucky89View : GameView
     [SerializeField] private GameObject boxTimeStart, panelAction;
     [SerializeField] private Image imageTimeActionRemain;
     [SerializeField] private List<Card> listCardBig;
-    [SerializeField] private Button buttonDraw, buttonNotDraw;
+    [SerializeField] private Button buttonDraw, buttonNotDraw, buttonDeclare3Card;
+    public PlayerViewLucky89 thisPlayerView = null;
     private List<int> _BetValues = new();
+    private List<int> listCodeCard = new();
     private Action _WaitForFinishCompleteCb = null;
     private const float CARD_FLYING_DURATION = .15f, CARD_ROTATING_DURATION = .25f, WIN_CHIP_DURATION = .5f, LOSE_CHIP_DURATION = .5f;
-    private bool _IsMyDrawTime;
     private bool? _DrawACard = null;
     private int _CurBankerId;
     private Vector2 touchStartPos;
     private bool isTrackingSwipe = false;
+    private bool _isRevealMyCards = false;
+
     protected override void Awake()
     {
         base.Awake();
@@ -42,13 +45,6 @@ public class Lucky89View : GameView
     protected override void Start()
     {
         base.Start();
-        if (TableView.instance != null)
-        {
-            handleUpdateJackpot(TableView.instance.currentJackpot);
-        }
-
-        // m_BeginGameSG.AnimationState.Complete += (x) => m_BeginGameSG.gameObject.SetActive(false);
-        // m_BeginGameSG.gameObject.SetActive(false);
         m_DealerSG.AnimationState.Complete += (x) => m_DealerSG.AnimationState.SetAnimation(0, "normal", true);
     }
 
@@ -65,16 +61,38 @@ public class Lucky89View : GameView
     public void DoClickDraw()
     {
         playSound(SOUND_GAME.CLICK);
-        // if (!_IsMyDrawTime) _SetTickDraw(true, 1);
-        SocketSend.SendDrawACardLucky89(1);
         panelAction.SetActive(false);
+        if (thisPlayerView != null && thisPlayerView.isBanker)
+        {
+            SocketSend.SendEventBanker(2);
+            Debug.Log($"Tinh=))Send: Draw And Declare");
+        }
+        else
+        {
+            SocketSend.SendDrawACardLucky89(1);
+        }
     }
     public void DoClickDontDraw()
     {
+        _isRevealMyCards = true;
         panelAction.SetActive(false);
         playSound(SOUND_GAME.CLICK);
-        // if (!_IsMyDrawTime) _SetTickDraw(true, -1);
-        SocketSend.SendDrawACardLucky89(0);
+        if (thisPlayerView != null && thisPlayerView.isBanker)
+        {
+            SocketSend.SendEventBanker(3);
+            Debug.Log($"Tinh=))Send: Don't Draw And Declare");
+        }
+        else
+        {
+            SocketSend.SendDrawACardLucky89(0);
+        }
+    }
+    public void DoClickDeclareWith_3Card()
+    {
+        panelAction.SetActive(false);
+        playSound(SOUND_GAME.CLICK);
+        SocketSend.SendEventBanker(1);
+        Debug.Log($"Tinh=))Send: Declare with 3 card");
     }
     public void DoClickTip()
     {
@@ -89,6 +107,7 @@ public class Lucky89View : GameView
     #endregion
     public void ProcessResponseData(JObject jData)
     {
+        Debug.Log($"Tinh=))JData: {jData}");
         switch ((string)jData["evt"]) //timeToStart//banker_info//bm//lc//bc//cbc//cdco//finish
         {
             case "timeToStart":
@@ -121,6 +140,7 @@ public class Lucky89View : GameView
                 Debug.Log($"Tinh=))cbc: {jData.ToString(Newtonsoft.Json.Formatting.None)}");
                 break;
             case "cdco":
+                _HandleCDCO(jData);
                 Debug.Log($"Tinh=))cdco: {jData.ToString(Newtonsoft.Json.Formatting.None)}");
                 break;
             case "finish":
@@ -149,6 +169,7 @@ public class Lucky89View : GameView
             PlayerViewLucky89 pv = (PlayerViewLucky89)players[i].playerView;
             pv.SetBetPosition(i);
             pv.SetCardPosition(i);
+            pv.SetIconBankerPosition(i);
         }
     }
     public override void handleCTable(string strData)
@@ -201,6 +222,7 @@ public class Lucky89View : GameView
             players[i].updatePlayerView();
             pv.SetBetPosition(i).ShowHideBetChips(players[i].agBet > 0, players[i].agBet);
             pv.SetCardPosition(i);
+            pv.SetIconBankerPosition(i);
         }
         updatePositionPlayerView();
         for (int i = 0; i < dataPlayers.Count; i++)
@@ -238,6 +260,7 @@ public class Lucky89View : GameView
                 players[i].updatePlayerView();
                 pv.SetBetPosition(i).ShowHideBetChips(players[i].agBet > 0, players[i].agBet).HideAllCards().UpdateCardsParentPositionAndRotation();
                 pv.SetCardPosition(i);
+                pv.SetIconBankerPosition(i);
             }
             updatePositionPlayerView();
         };
@@ -324,19 +347,14 @@ public class Lucky89View : GameView
     }
     private void _HandleStartGame(JObject data)
     {
+        _isRevealMyCards = false;
+        listCodeCard.Clear();
         playSound(SOUND_GAME.START_GAME);
         stateGame = STATE_GAME.PLAYING;
         float time = (float)data["timeAction"] / 1000;
         StartCoroutine(RunCountDown(time, "Start in"));
         m_DealerPVL89.ShowHideBetChips(false).ShowAnimResult(false, 0).ShowScore(false, 0).ShowRate(0).HideAllCards();
         foreach (Player p in players) ((PlayerViewLucky89)p.playerView).ShowHideBetChips(false).ShowAnimResult(false, 0).ShowScore(false, 0).ShowRate(0).HideAllCards();
-        // _SetTickDraw(true, 0);
-        // yield return new WaitForSeconds((int)m_BeginGameSG.SkeletonData.FindAnimation(_ShowAnimOnBegin(true)).Duration);
-        // foreach (Player player in players)
-        // {
-        //     if (player.id == User.userMain.Userid) player.setTurn(true, (float)data["T"] / 1000, timeVibrate: 3f);
-        //     else player.setTurn(true, (float)data["T"] / 1000, timeVibrate: -1f);
-        // }
     }
     IEnumerator RunCountDown(float timeCountDown, string content, bool showAnimBegin = true)
     {
@@ -397,6 +415,7 @@ public class Lucky89View : GameView
 
     private void _HandleBankerInfor(JObject data)
     {
+        handleUpdatePot(data);
         for (int i = 0; i < players.Count; i++)
         {
             PlayerViewLucky89 playerView = getPlayerView(players[i]);
@@ -405,6 +424,9 @@ public class Lucky89View : GameView
         int idBanker = getInt(data, "pid");
         var playerBanker = getPlayerWithID(idBanker);
         PlayerViewLucky89 plViewLucky89 = getPlayerView(playerBanker);
+        int idThisPLayer = Globals.User.userMain.Userid;
+        var thisPlayer = getPlayerWithID(idThisPLayer);
+        thisPlayerView = getPlayerView(thisPlayer);
         plViewLucky89.ShowIconBanker(true);
         plViewLucky89.isBanker = true;
     }
@@ -412,25 +434,43 @@ public class Lucky89View : GameView
     private void _HandleAnyoneBets(JObject data)
     {
         float timeAction = 0f;
+        Player player = players.Find(x => x.namePl.Equals((string)data["playerName"]));
         if (data.ContainsKey("timeAction"))
         {
             timeAction = getFloat(data, "timeAction") / 1000f;
 
             if (timeAction > 0)
             {
-                StartCoroutine(ShowBetOption());
+                for (int i = 0; i < players.Count; i++)
+                {
+                    PlayerViewLucky89 playerView = getPlayerView(players[i]);
+                    playerView.ShowAnimWaitOpenCard(true, "white");
+                    if (playerView.isBanker)
+                    {
+                        playerView.ShowAnimWaitOpenCard(false);
+                    }
+                }
+                if (stateGame != STATE_GAME.PLAYING) return;
+                if (!thisPlayerView.isBanker)
+                {
+                    StartCoroutine(ShowBetOption());
+                }
                 StartCoroutine(RunCountDown(timeAction, "Bet Time", false));
+                m_DealerPVL89.ShowAnimWaitOpenCard(false);
             }
         }
         playSound(SOUND_GAME.CLICK);
-        Player player = players.Find(x => x.namePl.Equals((string)data["playerName"]));
         if (player == null) return;
         int betChips = (int)data["chipBet"];
         ((PlayerViewLucky89)player.playerView).ShowHideBetChips(true, betChips);
         player.setTurn(false);
         player.ag -= ((PlayerViewLucky89)player.playerView).GetBetValue();
         player.updatePlayerView();
-        if (player == thisPlayer) foreach (TextMeshProUGUI tmp in m_BetOptionTMPs) tmp.transform.parent.gameObject.SetActive(false);
+        if (player == thisPlayer)
+        {
+            thisPlayerView = (PlayerViewLucky89)player.playerView;
+            foreach (TextMeshProUGUI tmp in m_BetOptionTMPs) tmp.transform.parent.gameObject.SetActive(false);
+        }
     }
     private PlayerViewLucky89 getPlayerView(Player player)
     {
@@ -493,45 +533,37 @@ public class Lucky89View : GameView
             {
                 listCardBig[i].gameObject.SetActive(true);
                 listCardBig[i].setTextureWithCode((int)dataMyCards[i]);
+                listCodeCard.Add((int)dataMyCards[i]);
             }
-            // Gọi animation chia bài (dealer vung tay)
             if (m_DealerSG != null)
             {
                 m_DealerSG.Initialize(true);
                 m_DealerSG.AnimationState.SetAnimation(0, "chiabai", true);
             }
             boxTimeStart.SetActive(false);
-
-            // ✅ Chia 2 lá đầu tiên – TẤT CẢ ĐỀU ÚP (0)
             getAllACard(0, false);
             yield return new WaitForSeconds(CARD_FLYING_DURATION * (players.Count + 1));
 
             getAllACard(0, true);
             yield return new WaitForSeconds(CARD_FLYING_DURATION * (players.Count + 1));
-
-            // Dealer animation kết thúc
             if (m_DealerSG != null)
             {
                 m_DealerSG.Initialize(true);
                 m_DealerSG.AnimationState.SetAnimation(0, "normal", true);
             }
-
-            // ✅ Sau 5 giây mới lật bài của mình
-            // yield return new WaitForSeconds(5f);
+            yield return new WaitUntil(() => _isRevealMyCards);
 
             // PlayerViewLucky89 thisPVL89 = (PlayerViewLucky89)thisPlayer.playerView;
-            // List<Card> myCards = thisPVL89.GetListCards();
-            // for (int i = 0; i < myCards.Count && i < dataMyCards.Count; i++)
-            // {
-            //     _RevealACard(myCards[i], (int)dataMyCards[i], myCards[i].transform.localEulerAngles);
-            // }
+            List<Card> myCards = thisPlayerView.GetListCards();
+            for (int i = 0; i < myCards.Count && i < dataMyCards.Count; i++)
+            {
+                _RevealACard(myCards[i], (int)dataMyCards[i], myCards[i].transform.localEulerAngles);
+            }
+            int myScore = (int)data["score"];
+            if (myScore == 8) myScore = (int)SCORE.LUCKY_8;
+            else if (myScore == 9) myScore = (int)SCORE.LUCKY_9;
 
-            // // Hiển thị điểm & tỉ lệ sau khi lật
-            // int myScore = (int)data["score"];
-            // if (myScore == 8) myScore = (int)SCORE.LUCKY_8;
-            // else if (myScore == 9) myScore = (int)SCORE.LUCKY_9;
-
-            // thisPVL89.ShowRate((int)data["rate"]).ShowScore(true, myScore);
+            thisPlayerView.ShowRate((int)data["rate"]).ShowScore(true, myScore);
         }
 
 
@@ -570,97 +602,161 @@ public class Lucky89View : GameView
     }
 
 
-    private void _HandleAnyoneReceivesLuckyCards(JObject data)
-    {
-        StartCoroutine(handleData());
-        //======================================================
-        IEnumerator handleData()
-        {
-            yield return new WaitForSeconds(2 * CARD_FLYING_DURATION);
-            JArray dataLuckyPlayers = JArray.Parse((string)data["data"]);
-            bool isDealerLucky = false, isThisPlayerLucky = false;
-            foreach (JToken dataLucky in dataLuckyPlayers)
-            {
-                Player playerP = players.Find(x => x.namePl.Equals((string)dataLucky["N"]));
-                PlayerViewLucky89 pvl89 = playerP == null ? m_DealerPVL89 : (PlayerViewLucky89)playerP.playerView;
-                JArray dataCards = (JArray)dataLucky["arr"];
-                List<Card> cardCs = pvl89.GetListCards();
-                for (int i = 0; i < dataCards.Count; i++) _RevealACard(cardCs[i], (int)dataCards[i], cardCs[i].transform.localEulerAngles);
-                int score = (int)dataLucky["score"];
-                pvl89.ShowRate((int)dataLucky["rate"]).ShowScore(true, score);
-                if (score >= (int)SCORE.LUCKY_8)
-                {
-                    if (pvl89 == m_DealerPVL89) isDealerLucky = true;
-                    else if (playerP.id == User.userMain.Userid) isThisPlayerLucky = true;
-                }
-            }
-            if (stateGame == STATE_GAME.VIEWING) yield break;
-        }
-    }
-    private void _HandleAnyoneTimeOut(JObject data)
-    {
-        StartCoroutine(handleData());
-        //======================================================
-        IEnumerator handleData()
-        {
-            Player player = players.Find(x => x.namePl.Equals((string)data["NN"]));
-            float time = (float)data["T"] / 1000;
-            if (player != null)
-            {
-                if (player == thisPlayer)
-                {
-                    float timeVibrate = -1f;
-                    if (_DrawACard == true) SocketSend.SendDrawACardLucky89(1);
-                    else if (_DrawACard == false) SocketSend.SendDrawACardLucky89(0);
-                    else timeVibrate = 3f;
-                    player.setTurn(true, time, timeVibrate: timeVibrate);
-                    _IsMyDrawTime = true;
-                    // _SetTickDraw(false, 0);
-                    yield return new WaitForSeconds(time);
-                    _IsMyDrawTime = false;
-                }
-                else player.setTurn(true, time, timeVibrate: -1f);
-            }
-        }
-    }
+    // private void _HandleAnyoneReceivesLuckyCards(JObject data)
+    // {
+    //     StartCoroutine(handleData());
+    //     //======================================================
+    //     IEnumerator handleData()
+    //     {
+    //         yield return new WaitForSeconds(2 * CARD_FLYING_DURATION);
+    //         JArray dataLuckyPlayers = JArray.Parse((string)data["data"]);
+    //         bool isDealerLucky = false, isThisPlayerLucky = false;
+    //         foreach (JToken dataLucky in dataLuckyPlayers)
+    //         {
+    //             Player playerP = players.Find(x => x.namePl.Equals((string)dataLucky["N"]));
+    //             PlayerViewLucky89 pvl89 = playerP == null ? m_DealerPVL89 : (PlayerViewLucky89)playerP.playerView;
+    //             JArray dataCards = (JArray)dataLucky["arr"];
+    //             List<Card> cardCs = pvl89.GetListCards();
+    //             for (int i = 0; i < dataCards.Count; i++) _RevealACard(cardCs[i], (int)dataCards[i], cardCs[i].transform.localEulerAngles);
+    //             int score = (int)dataLucky["score"];
+    //             pvl89.ShowRate((int)dataLucky["rate"]).ShowScore(true, score);
+    //             if (score >= (int)SCORE.LUCKY_8)
+    //             {
+    //                 if (pvl89 == m_DealerPVL89) isDealerLucky = true;
+    //                 else if (playerP.id == User.userMain.Userid) isThisPlayerLucky = true;
+    //             }
+    //         }
+    //         if (stateGame == STATE_GAME.VIEWING) yield break;
+    //     }
+    // }
+    // private void _HandleAnyoneTimeOut(JObject data)
+    // {
+    //     StartCoroutine(handleData());
+    //     //======================================================
+    //     IEnumerator handleData()
+    //     {
+    //         Player player = players.Find(x => x.namePl.Equals((string)data["NN"]));
+    //         float time = (float)data["T"] / 1000;
+    //         if (player != null)
+    //         {
+    //             if (player == thisPlayer)
+    //             {
+    //                 float timeVibrate = -1f;
+    //                 if (_DrawACard == true) SocketSend.SendDrawACardLucky89(1);
+    //                 else if (_DrawACard == false) SocketSend.SendDrawACardLucky89(0);
+    //                 else timeVibrate = 3f;
+    //                 player.setTurn(true, time, timeVibrate: timeVibrate);
+    //                 // _IsMyDrawTime = true;
+    //                 // _SetTickDraw(false, 0);
+    //                 yield return new WaitForSeconds(time);
+    //                 // _IsMyDrawTime = false;
+    //             }
+    //             else player.setTurn(true, time, timeVibrate: -1f);
+    //         }
+    //     }
+    // }
     private void _HandleAnyoneDrawsCard(JObject data)
     {
-        Player player = players.Find(x => x.namePl.Equals((string)data["N"]));
+        if (data == null)
+        {
+            Debug.LogWarning("_HandleAnyoneDrawsCard called with null data");
+            return;
+        }
+
+        // Kiểm tra có field "N" không — vì có event "bc" không có N
+        if (!data.ContainsKey("N"))
+        {
+            Debug.LogWarning("_HandleAnyoneDrawsCard missing 'N' field");
+            return;
+        }
+
+        string name = (string)data["N"];
+        Player player = players?.Find(x => x.namePl.Equals(name));
+
         bool isDealer = player == null;
         bool isMe = !isDealer && player == thisPlayer;
-        PlayerViewLucky89 playerView = isDealer ? m_DealerPVL89 : (PlayerViewLucky89)player.playerView;
-        if (!isDealer) player.setTurn(false);
-        else m_DealerPVL89.setTurn(false);
+
+        // Nếu là dealer => dùng view dealer, nếu không => dùng view player (có thể null)
+        PlayerViewLucky89 playerView = isDealer
+            ? m_DealerPVL89
+            : (PlayerViewLucky89)(player?.playerView);
+
+        if (playerView == null)
+        {
+            Debug.LogError($"_HandleAnyoneDrawsCard: playerView NULL for {name} (isDealer={isDealer})");
+            return;
+        }
+
+        // Tắt lượt người chơi
+        if (!isDealer)
+            player.setTurn(false);
+        else
+            m_DealerPVL89?.setTurn(false);
+
+        // Lấy mã lá bài (có thể = 0)
         int cardCode = data["C"] != null ? data["C"].Value<int>() : 0;
 
-        if (cardCode > 0)
-        {
-            StartCoroutine(_DrawCard(playerView, isMe ? cardCode : 0));
-            playerView.UpdateCardsParentPositionAndRotation();
-        }
+        // 🚀 Luôn chơi hiệu ứng rút bài (dù C = 0, nghĩa là chưa biết lá thật)
+        StartCoroutine(_DrawCard(playerView, isMe ? cardCode : 0));
+        playerView.UpdateCardsParentPositionAndRotation();
+
+        // Hiển thị điểm và rate nếu là chính mình
         if (isMe)
         {
-            playerView.ShowScore(true, (int)data["score"]).ShowRate((int)data["rate"]);
-        }
+            int score = data.ContainsKey("score") ? (int)data["score"] : 0;
+            int rate = data.ContainsKey("rate") ? (int)data["rate"] : 0;
 
-        if (data.ContainsKey("timeAction"))
-        {
-            float timeDelay = 3f;
-            DOVirtual.DelayedCall(timeDelay, () =>
+            playerView.ShowScore(true, score).ShowRate(rate);
+
+            listCodeCard.Add(cardCode);
+
+            if (listCodeCard.Count > 1)
             {
-                panelAction.SetActive(true);
-                animHand.gameObject.SetActive(true);
-                for (int i = 0; i < listCardBig.Count; i++)
-                {
-                    listCardBig[i].transform.localPosition = Vector3.zero;
-                }
-                StartCoroutine(DetectSwipe());
-                float timeAction = getFloat(data, "timeAction") / 1000 - timeDelay;
-                StartCoroutine(RunCountDownTimeAction(timeAction));
-            });
+                List<Card> cardCs = playerView.GetListCards();
+                int countToReveal = Mathf.Min(listCodeCard.Count - 1, cardCs.Count);
 
+                for (int i = 0; i < countToReveal; i++)
+                {
+                    _RevealACard(cardCs[i], listCodeCard[i], cardCs[i].transform.localEulerAngles);
+                }
+            }
         }
+        if (thisPlayerView.isBanker) return;
+        ShowPanelAction(data);
     }
+
+    private void _HandleCDCO(JObject data)
+    {
+        if (!thisPlayerView.isBanker) return;
+        ShowPanelAction(data);
+    }
+    private void ShowPanelAction(JObject data)
+    {
+        // if (stateGame != STATE_GAME.PLAYING)
+        // {
+        //     Debug.Log("[ShowPanelAction] Not in PLAYING state");
+        //     return;
+        // }
+
+        float timeDelay = 3f;
+        float timeAction = data.ContainsKey("timeAction") ? getFloat(data, "timeAction") / 1000 - timeDelay : 5f; // fallback 5s
+
+        DOVirtual.DelayedCall(timeDelay, () =>
+        {
+            panelAction.SetActive(true);
+            animHand.gameObject.SetActive(true);
+            buttonDraw.gameObject.SetActive(false);
+            buttonNotDraw.gameObject.SetActive(false);
+            buttonDeclare3Card.gameObject.SetActive(false);
+
+            for (int i = 0; i < listCardBig.Count; i++)
+                listCardBig[i].transform.localPosition = Vector3.zero;
+
+            StartCoroutine(DetectSwipe());
+            StartCoroutine(RunCountDownTimeAction(timeAction));
+        });
+    }
+
     IEnumerator DetectSwipe()
     {
         isTrackingSwipe = true;
@@ -683,6 +779,10 @@ public class Lucky89View : GameView
                     listCardBig[2].transform.DOLocalMoveX(72f, 0.5f).SetEase(Ease.Linear);
                     buttonDraw.gameObject.SetActive(true);
                     buttonNotDraw.gameObject.SetActive(true);
+                    if (thisPlayerView != null && thisPlayerView.isBanker)
+                    {
+                        buttonDeclare3Card.gameObject.SetActive(true);
+                    }
                     Debug.Log("aaaaa");
                     isTrackingSwipe = false;
                 }
@@ -694,7 +794,7 @@ public class Lucky89View : GameView
     private void _HandleFinishGame(JObject data)
     {
         StartCoroutine(handleData());
-
+        handleUpdatePot(data);
         IEnumerator handleData()
         {
             HandleData.DelayHandleLeave = 5f;
@@ -746,6 +846,8 @@ public class Lucky89View : GameView
                     for (int i = 0; i < arrCard.Count && i < cardCs.Count; i++)
                         _RevealACard(cardCs[i], arrCard[i]?.Value<int>() ?? -1, cardCs[i].transform.localEulerAngles);
                 }
+
+
 
                 playerView.ShowScore(true, score).ShowRate(rate);
                 playerView.ShowAnimResult(true, chipWin);
@@ -900,12 +1002,12 @@ public class Lucky89View : GameView
     //     m_BeginGameSG.AnimationState.SetAnimation(0, animName, false);
     //     return animName;
     // }
-    public void handleUpdateJackpot(JObject jsonData)
+    public void handleUpdatePot(JObject jsonData)
     {
         var curJackPotBinh = "0";
-        if (jsonData != null && jsonData.ContainsKey("M"))
+        if (jsonData != null && jsonData.ContainsKey("pot"))
         {
-            curJackPotBinh = (long)jsonData["M"] + "";
+            curJackPotBinh = (long)jsonData["pot"] + "";
         }
         var indexRun = curJackPotBinh.Length - 1;
         for (var i = listTextJackPot.Count - 1; i >= 0; i--)
@@ -972,6 +1074,9 @@ public class Lucky89View : GameView
             });
         }
     }
+
+
+
     private void _MoveACard(Transform cardTf, Vector2 targetPosV2)
     {
         cardTf.DOComplete();

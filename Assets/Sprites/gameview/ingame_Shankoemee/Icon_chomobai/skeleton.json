@@ -1,0 +1,109 @@
+{
+"skeleton": {
+	"hash": "4voJeQyZ+fivDb4O3kNMZPZSP74",
+	"spine": "3.8.99",
+	"x": -22,
+	"y": -24.75,
+	"width": 44,
+	"height": 44,
+	"images": "./New folder/",
+	"audio": ""
+},
+"bones": [
+	{ "name": "root" },
+	{ "name": "bone", "parent": "root", "x": -7.7 },
+	{ "name": "bone2", "parent": "root" },
+	{ "name": "bone3", "parent": "root", "x": 7.7 }
+],
+"slots": [
+	{ "name": "bg", "bone": "root", "attachment": "bg2" },
+	{ "name": "dot1", "bone": "bone", "attachment": "dot2" },
+	{ "name": "dot2", "bone": "bone2", "attachment": "dot2" },
+	{ "name": "dot3", "bone": "bone3", "attachment": "dot2" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"bg": {
+				"bg": { "y": -0.95, "width": 32, "height": 32 },
+				"bg2": { "y": -2.75, "width": 44, "height": 44 }
+			},
+			"dot1": {
+				"dot1": { "width": 11, "height": 11 },
+				"dot2": { "width": 5, "height": 5 }
+			},
+			"dot2": {
+				"dot1": { "width": 11, "height": 11 },
+				"dot2": { "width": 5, "height": 5 }
+			},
+			"dot3": {
+				"dot1": { "width": 11, "height": 11 },
+				"dot2": { "width": 5, "height": 5 }
+			}
+		}
+	}
+],
+"animations": {
+	"red": {
+		"slots": {
+			"bg": {
+				"attachment": [
+					{ "name": "bg2" }
+				]
+			},
+			"dot1": {
+				"attachment": [
+					{ "name": "dot1" },
+					{ "time": 0.6667, "name": "dot2" },
+					{ "time": 2, "name": "dot1" }
+				]
+			},
+			"dot2": {
+				"attachment": [
+					{ "name": "dot2" },
+					{ "time": 0.6667, "name": "dot1" },
+					{ "time": 1.3333, "name": "dot2" }
+				]
+			},
+			"dot3": {
+				"attachment": [
+					{ "name": "dot2" },
+					{ "time": 1.3333, "name": "dot1" },
+					{ "time": 2, "name": "dot2" }
+				]
+			}
+		}
+	},
+	"white": {
+		"slots": {
+			"bg": {
+				"attachment": [
+					{ "name": "bg" }
+				]
+			},
+			"dot1": {
+				"attachment": [
+					{ "name": "dot1" },
+					{ "time": 0.6667, "name": "dot2" },
+					{ "time": 2, "name": "dot1" }
+				]
+			},
+			"dot2": {
+				"attachment": [
+					{ "name": "dot2" },
+					{ "time": 0.6667, "name": "dot1" },
+					{ "time": 1.3333, "name": "dot2" }
+				]
+			},
+			"dot3": {
+				"attachment": [
+					{ "name": "dot2" },
+					{ "time": 1.3333, "name": "dot1" },
+					{ "time": 2, "name": "dot2" }
+				]
+			}
+		}
+	}
+}
+}

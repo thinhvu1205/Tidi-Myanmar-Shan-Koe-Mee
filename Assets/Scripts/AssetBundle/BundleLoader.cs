@@ -164,6 +164,7 @@ public class LoaderEditor : Editor
                         thisBL.AddOnEnableCb(null);
                         return;
                     }
+
                     if (thisBL.ThisSG.SkeletonDataAsset == null)
                     {
                         EditorGUILayout.HelpBox("No SkeletonData asset found!", MessageType.Warning);

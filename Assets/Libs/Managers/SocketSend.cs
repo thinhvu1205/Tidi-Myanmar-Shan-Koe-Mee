@@ -1389,6 +1389,15 @@ public class SocketSend
         };
         WebSocketManager.getInstance().sendDataGame(data.ToString(Newtonsoft.Json.Formatting.None));
     }
+    public static void SendEventBanker(int chosenOptionId) //opt 1: declare with all player have 3 card,opt 2: take card and declare,opt 3: not take card and declare
+    {
+        JObject data = new()
+        {
+            ["evt"] = "cdco",
+            ["opt"] = chosenOptionId
+        };
+        WebSocketManager.getInstance().sendDataGame(data.ToString(Newtonsoft.Json.Formatting.None));
+    }
     //====================END LUCKY89======================
     //====================LUCKY NUMBER======================
     public static void SendGetStatusLuckyNumber()

@@ -18,12 +18,30 @@ public class PlayerViewLucky89 : PlayerView
     [SerializeField] private TextMeshProUGUI m_BetTMP, m_ScoreTMP;
     [SerializeField] private Image imageIconBanker;
     [SerializeField] private GameObject CardParent, scoreParent;
+    [SerializeField] private SkeletonGraphic animWaitOpenCard;
     private BetInfoPosition _BetInfoBIP = BetInfoPosition.ABOVE;
     private int _BetValue;
     public bool isBanker;
+    public void ShowAnimWaitOpenCard(bool isShow, string nameAnim = "red")
+    {
+        if (isShow)
+        {
+            animWaitOpenCard.Initialize(true);
+            animWaitOpenCard.AnimationState.SetAnimation(0, nameAnim, true);
+            animWaitOpenCard.gameObject.SetActive(true);
+        }
+        else
+        {
+            animWaitOpenCard.gameObject.SetActive(false);
+        }
+    }
     public void ShowIconBanker(bool isShow)
     {
         imageIconBanker.gameObject.SetActive(isShow);
+        if (isShow)
+        {
+            animWaitOpenCard.gameObject.SetActive(false);
+        }
     }
 
     public PlayerViewLucky89 ShowAnimResult(bool show, long changedChips)
@@ -88,14 +106,39 @@ public class PlayerViewLucky89 : PlayerView
             case 1:
             case 2:
             case 3:
-                CardParent.transform.localPosition = new Vector2(152, -16);
-                scoreParent.transform.localPosition = new Vector2(152, -60);
+                CardParent.transform.localPosition = new Vector2(140, -36);
+                scoreParent.transform.localPosition = new Vector2(140, -80);
+                m_LuckySG.rectTransform.anchoredPosition = new Vector2(140, -128);
                 break;
             case 4:
             case 5:
             case 6:
-                CardParent.transform.localPosition = new Vector2(-152, -16);
-                scoreParent.transform.localPosition = new Vector2(-152, -60);
+                CardParent.transform.localPosition = new Vector2(-140, -36);
+                scoreParent.transform.localPosition = new Vector2(-140, -80);
+                m_LuckySG.rectTransform.anchoredPosition = new Vector2(-140, -128);
+                break;
+        }
+    }
+    public void SetIconBankerPosition(int idPlayerview)
+    {
+        switch (idPlayerview)
+        {
+            case 0:
+                imageIconBanker.rectTransform.anchoredPosition = new Vector2(144, 60);
+                break;
+            case 1:
+            case 2:
+                imageIconBanker.rectTransform.anchoredPosition = new Vector2(280, -52);
+                break;
+            case 3:
+                imageIconBanker.rectTransform.anchoredPosition = new Vector2(158, -124);
+                break;
+            case 4:
+                imageIconBanker.rectTransform.anchoredPosition = new Vector2(-158, -124);
+                break;
+            case 5:
+            case 6:
+                imageIconBanker.rectTransform.anchoredPosition = new Vector2(-280, -52);
                 break;
         }
     }
@@ -114,7 +157,7 @@ public class PlayerViewLucky89 : PlayerView
                 _BetInfoBIP = BetInfoPosition.BELLOW_RIGHT;
                 break;
             case 4:
-                _BetInfoBIP = BetInfoPosition.BELLOW_RIGHT;
+                _BetInfoBIP = BetInfoPosition.BELLOW_LEFT;
                 break;
             case 5:
             case 6:
@@ -128,12 +171,13 @@ public class PlayerViewLucky89 : PlayerView
         _BetValue = betValue;
         RectTransform rt = m_BetTMP.transform.parent.GetComponent<RectTransform>();
         rt.gameObject.SetActive(show);
-
+        if (show)
+        {
+            animWaitOpenCard.gameObject.SetActive(false);
+        }
+        StartCoroutine(DelaySetBetPosition(rt));
         if (!show)
             return this;
-
-        // Chờ 1 frame để UI khởi tạo xong rồi set vị trí
-        StartCoroutine(DelaySetBetPosition(rt));
 
         if (_BetValue > 0)
             m_BetTMP.text = Config.FormatMoney(_BetValue, true).ToString();
@@ -147,28 +191,28 @@ public class PlayerViewLucky89 : PlayerView
         switch (_BetInfoBIP)
         {
             case BetInfoPosition.ABOVE:
-                rt.anchoredPosition = new Vector2(5, 70);
-                imageIconBanker.transform.localPosition = new Vector2(5, 70);
+                rt.anchoredPosition = new Vector2(144, 60);
+                animWaitOpenCard.rectTransform.anchoredPosition = new Vector2(144, 60);
                 break;
             case BetInfoPosition.RIGHT:
-                rt.anchoredPosition = new Vector2(280, -52);
-                imageIconBanker.transform.localPosition = new Vector2(280, -52);
+                rt.anchoredPosition = new Vector2(272, -52);
+                animWaitOpenCard.rectTransform.anchoredPosition = new Vector2(272, -52);
                 break;
             case BetInfoPosition.BELLOW:
                 rt.anchoredPosition = new Vector2(5, -130);
-                imageIconBanker.transform.localPosition = new Vector2(5, -130);
+                animWaitOpenCard.rectTransform.anchoredPosition = new Vector2(5, -130);
                 break;
             case BetInfoPosition.LEFT:
-                rt.anchoredPosition = new Vector2(-280, -52);
-                imageIconBanker.transform.localPosition = new Vector2(-280, -52);
+                rt.anchoredPosition = new Vector2(-272, -52);
+                animWaitOpenCard.rectTransform.anchoredPosition = new Vector2(-272, -52);
                 break;
             case BetInfoPosition.BELLOW_LEFT:
                 rt.anchoredPosition = new Vector2(-158, -124);
-                imageIconBanker.transform.localPosition = new Vector2(-158, -124);
+                animWaitOpenCard.rectTransform.anchoredPosition = new Vector2(-158, -124);
                 break;
             case BetInfoPosition.BELLOW_RIGHT:
                 rt.anchoredPosition = new Vector2(158, -124);
-                imageIconBanker.transform.localPosition = new Vector2(158, -124);
+                animWaitOpenCard.rectTransform.anchoredPosition = new Vector2(158, -124);
                 break;
             default:
                 rt.anchoredPosition = Vector2.zero;

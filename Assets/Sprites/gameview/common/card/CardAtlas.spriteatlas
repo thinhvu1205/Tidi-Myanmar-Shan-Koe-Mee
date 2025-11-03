@@ -48,6 +48,7 @@ SpriteAtlas:
     - 2073a93376a7b4ff98b65253bbbc59ac: 21300000
     - 8c2e9a85c4bea4073b6c526aa834003b: 21300000
     - 39d22c8556991b849af4430a1a6f365e: 21300000
+    - ab60ce852058a124db8e05707ed6e7c2: 6681096602864842179
     - fd5e3be56506aa94cb9170a2d7b20257: 4805568382377912380
     - 36443bb66777b4a83ac0eaaaaee3066f: 21300000
     - a1dbd9c6234a6464cba154b5a2a8b7c1: 21300000
@@ -90,6 +91,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 2073a93376a7b4ff98b65253bbbc59ac, type: 3}
   - {fileID: 21300000, guid: 8c2e9a85c4bea4073b6c526aa834003b, type: 3}
   - {fileID: 21300000, guid: 39d22c8556991b849af4430a1a6f365e, type: 3}
+  - {fileID: 6681096602864842179, guid: ab60ce852058a124db8e05707ed6e7c2, type: 3}
   - {fileID: 4805568382377912380, guid: fd5e3be56506aa94cb9170a2d7b20257, type: 3}
   - {fileID: 21300000, guid: 36443bb66777b4a83ac0eaaaaee3066f, type: 3}
   - {fileID: 21300000, guid: a1dbd9c6234a6464cba154b5a2a8b7c1, type: 3}
@@ -131,6 +133,7 @@ SpriteAtlas:
   - card_bich_small
   - card_tep
   - card_joker_black
+  - card_up 1_0
   - card_up_0
   - card_7
   - card_1

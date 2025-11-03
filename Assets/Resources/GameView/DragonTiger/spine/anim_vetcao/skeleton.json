@@ -1,0 +1,55 @@
+{
+"skeleton": {
+	"hash": "wZ3MtvuC4RS8C5AwsqnDyqBusGU",
+	"spine": "3.8.99",
+	"x": -28.49,
+	"y": -14.16,
+	"width": 170,
+	"height": 216,
+	"images": "",
+	"audio": "C:/Users/LL/Desktop/animations/anim_vetcao"
+},
+"bones": [
+	{ "name": "root" },
+	{ "name": "scatch", "parent": "root", "length": 201.26, "rotation": 63.82 }
+],
+"slots": [
+	{ "name": "scatch", "bone": "scatch", "attachment": "scatch" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"scatch": {
+				"scatch": { "x": 109.14, "y": -9.31, "rotation": -63.82, "width": 170, "height": 216 }
+			}
+		}
+	}
+],
+"animations": {
+	"animation": {
+		"slots": {
+			"scatch": {
+				"color": [
+					{ "color": "ffffff00" },
+					{ "time": 0.1, "color": "ffffffff" }
+				]
+			}
+		},
+		"bones": {
+			"scatch": {
+				"translate": [
+					{ "x": 80.21, "y": 163.16, "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.2667, "x": -21.5, "y": -43.73, "curve": "stepped" },
+					{ "time": 27.3333, "x": -21.5, "y": -43.73 }
+				],
+				"scale": [
+					{ "x": 0.567, "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.2667, "x": 1.219, "curve": "stepped" },
+					{ "time": 27.3333, "x": 1.219 }
+				]
+			}
+		}
+	}
+}
+}
