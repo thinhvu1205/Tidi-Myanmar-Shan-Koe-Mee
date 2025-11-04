@@ -1290,7 +1290,7 @@ MonoBehaviour:
   listAnimResult:
   - {fileID: 11400000, guid: 4435b874fb7fe4f35bcac902623030e7, type: 2}
   - {fileID: 11400000, guid: 6eef1015241d341f087605383b7af518, type: 2}
-  - {fileID: 11400000, guid: 91945b638ac9d4b6f9f41753fc5c6e6e, type: 2}
+  - {fileID: 11400000, guid: 4667df206c83d6040a0641234467c79e, type: 2}
   cards: []
 --- !u!1001 &5782567348691252104
 PrefabInstance:
