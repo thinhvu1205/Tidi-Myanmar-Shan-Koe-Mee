@@ -324,6 +324,7 @@ public class BinhGameView : GameView
     }
     private async void _HandleFinishGame(JObject data)
     {
+        Debug.Log($"Tinh=))_HandleFinishGame: {data.ToString(Newtonsoft.Json.Formatting.None)}");
         _IsExit = true;
         SoundManager.instance.playEffectFromPath(SOUND_GAME.ALERT);
         if (m_SortCards.activeSelf) hideSortLayer();
@@ -360,12 +361,12 @@ public class BinhGameView : GameView
                 ["ArrWin"] = getJArray(jpl, "ArrWin")
             };
             _DataResultJOs.Add(playerData);
-            int jackPot = (int)jpl["jackPot"];
-            if (jackPot > 0 && playerP == thisPlayer)
-            {
-                playerP.playerView.chipJackpot = jackPot;
-                StartCoroutine(ShowJackpotWin(jackPot));
-            }
+            // int jackPot = (int)jpl["jackPot"];
+            // if (jackPot > 0 && playerP == thisPlayer)
+            // {
+            //     playerP.playerView.chipJackpot = jackPot;
+            //     StartCoroutine(ShowJackpotWin(jackPot));
+            // }
         }
         int num = 0;
         for (int i = 0; i < players.Count; i++)

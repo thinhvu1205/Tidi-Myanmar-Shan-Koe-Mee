@@ -202,17 +202,19 @@ public class BaucuaGameView : GameView
     }
     public void handleStart(string data)
     {
-        Debug.Log($"dataStart: {data}");
-        if (data == null) return;
         Debug.Log("check xem từ đây là ban đầu như nào" + Config.isBackGame);
         m_LbWin.gameObject.SetActive(true);
-        int timeData = int.Parse(data);
+        int timeData = 5;
+        if (data != null)
+        {
+            timeData = int.Parse(data);
+        }
         stateGame = STATE_GAME.WAITING;
         TweenCallback effectStart = () =>
         {
             m_AniStart.gameObject.SetActive(true);
             m_AniStart.Initialize(true);
-            m_AniStart.AnimationState.SetAnimation(0, "start_eng", false);
+            m_AniStart.AnimationState.SetAnimation(0, "start_myr", false);
             playSound(SOUND_HILO.START_GAME);
         };
         TweenCallback effectXocDia = () =>
@@ -227,7 +229,7 @@ public class BaucuaGameView : GameView
         {
             m_AniStart.gameObject.SetActive(true);
             m_AniStart.Initialize(true);
-            m_AniStart.AnimationState.SetAnimation(0, "bet_eng", false);
+            m_AniStart.AnimationState.SetAnimation(0, "bet_myr", false);
             DOTween.Sequence().AppendInterval(1.0f).AppendCallback(() =>
             {
                 m_AniStart.gameObject.SetActive(false);
@@ -654,7 +656,7 @@ public class BaucuaGameView : GameView
             m_LbWin.text = "+" + Config.FormatMoney(moneyChange, true);
             m_AniWin.gameObject.SetActive(true);
             m_AniWin.Initialize(true);
-            m_AniWin.AnimationState.SetAnimation(0, "eng", false);
+            m_AniWin.AnimationState.SetAnimation(0, "cam", false);
         }
         else if (moneyChange < 0)
         {
@@ -662,7 +664,7 @@ public class BaucuaGameView : GameView
             m_LbLose.text = Config.FormatMoney(moneyChange, true);
             m_AniLose.gameObject.SetActive(true);
             m_AniLose.Initialize(true);
-            m_AniLose.AnimationState.SetAnimation(0, "eng", false);
+            m_AniLose.AnimationState.SetAnimation(0, "cam", false);
         }
         else
         {
@@ -956,7 +958,7 @@ public class BaucuaGameView : GameView
         JArray dataArray = JArray.Parse(data["data"].ToString());
         m_AniStart.gameObject.SetActive(true);
         m_AniStart.Initialize(true);
-        m_AniStart.AnimationState.SetAnimation(0, "open_eng", false);
+        m_AniStart.AnimationState.SetAnimation(0, "open_myr", false);
         cancelValueBet();
         yield return new WaitForSeconds(1.0f);
         ShowDiceResults(result);

@@ -10,7 +10,7 @@ public class HandleBaucua
         switch (evt)
         {
             case "startgame":
-                gameView.handleStart((string)jData["timeOut"]);
+                gameView.handleStart((string)jData["data"]);
                 break;
             case "bet":
                 gameView.handleBetGame(jData);

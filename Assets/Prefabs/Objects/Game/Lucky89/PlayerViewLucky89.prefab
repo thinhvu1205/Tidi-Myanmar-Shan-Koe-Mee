@@ -2635,6 +2635,7 @@ MonoBehaviour:
   imageIconBanker: {fileID: 368170429047679753}
   CardParent: {fileID: 517567702908594862}
   scoreParent: {fileID: 7589940571683634130}
+  rateParent: {fileID: 9100746347609831658}
   animWaitBetTime: {fileID: 8839360950662493151}
   animWaitOpenCard: {fileID: 3444736250104242488}
   isBanker: 0
@@ -3067,7 +3068,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 144, y: -30}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &9122989119007031747

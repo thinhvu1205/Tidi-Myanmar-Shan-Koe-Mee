@@ -17,7 +17,7 @@ public class PlayerViewLucky89 : PlayerView
     [SerializeField] private SkeletonGraphic m_LuckySG, m_WinSg, m_LoseSg, m_DrawSG;
     [SerializeField] private TextMeshProUGUI m_BetTMP, m_ScoreTMP;
     [SerializeField] private Image imageIconBanker;
-    [SerializeField] private GameObject CardParent, scoreParent;
+    [SerializeField] private GameObject CardParent, scoreParent, rateParent;
     [SerializeField] private SkeletonGraphic animWaitBetTime, animWaitOpenCard;
     private BetInfoPosition _BetInfoBIP = BetInfoPosition.ABOVE;
     private int _BetValue;
@@ -86,21 +86,33 @@ public class PlayerViewLucky89 : PlayerView
         foreach (Card cardC in m_CardCs) if (!cardC.gameObject.activeSelf) return cardC;
         return null;
     }
-    public PlayerViewLucky89 ShowScore(bool show, int score)
+    public PlayerViewLucky89 ShowScore(bool show, int score, int cardCount)
     {
-        bool isLucky = score >= (int)Lucky89View.SCORE.LUCKY_8;
+        bool isLucky = (cardCount == 2) && (score >= (int)Lucky89View.SCORE.LUCKY_8);
+        bool isLucky8 = (score >= (int)Lucky89View.SCORE.LUCKY_8 && score < (int)Lucky89View.SCORE.LUCKY_9 && cardCount == 2);
+        bool isLucky9 = (score >= (int)Lucky89View.SCORE.LUCKY_9 && cardCount == 2);
         m_LuckySG.gameObject.SetActive(show && isLucky);
         m_ScoreTMP.transform.parent.gameObject.SetActive(show && !isLucky);
+
         if (!show) return this;
-        if (score >= (int)Lucky89View.SCORE.LUCKY_9) m_LuckySG.AnimationState.SetAnimation(0, "lucky9", false);
-        else if (score >= (int)Lucky89View.SCORE.LUCKY_8) m_LuckySG.AnimationState.SetAnimation(0, "lucky8", false);
-        else if (score >= (int)Lucky89View.SCORE.THREE_OF_A_KIND) m_ScoreTMP.text = "Three of a kind";
-        else if (score >= (int)Lucky89View.SCORE.FACE_CARDS) m_ScoreTMP.text = "Face cards";
-        else if (score >= (int)Lucky89View.SCORE.STRAIGHT_FLUSH) m_ScoreTMP.text = "Straight flush";
-        else if (score >= (int)Lucky89View.SCORE.FLUSH) m_ScoreTMP.text = "Flush";
-        else m_ScoreTMP.text = score + " points";
+        if (isLucky9)
+            m_LuckySG.AnimationState.SetAnimation(0, "lucky9", false);
+        else if (isLucky8)
+            m_LuckySG.AnimationState.SetAnimation(0, "lucky8", false);
+        else if (score >= (int)Lucky89View.SCORE.THREE_OF_A_KIND)
+            m_ScoreTMP.text = "Three of a kind";
+        else if (score >= (int)Lucky89View.SCORE.FACE_CARDS)
+            m_ScoreTMP.text = "Face cards";
+        else if (score >= (int)Lucky89View.SCORE.STRAIGHT_FLUSH)
+            m_ScoreTMP.text = "Straight flush";
+        else if (score >= (int)Lucky89View.SCORE.FLUSH)
+            m_ScoreTMP.text = "Flush";
+        else
+            m_ScoreTMP.text = score + " points";
+
         return this;
     }
+
     public PlayerViewLucky89 ShowRate(int rate)
     {
         if (rate < 2) foreach (GameObject go in m_Rates) go.SetActive(false);
@@ -119,6 +131,7 @@ public class PlayerViewLucky89 : PlayerView
                 animWaitOpenCard.transform.localPosition = new Vector2(140, -36);
                 scoreParent.transform.localPosition = new Vector2(140, -80);
                 m_LuckySG.rectTransform.anchoredPosition = new Vector2(140, -128);
+                rateParent.transform.localPosition = new Vector2(144, -30);
                 break;
             case 4:
             case 5:
@@ -127,6 +140,7 @@ public class PlayerViewLucky89 : PlayerView
                 animWaitOpenCard.transform.localPosition = new Vector2(-140, -36);
                 scoreParent.transform.localPosition = new Vector2(-140, -80);
                 m_LuckySG.rectTransform.anchoredPosition = new Vector2(-140, -128);
+                rateParent.transform.localPosition = new Vector2(-138, -30);
                 break;
         }
     }
@@ -139,7 +153,7 @@ public class PlayerViewLucky89 : PlayerView
                 break;
             case 1:
             case 2:
-                imageIconBanker.rectTransform.anchoredPosition = new Vector2(280, -52);
+                imageIconBanker.rectTransform.anchoredPosition = new Vector2(248, -52);
                 break;
             case 3:
                 imageIconBanker.rectTransform.anchoredPosition = new Vector2(158, -124);
@@ -149,7 +163,7 @@ public class PlayerViewLucky89 : PlayerView
                 break;
             case 5:
             case 6:
-                imageIconBanker.rectTransform.anchoredPosition = new Vector2(-280, -52);
+                imageIconBanker.rectTransform.anchoredPosition = new Vector2(-248, -52);
                 break;
         }
     }
