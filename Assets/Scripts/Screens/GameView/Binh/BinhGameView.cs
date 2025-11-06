@@ -180,6 +180,11 @@ public class BinhGameView : GameView
             _IsFinish = false;
         }
     }
+    public override void onClickRule()
+    {
+        playSound(SOUND_GAME.CLICK);
+        Application.OpenURL("https://cfg.mmshan.net/rule/index.html?gameid=8044&list=false");
+    }
     public override void handleRJTable(string objData)
     {
         base.handleRJTable(objData);

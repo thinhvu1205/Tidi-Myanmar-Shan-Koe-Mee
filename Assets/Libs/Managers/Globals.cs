@@ -265,13 +265,13 @@ namespace Globals
         SLOT20FRUIT = 9007,//lay
         // THREE_CARD_POKER = 8012,
         // SABONG = 8011,
-        SICBO = 8010,//lay
+        SICBO = 8010,//lay là xóc đĩa không có dealer
         SLOTNOEL = 8818,//lay
         SLOT_JUICY_GARDEN = 9900,//lay
         SLOTTARZAN = 9950,//lay
         SLOT_SIXIANG = 9011,//lay
         DRAGONTIGER = 8009,//lay
-        SESKU = 9006,//lay
+        SESKU = 9006,//lay là xóc đĩa có dealer
                      // MINE_FINDING = 8804
     }
     public enum DOTWEEN_TAG

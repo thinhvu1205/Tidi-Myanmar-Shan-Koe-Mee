@@ -128,7 +128,6 @@ public class DragonTigerView : GameView
 
         stateGame = Globals.STATE_GAME.WAITING;
     }
-
     protected override void updatePositionPlayerView()
     {
         listPlayerHide = new List<Player>();

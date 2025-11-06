@@ -1,4 +1,5 @@
 using Newtonsoft.Json.Linq;
+using UnityEngine;
 
 public class HandleBaucua
 {
@@ -10,7 +11,8 @@ public class HandleBaucua
         switch (evt)
         {
             case "startgame":
-                gameView.handleStart((string)jData["data"]);
+                Debug.Log($"Tinh=))startgame: {jData.ToString(Newtonsoft.Json.Formatting.None)}");
+                gameView.handleStart(jData);
                 break;
             case "bet":
                 gameView.handleBetGame(jData);

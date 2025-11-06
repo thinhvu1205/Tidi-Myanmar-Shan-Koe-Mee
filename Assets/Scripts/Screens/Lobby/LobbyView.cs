@@ -786,6 +786,11 @@ public class LobbyView : BaseView
 
     public void refreshUIFromConfig(bool isStart = false, bool showFull = false)
     {
+        if (User.userMain != null && m_VipFarmBVF != null)
+        {
+            m_VipFarmBVF.gameObject.SetActive(User.userMain.VIP > 1);
+            isFull = User.userMain.VIP >= 1;
+        }
         if (btnEx != null)
             btnEx.SetActive(Config.is_dt);
 
@@ -806,36 +811,21 @@ public class LobbyView : BaseView
             updateAgSafe();
 
         if (btnLeaderboard != null)
-            btnLeaderboard.gameObject.SetActive(Config.listRankGame != null && Config.listRankGame.Count > 0);
+            // btnLeaderboard.gameObject.SetActive(Config.listRankGame != null && Config.listRankGame.Count > 0);
+            btnLeaderboard.gameObject.SetActive(isFull);
 
         if (btnGiftCode != null)
             btnGiftCode.SetActive(Config.ismaqt);
 
-        if (User.userMain != null && m_VipFarmBVF != null)
-            m_VipFarmBVF.gameObject.SetActive(User.userMain.VIP > 1);
+        // bool isShow = false;
 
         if (!isStart)
             _ReloadListGames();
 
-        bool isShow = Config.arrOnlistTrue.Count >= 1;
-        shop.SetActive(isShow);
-        shopFull.SetActive(!isShow);
-        exChange.SetActive(isShow);
-        // if (shop != null && shopFull != null && exChange != null)
-        // {
-        //     if (showFull)
-        //     {
-        //         shop.SetActive(true);
-        //         shopFull.SetActive(false);
-        //         exChange.SetActive(true);
-        //     }
-        //     else
-        //     {
-        //         shop.SetActive(false);
-        //         shopFull.SetActive(true);
-        //         exChange.SetActive(false);
-        //     }
-        // }
+        // bool isShow = Config.arrOnlistTrue.Count >= 1;
+        shop.SetActive(isFull);
+        shopFull.SetActive(!isFull);
+        exChange.SetActive(isFull);
 
         // setDefaultPosBtnMore();
     }
@@ -851,6 +841,7 @@ public class LobbyView : BaseView
         // if (!Config.fanpageID.Equals("") && Config.is_bl_fb || !Config.chat_tele_support_link.Equals(""))
         //     UIManager.instance.openSupport();
         // else UIManager.instance.openFeedback();
+        Debug.Log($"Tinh=))Config.is_bl_fb: {Config.is_bl_fb}");
         if (Config.is_bl_fb == true)
         {
             UIManager.instance.openSupport();
@@ -894,7 +885,7 @@ public class LobbyView : BaseView
         //scrollSnapView.gameObject.SetActive(false);
         m_BannersPS.gameObject.SetActive(false);
         _SetPosWhenBannerActive();
-        btnBannerNews.SetActive(false);
+        // btnBannerNews.SetActive(false);
         TabGame = 0;
     }
 }

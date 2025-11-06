@@ -92,7 +92,8 @@ public class BaucuaGameView : GameView
             return;
         }
 
-        long gold = thisPlayer.ag;
+        long gold = (thisPlayer.ag >= agTable * 100) ? agTable * 100 : thisPlayer.ag;
+        // long gold = thisPlayer.ag;
 
         // Tìm index phù hợp trong mảng TEMP_VALUE_GOLD_COINS
         int x = 4;  // Bắt đầu từ index 4
@@ -200,15 +201,13 @@ public class BaucuaGameView : GameView
             }
         }
     }
-    public void handleStart(string data)
+    public void handleStart(JObject data)
     {
         Debug.Log("check xem từ đây là ban đầu như nào" + Config.isBackGame);
+        Debug.Log($"Tinh=))handleStartBaucua: {data}");
         m_LbWin.gameObject.SetActive(true);
-        int timeData = 5;
-        if (data != null)
-        {
-            timeData = int.Parse(data);
-        }
+        int timeData = getInt(data, "timeOut");
+
         stateGame = STATE_GAME.WAITING;
         TweenCallback effectStart = () =>
         {
@@ -237,7 +236,7 @@ public class BaucuaGameView : GameView
         };
         TweenCallback effectAniClock = () =>
         {
-            showClock(true, Mathf.FloorToInt(timeData / 1000) - 1);
+            showClock(true, Mathf.FloorToInt(timeData) - 1);
             interactableButton(true);
         };
         DOTween.Sequence()
@@ -251,6 +250,7 @@ public class BaucuaGameView : GameView
     }
     public override void handleSTable(string data)
     {
+        Debug.Log($"Tinh=))handleSTable: {data}");
         base.handleSTable(data);
         stateGame = STATE_GAME.WAITING;
         TableHistory.SetData(DataHistory);
@@ -869,6 +869,7 @@ public class BaucuaGameView : GameView
     private bool CanPlaceBet(long betAmount)
     {
         // Kiểm tra nếu tổng số tiền cược hiện tại cộng với số tiền cược mới vượt quá giới hạn cho phép
+        // Debug.Log($"DictionMeBetInGateLast + betAmount: {DictionMeBetInGateLast.Sum() + betAmount}// agTable: {agTable * 100}");
         if (DictionMeBetInGateLast.Sum() + betAmount > agTable * 100)
         {
             string msg = Config.getTextConfig("txt_max_bet");

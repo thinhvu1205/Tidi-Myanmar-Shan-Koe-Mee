@@ -21,7 +21,7 @@ public class PlayerViewLucky89 : PlayerView
     [SerializeField] private SkeletonGraphic animWaitBetTime, animWaitOpenCard;
     private BetInfoPosition _BetInfoBIP = BetInfoPosition.ABOVE;
     private int _BetValue;
-    public bool isBanker;
+    public bool isBanker, bankerLucky;
     public void ShowAnimWaitBetTime(bool isShow, string nameAnim = "White")
     {
         if (isShow)

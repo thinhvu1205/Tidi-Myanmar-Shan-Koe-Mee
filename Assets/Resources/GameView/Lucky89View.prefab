@@ -2847,7 +2847,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: RULE SABONG
+  m_text: RULE SHAN KOE MEE
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 93b8a2ed28803f040bae41074fdc1ec0, type: 2}
   m_sharedMaterial: {fileID: -4101433465038061289, guid: 93b8a2ed28803f040bae41074fdc1ec0, type: 2}
@@ -2874,8 +2874,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 34
+  m_fontSizeBase: 34
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4937,6 +4937,7 @@ MonoBehaviour:
   - {fileID: 2556533831255624897}
   - {fileID: 1367800072516048530}
   - {fileID: 1608634204872577383}
+  popupRuleGame: {fileID: 731053683127139027}
   m_PrefabChipTf: {fileID: 9202160644234113263}
   m_ChipsTf: {fileID: 7842293248370688528}
   m_TipChipsTMP: {fileID: 4685616762775220527}

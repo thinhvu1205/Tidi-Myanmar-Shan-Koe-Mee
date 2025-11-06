@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 9c1596d83940a3f4fb6f53aaee02e2a1
+guid: 2edf04f39cbd0824eb61e65cc0d8476c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1942449888504381806
-    second: Sicbo_0
+      213: -4681777996029483823
+    second: sesku_myan_0
+  - first:
+      213: -1897402269827345753
+    second: sesku_myan_1
+  - first:
+      213: -3658810324619634108
+    second: sesku_myan_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +132,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Sicbo_0
+      name: sesku_myan_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 136
-        height: 74
+        width: 41
+        height: 92
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +147,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e610d4ec1e7f4fa10800000000000000
-      internalID: 1942449888504381806
+      spriteID: 1d42c6db7bbf60fb0800000000000000
+      internalID: -4681777996029483823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sesku_myan_1
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 41
+        width: 26
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a2dbee30b21ba5e0800000000000000
+      internalID: -1897402269827345753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sesku_myan_2
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 0
+        width: 80
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44ad38c156b493dc0800000000000000
+      internalID: -3658810324619634108
       vertices: []
       indices: 
       edges: []
@@ -161,7 +211,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Sicbo_0: 1942449888504381806
+      sesku_myan_0: -4681777996029483823
+      sesku_myan_1: -1897402269827345753
+      sesku_myan_2: -3658810324619634108
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

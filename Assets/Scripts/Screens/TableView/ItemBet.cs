@@ -24,7 +24,7 @@ public class ItemBet : MonoBehaviour
         gameObject.name = "" + (int)_dataItem["mark"];
         dataItem = _dataItem;
         //{\"mark\":100,\"ag\":2000,\"agPn\":0,\"agD\":0,\"minAgCon\":2000,\"maxAgCon\":0,\"currplay\":0,\"room\":0,\"minChipbanker\":0,\"maxBet\":0,\"agLeft\":1500,\"agRaiseFee\":2000,\"fee\":1.5}
-
+        Debug.Log($"_dataItem: {_dataItem.ToString(Newtonsoft.Json.Formatting.None)}");
         //Globals.Logging.Log("-=- mark  " + (int)_dataItem["mark"]);
         txtBet.text = Globals.Config.FormatMoney((int)_dataItem["mark"], true);
         txtUser.text = Globals.Config.FormatNumber((int)_dataItem["currplay"]);
