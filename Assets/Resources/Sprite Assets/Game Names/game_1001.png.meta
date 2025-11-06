@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 65abd939564026b44b45fab6270625ea
+guid: be3fa4cff1c9d014c9116135cc72c7b3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8663447690569189185
-    second: game_8802_0
-  - first:
-      213: -5014379513388615146
-    second: game_8802_1
+      213: -8663220087397763124
+    second: ShanKoeMee_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -79,8 +76,8 @@ TextureImporter:
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
-    compressionQuality: 100
-    crunchedCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
     ignorePlatformSupport: 0
@@ -125,30 +122,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: game_8802_0
+      name: ShanKoeMee_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 132
-        height: 81
+        width: 317
+        height: 83
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -157,30 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1470e8e06cfba3870800000000000000
-      internalID: 8663447690569189185
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: game_8802_1
-      rect:
-        serializedVersion: 2
-        x: 136
-        y: 15
-        width: 72
-        height: 61
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 61ab97f5668596ab0800000000000000
-      internalID: -5014379513388615146
+      spriteID: cc7b0afea3f06c780800000000000000
+      internalID: -8663220087397763124
       vertices: []
       indices: 
       edges: []
@@ -189,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -199,8 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      game_8802_0: 8663447690569189185
-      game_8802_1: -5014379513388615146
+      ShanKoeMee_0: -8663220087397763124
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

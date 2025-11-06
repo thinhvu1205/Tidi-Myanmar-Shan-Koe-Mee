@@ -3532,7 +3532,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  skeletonDataAsset: {fileID: 0}
+  skeletonDataAsset: {fileID: 11400000, guid: 3e743be0aa7740443bca5935762f25e5, type: 2}
   initialSkinName: 
   initialFlipX: 0
   initialFlipY: 0
@@ -10400,7 +10400,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 76fa1d36f5cef4c4f85cb9d505a828b9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 932b44e1a883dd24486baed00500d25a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
