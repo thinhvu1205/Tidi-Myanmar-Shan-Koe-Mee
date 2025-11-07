@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public class TestTouchMove : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    [SerializeField] private GameObject m_GameObject;
+    [SerializeField] private GameObject m_GameObject1;
     public void OnBeginDrag(PointerEventData eventData)
     {
         //throw new System.NotImplementedException();
@@ -16,7 +16,7 @@ public class TestTouchMove : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         //throw new System.NotImplementedException();
         Debug.Log("OnDrag:" + transform.InverseTransformPoint(eventData.pointerPressRaycast.worldPosition));
-        m_GameObject.transform.localPosition = transform.InverseTransformPoint(eventData.pointerCurrentRaycast.worldPosition);
+        m_GameObject1.transform.localPosition = transform.InverseTransformPoint(eventData.pointerCurrentRaycast.worldPosition);
     }
 
     public void OnEndDrag(PointerEventData eventData)

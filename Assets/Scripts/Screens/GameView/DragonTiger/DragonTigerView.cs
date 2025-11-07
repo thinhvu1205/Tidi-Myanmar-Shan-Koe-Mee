@@ -22,9 +22,9 @@ public class DragonTigerView : GameView
     [SerializeField] public GameObject btnBets;
     [SerializeField] public List<Button> listChipBets = new List<Button>();
     [SerializeField] public List<SkeletonGraphic> listAniStart = new List<SkeletonGraphic>();
-    [SerializeField] public GameObject aniWin;
+    [SerializeField] public SkeletonGraphic aniWin;
     [SerializeField] public TextMeshProUGUI lbWinChip;
-    [SerializeField] public GameObject aniLose;
+    [SerializeField] public SkeletonGraphic aniLose;
     [SerializeField] public TextMeshProUGUI lbLoseChip;
     [SerializeField] public GameObject prefab_popup_player;
     [SerializeField] public GameObject clock;
@@ -107,8 +107,8 @@ public class DragonTigerView : GameView
         //btnPotsNormal.SetActive(false);
         listWinResult.Clear();
         checkAutoExit();
-        aniWin.SetActive(false);
-        aniLose.SetActive(false);
+        aniWin.gameObject.SetActive(false);
+        aniLose.gameObject.SetActive(false);
         lbWinChip.text = "";
         lbLoseChip.text = "";
 
@@ -633,14 +633,18 @@ public class DragonTigerView : GameView
                 if (agAdd > 0)
                 {
                     SoundManager.instance.playEffectFromPath(Globals.SOUND_GAME.WIN);
-                    aniWin.SetActive(true);
+                    aniWin.gameObject.SetActive(true);
+                    aniWin.Initialize(true);
+                    aniWin.AnimationState.SetAnimation(0, "eng", false);
                     aniWin.transform.parent.SetAsLastSibling();
                     lbWinChip.text = "+" + Globals.Config.FormatMoney(money, true).ToString();
                 }
                 else if (Math.Abs(agLose) > 0)
                 {
                     SoundManager.instance.playEffectFromPath(Globals.SOUND_GAME.LOSE);
-                    aniLose.SetActive(true);
+                    aniLose.gameObject.SetActive(true);
+                    aniLose.Initialize(true);
+                    aniLose.AnimationState.SetAnimation(0, "eng", false);
                     aniLose.transform.parent.SetAsLastSibling();
                     lbLoseChip.text = Globals.Config.FormatMoney(agLose, true).ToString();
                 }
