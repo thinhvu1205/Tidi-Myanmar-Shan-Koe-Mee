@@ -80,7 +80,11 @@ public class PlayerViewLucky89 : PlayerView
         cardsParentRT.DOLocalRotate(new Vector3(0, 0, isShowAll ? 0 : -15), tweenDuration);
         return this;
     }
-    public List<Card> GetListCards() { return m_CardCs; }
+    public List<Card> GetListCards()
+    {
+        return m_CardCs.Where(c => c.gameObject.activeSelf).ToList();
+    }
+
     public Card GetACard()
     {
         foreach (Card cardC in m_CardCs) if (!cardC.gameObject.activeSelf) return cardC;
