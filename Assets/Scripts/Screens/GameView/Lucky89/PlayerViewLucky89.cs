@@ -21,7 +21,7 @@ public class PlayerViewLucky89 : PlayerView
     [SerializeField] private SkeletonGraphic animWaitBetTime, animWaitOpenCard;
     private BetInfoPosition _BetInfoBIP = BetInfoPosition.ABOVE;
     private int _BetValue;
-    public bool isBanker, bankerLucky;
+    public bool isBanker, isLucky;
     public void ShowAnimWaitBetTime(bool isShow, string nameAnim = "White")
     {
         if (isShow)
@@ -88,19 +88,24 @@ public class PlayerViewLucky89 : PlayerView
     }
     public PlayerViewLucky89 ShowScore(bool show, int score, int cardCount)
     {
-        bool isLucky = (cardCount == 2) && (score >= (int)Lucky89View.SCORE.LUCKY_8);
-        bool isLucky8 = (score >= (int)Lucky89View.SCORE.LUCKY_8 && score < (int)Lucky89View.SCORE.LUCKY_9 && cardCount == 2);
-        bool isLucky9 = (score >= (int)Lucky89View.SCORE.LUCKY_9 && cardCount == 2);
+        if (m_LuckySG == null) Debug.LogError(">>> m_LuckySG NULL");
+        if (m_ScoreTMP == null) Debug.LogError(">>> m_ScoreTMP NULL");
+        if (m_ScoreTMP != null && m_ScoreTMP.transform.parent == null) Debug.LogError(">>> ScoreTMP parent NULL");
+        bool isLucky = (cardCount == 2) && (score >= 8);
+        bool isLucky8 = score >= 8;
+        bool isLucky9 = score >= 9;
         m_LuckySG.gameObject.SetActive(show && isLucky);
-        m_ScoreTMP.transform.parent.gameObject.SetActive(show && !isLucky);
+        if (m_ScoreTMP != null && m_ScoreTMP.transform?.parent != null)
+            m_ScoreTMP.transform.parent.gameObject.SetActive(show && !isLucky);
+        else
+            Debug.LogError("PlayerViewLucky89: m_ScoreTMP hoặc parent NULL");
+
 
         if (!show) return this;
         if (isLucky9)
             m_LuckySG.AnimationState.SetAnimation(0, "lucky9", false);
         else if (isLucky8)
             m_LuckySG.AnimationState.SetAnimation(0, "lucky8", false);
-        else if (score >= (int)Lucky89View.SCORE.THREE_OF_A_KIND)
-            m_ScoreTMP.text = "Three of a kind";
         else if (score >= (int)Lucky89View.SCORE.FACE_CARDS)
             m_ScoreTMP.text = "Face cards";
         else if (score >= (int)Lucky89View.SCORE.STRAIGHT_FLUSH)

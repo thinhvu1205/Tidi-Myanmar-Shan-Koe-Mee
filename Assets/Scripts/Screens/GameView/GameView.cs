@@ -953,7 +953,7 @@ public class GameView : BaseView
 
     public virtual PlayerView createPlayerView()
     {
-        var plView = Instantiate(playerViewPrefab, (playerContainer != null ? playerContainer : transform));//.GetComponent<PlayerView>();
+        var plView = Instantiate(playerViewPrefab, playerContainer != null ? playerContainer : transform).GetComponent<PlayerView>();
         plView.transform.SetSiblingIndex((int)ZODER_VIEW.PLAYER);
         plView.transform.localScale = Vector2.one;
 

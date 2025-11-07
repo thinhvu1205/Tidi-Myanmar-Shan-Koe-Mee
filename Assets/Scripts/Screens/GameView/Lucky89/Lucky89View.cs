@@ -14,8 +14,9 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
 {
     public enum SCORE
     {
-        LUCKY_8 = 8, LUCKY_9 = 9, THREE_OF_A_KIND = 4000, FACE_CARDS = 3000, STRAIGHT_FLUSH = 2000, FLUSH = 1000
+        LUCKY_8 = 8, LUCKY_9 = 9, FACE_CARDS = 3000, STRAIGHT_FLUSH = 2000, FLUSH = 1000
     }
+    [SerializeField] private GameObject parentCardBig;
     [SerializeField] private List<TextMeshProUGUI> m_BetOptionTMPs, listTextJackPot;
     [SerializeField] private GameObject popupRuleGame;
     [SerializeField] private Transform m_PrefabChipTf, m_ChipsTf;
@@ -25,7 +26,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
     [SerializeField] private GameObject boxTimeStart, panelAction, boxTimeAction;
     [SerializeField] private Image imageTimeActionRemain;
     [SerializeField] private List<Card> listCardBig;
-    [SerializeField] private Image imageCardRotate;
+    [SerializeField] private Image imageCardRotate, imageCardDraw;
     [SerializeField] private Transform potTransform;
     [SerializeField] private Button buttonDraw, buttonNotDraw, buttonDeclare3Card;
     public PlayerViewLucky89 thisPlayerView = null;
@@ -64,9 +65,11 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
     }
     public void DoClickDraw()
     {
-        _isRevealMyCards = true;
+        buttonDraw.gameObject.SetActive(false);
+        buttonNotDraw.gameObject.SetActive(false);
+        buttonDeclare3Card.gameObject.SetActive(false);
+        ActionDrawCard();
         playSound(SOUND_GAME.CLICK);
-        panelAction.SetActive(false);
         if (thisPlayerView != null && thisPlayerView.isBanker)
         {
             SocketSend.SendEventBanker(2);
@@ -79,8 +82,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
     }
     public void DoClickDontDraw()
     {
-        _isRevealMyCards = true;
-        panelAction.SetActive(false);
+        DisablePanelAction();
         playSound(SOUND_GAME.CLICK);
         if (thisPlayerView != null && thisPlayerView.isBanker)
         {
@@ -130,12 +132,6 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
                 Debug.Log($"Tinh=))lc: {jData.ToString(Newtonsoft.Json.Formatting.None)}");
                 _HandleReceiveMyCards(jData);
                 break;
-            // case "pokpok":
-            // _HandleAnyoneReceivesLuckyCards(jData);
-            // break;
-            // case "timeout":
-            // _HandleAnyoneTimeOut(jData);
-            // break;
             case "bc":
                 Debug.Log($"Tinh=))bc: {jData.ToString(Newtonsoft.Json.Formatting.None)}");
                 _HandleAnyoneDrawsCard(jData);
@@ -251,12 +247,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
                     break;
                 }
             }
-            bool isBankerFromJson = false;
-            if (jPl != null && jPl.ContainsKey("UserType"))
-            {
-                isBankerFromJson = (int)jPl["UserType"] == 1;
-            }
-            pv.isBanker = (player.id == bankerId) || isBankerFromJson;
+            pv.isBanker = player.id == bankerId;
 
             player.updatePlayerView();
 
@@ -441,7 +432,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
                 isBankerFromJson = (int)jPl["UserType"] == 1;
             }
 
-            pv.isBanker = (player.id == bankerId);
+            pv.isBanker = player.id == bankerId;
 
             player.updatePlayerView();
 
@@ -530,7 +521,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
         float time = (float)data["timeAction"] / 1000;
         StartCoroutine(RunCountDownStartAndBet(time, "Start in"));
         m_DealerPVL89.ShowHideBetChips(false).ShowAnimResult(false, 0).ShowScore(false, 0, 0).ShowRate(0).HideAllCards();
-        foreach (Player p in players) ((PlayerViewLucky89)p.playerView).ShowHideBetChips(false).ShowAnimResult(false, 0).ShowScore(false, 0, 0).ShowRate(0).HideAllCards().bankerLucky = false;
+        foreach (Player p in players) ((PlayerViewLucky89)p.playerView).ShowHideBetChips(false).ShowAnimResult(false, 0).ShowScore(false, 0, 0).ShowRate(0).HideAllCards().isLucky = false;
     }
     IEnumerator RunCountDownStartAndBet(float timeCountDown, string content, bool showAnimBegin = true)
     {
@@ -636,12 +627,12 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
                 {
                     PlayerViewLucky89 playerView = getPlayerView(players[i]);
                     playerView.ShowAnimWaitBetTime(true, "white");
-                    if (playerView.isBanker)
+                    if (thisPlayerView.isBanker)
                     {
-                        playerView.ShowAnimWaitBetTime(false);
+                        thisPlayerView.ShowAnimWaitBetTime(false);
                     }
                 }
-                if (stateGame != STATE_GAME.PLAYING) return;
+                // if (stateGame != STATE_GAME.PLAYING) return;
                 if (!thisPlayerView.isBanker)
                 {
                     StartCoroutine(ShowBetOption());
@@ -659,7 +650,6 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
         player.updatePlayerView();
         if (player == thisPlayer)
         {
-            thisPlayerView = (PlayerViewLucky89)player.playerView;
             foreach (TextMeshProUGUI tmp in m_BetOptionTMPs) tmp.transform.parent.gameObject.SetActive(false);
         }
     }
@@ -750,27 +740,28 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
             {
                 showButtonInPanelAction = false;
                 myScore = (int)SCORE.LUCKY_8;
-                thisPlayerView.bankerLucky = true;
+                thisPlayerView.isLucky = true;
             }
 
             else if (myScore == 9)
             {
                 showButtonInPanelAction = false;
                 myScore = (int)SCORE.LUCKY_9;
-                thisPlayerView.bankerLucky = true;
+                thisPlayerView.isLucky = true;
             }
 
 
             yield return new WaitUntil(() => _isRevealMyCards);
+            if (listCodeCard.Count > 2) yield break;
             List<Card> myCards = thisPlayerView.GetListCards();
             for (int i = 0; i < myCards.Count && i < dataMyCards.Count; i++)
             {
                 _RevealACard(myCards[i], (int)dataMyCards[i], myCards[i].transform.localEulerAngles);
             }
-            // if (myScore == 8) myScore = (int)SCORE.LUCKY_8;
-            // else if (myScore == 9) myScore = (int)SCORE.LUCKY_9;
-
-            thisPlayerView.ShowRate((int)data["rate"]).ShowScore(true, myScore, myCards.Count);
+            if (myScore == 8) myScore = (int)SCORE.LUCKY_8;
+            else if (myScore == 9) myScore = (int)SCORE.LUCKY_9;
+            thisPlayerView.ShowRate((int)data["rate"]).ShowScore(true, myScore, listCodeCard.Count);
+            thisPlayerView.ShowAnimWaitOpenCard(false);
         }
 
 
@@ -876,8 +867,8 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
                 for (int i = 0; i < players.Count; i++)
                 {
                     PlayerViewLucky89 plView = getPlayerView(players[i]);
-                    if (plView.isBanker) continue;
                     plView.ShowAnimWaitOpenCard(true);
+                    thisPlayerView.ShowAnimWaitOpenCard(false);
                 }
             });
             float time = (float)data["timeAction"] / 1000;
@@ -909,14 +900,6 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
             Debug.LogError($"_HandleAnyoneDrawsCard: playerView NULL for {name} (isDealer={isDealer})");
             return;
         }
-
-        // Tắt lượt người chơi
-        // if (!isDealer)
-        //     player.setTurn(false);
-        // else
-        //     m_DealerPVL89?.setTurn(false);
-
-        // Lấy mã lá bài (có thể = 0)
         int cardCode = data["C"] != null ? data["C"].Value<int>() : 0;
 
         // 🚀 Luôn chơi hiệu ứng rút bài (dù C = 0, nghĩa là chưa biết lá thật)
@@ -929,9 +912,10 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
             int score = data.ContainsKey("score") ? (int)data["score"] : 0;
             int rate = data.ContainsKey("rate") ? (int)data["rate"] : 0;
 
-            playerView.ShowScore(true, score, 3).ShowRate(rate);
+            playerView.ShowScore(true, score, listCodeCard.Count).ShowRate(rate);
 
             listCodeCard.Add(cardCode);
+            listCardBig[2].setTextureWithCode(cardCode);
 
             if (listCodeCard.Count > 1)
             {
@@ -947,7 +931,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
     }
     private void _HandleCBC(JObject data)
     {
-        if (thisPlayerView != null && thisPlayerView.isBanker && thisPlayerView.bankerLucky)
+        if (thisPlayerView != null && thisPlayerView.isBanker && thisPlayerView.isLucky)
         {
             Debug.Log($"Tinh=))thisPlayerView.isBanker: {thisPlayerView.isBanker}");
             ShowPanelActionBankerLucky();
@@ -975,6 +959,8 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
             }
             imageCardRotate.transform.DORotate(new Vector3(0, 90, 0), 0.5f).SetEase(Ease.InQuad).OnComplete(() =>
             {
+                parentCardBig.transform.localPosition = Vector3.zero;
+                parentCardBig.transform.localScale = Vector3.one;
                 imageCardRotate.gameObject.SetActive(false);
                 for (int i = 0; i < listCodeCard.Count; i++)
                 {
@@ -986,6 +972,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
                     .SetEase(Ease.Linear)
                     .OnComplete(() =>
                     {
+                        animHand.Initialize(true);
                         animHand.gameObject.SetActive(true);
                     });
                 }
@@ -1008,13 +995,10 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
                 panelAction.SetActive(true);
                 imageCardRotate.gameObject.SetActive(true);
                 imageCardRotate.transform.localRotation = Quaternion.Euler(Vector3.zero);
-                for (int i = 0; i < listCodeCard.Count; i++)
-                {
-                    listCardBig[i].transform.localPosition = new Vector3(0f, 120f, 0f);
-                    listCardBig[i].transform.localRotation = Quaternion.Euler(new Vector3(0, 90, 0));
-                }
                 imageCardRotate.transform.DORotate(new Vector3(0, 90, 0), 0.5f).SetEase(Ease.InQuad).OnComplete(() =>
                 {
+                    parentCardBig.transform.localPosition = Vector3.zero;
+                    parentCardBig.transform.localScale = Vector3.one;
                     imageCardRotate.gameObject.SetActive(false);
                     for (int i = 0; i < listCodeCard.Count; i++)
                     {
@@ -1022,10 +1006,13 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
                     }
                     for (int i = 0; i < listCardBig.Count; i++)
                     {
+                        listCardBig[i].transform.localPosition = new Vector3(0f, 120f, 0f);
+                        listCardBig[i].transform.localRotation = Quaternion.Euler(new Vector3(0, 90, 0));
                         listCardBig[i].transform.DORotate(Vector3.zero, 0.5f)
                         .SetEase(Ease.Linear)
                         .OnComplete(() =>
                         {
+                            animHand.Initialize(true);
                             animHand.gameObject.SetActive(true);
                         });
                     }
@@ -1033,62 +1020,138 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
                 buttonDraw.gameObject.SetActive(false);
                 buttonNotDraw.gameObject.SetActive(false);
                 buttonDeclare3Card.gameObject.SetActive(false);
-                StartCoroutine(DetectSwipe());
+                StartCoroutine(DetectSwipe(thisPlayerView.isLucky));
                 StartCoroutine(RunCountDownTimeAction(timeAction));
             });
         }
     }
+    private void ActionDrawCard()
+    {
+        imageCardDraw.gameObject.SetActive(true);
+        imageCardDraw.transform.localRotation = Quaternion.Euler(Vector3.zero);
+        imageCardDraw.transform.localPosition = new Vector3(900, 800, 0);
+        Vector3[] path =
+        {
+        new Vector3(900, 800, 0),
+        new Vector3(800, 700, 0),
+        new Vector3(700, 600, 0),
+        new Vector3(600, 500, 0),
+        new Vector3(500, 400, 0),
+        new Vector3(400, 300, 0),
+        new Vector3(300, 200, 0),
+        new Vector3(0, 120, 0)
+    };
 
-    IEnumerator DetectSwipe(bool bankerLucky = false)
+        float duration = 1.5f;
+        imageCardDraw.transform
+            .DOLocalPath(path, duration, PathType.CatmullRom)
+            .SetEase(Ease.InOutQuad);
+        imageCardDraw.transform
+            .DOLocalRotate(new Vector3(0, 90, 0), duration)
+            .SetEase(Ease.InOutQuad)
+            .OnComplete(() =>
+            {
+                imageCardDraw.gameObject.SetActive(false);
+
+                listCardBig[2].gameObject.SetActive(true);
+                animHand.Initialize(true);
+                animHand.gameObject.SetActive(true);
+                StartCoroutine(DetectSwipe(false, true));
+            });
+    }
+
+    private void DisablePanelAction()
+    {
+        parentCardBig.transform.DOLocalMove(new Vector3(137f, -206f, 0), 0.5f).SetEase(Ease.InQuad);
+        parentCardBig.transform.DOScale(new Vector3(0.25f, 0.25f, 0.25f), 0.5f).SetEase(Ease.InOutQuad).OnComplete(() =>
+        {
+            panelAction.SetActive(false);
+            _isRevealMyCards = true;
+            for (int i = 0; i < listCardBig.Count; i++)
+            {
+                listCardBig[i].gameObject.SetActive(false);
+            }
+        });
+
+    }
+
+    IEnumerator DetectSwipe(bool bankerLucky = false, bool isDrawCard = false)
     {
         isTrackingSwipe = true;
         float minSwipeDistance = 50f;
-
-        while (isTrackingSwipe)
+        if (isDrawCard)
         {
-            if (Input.GetMouseButtonDown(0))
+            while (isTrackingSwipe)
             {
-                touchStartPos = Input.mousePosition;
-            }
-            if (Input.GetMouseButton(0))
-            {
-                Vector2 touchEndPos = Input.mousePosition;
-                float distance = Vector2.Distance(touchStartPos, touchEndPos);
-                if (distance > minSwipeDistance)
+                if (Input.GetMouseButtonDown(0))
                 {
-                    animHand.gameObject.SetActive(false);
-                    listCardBig[0].transform.DOLocalMove(new Vector3(-84f, 100f, 0f), 0.5f).SetEase(Ease.Linear);
-                    listCardBig[0].transform.DORotate(new Vector3(0f, 0f, 30f), 0.5f).SetEase(Ease.Linear);
-
-                    listCardBig[2].transform.DOLocalMoveX(72f, 0.5f).SetEase(Ease.Linear);
-                    if (bankerLucky)
+                    touchStartPos = Input.mousePosition;
+                }
+                if (Input.GetMouseButton(0))
+                {
+                    Vector2 touchEndPos = Input.mousePosition;
+                    float distance = Vector2.Distance(touchStartPos, touchEndPos);
+                    if (distance > minSwipeDistance)
                     {
-                        _isRevealMyCards = true;
-                        panelAction.SetActive(false);
-                        isTrackingSwipe = false;
-                    }
-                    else
-                    {
-                        if (showButtonInPanelAction)
+                        listCardBig[1].transform.DOLocalMove(new Vector3(84f, 100f, 0), 0.5f).SetEase(Ease.Linear);
+                        listCardBig[1].transform.DORotate(new Vector3(0f, 0f, -30f), 0.5f).SetEase(Ease.Linear).OnComplete(() =>
                         {
-                            buttonDraw.gameObject.SetActive(true);
-                            buttonNotDraw.gameObject.SetActive(true);
-                            if (thisPlayerView != null && thisPlayerView.isBanker)
-                            {
-                                buttonDeclare3Card.gameObject.SetActive(true);
-                            }
+                            DisablePanelAction();
+                        });
+                        isTrackingSwipe = false;
+                        animHand.gameObject.SetActive(false);
+                    }
+                }
+                yield return null;
+            }
+        }
+        else
+        {
+            while (isTrackingSwipe)
+            {
+                if (Input.GetMouseButtonDown(0))
+                {
+                    touchStartPos = Input.mousePosition;
+                }
+                if (Input.GetMouseButton(0))
+                {
+                    Vector2 touchEndPos = Input.mousePosition;
+                    float distance = Vector2.Distance(touchStartPos, touchEndPos);
+                    if (distance > minSwipeDistance)
+                    {
+                        animHand.gameObject.SetActive(false);
+                        listCardBig[0].transform.DOLocalMove(new Vector3(-84f, 100f, 0f), 0.5f).SetEase(Ease.Linear);
+                        listCardBig[0].transform.DORotate(new Vector3(0f, 0f, 30f), 0.5f).SetEase(Ease.Linear);
+                        listCardBig[1].transform.SetParent(transform);
+                        listCardBig[1].transform.SetParent(parentCardBig.transform);
+                        if (bankerLucky)
+                        {
+                            DoClickDontDraw();
+                            isTrackingSwipe = false;
                         }
                         else
                         {
-                            DoClickDontDraw();
+                            if (showButtonInPanelAction)
+                            {
+                                buttonDraw.gameObject.SetActive(true);
+                                buttonNotDraw.gameObject.SetActive(true);
+                                if (thisPlayerView != null && thisPlayerView.isBanker)
+                                {
+                                    buttonDeclare3Card.gameObject.SetActive(true);
+                                }
+                            }
+                            else
+                            {
+                                DoClickDontDraw();
+                            }
+                            Debug.Log("aaaaa");
+                            isTrackingSwipe = false;
                         }
-                        Debug.Log("aaaaa");
-                        isTrackingSwipe = false;
                     }
                 }
-            }
 
-            yield return null;
+                yield return null;
+            }
         }
     }
     private void _HandleFinishGame(JObject data)

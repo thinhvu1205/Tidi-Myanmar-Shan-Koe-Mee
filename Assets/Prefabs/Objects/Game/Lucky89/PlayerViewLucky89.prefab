@@ -2639,6 +2639,7 @@ MonoBehaviour:
   animWaitBetTime: {fileID: 8839360950662493151}
   animWaitOpenCard: {fileID: 3444736250104242488}
   isBanker: 0
+  bankerLucky: 0
 --- !u!1 &7364494076208316192
 GameObject:
   m_ObjectHideFlags: 0
