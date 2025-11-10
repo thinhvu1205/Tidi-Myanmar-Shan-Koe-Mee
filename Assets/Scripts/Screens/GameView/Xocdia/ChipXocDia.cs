@@ -20,21 +20,18 @@ public class ChipXocDia : MonoBehaviour
     public void SetValueChip(int valueChip)
     {
         _valueChip = valueChip;
-        int positionChip = 0;
-
-        for (int i = 0; i < ListValueChip.Count - 1; i++)
+        int positionChip = -1;
+        for (int i = 0; i < ListValueChip.Count; i++)
         {
-            if (valueChip >= ListValueChip[i] && valueChip < ListValueChip[i + 1])
+            if (valueChip >= ListValueChip[i])
             {
                 positionChip = i;
-                break;
+            }
+            if (positionChip == -1)
+            {
+                positionChip = 0;
             }
         }
-        if (valueChip >= ListValueChip[ListValueChip.Count - 1])
-        {
-            positionChip = ListValueChip.Count - 1;
-        }
-
 
         if (m_ListSprChip == null || m_ListSprChip.Count == 0)
         {
