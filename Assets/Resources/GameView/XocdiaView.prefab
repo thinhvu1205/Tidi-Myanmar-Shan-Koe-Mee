@@ -2408,7 +2408,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2821497547752788416
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7395,6 +7395,7 @@ MonoBehaviour:
   bg_bet: {fileID: 36091181708502926}
   btn_BecomeBanker: {fileID: 7317321129167820595}
   btn_CancelBanker: {fileID: 5479142168194925807}
+  blockOnLeave: 0
   btn_Double: {fileID: 4645450902283932345}
   chipVang: {fileID: -6656684203346133685, guid: 6975675a09ea2184586359ad9667420f, type: 3}
   chipTrang: {fileID: -8539076495413351369, guid: 0f3f532c60d9a22498c46cb474af9f20, type: 3}

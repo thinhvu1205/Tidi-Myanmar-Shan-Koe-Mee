@@ -10,6 +10,7 @@ using DG.Tweening;
 using System.Linq;
 using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
+using Globals;
 
 public class XocdiaView : GameView
 {
@@ -27,7 +28,7 @@ public class XocdiaView : GameView
     private Queue<ChipXocDia> chipPool = new Queue<ChipXocDia>();
     [SerializeField] private Transform m_ContainerChip;
     [SerializeField] private GameObject m_ChatInGame;
-
+    private bool canLeave = false;
     public int PositionChipbet = 0;
     public List<GameObject> listBtnBet;
     public ChipXocDia chipForFly;
@@ -45,7 +46,7 @@ public class XocdiaView : GameView
     public GameObject bg_bet;
     public GameObject btn_BecomeBanker;
     public GameObject btn_CancelBanker;
-
+    public bool blockOnLeave = false;
     public Button btn_Double;
     public Sprite chipVang;
     public Sprite chipTrang;
@@ -1210,7 +1211,7 @@ public class XocdiaView : GameView
     }
     public void onClickChooseSellBet(int data)
     {
-      // nodeSellPot.SetActive(false);
+        // nodeSellPot.SetActive(false);
         NotifyXocDia popupNotify = nodeNotify.GetComponent<NotifyXocDia>();
         popupNotify.transform.SetAsLastSibling();
         popupNotify.setDataSellBet(data, nodeSellPot);
@@ -1437,7 +1438,6 @@ public class XocdiaView : GameView
 
     public void handleFinish(JObject data)
     {
-
         isFinish = true;
         nodeSellPot.SetActive(false);
         nodeNotify.GetComponent<NotifyXocDia>().onPopOff();
@@ -1523,7 +1523,7 @@ public class XocdiaView : GameView
 
     public void ReSetGameDisplay()
     {
-
+        canLeave = true;
         for (int i = 0; i < gateValue.Count; i++)
         {
             gateValue[i] = 0;
@@ -1886,32 +1886,27 @@ public class XocdiaView : GameView
     public override async void handleLTable(JObject data)
     {
 
-        while (isFinish)
-        {
-            await UniTask.Delay(50);
-        }
         var namePl = (string)data["Name"];
-        var player = getPlayer(namePl);
-        if (player == null) return;
-        if (player != thisPlayer)
+        bool isMe = namePl == User.userMain.Username;
+        if (isMe)
         {
-            removePlayer(namePl);
+            blockOnLeave = !UIManager.instance.onClickButtonLeave;
+            StartCoroutine(WaitingForLeave());
         }
-        if (m_AvatarChung != null && m_AvatarChung.transform != null)
+        else
         {
-            var childTransform = m_AvatarChung.transform.GetChild(0);
-            if (childTransform != null)
-            {
-                var textComponent = childTransform.GetComponent<TextMeshProUGUI>();
-                if (textComponent != null)
-                {
-                    textComponent.text = "+" + listPlayerXocdia.Count.ToString();
-                }
-            }
+            base.handleLTable(data);
+            SoundManager.instance.playEffectFromPath(Globals.SOUND_GAME.REMOVE);
         }
-        if (players.Count <= 1)
+        IEnumerator WaitingForLeave()
         {
-            btn_BecomeBanker.transform.parent.gameObject.SetActive(false);
+            canLeave = false;
+            yield return new WaitUntil(() => canLeave);
+            Debug.Log($"LeaveTable_DragonTiger");
+            blockOnLeave = false;
+            base.handleLTable(data);
+            UIManager.instance.gameView.onLeave();
+            SoundManager.instance.playEffectFromPath(Globals.SOUND_GAME.REMOVE);
         }
     }
 

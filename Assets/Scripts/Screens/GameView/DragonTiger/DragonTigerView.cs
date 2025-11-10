@@ -71,8 +71,9 @@ public class DragonTigerView : GameView
 
     protected NodePlayerDragonTiger listPlayer = null;
     private List<int> listSaveHistory = new List<int>();
-
-
+    private bool canLeave = false;
+    public bool blockOnLeave = false;
+    public static DragonTigerView instance = null;
     protected override void Start()
     {
         base.Start();
@@ -80,6 +81,7 @@ public class DragonTigerView : GameView
 
     public void resetGame()
     {
+        canLeave = true;
         for (int i = 0; i < 2; i++)
         {
             listAniStart[i].gameObject.SetActive(true);
@@ -407,9 +409,12 @@ public class DragonTigerView : GameView
         popupHistory.textCountDragonSmall.text = popupHistory.cntDrSmall.ToString();
         popupHistory.textCountTigerSmall.text = popupHistory.cntTgSmall.ToString();
     }
+    private bool moneyProcessed = false;
 
     private void handleWinPots(JObject data)
     {
+        moneyProcessed = false;
+
         int type = getInt(data, "typeWin");
         bool dragonBig = getBool(data, "dragonBig");
         bool dragonSmall = getBool(data, "dragonSmail");
@@ -424,28 +429,13 @@ public class DragonTigerView : GameView
         //t_big =6
         //tie= 3
 
+        listWinResult.Clear();
         listWinResult.Add(type);
 
-        if (dragonBig == true)
-        {
-            listWinResult.Add(4);
-        }
-
-        if (tigerSmall == true)
-        {
-            listWinResult.Add(7);
-        }
-
-        if (dragonSmall == true)
-        {
-            listWinResult.Add(5);
-        }
-
-        if (tigerBig == true)
-        {
-            listWinResult.Add(6);
-        }
-
+        if (dragonBig) listWinResult.Add(4);
+        if (tigerSmall) listWinResult.Add(7);
+        if (dragonSmall) listWinResult.Add(5);
+        if (tigerBig) listWinResult.Add(6);
         if (type == 1)
         {
             bkgAniStart.gameObject.SetActive(true);
@@ -454,23 +444,20 @@ public class DragonTigerView : GameView
             listAniStart[0].gameObject.SetActive(true);
             listAniStart[0].Initialize(true);
             listAniStart[0].AnimationState.SetAnimation(0, "win", false);
-            listAniStart[0].gameObject.transform.localScale = new Vector2(1f, 1f);
-            listAniStart[0].gameObject.transform.localPosition = new Vector2(-320, 207);
+            listAniStart[0].transform.localScale = new Vector2(1f, 1f);
+            listAniStart[0].transform.localPosition = new Vector2(-320, 207);
 
             DOTween.Sequence().AppendInterval(1.0f).AppendCallback(() =>
             {
-                listAniStart[0].gameObject.SetActive(true);
                 listAniStart[0].Initialize(true);
                 listAniStart[0].AnimationState.SetAnimation(0, "normal", true);
-                listAniStart[0].gameObject.transform.localScale = new Vector2(1f, 1f);
-                listAniStart[0].gameObject.transform.localPosition = new Vector2(-320, 207);
             });
 
             listAniStart[1].gameObject.SetActive(true);
             listAniStart[1].Initialize(true);
             listAniStart[1].AnimationState.SetAnimation(0, "lose", false);
-            listAniStart[1].gameObject.transform.localScale = new Vector2(1f, 1f);
-            listAniStart[1].gameObject.transform.localPosition = new Vector2(320, 207);
+            listAniStart[1].transform.localScale = new Vector2(1f, 1f);
+            listAniStart[1].transform.localPosition = new Vector2(320, 207);
             listAniStart[2].gameObject.SetActive(false);
 
             DOTween.Sequence().AppendInterval(1.0f).AppendCallback(() =>
@@ -492,8 +479,8 @@ public class DragonTigerView : GameView
             listAniStart[0].gameObject.SetActive(true);
             listAniStart[0].Initialize(true);
             listAniStart[0].AnimationState.SetAnimation(0, "lose", false);
-            listAniStart[0].gameObject.transform.localScale = new Vector2(1f, 1f);
-            listAniStart[0].gameObject.transform.localPosition = new Vector2(-320, 207);
+            listAniStart[0].transform.localScale = new Vector2(1f, 1f);
+            listAniStart[0].transform.localPosition = new Vector2(-320, 207);
 
             DOTween.Sequence().AppendInterval(1.0f).AppendCallback(() =>
             {
@@ -503,17 +490,14 @@ public class DragonTigerView : GameView
             listAniStart[1].gameObject.SetActive(true);
             listAniStart[1].Initialize(true);
             listAniStart[1].AnimationState.SetAnimation(0, "win", false);
-            listAniStart[1].gameObject.transform.localScale = new Vector2(1f, 1f);
-            listAniStart[1].gameObject.transform.localPosition = new Vector2(320, 207);
+            listAniStart[1].transform.localScale = new Vector2(1f, 1f);
+            listAniStart[1].transform.localPosition = new Vector2(320, 207);
             listAniStart[2].gameObject.SetActive(false);
 
             DOTween.Sequence().AppendInterval(1.0f).AppendCallback(() =>
             {
-                listAniStart[1].gameObject.SetActive(true);
                 listAniStart[1].Initialize(true);
                 listAniStart[1].AnimationState.SetAnimation(0, "normal", true);
-                listAniStart[1].gameObject.transform.localScale = new Vector2(1f, 1f);
-                listAniStart[1].gameObject.transform.localPosition = new Vector2(320, 207);
             });
 
             cardTigPref.transform.Find("animTwinkle").gameObject.SetActive(true);
@@ -530,18 +514,18 @@ public class DragonTigerView : GameView
             cardTigPref.transform.Find("animTwinkle").gameObject.SetActive(true);
             cardTigPref.transform.Find("blink").gameObject.SetActive(true);
         }
-
         listWinResult.ForEach(x =>
         {
             effectWinGate(x);
         });
-
         DOTween.Sequence()
             .AppendInterval(2.0f)
             .AppendCallback(() =>
             {
+                Debug.Log("💰 [handleWinPots] Gọi getChipLose & handleChipLoseForPlayers");
                 getChipLose();
                 handleChipLoseForPlayers(data);
+                moneyProcessed = true;
                 for (int i = 0; i < 7; i++)
                 {
                     listPot[i].transform.Find("bet").GetComponentInChildren<TextMeshProUGUI>().text = "";
@@ -551,26 +535,7 @@ public class DragonTigerView : GameView
             .AppendInterval(1.0f)
             .AppendCallback(() =>
             {
-                if (type == 1)
-                {
-                    cardDraPref.transform.Find("animTwinkle").gameObject.SetActive(false);
-                    cardDraPref.transform.Find("blink").gameObject.SetActive(false);
-                }
-                else if (type == 2)
-                {
-                    cardTigPref.transform.Find("animTwinkle").gameObject.SetActive(false);
-                    cardTigPref.transform.Find("blink").gameObject.SetActive(false);
-                }
-                else
-                {
-                    cardDraPref.transform.Find("animTwinkle").gameObject.SetActive(false);
-                    cardDraPref.transform.Find("blink").gameObject.SetActive(false);
-
-                    cardTigPref.transform.Find("animTwinkle").gameObject.SetActive(false);
-                    cardTigPref.transform.Find("blink").gameObject.SetActive(false);
-                }
                 payChipWin();
-
             })
             .AppendInterval(1.0f)
             .AppendCallback(() =>
@@ -583,24 +548,62 @@ public class DragonTigerView : GameView
             {
                 cardDraPref.setTextureWithCode(0);
                 cardTigPref.setTextureWithCode(0);
-                cardDraPref.gameObject.transform.DOLocalMove(new Vector2(52, -60), 0.5f);
-                cardTigPref.gameObject.transform.DOLocalMove(new Vector2(52, -60), 0.5f);
-                cardDraPref.gameObject.transform.DOScale(new Vector2(0f, 0f), 0.5f);
-                cardTigPref.gameObject.transform.DOScale(new Vector2(0f, 0f), 0.5f);
+                cardDraPref.transform.DOLocalMove(new Vector2(52, -60), 0.5f);
+                cardTigPref.transform.DOLocalMove(new Vector2(52, -60), 0.5f);
+                cardDraPref.transform.DOScale(new Vector2(0f, 0f), 0.5f);
+                cardTigPref.transform.DOScale(new Vector2(0f, 0f), 0.5f);
             })
-            .AppendInterval(1.5f).AppendCallback(() =>
+            .AppendInterval(1.5f)
+            .AppendCallback(() =>
             {
                 resetGame();
                 handleResultHis(getListInt(data, "arrHistory"));
-                //handleResultHisLayer3(data);
             });
+
+        //===================== LỚP BẢO HIỂM - PHÒNG MẤT CALLBACK =====================
+        DOVirtual.DelayedCall(6.5f, () =>
+        {
+            if (!moneyProcessed)
+            {
+                SafeHandleMoney(data);
+            }
+        });
     }
+
+    //===================== XỬ LÝ AN TOÀN (NẾU CALLBACK KHÔNG CHẠY) =====================
+    private void SafeHandleMoney(JObject data)
+    {
+        if (moneyProcessed)
+        {
+            return;
+        }
+
+        try
+        {
+
+            if (listPot != null) getChipLose();
+            if (players != null && data != null) handleChipLoseForPlayers(data);
+            if (listPot != null) payChipWin();
+            if (players != null && data != null) handleChipWinForPlayers(data);
+
+            moneyProcessed = true;
+        }
+        catch (Exception e)
+        {
+            Debug.LogError("❌ [SafeHandleMoney] " + e.Message);
+            Debug.LogException(e); // in cả stack trace chi tiết để biết object null là gì
+        }
+    }
+
 
     private void handleChipWinForPlayers(JObject data)
     {
-        List<JObject> inforUser = data["listUser"].ToObject<List<JObject>>();
+        if (data == null || data["listUser"] == null) return;
 
-        inforUser.ForEach((dataUser) =>
+        List<JObject> inforUser = data["listUser"].ToObject<List<JObject>>();
+        if (inforUser == null) return;
+
+        foreach (JObject dataUser in inforUser)
         {
             int idPl = getInt(dataUser, "pid");
             int agPl = getInt(dataUser, "ag");
@@ -613,23 +616,31 @@ public class DragonTigerView : GameView
             int DragonSmail = getInt(dataUser, "DragonSmail");
             int TigerBig = getInt(dataUser, "TigerBig");
             int TigerSmail = getInt(dataUser, "TigerSmail");
+
             long sumBet = Dragon + Tiger + Tie + DragonBig + DragonSmail + TigerBig + TigerSmail;
-            long total = (long)(sumBet * 0.98); // ép kiểu rõ ràng
+            long total = (long)(sumBet * 0.98);
             long betInit = Dragon + Tiger + (long)(Tie * 0.1) + DragonBig + DragonSmail + TigerBig + TigerSmail;
             long money = total + betInit;
-            Player player1 = getPlayerWithID(idPl);
-            PlayerViewDragonTiger plView = (PlayerViewDragonTiger)player1.playerView;
-            if (agAdd > 0 && player1.playerView.gameObject.activeSelf)
-            {
 
-                player1.playerView.effectFlyMoney(money, 30);
+            Player player1 = getPlayerWithID(idPl);
+            if (player1 == null)
+            {
+                Debug.LogWarning($"⚠ Player với pid={idPl} không tồn tại, bỏ qua cộng tiền thắng.");
+                continue;
             }
+
+            PlayerViewDragonTiger plView = player1.playerView as PlayerViewDragonTiger;
+            if (plView != null && plView.gameObject.activeSelf && agAdd > 0)
+            {
+                plView.effectFlyMoney(money, 30);
+            }
+
+            // Nếu là user chính, hiển thị animation thắng/thua
             if (idPl == Globals.User.userMain.Userid)
             {
                 foreach (SkeletonGraphic ske in listAniStart)
-                {
                     ske.gameObject.SetActive(false);
-                }
+
                 if (agAdd > 0)
                 {
                     SoundManager.instance.playEffectFromPath(Globals.SOUND_GAME.WIN);
@@ -637,7 +648,7 @@ public class DragonTigerView : GameView
                     aniWin.Initialize(true);
                     aniWin.AnimationState.SetAnimation(0, "eng", false);
                     aniWin.transform.parent.SetAsLastSibling();
-                    lbWinChip.text = "+" + Globals.Config.FormatMoney(money, true).ToString();
+                    lbWinChip.text = "+" + Globals.Config.FormatMoney(money, true);
                 }
                 else if (Math.Abs(agLose) > 0)
                 {
@@ -646,36 +657,47 @@ public class DragonTigerView : GameView
                     aniLose.Initialize(true);
                     aniLose.AnimationState.SetAnimation(0, "eng", false);
                     aniLose.transform.parent.SetAsLastSibling();
-                    lbLoseChip.text = Globals.Config.FormatMoney(agLose, true).ToString();
+                    lbLoseChip.text = Globals.Config.FormatMoney(agLose, true);
                 }
             }
+
+            // Cập nhật ag cuối cùng
             player1.ag = agPl;
             player1.setAg();
-        });
+        }
     }
 
     private void handleChipLoseForPlayers(JObject data)
     {
-        List<JObject> inforUser = data["listUser"].ToObject<List<JObject>>();
+        if (data == null || data["listUser"] == null) return;
 
-        inforUser.ForEach((dataUser) =>
+        List<JObject> inforUser = data["listUser"].ToObject<List<JObject>>();
+        if (inforUser == null) return;
+
+        foreach (JObject dataUser in inforUser)
         {
             int idPl = getInt(dataUser, "pid");
             int agPl = getInt(dataUser, "ag");
-            int agAdd = getInt(dataUser, "agadd");
             int agLose = getInt(dataUser, "agLose");
 
             Player player1 = getPlayerWithID(idPl);
-            PlayerViewDragonTiger plView = (PlayerViewDragonTiger)player1.playerView;
-            if (agLose < 0 && player1.playerView.gameObject.activeSelf)
+            if (player1 == null)
             {
-                player1.playerView.effectFlyMoney(agLose, 30);
+                Debug.LogWarning($"⚠ Player với pid={idPl} không tồn tại, bỏ qua trừ tiền thua.");
+                continue;
+            }
+
+            PlayerViewDragonTiger plView = player1.playerView as PlayerViewDragonTiger;
+            if (plView != null && plView.gameObject.activeSelf && agLose < 0)
+            {
+                plView.effectFlyMoney(agLose, 30);
             }
 
             player1.ag = agPl;
             player1.setAg();
-        });
+        }
     }
+
 
     public void handleBet(JObject dataBet)
     {
@@ -995,8 +1017,28 @@ public class DragonTigerView : GameView
 
     public override void handleLTable(JObject objData)
     {
-        base.handleLTable(objData);
-        SoundManager.instance.playEffectFromPath(Globals.SOUND_GAME.REMOVE);
+        var namePl = (string)objData["Name"];
+        bool isMe = namePl == User.userMain.Username;
+        if (isMe)
+        {
+            blockOnLeave = !UIManager.instance.onClickButtonLeave;
+            StartCoroutine(WaitingForLeave());
+        }
+        else
+        {
+            base.handleLTable(objData);
+            SoundManager.instance.playEffectFromPath(Globals.SOUND_GAME.REMOVE);
+        }
+        IEnumerator WaitingForLeave()
+        {
+            canLeave = false;
+            yield return new WaitUntil(() => canLeave);
+            Debug.Log($"LeaveTable_DragonTiger");
+            blockOnLeave = false;
+            base.handleLTable(objData);
+            UIManager.instance.gameView.onLeave();
+            SoundManager.instance.playEffectFromPath(Globals.SOUND_GAME.REMOVE);
+        }
     }
 
     public override PlayerView createPlayerView()

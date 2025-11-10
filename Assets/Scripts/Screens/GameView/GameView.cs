@@ -410,28 +410,36 @@ public class GameView : BaseView
         //          msg = (string)data["message"];
         //      }
         //if (name != User.userMain.UserName)
-        if (player != thisPlayer)
+        // if (player != thisPlayer)
+        // {
+        //     //cc.NGWlog('nhảy vào đay rồi== ham lbtable')
+        //     // require('SoundManager').playSound(ResDefine.sound_remove);
+        //     //if (typeof player.displayName !== 'undefined')
+        //     //{
+        //     //    addChatLeave(player.displayName);
+        //     //}
+        //     removePlayer(namePl);
+        // }
+        // else
+        // {
+        //     //DestroyImmediate(gameObject);
+        //     //if (TableView.instance)
+        //     //{
+        //     //    UIManager.instance.openTableView();
+        //     //}
+        //     //else
+        //     //{
+        //     //    UIManager.instance.showLobbyScreen(false);
+        //     //}
+        // }
+        if (player == thisPlayer)
         {
-            //cc.NGWlog('nhảy vào đay rồi== ham lbtable')
-            // require('SoundManager').playSound(ResDefine.sound_remove);
-            //if (typeof player.displayName !== 'undefined')
-            //{
-            //    addChatLeave(player.displayName);
-            //}
-            removePlayer(namePl);
+            // Không tự out
+            return;
         }
-        else
-        {
-            //DestroyImmediate(gameObject);
-            //if (TableView.instance)
-            //{
-            //    UIManager.instance.openTableView();
-            //}
-            //else
-            //{
-            //    UIManager.instance.showLobbyScreen(false);
-            //}
-        }
+
+        removePlayer(namePl);
+
     }
     public virtual void handleJTable(string strData)
     {
@@ -690,6 +698,10 @@ public class GameView : BaseView
     public virtual void onLeave()
     {
         //// return;
+        if (DragonTigerView.instance.blockOnLeave && Config.curGameId == (int)GAMEID.DRAGONTIGER || XocdiaView.instance.blockOnLeave && Config.curGameId == (int)GAMEID.SESKU)
+        {
+            return;
+        }
         Globals.Logging.Log("-------------Trang thaionLeave :   " + stateGame);
         if (stateGame != STATE_GAME.PLAYING)
         {

@@ -162,6 +162,10 @@ public class GroupMenuView : BaseView
             else//con moi 1 minh minh thi cung cho thoat
             {
                 SocketSend.sendExitGame();
+                if (Config.curGameId == (int)Globals.GAMEID.DRAGONTIGER)
+                {
+                    UIManager.instance.onClickButtonLeave = true;
+                }
             }
             hide();
         }

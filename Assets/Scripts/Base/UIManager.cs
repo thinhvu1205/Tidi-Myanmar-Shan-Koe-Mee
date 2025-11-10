@@ -71,6 +71,7 @@ public class UIManager : MonoBehaviour
     private List<ButtonVipFarm> _VipFarmVFs = new();
     public long PusoyJackPot;
     public bool SendChatEmoToHiddenPlayers = false;
+    public bool onClickButtonLeave = false;
 
 
     public Sprite spAvatarMe;

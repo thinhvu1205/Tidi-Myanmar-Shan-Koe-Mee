@@ -904,8 +904,9 @@ public class BaucuaGameView : GameView
 
             Debug.Log("check data trả về cho phần finish " + dice1.ToString() + dice2.ToString() + dice3.ToString());
 
-
-            StartCoroutine(FinishSequence(data, GateWin, ints));
+            string listWinStr = (string)data["listTableWin"];
+            List<int> listTableWin = JsonConvert.DeserializeObject<List<int>>(listWinStr);
+            StartCoroutine(FinishSequence(data, listTableWin, ints));
             setDataFrameHistory(ints);
             DataHistory.Add(ints);
             TableHistory.SetData(DataHistory);
@@ -955,6 +956,7 @@ public class BaucuaGameView : GameView
 
     private IEnumerator FinishSequence(JObject data, List<int> listTableWin, List<int> result)
     {
+        Debug.Log($"DataFinish: {data.ToString()}");
         interactableButton(false);
         JArray dataArray = JArray.Parse(data["data"].ToString());
         m_AniStart.gameObject.SetActive(true);
@@ -973,8 +975,45 @@ public class BaucuaGameView : GameView
         yield return new WaitForSeconds(1.0f);
 
         // Effect 3: show gate win
+        List<int> usedIndexes = new List<int>();
+        List<long> listBetWin = new List<long>();
         foreach (int gateIndex in listTableWin)
         {
+            bool added = false;
+
+            for (int p = 0; p < dataArray.Count; p++)
+            {
+                JObject player = (JObject)dataArray[p];
+                string nwStr = (string)player["NW"];
+                string mwStr = (string)player["MW"];
+                if (string.IsNullOrEmpty(nwStr) || string.IsNullOrEmpty(mwStr)) continue;
+
+                string[] nwArr = nwStr.Split(new char[] { ';' }, System.StringSplitOptions.RemoveEmptyEntries);
+                string[] mwArr = mwStr.Split(new char[] { ';' }, System.StringSplitOptions.RemoveEmptyEntries);
+
+                for (int i = 0; i < nwArr.Length; i++)
+                {
+                    if (int.TryParse(nwArr[i], out int gate) && gate == gateIndex)
+                    {
+                        // kiểm tra xem player này + NW index đã dùng chưa
+                        if (!usedIndexes.Contains(p * 100 + i))
+                        {
+                            if (i < mwArr.Length && int.TryParse(mwArr[i], out int money))
+                            {
+                                listBetWin.Add(money);
+                                usedIndexes.Add(p * 100 + i); // đánh dấu đã dùng
+                                added = true;
+                                break;
+                            }
+                        }
+                    }
+                }
+
+                if (added) break;
+            }
+
+            if (!added)
+                listBetWin.Add(0); // nếu không ai đặt gate này
             Image image = m_Gatebet[gateIndex - 1].transform.GetChild(1).GetComponent<Image>();
             image.gameObject.SetActive(true); // Ensure image is active
 
@@ -992,7 +1031,6 @@ public class BaucuaGameView : GameView
                 image.DOFade(0f, 0.3f); // Fade out to 0
             });
         }
-        //  genAgLose();
 
         yield return new WaitForSeconds(1.0f); // Adjust delay as needed
         foreach (var dice in m_ListXucSac)
@@ -1002,9 +1040,9 @@ public class BaucuaGameView : GameView
         m_AniXoc.AnimationState.SetAnimation(0, "khong lac", false);
 
         // Giai đoạn 1: Tạo chip và di chuyển chúng đến các ô thắng cược
-        foreach (int gateIndex in listTableWin)
+        for (int i = 0; i < listTableWin.Count; i++)
         {
-            CreateAndMoveChipsToWinningGate(gateIndex);
+            CreateAndMoveChipsToWinningGate(listTableWin[i], listBetWin[i]);
         }
 
         yield return new WaitForSeconds(2.0f); // Adjust delay as needed
@@ -1098,15 +1136,13 @@ public class BaucuaGameView : GameView
         }
         return money;
     }
-    private void CreateAndMoveChipsToWinningGate(int gateIndex)
+    private void CreateAndMoveChipsToWinningGate(int gateIndex, long value)
     {
         // Chỉ tạo chip trả thưởng nếu ô này có cược
         if (ListGateAllMoney[gateIndex - 1] > 0)
         {
             GameObject gateBet = m_Gatebet[gateIndex - 1];
-            long totalBet = ListGateAllMoney[gateIndex - 1];
-            long chipValue = totalBet * 2; // Giá trị chip là tổng ô cược nhân x2
-            BaucuaChipManager chip = createChip(PositionChipbet, chipValue);
+            BaucuaChipManager chip = createChip(PositionChipbet, value);
             Vector2 startPos = Vector2.zero;
             Vector2 endPos = gateBet.transform.localPosition;
             chip.transform.position = startPos;

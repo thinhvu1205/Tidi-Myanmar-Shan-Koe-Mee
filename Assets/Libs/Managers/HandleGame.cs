@@ -107,7 +107,6 @@ public class HandleGame
                     Debug.Log("dataLeave=" + UIManager.instance.gameView.dataLeave.ToString());
                     SocketIOManager.getInstance().emitSIOWithValue(UIManager.instance.gameView.dataLeave, "LeavePacket", false);
                 }
-                ;
                 gameView.handleLTable(jData);
                 break;
             case "rjtable":

@@ -10,7 +10,7 @@ using OneSignalSDK;
 
 public class HandleData
 {
-    public static float DelayHandleLeave = 0;
+    public static float DelayHandleLeave = 8;
     public static void handleLoginResponse(string strData)
     {
         Logging.LogWarning("-=- =handleLoginResponse:  " + strData);
