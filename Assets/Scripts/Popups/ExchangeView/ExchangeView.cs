@@ -115,17 +115,23 @@ public class ExchangeView : BaseView
     }
     void updateInfo(string strData)
     {
-        Globals.Logging.Log("updateInfo EX   " + strData);
-        //[{ "title":"Truemoney","type":"phil","child":[{ "title":"truemoney","TypeName":"truemoney","title_img":"https://cdn.topbangkokclub.com/api/public/dl/VbfRjo1c/co/Truemoney.png","textBox":[{ "key_placeHolder":"txt_enter_text_gc"},{ "key_placeHolder":"txt_conf_text_gc"}]}],"items":[{ "ag":1000000,"m":50},{ "ag":2000000,"m":100},{ "ag":4000000,"m":200},{ "ag":10000000,"m":500},{ "ag":20000000,"m":1000},{ "ag":40000000,"m":2000},{ "ag":100000000,"m":5000},{ "ag":200000000,"m":10000}]}]
         dataCO = JArray.Parse(strData);
-
+        if (dataCO.Count > 0 && dataCO[0]["child"] == null)
+        {
+            JObject fakeParent = new JObject();
+            fakeParent["title"] = "reward";
+            fakeParent["type"] = (string)dataCO[0]["type"];
+            fakeParent["child"] = dataCO;
+            dataCO = new JArray(fakeParent);
+        }
         SetDataButtons();
     }
+
 
     async void SetDataButtons()
     {
         if (dataCO.Count <= 0) return;
-        if (dataCO.Count <= 0) return;
+
         JObject objData = (JObject)dataCO[0];
         m_RewardTMP.text = ((string)objData["title"]).ToUpper();
         GameObject go = m_RewardTMP.transform.parent.gameObject;
@@ -136,9 +142,13 @@ public class ExchangeView : BaseView
             GameObject historyObj = m_HistoryTMP.transform.parent.gameObject;
             historyObj.GetComponent<Button>().onClick.AddListener(() => DoClickButton(historyObj, null));
         }
-        if (((string)objData["title"]).Equals("reward")) await genTabTop((JArray)objData["child"]);
+        if (((string)objData["title"]).Equals("reward") && objData["child"] != null)
+        {
+            await genTabTop((JArray)objData["child"]);
+        }
         DoClickButton(go, objData);
     }
+
 
     async Task genTabTop(JArray arrayData)
     {
@@ -151,7 +161,7 @@ public class ExchangeView : BaseView
 
             if (i == 0) { item0 = obItem; indSelect = i; }
             Globals.Logging.Log(obItem);
-            string title = (string)obItem["TypeName"];
+            string title = (string)(obItem["TypeName"] ?? obItem["title"]);
             string title_img = (string)obItem["title_img"];
 
             GameObject btn = Instantiate(tabTop, scrTabs.content);
@@ -216,17 +226,17 @@ public class ExchangeView : BaseView
         scrTabsHis.enabled = arrayData.Count > 4;
         JObject item0 = null;
         indexTabHis = 0;
+
         for (var i = 0; i < arrayData.Count; i++)
         {
             JObject obItem = (JObject)arrayData[i];
 
             if (i == 0) { item0 = obItem; indexTabHis = i; }
             Globals.Logging.Log(obItem);
-            string title = (string)obItem["TypeName"];
+            string title = (string)(obItem["title"] ?? obItem["TypeName"]);
             string title_img = (string)obItem["title_img"];
 
             GameObject btn = Instantiate(tabTop, scrTabsHis.content);
-
 
             var bkg = btn.transform.Find("Bkg").GetComponent<Image>();
             bkg.sprite = spTab[(i == 0 || i >= arrayData.Count - 1) ? 0 : 1];
@@ -235,12 +245,14 @@ public class ExchangeView : BaseView
                 bkg.transform.localScale = new Vector3(-1, 1, 1);
                 btn.transform.Find("Line").gameObject.SetActive(false);
             }
+
             var txt = btn.transform.Find("Text").GetComponent<TextMeshProUGUI>();
             txt.text = "";
 
             var spLogo = btn.transform.Find("Icon").GetComponent<Image>();
             spLogo.gameObject.SetActive(false);
-            if (title_img.Equals(""))
+
+            if (string.IsNullOrEmpty(title_img))
             {
                 txt.text = title.ToUpper();
             }
@@ -250,56 +262,62 @@ public class ExchangeView : BaseView
                 if (spr != null)
                 {
                     spLogo.sprite = spr;
-                    if (spLogo != null && spLogo.sprite != null)
-                    {
-                        spLogo.gameObject.SetActive(true);
-                        spLogo.SetNativeSize();
-                    }
-                    else
-                    {
-                        txt.text = title.ToUpper();
-                    }
+                    spLogo.gameObject.SetActive(true);
+                    spLogo.SetNativeSize();
                 }
-
+                else
+                {
+                    txt.text = title.ToUpper();
+                }
             }
+
             btn.transform.localScale = Vector3.one;
 
             btn.GetComponent<Button>().onClick.AddListener(() =>
             {
                 onClickTabHis(btn.gameObject, obItem);
             });
-
-            if (typeTabHistory == (string)obItem["TypeName"])
+            if (typeTabHistory.Equals(title, StringComparison.OrdinalIgnoreCase))
             {
                 firstTabHistItem = obItem;
                 indexTabHis = i;
             }
         }
     }
+
     void onClickTabHis(GameObject evv, JObject dataItem)
     {
         SoundManager.instance.soundClick();
         for (var i = 0; i < scrTabsHis.content.childCount; i++)
         {
             var bkg = scrTabsHis.content.GetChild(i).transform.Find("Bkg");
-            bkg.gameObject.SetActive(evv == scrTabsHis.content.GetChild(i).gameObject);
-            if (evv == scrTabsHis.content.GetChild(i).gameObject)
-            {
+            bool isActive = (evv == scrTabsHis.content.GetChild(i).gameObject);
+            bkg.gameObject.SetActive(isActive);
+            if (isActive)
                 indexTabNap = i;
-            }
         }
-        if (dataItem["TypeName"] != null) typeTabHistory = (string)dataItem["TypeName"];
-        else
+        if (dataItem["TypeName"] != null)
+        {
+            typeTabHistory = (string)dataItem["TypeName"];
+        }
+        else if (dataItem["title"] != null)
+        {
+            typeTabHistory = (string)dataItem["title"];
+        }
+        else if (dataItem["child"] != null)
         {
             JArray tabNamesJA = (JArray)dataItem["child"];
-            typeTabHistory = (string)tabNamesJA[indexTabNap]["TypeName"];
+            if (tabNamesJA.Count > indexTabNap)
+                typeTabHistory = (string)(tabNamesJA[indexTabNap]["TypeName"] ?? tabNamesJA[indexTabNap]["title"]);
         }
+
         curDataTabNap = dataItem;
         if (listDataHis.Count > 0)
         {
             reloadListItemHistory(listDataHis);
         }
     }
+
 
     JObject rewardData = null;
     void onClickTab(GameObject evv, JObject dataItem)
@@ -316,7 +334,7 @@ public class ExchangeView : BaseView
                 indexTabNap = i;
             }
         }
-        typeTabHistory = (string)dataItem["TypeName"];
+        typeTabHistory = (string)(dataItem["TypeName"] ?? dataItem["title"]);
         firstTabHistItem = dataItem;
         reloadListItem(rewardData);
     }
@@ -324,6 +342,7 @@ public class ExchangeView : BaseView
     void DoClickButton(GameObject obj, JObject objDataItem)
     {
         SoundManager.instance.soundClick();
+
         GameObject rewardGo = m_RewardTMP.transform.parent.gameObject;
         GameObject historyGo = m_HistoryTMP.transform.parent.gameObject;
         rewardGo.SetActive(obj != rewardGo);
@@ -333,61 +352,87 @@ public class ExchangeView : BaseView
             scrContentRedeem.transform.parent.gameObject.SetActive(false);
             scrContentAgency.transform.parent.gameObject.SetActive(false);
             scrContentHistory.transform.parent.gameObject.SetActive(true);
+
             onClickTabHis(scrTabsHis.content.GetChild(indexTabHis).gameObject, firstTabHistItem);
             SocketSend.sendDTHistory();
+            return;
         }
-        else if (((string)objDataItem["type"]).Equals("agency"))
+        if (objDataItem != null && objDataItem.ContainsKey("type") && ((string)objDataItem["type"]).Equals("agency"))
         {
             typeNet = (string)objDataItem["type"];
             scrContentRedeem.transform.parent.gameObject.SetActive(false);
             scrContentAgency.transform.parent.gameObject.SetActive(true);
             scrContentHistory.transform.parent.gameObject.SetActive(false);
             reloadListItem(objDataItem);
+            return;
         }
-        else
+        if (curDataTabNap != null)
         {
-            typeNet = (string)curDataTabNap["TypeName"];
+            if (curDataTabNap.ContainsKey("type"))
+                typeNet = (string)curDataTabNap["type"];
+            else if (curDataTabNap.ContainsKey("TypeName"))
+                typeNet = (string)curDataTabNap["TypeName"];
+            else
+                typeNet = "unknown";
+
             scrContentRedeem.transform.parent.gameObject.SetActive(true);
             scrContentAgency.transform.parent.gameObject.SetActive(false);
             scrContentHistory.transform.parent.gameObject.SetActive(false);
-            if (indexTabNap != -1) onClickTab(scrTabs.content.GetChild(indexTabNap).gameObject, objDataItem);
+
+            if (indexTabNap != -1)
+                onClickTab(scrTabs.content.GetChild(indexTabNap).gameObject, objDataItem);
         }
     }
+
 
     void reloadListItem(JObject objDataItem)
     {
-        if (objDataItem != null)
-        {
-            //[{ "title":"Truemoney","type":"phil","child":[{ "title":"truemoney","TypeName":"truemoney","title_img":"https://storage.googleapis.com/cdn.topbangkokclub.com/shop/Truemoney.png?v=1","textBox":[{ "key_placeHolder":"txt_enter_text_gc"},{ "key_placeHolder":"txt_conf_text_gc"}]}],"items":[{ "ag":1000000,"m":50},{ "ag":2000000,"m":100},{ "ag":4000000,"m":200},{ "ag":10000000,"m":500},{ "ag":20000000,"m":1000},{ "ag":40000000,"m":2000},{ "ag":100000000,"m":5000},{ "ag":200000000,"m":10000}]},{ "type":"agency","title":"agency","items":[{ "id":"1862315","name":"Agency Jason","tel":"09396196724","msg_fb":"http://bit.ly/jason-agency"}]}]
-            JArray items = new JArray(); ;
-            Transform parent;
-            Globals.Logging.Log("type  " + objDataItem["typeName"]);
-            Debug.Log("-=-= " + objDataItem.ToString());
-            if (objDataItem["TypeName"] != null) typeNet = (string)objDataItem["TypeName"];
-            else
-            {
-                JArray tabNamesJA = (JArray)objDataItem["child"];
-                typeNet = (string)tabNamesJA[indexTabNap]["TypeName"];
-            }
-            bool isAgency = objDataItem.ContainsKey("type") && ((string)objDataItem["type"]).Equals("agency");
-            items = (JArray)objDataItem["items"];
-            parent = isAgency ? scrContentAgency.content : scrContentRedeem.content;
-            if (items == null || items.Count <= 0) return;
-            Debug.Log("-=-= itemss  " + items.ToString());
+        if (objDataItem == null) return;
 
-            for (var i = 0; i < items.Count; i++)
-            {
-                JObject dt = (JObject)items[i];
-                GameObject item = i < parent.childCount ? parent.GetChild(i).gameObject : Instantiate(isAgency ? itemAgency : itemEx, parent);
-                if (isAgency) item.GetComponent<ItemAgency>().setInfo(dt);
-                else item.GetComponent<ItemEx>().setInfo(dt, () => onChooseCashOut((int)dt["ag"], (int)dt["m"]));
-                item.SetActive(true);
-                item.transform.SetParent(parent);
-                item.transform.localScale = Vector3.one;
-            }
-            for (var i = items.Count; i < parent.childCount; i++) parent.GetChild(i).gameObject.SetActive(false);
+        JArray items = new JArray();
+        Transform parent;
+
+        Debug.Log("-=-= reloadListItem " + objDataItem.ToString());
+        if (objDataItem["TypeName"] != null)
+            typeNet = (string)objDataItem["TypeName"];
+        else if (objDataItem["title"] != null)
+            typeNet = (string)objDataItem["title"];
+        else if (objDataItem["child"] != null)
+        {
+            JArray tabNamesJA = (JArray)objDataItem["child"];
+            if (tabNamesJA.Count > indexTabNap)
+                typeNet = (string)(tabNamesJA[indexTabNap]["TypeName"] ?? tabNamesJA[indexTabNap]["title"]);
         }
+
+        bool isAgency = objDataItem.ContainsKey("type") && ((string)objDataItem["type"]).Equals("agency");
+        if (objDataItem["items"] is JArray)
+            items = (JArray)objDataItem["items"];
+        else if (objDataItem["child"] != null)
+        {
+            JArray childArr = (JArray)objDataItem["child"];
+            if (childArr.Count > indexTabNap && childArr[indexTabNap]["items"] != null)
+                items = (JArray)childArr[indexTabNap]["items"];
+        }
+
+        parent = isAgency ? scrContentAgency.content : scrContentRedeem.content;
+        if (items == null || items.Count == 0) return;
+        for (var i = 0; i < items.Count; i++)
+        {
+            JObject dt = (JObject)items[i];
+            GameObject item = i < parent.childCount ? parent.GetChild(i).gameObject : Instantiate(isAgency ? itemAgency : itemEx, parent);
+
+            if (isAgency)
+                item.GetComponent<ItemAgency>().setInfo(dt);
+            else
+                item.GetComponent<ItemEx>().setInfo(dt, () => onChooseCashOut((int)dt["ag"], (int)dt["m"]));
+
+            item.SetActive(true);
+            item.transform.localScale = Vector3.one;
+        }
+        for (var i = items.Count; i < parent.childCount; i++)
+            parent.GetChild(i).gameObject.SetActive(false);
     }
+
 
     public void reloadListItemHistory(List<JObject> listItem)
     {
@@ -398,8 +443,13 @@ public class ExchangeView : BaseView
         }
         for (var i = 0; i < listDataHis.Count; i++)
         {
-            string typeNameItem = (string)listDataHis[i]["typeName"];
-            if (typeNameItem.Equals(typeTabHistory))
+            JObject data = listDataHis[i];
+            string typeNameItem = "";
+            if (data["typeName"] != null) typeNameItem = (string)data["typeName"];
+            else if (data["TypeName"] != null) typeNameItem = (string)data["TypeName"];
+            else if (data["title"] != null) typeNameItem = (string)data["title"];
+            else if (data["type"] != null) typeNameItem = (string)data["type"];
+            if (!string.IsNullOrEmpty(typeTabHistory) && typeNameItem.Equals(typeTabHistory, StringComparison.OrdinalIgnoreCase))
             {
                 GameObject objItem;
                 if (i < scrContentHistory.content.childCount)
@@ -409,16 +459,17 @@ public class ExchangeView : BaseView
                 else
                 {
                     objItem = Instantiate(itemHistory, scrContentHistory.content);
-
                 }
+
                 objItem.SetActive(true);
                 objItem.transform.SetParent(scrContentHistory.content);
                 objItem.transform.localScale = Vector3.one;
-
-                objItem.GetComponent<ItemHistoryEx>().setInfo(listDataHis[i], (int)listDataHis[i]["CashValue"]);
+                int cashValue = data.ContainsKey("CashValue") ? (int)data["CashValue"] : 0;
+                objItem.GetComponent<ItemHistoryEx>().setInfo(data, cashValue);
             }
         }
     }
+
 
     int valueCO;
     string typeNet;
@@ -427,25 +478,56 @@ public class ExchangeView : BaseView
         SoundManager.instance.soundClick();
         Debug.Log("typenet ==" + typeNet);
         Debug.Log("Current Tab=" + indexTabNap);
+
         if (Globals.User.userMain.AG < ag)
         {
             UIManager.instance.showMessageBox(Globals.Config.getTextConfig("txt_koduchip"));
+            return;
         }
-        else
+
+        popupInput.show();
+
+        if (rewardData != null)
         {
-            popupInput.show();
-            if (rewardData != null)
+            JArray textBox = null;
+            if (rewardData["textBox"] != null && rewardData["textBox"] is JArray)
             {
-                JArray textBox = null;
-                if (rewardData["textBox"] != null) textBox = (JArray)rewardData["textBox"];
-                else textBox = (JArray)rewardData["child"][indexTabNap]["textBox"];
-                m_PhoneIF.placeholder.GetComponent<Text>().text = Config.getTextConfig((string)textBox[0]["key_placeHolder"]);
-                m_ConfirmPhoneIF.placeholder.GetComponent<Text>().text = Config.getTextConfig((string)textBox[1]["key_placeHolder"]);
+                textBox = (JArray)rewardData["textBox"];
+            }
+            else
+            {
+                if (rewardData != null && rewardData.ContainsKey("child") && rewardData["child"] is JArray)
+                {
+                    JArray childArr = (JArray)rewardData["child"];
+                    if (childArr.Count > indexTabNap && childArr[indexTabNap] is JObject)
+                    {
+                        JObject childObj = (JObject)childArr[indexTabNap];
+                        if (childObj["textBox"] != null && childObj["textBox"] is JArray)
+                        {
+                            textBox = (JArray)childObj["textBox"];
+                        }
+                    }
+                }
+            }
+
+            if (textBox != null && textBox.Count >= 2)
+            {
+                string key1 = (string)textBox[0]["key_placeHolder"];
+                string key2 = (string)textBox[1]["key_placeHolder"];
+
+                m_PhoneIF.placeholder.GetComponent<Text>().text = Config.getTextConfig(key1);
+                m_ConfirmPhoneIF.placeholder.GetComponent<Text>().text = Config.getTextConfig(key2);
+            }
+            else
+            {
+                m_PhoneIF.placeholder.GetComponent<Text>().text = "Enter ID";
+                m_ConfirmPhoneIF.placeholder.GetComponent<Text>().text = "Confirm ID";
             }
         }
 
         valueCO = value;
     }
+
     public void cashOutReturn(JObject data)
     {
         Globals.Logging.Log("-=-=-=-=cashOutReturn  " + data.ToString());

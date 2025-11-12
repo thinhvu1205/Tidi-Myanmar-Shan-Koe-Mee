@@ -40,6 +40,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
     private bool isTrackingSwipe = false;
     private bool _isRevealMyCards = false;
     private bool showButtonInPanelAction = true;
+    long potValue = 0;
 
     protected override void Awake()
     {
@@ -194,6 +195,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
         setGameInfo(m: betValue, id: tableId, maxBett: 0);
         JObject bankerInfo = data.ContainsKey("bankerInfoTransfer") ? (JObject)data["bankerInfoTransfer"] : null;
         int bankerId = bankerInfo != null && bankerInfo.ContainsKey("pid") ? (int)bankerInfo["pid"] : -1;
+        int gameRemaining = bankerInfo.ContainsKey("gameRemain") ? (int)bankerInfo["gameRemain"] : 0;
         for (int i = 0; i < players.Count; i++)
         {
             if (players[i].playerView != null)
@@ -260,7 +262,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
             pv.SetIconBankerPosition(i);
             if (pv.isBanker)
             {
-                pv.ShowIconBanker(true);
+                pv.ShowIconBanker(true, gameRemaining);
             }
             else
             {
@@ -337,7 +339,6 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
             {
                 Player player = players[i];
                 PlayerViewLucky89 pv = (PlayerViewLucky89)player.playerView;
-
                 player.updatePlayerView();
                 pv
                     .SetBetPosition(i)
@@ -347,6 +348,15 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
 
                 pv.SetCardPosition(i);
                 pv.SetIconBankerPosition(i);
+                if (pv.isBanker)
+                {
+                    pv.ShowIconBanker(true);
+                    Debug.Log($"Tinh=))BatIconBanker");
+                }
+                else
+                {
+                    pv.ShowIconBanker(false);
+                }
             }
 
             updatePositionPlayerView();
@@ -385,6 +395,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
         setGameInfo(m: betValue, id: tableId, maxBett: 0);
         JObject bankerInfo = data.ContainsKey("bankerInfoTransfer") ? (JObject)data["bankerInfoTransfer"] : null;
         int bankerId = bankerInfo != null && bankerInfo.ContainsKey("pid") ? (int)bankerInfo["pid"] : -1;
+        int gameRemaining = bankerInfo.ContainsKey("gameRemain") ? (int)bankerInfo["gameRemain"] : 0;
         for (int i = 0; i < players.Count; i++)
         {
             if (players[i].playerView != null)
@@ -426,11 +437,6 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
                     break;
                 }
             }
-            bool isBankerFromJson = false;
-            if (jPl != null && jPl.ContainsKey("UserType"))
-            {
-                isBankerFromJson = (int)jPl["UserType"] == 1;
-            }
 
             pv.isBanker = player.id == bankerId;
 
@@ -445,7 +451,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
             pv.SetIconBankerPosition(i);
             if (pv.isBanker)
             {
-                pv.ShowIconBanker(true);
+                pv.ShowIconBanker(true, gameRemaining);
                 Debug.Log($"Tinh=))BatIconBanker");
             }
             else
@@ -498,7 +504,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
                 if (pv.isBanker)
                 {
                     Debug.Log($"Banker: {dp.PlayerP.namePl}, score={dp.score}, rate={dp.rate}");
-                    pv.ShowIconBanker(true);
+                    pv.ShowIconBanker(true, gameRemaining);
                 }
 
             }
@@ -510,6 +516,10 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
     {
         if (_WaitForFinishCompleteCb != null) _WaitForFinishCompleteCb += () => base.handleLTable(data);
         else base.handleLTable(data);
+        if (thisPlayerView != null && thisPlayerView.isBanker)
+        {
+            SocketSend.sendUAG();
+        }
     }
     private void _HandleStartGame(JObject data)
     {
@@ -570,7 +580,8 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
             timeCountDown -= 1f;
         }
         panelAction.SetActive(false);
-        DoClickDontDraw();
+        DisablePanelAction();
+        // DoClickDontDraw();
     }
     IEnumerator ShowBetOption(bool isShow = true)
     {
@@ -602,13 +613,14 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
             playerView.isBanker = false;
         }
         int idBanker = getInt(data, "pid");
+        int gameRemaining = getInt(data, "gameRemain");
         long ag = getLong(data, "ag");
         var playerBanker = getPlayerWithID(idBanker);
         PlayerViewLucky89 plViewLucky89 = getPlayerView(playerBanker);
         int idThisPLayer = Globals.User.userMain.Userid;
         var thisPlayer = getPlayerWithID(idThisPLayer);
         thisPlayerView = getPlayerView(thisPlayer);
-        plViewLucky89.ShowIconBanker(true);
+        plViewLucky89.ShowIconBanker(true, gameRemaining);
         plViewLucky89.isBanker = true;
         plViewLucky89.setAg(ag);
     }
@@ -1126,7 +1138,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
                         listCardBig[1].transform.SetParent(parentCardBig.transform);
                         if (bankerLucky)
                         {
-                            DoClickDontDraw();
+                            DisablePanelAction();
                             isTrackingSwipe = false;
                         }
                         else
@@ -1142,7 +1154,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
                             }
                             else
                             {
-                                DoClickDontDraw();
+                                DisablePanelAction();
                             }
                             Debug.Log("aaaaa");
                             isTrackingSwipe = false;
@@ -1218,7 +1230,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
                 }
                 try
                 {
-                    playerView.ShowScore(true, score, arrCard?.Count ?? 0)
+                    playerView.ShowScore(true, score, listCodeCard.Count)
                               .ShowRate(rate)
                               .ShowAnimResult(true, chipWin);
                 }
@@ -1433,6 +1445,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
         else if (jsonData.ContainsKey("bankerInfoTransfer"))
         {
             potToken = jsonData["bankerInfoTransfer"]?["pot"];
+            potValue = (long)jsonData["bankerInfoTransfer"]?["pot"];
         }
 
         if (potToken == null)

@@ -1022,6 +1022,7 @@ public class HandleService
                     break;
                 case "farmInfo":
                     {
+                        Debug.Log($"Tinh=))DataVipFarm: {jsonData}");
                         Globals.Config.dataVipFarm = jsonData;
                         UIManager.instance.SetDataVipFarmList();
                         float farmPercent = (float)jsonData["farmPercent"];
@@ -1091,10 +1092,10 @@ public class HandleService
 
                 case "getChatWorld":
                     {
-                        if (!Config.is_show_chat /*|| Globals.User.userMain.VIP < 2*/)
-                        {
-                            return;
-                        }
+                        // if (!Config.is_show_chat /*|| Globals.User.userMain.VIP < 2*/)
+                        // {
+                        //     return;
+                        // }
                         Debug.Log("getChatWorld: " + jsonData.ToString());
 
                         Debug.Log("xem là đang ở đâu" + Globals.CURRENT_VIEW.getCurrentSceneName());

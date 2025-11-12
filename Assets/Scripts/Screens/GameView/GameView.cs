@@ -698,7 +698,7 @@ public class GameView : BaseView
     public virtual void onLeave()
     {
         //// return;
-        if (DragonTigerView.instance.blockOnLeave && Config.curGameId == (int)GAMEID.DRAGONTIGER || XocdiaView.instance.blockOnLeave && Config.curGameId == (int)GAMEID.SESKU)
+        if (DragonTigerView.instance != null && DragonTigerView.instance.blockOnLeave && Config.curGameId == (int)GAMEID.DRAGONTIGER || XocdiaView.instance != null && XocdiaView.instance.blockOnLeave && Config.curGameId == (int)GAMEID.SESKU)
         {
             return;
         }

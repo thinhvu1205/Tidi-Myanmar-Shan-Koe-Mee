@@ -8,6 +8,7 @@ public class PopupSupport : BaseView
     protected override void OnEnable()
     {
         base.OnEnable();
+        Debug.Log($"Tinh=))Config.fanpageID: {Config.fanpageID}//Config.chat_tele_support_link: {Config.chat_tele_support_link}");
         m_Messenger.SetActive(!Config.fanpageID.Equals("") && Config.is_bl_fb);
         m_Telegram.SetActive(!Config.chat_tele_support_link.Equals(""));
     }

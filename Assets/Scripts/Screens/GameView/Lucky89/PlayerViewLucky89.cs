@@ -15,7 +15,7 @@ public class PlayerViewLucky89 : PlayerView
     [SerializeField] private List<Card> m_CardCs;
     [SerializeField] private List<GameObject> m_Rates;
     [SerializeField] private SkeletonGraphic m_LuckySG, m_WinSg, m_LoseSg, m_DrawSG;
-    [SerializeField] private TextMeshProUGUI m_BetTMP, m_ScoreTMP;
+    [SerializeField] private TextMeshProUGUI m_BetTMP, m_ScoreTMP, m_GameRemainTMP;
     [SerializeField] private Image imageIconBanker;
     [SerializeField] private GameObject CardParent, scoreParent, rateParent;
     [SerializeField] private SkeletonGraphic animWaitBetTime, animWaitOpenCard;
@@ -41,12 +41,17 @@ public class PlayerViewLucky89 : PlayerView
         animWaitBetTime.Initialize(true);
         animWaitOpenCard.gameObject.SetActive(isShow);
     }
-    public void ShowIconBanker(bool isShow)
+    public void ShowIconBanker(bool isShow, int gameRemain = 0)
     {
         imageIconBanker.gameObject.SetActive(isShow);
         if (isShow)
         {
             animWaitBetTime.gameObject.SetActive(false);
+            if (gameRemain > 0)
+            {
+                m_GameRemainTMP.gameObject.SetActive(true);
+                m_GameRemainTMP.text = $"{gameRemain}";
+            }
         }
     }
 

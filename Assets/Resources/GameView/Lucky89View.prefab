@@ -2786,7 +2786,7 @@ GameObject:
   - component: {fileID: 2701423937586657095}
   - component: {fileID: 3866242296593585427}
   m_Layer: 5
-  m_Name: Node_JackPot
+  m_Name: Node_Pot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10021,8 +10021,8 @@ RectTransform:
   - {fileID: 7487771258183318060}
   - {fileID: 5758737192863519974}
   - {fileID: 6330548690176289751}
-  - {fileID: 7548996688128601481}
   - {fileID: 1525071098775998841}
+  - {fileID: 7548996688128601481}
   m_Father: {fileID: 5215012005226095459}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
