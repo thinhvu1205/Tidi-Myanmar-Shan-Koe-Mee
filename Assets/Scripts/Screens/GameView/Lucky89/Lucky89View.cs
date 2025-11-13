@@ -276,18 +276,23 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
             int pid = (int)jPl["id"];
             Player player = players.Find(x => x.id == pid);
             if (player == null) continue;
+            PlayerViewLucky89 pv = player.playerView as PlayerViewLucky89;
+            if (pv == null)
+            {
+                player.playerView = pv;
+            }
 
             JArray arrCards = jPl.ContainsKey("Arr") ? (JArray)jPl["Arr"] : new JArray();
-            List<int> cardCodes = new();
+            List<int> cardCodes = new List<int>();
             foreach (JToken card in arrCards)
                 cardCodes.Add((int)card);
 
             int rate = jPl.ContainsKey("rate") ? (int)jPl["rate"] : 0;
             int score = jPl.ContainsKey("score") ? (int)jPl["score"] : 0;
 
-            PlayerViewLucky89 pv = (PlayerViewLucky89)player.playerView;
             _DistributeCardsToAPlayer(pv, cardCodes, rate, score);
         }
+
 
         Debug.Log($"Tinh=))handleVTable done - total players: {players.Count}, bankerId: {bankerId}");
     }
@@ -329,6 +334,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
                 {
                     thisPlayer = player;
                     players.Insert(0, thisPlayer);
+                    thisPlayerView = getPlayerView(player);
                 }
                 else
                 {
@@ -501,11 +507,11 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
                 PlayerViewLucky89 pv = (PlayerViewLucky89)dp.PlayerP.playerView;
                 _DistributeCardsToAPlayer(pv, dp.cardCodes, dp.rate, dp.score);
 
-                if (pv.isBanker)
-                {
-                    Debug.Log($"Banker: {dp.PlayerP.namePl}, score={dp.score}, rate={dp.rate}");
-                    pv.ShowIconBanker(true, gameRemaining);
-                }
+                // if (pv.isBanker)
+                // {
+                //     Debug.Log($"Banker: {dp.PlayerP.namePl}, score={dp.score}, rate={dp.rate}");
+                //     pv.ShowIconBanker(true, gameRemaining);
+                // }
 
             }
         }
@@ -516,10 +522,13 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
     {
         if (_WaitForFinishCompleteCb != null) _WaitForFinishCompleteCb += () => base.handleLTable(data);
         else base.handleLTable(data);
-        if (thisPlayerView != null && thisPlayerView.isBanker)
+        DOVirtual.DelayedCall(1f, () =>
         {
-            SocketSend.sendUAG();
-        }
+            if (thisPlayerView != null && thisPlayerView.isBanker)
+            {
+                SocketSend.sendUAG();
+            }
+        });
     }
     private void _HandleStartGame(JObject data)
     {
@@ -674,39 +683,6 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
         return null;
 
     }
-    // private void _HandleReceiveMyCards(JObject data)
-    // {
-    //     Debug.Log($"[Lucky89] _HandleReceiveMyCards data = {data.ToString(Newtonsoft.Json.Formatting.None)}");
-    //     StartCoroutine(handleData());
-    //     //======================================================
-    //     void getAllACard(int myCardCode, bool updateCardsParent)
-    //     {
-    //         StartCoroutine(_DrawCard(m_DealerPVL89, 0));
-    //         if (updateCardsParent) m_DealerPVL89.UpdateCardsParentPositionAndRotation();
-    //         foreach (Player player in players)
-    //         {
-    //             bool isMe = player == thisPlayer;
-    //             PlayerViewLucky89 playerView = (PlayerViewLucky89)player.playerView;
-    //             StartCoroutine(_DrawCard(playerView, isMe ? myCardCode : 0));
-    //             if (updateCardsParent) playerView.UpdateCardsParentPositionAndRotation();
-    //         }
-    //     }
-    //     IEnumerator handleData()
-    //     { // delay tổng bao nhiêu lâu thì HandleAnyoneReceivesLuckyCards() phải delay bấy nhiêu tránh xung đột tween rotate
-    //         JArray dataMyCards = (JArray)data["arr"];
-    //         getAllACard((int)dataMyCards[0], false);
-    //         _SetTickDraw(true, 0);
-    //         yield return new WaitForSeconds(CARD_FLYING_DURATION);
-    //         getAllACard((int)dataMyCards[1], true);
-    //         yield return new WaitForSeconds(CARD_FLYING_DURATION);
-    //         PlayerViewLucky89 thisPVL89 = (PlayerViewLucky89)thisPlayer.playerView;
-    //         int myScore = (int)data["score"]; // riêng service lc này thì lucky8 lucky9 sv lại trả về 8, 9
-    //         if (myScore == 8) myScore = (int)SCORE.LUCKY_8;
-    //         else if (myScore == 9) myScore = (int)SCORE.LUCKY_9;
-    //         // m_Actions.SetActive(myScore < (int)SCORE.LUCKY_8);
-    //         thisPVL89.ShowRate((int)data["rate"]).ShowScore(true, myScore);
-    //     }
-    // }
     private void _HandleReceiveMyCards(JObject data)
     {
         StartCoroutine(handleData());
