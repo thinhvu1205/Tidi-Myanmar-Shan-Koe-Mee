@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using DG.Tweening;
 using Globals;
 using Newtonsoft.Json.Linq;
@@ -16,6 +17,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
     {
         LUCKY_8 = 8, LUCKY_9 = 9, FACE_CARDS = 3000, STRAIGHT_FLUSH = 2000, FLUSH = 1000
     }
+    [SerializeField] private Button buttonDone;
     [SerializeField] private GameObject parentCardBig;
     [SerializeField] private List<TextMeshProUGUI> m_BetOptionTMPs, listTextJackPot;
     [SerializeField] private GameObject popupRuleGame;
@@ -34,24 +36,25 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
     private List<int> listCodeCard = new();
     private Action _WaitForFinishCompleteCb = null;
     private const float CARD_FLYING_DURATION = .15f, CARD_ROTATING_DURATION = .25f, WIN_CHIP_DURATION = .5f, LOSE_CHIP_DURATION = .5f;
-    private bool? _DrawACard = null;
-    private int _CurBankerId;
+    // private bool? _DrawACard = null;
+    // private int _CurBankerId;
     private Vector2 touchStartPos;
     private bool isTrackingSwipe = false;
     private bool _isRevealMyCards = false;
     private bool showButtonInPanelAction = true;
     long potValue = 0;
+    private int gameRemaining;
 
     protected override void Awake()
     {
         base.Awake();
         agTable = 0;
-        SocketSend.sendUpdateJackpot((int)GAMEID.SHAN_KOE_MEE);
     }
     protected override void Start()
     {
         base.Start();
         m_DealerSG.AnimationState.Complete += (x) => m_DealerSG.AnimationState.SetAnimation(0, "normal", true);
+        buttonDone.onClick.AddListener(ClickButtonDone);
     }
 
     #region Button
@@ -74,7 +77,6 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
         if (thisPlayerView != null && thisPlayerView.isBanker)
         {
             SocketSend.SendEventBanker(2);
-            Debug.Log($"Tinh=))Send: Draw And Declare");
         }
         else
         {
@@ -83,12 +85,12 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
     }
     public void DoClickDontDraw()
     {
-        DisablePanelAction();
+        // DisablePanelAction();
+        ActiveButtonDone();
         playSound(SOUND_GAME.CLICK);
         if (thisPlayerView != null && thisPlayerView.isBanker)
         {
             SocketSend.SendEventBanker(3);
-            Debug.Log($"Tinh=))Send: Don't Draw And Declare");
         }
         else
         {
@@ -97,10 +99,10 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
     }
     public void DoClickDeclareWith_3Card()
     {
-        panelAction.SetActive(false);
+        // panelAction.SetActive(false);
+        DisablePanelAction();
         playSound(SOUND_GAME.CLICK);
         SocketSend.SendEventBanker(1);
-        Debug.Log($"Tinh=))Send: Declare with 3 card");
     }
     public void DoClickTip()
     {
@@ -159,7 +161,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
     {
         base.setGameInfo(m, id, maxBett);
         if (_BetValues.Count > 0) return;
-        List<int> coefficients = new() { 1, 5, 10, 50, 100 };
+        List<int> coefficients = new() { 1, 2, 5, 10, 20, 100 };
         foreach (int coefficient in coefficients) _BetValues.Add(agTable * coefficient);
     }
     protected override void updatePositionPlayerView()
@@ -189,17 +191,19 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
 
         stateGame = STATE_GAME.VIEWING;
         JObject data = JObject.Parse(strData);
+
         int tableId = data.ContainsKey("Id") ? (int)data["Id"] : 0;
         int betValue = data.ContainsKey("M") ? (int)data["M"] : 0;
         handleUpdatePot(data);
         setGameInfo(m: betValue, id: tableId, maxBett: 0);
+
         JObject bankerInfo = data.ContainsKey("bankerInfoTransfer") ? (JObject)data["bankerInfoTransfer"] : null;
         int bankerId = bankerInfo != null && bankerInfo.ContainsKey("pid") ? (int)bankerInfo["pid"] : -1;
-        int gameRemaining = bankerInfo.ContainsKey("gameRemain") ? (int)bankerInfo["gameRemain"] : 0;
+        gameRemaining = bankerInfo != null && bankerInfo.ContainsKey("gameRemain") ? (int)bankerInfo["gameRemain"] : 0;
         for (int i = 0; i < players.Count; i++)
         {
             if (players[i].playerView != null)
-                Destroy(players[i].playerView.gameObject);
+                Destroy(((Component)players[i].playerView).gameObject);
         }
         players.Clear();
         thisPlayer = new Player
@@ -217,15 +221,16 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
         thisPlayer.fid = User.userMain.Tinyurl.IndexOf("fb.") != -1
             ? User.userMain.Tinyurl.Substring(3)
             : thisPlayer.fid;
-        thisPlayer.playerView.setDark(true);
+        if (thisPlayer.playerView != null)
+            ((PlayerViewLucky89)thisPlayer.playerView).setDark(true); // safe cast check
         players.Add(thisPlayer);
+
         JArray dataPlayers = (JArray)data["ArrP"];
         if (dataPlayers == null)
         {
             Debug.LogWarning("handleVTable: ArrP null!");
             return;
         }
-
         foreach (JObject jPl in dataPlayers)
         {
             Player player = new Player();
@@ -233,12 +238,23 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
 
             player.playerView = createPlayerView();
             player.agBet = jPl.ContainsKey("AGC") ? (int)jPl["AGC"] : 0;
+
             players.Add(player);
         }
         for (int i = 0; i < players.Count; i++)
         {
             Player player = players[i];
-            PlayerViewLucky89 pv = (PlayerViewLucky89)player.playerView;
+            PlayerViewLucky89 pv = player.playerView as PlayerViewLucky89;
+            if (pv == null)
+            {
+                player.playerView = createPlayerView();
+                pv = player.playerView as PlayerViewLucky89;
+                if (pv == null)
+                {
+                    Debug.LogError("handleVTable: cannot create PlayerViewLucky89 for player id " + player.id);
+                    continue;
+                }
+            }
             JObject jPl = null;
             for (int k = 0; k < dataPlayers.Count; k++)
             {
@@ -249,6 +265,8 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
                     break;
                 }
             }
+
+            // set banker flag
             pv.isBanker = player.id == bankerId;
 
             player.updatePlayerView();
@@ -260,27 +278,21 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
 
             pv.SetCardPosition(i);
             pv.SetIconBankerPosition(i);
+
             if (pv.isBanker)
-            {
                 pv.ShowIconBanker(true, gameRemaining);
-            }
             else
-            {
                 pv.ShowIconBanker(false);
-            }
         }
 
         updatePositionPlayerView();
+
+        // distribute cards to each player using Arr from server
         foreach (JObject jPl in dataPlayers)
         {
-            int pid = (int)jPl["id"];
-            Player player = players.Find(x => x.id == pid);
-            if (player == null) continue;
-            PlayerViewLucky89 pv = player.playerView as PlayerViewLucky89;
-            if (pv == null)
-            {
-                player.playerView = pv;
-            }
+            int pid = jPl.ContainsKey("id") ? (int)jPl["id"] : -1;
+            var p = getPlayerWithID(pid);
+            PlayerViewLucky89 pv = getPlayerView(p);
 
             JArray arrCards = jPl.ContainsKey("Arr") ? (JArray)jPl["Arr"] : new JArray();
             List<int> cardCodes = new List<int>();
@@ -293,9 +305,9 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
             _DistributeCardsToAPlayer(pv, cardCodes, rate, score);
         }
 
-
         Debug.Log($"Tinh=))handleVTable done - total players: {players.Count}, bankerId: {bankerId}");
     }
+
 
     public override void handleSTable(string strData)
     {
@@ -304,9 +316,17 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
         _WaitForFinishCompleteCb = () =>
         {
             JObject data = JObject.Parse(strData);
-            int tableId = data.ContainsKey("Id") ? (int)data["Id"] : 0;
-            int betValue = data.ContainsKey("M") ? (int)data["M"] : 0;
-            int maxBetValue = data.ContainsKey("maxBet") ? (int)data["maxBet"] : 0;
+            int tableId = data.Value<int?>("Id") ?? 0;
+            int betValue = data.Value<int?>("M") ?? 0;
+            int maxBetValue = data.Value<int?>("maxBet") ?? 0;
+
+            int state = data.Value<int?>("S") ?? 0;
+            bool isSD = data.Value<bool?>("issd") ?? false;
+            bool noLimited = data.Value<bool?>("noLimited") ?? false;
+            int waitTime = data.Value<int?>("waitTime") ?? 0;
+            int bankerWaitTime = data.Value<int?>("bankerWaitTime") ?? 0;
+
+            Debug.Log($"[handleSTable] TableId={tableId}, Bet={betValue}, State={state}, isSD={isSD}, noLimited={noLimited}, waitTime={waitTime}, bankerWaitTime={bankerWaitTime}");
             handleUpdatePot(data);
             setGameInfo(m: betValue, id: tableId, maxBett: maxBetValue);
             for (int i = 0; i < players.Count; i++)
@@ -326,6 +346,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
             {
                 JObject jPl = (JObject)dataPlayers[i];
                 Player player = new Player();
+
                 readDataPlayer(player, jPl);
 
                 player.playerView = createPlayerView();
@@ -345,42 +366,27 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
             {
                 Player player = players[i];
                 PlayerViewLucky89 pv = (PlayerViewLucky89)player.playerView;
+
                 player.updatePlayerView();
-                pv
-                    .SetBetPosition(i)
-                    .ShowHideBetChips(player.agBet > 0, player.agBet)
-                    .HideAllCards()
-                    .UpdateCardsParentPositionAndRotation();
+
+                pv.SetBetPosition(i)
+                  .ShowHideBetChips(player.agBet > 0, player.agBet)
+                  .HideAllCards()
+                  .UpdateCardsParentPositionAndRotation();
 
                 pv.SetCardPosition(i);
                 pv.SetIconBankerPosition(i);
-                if (pv.isBanker)
-                {
-                    pv.ShowIconBanker(true);
-                    Debug.Log($"Tinh=))BatIconBanker");
-                }
-                else
-                {
-                    pv.ShowIconBanker(false);
-                }
+
+                pv.ShowIconBanker(pv.isBanker);
             }
 
             updatePositionPlayerView();
-            bool isSD = data.ContainsKey("issd") && (bool)data["issd"];
-            bool noLimited = data.ContainsKey("noLimited") && (bool)data["noLimited"];
-            int waitTime = data.ContainsKey("waitTime") ? (int)data["waitTime"] : 0;
-            int bankerWaitTime = data.ContainsKey("bankerWaitTime") ? (int)data["bankerWaitTime"] : 0;
-
-            Debug.Log($"handleSTable => TableId={tableId}, Bet={betValue}, State={data["S"]}, issd={isSD}, noLimited={noLimited}, waitTime={waitTime}, bankerWaitTime={bankerWaitTime}");
         };
-
-        // ====== Chạy callback nếu không ở trạng thái VIEWING ======
         if (stateGame != STATE_GAME.VIEWING)
         {
             _WaitForFinishCompleteCb?.Invoke();
             _WaitForFinishCompleteCb = null;
         }
-
         stateGame = STATE_GAME.WAITING;
     }
 
@@ -401,7 +407,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
         setGameInfo(m: betValue, id: tableId, maxBett: 0);
         JObject bankerInfo = data.ContainsKey("bankerInfoTransfer") ? (JObject)data["bankerInfoTransfer"] : null;
         int bankerId = bankerInfo != null && bankerInfo.ContainsKey("pid") ? (int)bankerInfo["pid"] : -1;
-        int gameRemaining = bankerInfo.ContainsKey("gameRemain") ? (int)bankerInfo["gameRemain"] : 0;
+        gameRemaining = bankerInfo.ContainsKey("gameRemain") ? (int)bankerInfo["gameRemain"] : 0;
         for (int i = 0; i < players.Count; i++)
         {
             if (players[i].playerView != null)
@@ -500,19 +506,34 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
         }
         if (distributeCards)
         {
-            foreach (DataPlayer dp in dps)
+            // foreach (DataPlayer dp in dps)
+            // {
+            //     if (dp.PlayerP == null) continue;
+
+            //     PlayerViewLucky89 pv = (PlayerViewLucky89)dp.PlayerP.playerView;
+            //     _DistributeCardsToAPlayer(pv, dp.cardCodes, dp.rate, dp.score);
+
+            //     // if (pv.isBanker)
+            //     // {
+            //     //     Debug.Log($"Banker: {dp.PlayerP.namePl}, score={dp.score}, rate={dp.rate}");
+            //     //     pv.ShowIconBanker(true, gameRemaining);
+            //     // }
+
+            // }
+            for (int i = 0; i < dataPlayers.Count; i++)
             {
-                if (dp.PlayerP == null) continue;
-
-                PlayerViewLucky89 pv = (PlayerViewLucky89)dp.PlayerP.playerView;
-                _DistributeCardsToAPlayer(pv, dp.cardCodes, dp.rate, dp.score);
-
-                // if (pv.isBanker)
-                // {
-                //     Debug.Log($"Banker: {dp.PlayerP.namePl}, score={dp.score}, rate={dp.rate}");
-                //     pv.ShowIconBanker(true, gameRemaining);
-                // }
-
+                int id = dataPlayers[i].Contains("id") ? (int)dataPlayers[i]["id"] : 0;
+                int score = dataPlayers[i].Contains("score") ? (int)dataPlayers[i]["score"] : 0;
+                int rate = dataPlayers[i].Contains("rate") ? (int)dataPlayers[i]["rate"] : 0;
+                JArray Arr = dataPlayers.Contains("Arr") ? (JArray)dataPlayers[i]["Arr"] : new JArray();
+                List<int> cardCodes = new();
+                foreach (JToken item in Arr)
+                {
+                    cardCodes.Add((int)item);
+                }
+                var player = getPlayerWithID(id);
+                PlayerViewLucky89 playerview = getPlayerView(player);
+                _DistributeCardsToAPlayer(playerview, cardCodes, rate, score);
             }
         }
     }
@@ -588,7 +609,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
             yield return new WaitForSeconds(1f);
             timeCountDown -= 1f;
         }
-        panelAction.SetActive(false);
+        // panelAction.SetActive(false);
         DisablePanelAction();
         // DoClickDontDraw();
     }
@@ -614,6 +635,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
 
     private void _HandleBankerInfor(JObject data)
     {
+        stateGame = STATE_GAME.PLAYING;
         handleUpdatePot(data);
         for (int i = 0; i < players.Count; i++)
         {
@@ -621,9 +643,9 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
             playerView.ShowIconBanker(false);
             playerView.isBanker = false;
         }
-        int idBanker = getInt(data, "pid");
-        int gameRemaining = getInt(data, "gameRemain");
+        gameRemaining = getInt(data, "gameRemain");
         long ag = getLong(data, "ag");
+        int idBanker = getInt(data, "pid");
         var playerBanker = getPlayerWithID(idBanker);
         PlayerViewLucky89 plViewLucky89 = getPlayerView(playerBanker);
         int idThisPLayer = Globals.User.userMain.Userid;
@@ -648,7 +670,11 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
                 {
                     PlayerViewLucky89 playerView = getPlayerView(players[i]);
                     playerView.ShowAnimWaitBetTime(true, "white");
-                    if (thisPlayerView.isBanker)
+                    if (playerView.isBanker)
+                    {
+                        playerView.ShowAnimWaitBetTime(false);
+                    }
+                    if (stateGame == STATE_GAME.VIEWING && thisPlayerView != null)
                     {
                         thisPlayerView.ShowAnimWaitBetTime(false);
                     }
@@ -856,7 +882,10 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
                 {
                     PlayerViewLucky89 plView = getPlayerView(players[i]);
                     plView.ShowAnimWaitOpenCard(true);
-                    thisPlayerView.ShowAnimWaitOpenCard(false);
+                    if (thisPlayerView != null)
+                    {
+                        thisPlayerView.ShowAnimWaitOpenCard(false);
+                    }
                 }
             });
             float time = (float)data["timeAction"] / 1000;
@@ -876,7 +905,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
         string name = (string)data["N"];
         Player player = players?.Find(x => x.namePl.Equals(name));
         bool isDealer = player == null;
-        bool isMe = !isDealer && player == thisPlayer;
+        bool isMe = player == thisPlayer;
 
         // Nếu là dealer => dùng view dealer, nếu không => dùng view player (có thể null)
         PlayerViewLucky89 playerView = isDealer
@@ -900,9 +929,9 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
             int score = data.ContainsKey("score") ? (int)data["score"] : 0;
             int rate = data.ContainsKey("rate") ? (int)data["rate"] : 0;
 
+            listCodeCard.Add(cardCode);
             playerView.ShowScore(true, score, listCodeCard.Count).ShowRate(rate);
 
-            listCodeCard.Add(cardCode);
             listCardBig[2].setTextureWithCode(cardCode);
 
             if (listCodeCard.Count > 1)
@@ -965,6 +994,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
                     });
                 }
             });
+            buttonDone.gameObject.SetActive(false);
             buttonDraw.gameObject.SetActive(false);
             buttonNotDraw.gameObject.SetActive(false);
             buttonDeclare3Card.gameObject.SetActive(false);
@@ -1005,6 +1035,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
                         });
                     }
                 });
+                buttonDone.gameObject.SetActive(false);
                 buttonDraw.gameObject.SetActive(false);
                 buttonNotDraw.gameObject.SetActive(false);
                 buttonDeclare3Card.gameObject.SetActive(false);
@@ -1017,7 +1048,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
     {
         imageCardDraw.gameObject.SetActive(true);
         imageCardDraw.transform.localRotation = Quaternion.Euler(Vector3.zero);
-        imageCardDraw.transform.localPosition = new Vector3(900, 800, 0);
+        imageCardDraw.transform.localPosition = new Vector3(1400, 1400, 0);
         Vector3[] path =
         {
         new Vector3(900, 800, 0),
@@ -1046,6 +1077,17 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
                 animHand.gameObject.SetActive(true);
                 StartCoroutine(DetectSwipe(false, true));
             });
+    }
+    private void ClickButtonDone()
+    {
+        DisablePanelAction();
+    }
+    private void ActiveButtonDone()
+    {
+        buttonDone.gameObject.SetActive(true);
+        buttonDraw.gameObject.SetActive(false);
+        buttonNotDraw.gameObject.SetActive(false);
+        buttonDeclare3Card.gameObject.SetActive(false);
     }
 
     private void DisablePanelAction()
@@ -1084,7 +1126,8 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
                         listCardBig[1].transform.DOLocalMove(new Vector3(84f, 100f, 0), 0.5f).SetEase(Ease.Linear);
                         listCardBig[1].transform.DORotate(new Vector3(0f, 0f, -30f), 0.5f).SetEase(Ease.Linear).OnComplete(() =>
                         {
-                            DisablePanelAction();
+                            // DisablePanelAction();
+                            ActiveButtonDone();
                         });
                         isTrackingSwipe = false;
                         animHand.gameObject.SetActive(false);
@@ -1114,7 +1157,8 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
                         listCardBig[1].transform.SetParent(parentCardBig.transform);
                         if (bankerLucky)
                         {
-                            DisablePanelAction();
+                            // DisablePanelAction();
+                            ActiveButtonDone();
                             isTrackingSwipe = false;
                         }
                         else
@@ -1127,10 +1171,12 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
                                 {
                                     buttonDeclare3Card.gameObject.SetActive(true);
                                 }
+                                buttonDone.gameObject.SetActive(false);
                             }
                             else
                             {
-                                DisablePanelAction();
+                                // DisablePanelAction();
+                                ActiveButtonDone();
                             }
                             Debug.Log("aaaaa");
                             isTrackingSwipe = false;
@@ -1154,7 +1200,6 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
 
         // Bắt đầu xử lý kết quả
         StartCoroutine(handleData());
-        handleUpdatePot(data);
 
         IEnumerator handleData()
         {
@@ -1181,6 +1226,8 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
                 int score = pData["score"]?.Value<int>() ?? 0;
                 int rate = pData["rate"]?.Value<int>() ?? 1;
                 JArray arrCard = (JArray)pData["arr"];
+                var playerBanker = getPlayerWithID(pid);
+                PlayerViewLucky89 playerView = getPlayerView(playerBanker);
 
                 Player player = players.Find(x => x.id == pid);
                 if (player == null)
@@ -1188,8 +1235,6 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
                     Debug.LogWarning($"[Lucky89] Player not found for pid={pid}, skip display.");
                     continue;
                 }
-
-                PlayerViewLucky89 playerView = (PlayerViewLucky89)player.playerView;
                 if (playerView == null)
                 {
                     Debug.LogWarning($"[Lucky89] PlayerView is null for pid={pid}, skip.");
@@ -1204,18 +1249,36 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
                     for (int i = 0; i < arrCard.Count && i < cardCs.Count; i++)
                         _RevealACard(cardCs[i], arrCard[i]?.Value<int>() ?? -1, cardCs[i].transform.localEulerAngles);
                 }
-                try
+                if (playerView != null)
                 {
-                    playerView.ShowScore(true, score, listCodeCard.Count)
-                              .ShowRate(rate)
-                              .ShowAnimResult(true, chipWin);
+                    try
+                    {
+                        playerView.ShowScore(true, score, arrCard.Count)
+                                  .ShowRate(rate)
+                                  .ShowAnimResult(true, chipWin);
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.LogError($"[Lucky89] Error ShowScore for pid={pid}: {ex.Message}");
+                    }
                 }
-                catch (Exception ex)
+                else
                 {
-                    Debug.LogError($"[Lucky89] Error ShowScore for pid={pid}: {ex.Message}");
+                    Debug.LogWarning($"[Lucky89] Cannot show score, playerView is null for pid={pid}");
                 }
+
                 if (!isBanker)
                 {
+                    try
+                    {
+                        playerView.ShowScore(true, score, arrCard.Count)
+                                  .ShowRate(rate)
+                                  .ShowAnimResult(true, chipWin);
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.LogError($"[Lucky89] Error ShowScore for pid={pid}: {ex.Message}");
+                    }
                     if (chipWin > 0)
                         playerWinCbs.Add(() => StartCoroutine(playerWinChips(pid, chipWin, ag, bankerPlayer)));
                     else if (chipWin < 0)
@@ -1228,7 +1291,13 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
                 }
                 else
                 {
-                    finalDealerCb = () => playerView.effectFlyMoney(chipWin);
+                    if (gameRemaining == 1)
+                    {
+                        long pot = getLong(data, "pot");
+                        player.ag += pot;
+                        player.setAg();
+                        playerView.effectFlyMoney(pot);
+                    }
                 }
             }
 
@@ -1239,8 +1308,8 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
             foreach (Action cb in playerWinCbs) cb.Invoke();
             if (playerWinCbs.Count > 0) yield return new WaitForSeconds(3 * WIN_CHIP_DURATION);
             finalDealerCb?.Invoke();
+            handleUpdatePot(data);
             yield return new WaitForSeconds(1f);
-            // 🔹 Bay từng lá bài về potTransform, rồi ẩn đi + trả về vị trí cũ
             foreach (Player p in players)
             {
                 PlayerViewLucky89 pView = (PlayerViewLucky89)p.playerView;
@@ -1253,21 +1322,16 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
 
                     Vector3 originalPos = c.transform.position;
                     Quaternion originalRot = c.transform.rotation;
-
-                    // Bay về pot
                     c.transform.DOMove(potTransform.position, 0.5f)
                         .SetEase(Ease.InBack)
                         .OnComplete(() =>
                         {
-                            // Khi tới pot -> tắt lá bài
                             c.gameObject.SetActive(false);
-
-                            // Sau đó trả về vị trí cũ (ẩn sẵn)
                             c.transform.position = originalPos;
                             c.transform.rotation = originalRot;
                         });
 
-                    yield return new WaitForSeconds(0.05f); // bay lần lượt từng lá
+                    yield return new WaitForSeconds(0.05f);
                 }
             }
 
@@ -1282,8 +1346,6 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
                     .ShowRate(0)
                     .HideAllCards();
             }
-
-            // 🔹 Kết thúc game
             _WaitForFinishCompleteCb?.Invoke();
             _WaitForFinishCompleteCb = null;
             checkAutoExit();
@@ -1294,9 +1356,6 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
     IEnumerator playerLoseChips(int pId, long changedChips, long currentChips, Player bankerPlayer)
     {
         if (changedChips >= 0) yield break;
-
-        // ✅ Đích đến: banker người chơi hoặc dealer máy
-        // Transform targetTransform = bankerPlayer != null ? bankerPlayer.playerView.transform : m_DealerPVL89.transform;
         Transform targetTransform = potTransform;
 
         for (int i = 0; i < 3; i++)
@@ -1314,8 +1373,6 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
             chipTf.gameObject.SetActive(true);
             chipTf.position = (Vector2)(players.Find(x => x.id == pId).playerView.transform.position)
                               + new Vector2(Random.Range(-.5f, .5f), Random.Range(-.5f, .5f));
-
-            // 🔸 Bay chip từ người thua → banker
             chipTf.DOMove(targetTransform.position, 2 * LOSE_CHIP_DURATION)
                   .SetEase(Ease.OutQuad)
                   .OnComplete(() => chipTf.gameObject.SetActive(false));
@@ -1335,9 +1392,6 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
     IEnumerator playerWinChips(int pId, long changedChips, long currentChips, Player bankerPlayer)
     {
         if (changedChips <= 0) yield break;
-
-        // ✅ Nguồn chip: banker người chơi hoặc dealer máy
-        // Transform sourceTransform = bankerPlayer != null ? bankerPlayer.playerView.transform : m_DealerPVL89.transform;
         Transform sourceTransform = potTransform;
 
         for (int i = 0; i < 3; i++)
@@ -1354,8 +1408,6 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
             playSound(SOUND_GAME.GET_CHIP);
             chipTf.gameObject.SetActive(true);
             chipTf.position = sourceTransform.position;
-
-            // 🔸 Bay chip từ banker → người thắng
             chipTf.DOMove((Vector2)(players.Find(x => x.id == pId).playerView.transform.position)
                           + new Vector2(Random.Range(-.5f, .5f), Random.Range(-.5f, .5f)),
                           2 * WIN_CHIP_DURATION)
@@ -1398,13 +1450,6 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
             parentObject.SetActive(false);
         }
     }
-    // private string _ShowAnimOnBegin(bool isStart = true)
-    // {
-    //     string animName = isStart ? "start" : "continue";
-    //     m_BeginGameSG.gameObject.SetActive(true);
-    //     m_BeginGameSG.AnimationState.SetAnimation(0, animName, false);
-    //     return animName;
-    // }
     public void handleUpdatePot(JObject jsonData)
     {
         if (jsonData == null)
@@ -1527,10 +1572,12 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
         playSound(SOUND_GAME.DISPATCH_CARD);
         playerView.HideAllCards();
         List<Card> cardCs = playerView.GetListCards();
-        for (int i = 0; i < cardCs.Count; i++) if (i < codes.Count) StartCoroutine(_DrawCard(playerView, codes[i]));
-        int totalCode = 0;
-        foreach (int code in codes) totalCode += code;
-        playerView.UpdateCardsParentPositionAndRotation().ShowRate(totalCode > 0 ? rate : 0).ShowScore(totalCode > 0, score, cardCs.Count);
+        for (int i = 0; i < codes.Count; i++)
+        {
+            if (i < codes.Count) StartCoroutine(_DrawCard(playerView, codes[i]));
+            int totalCode = 0; foreach (int code in codes) totalCode += code;
+            playerView.UpdateCardsParentPositionAndRotation().ShowRate(rate).ShowScore(totalCode > 0, score, cardCs.Count);
+        }
     }
 
     private class DataPlayer

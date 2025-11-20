@@ -24,7 +24,7 @@ public class XocdiaView : GameView
     public List<Player> listPlayerXocdia = new List<Player>();
     public List<GameObject> chipResultControl;
     public NodePlayerXocdia NodeListPlayer = null;
-    private List<int> ListValueChip = new List<int>();
+    public List<int> ListValueChip = new List<int>();
     private Queue<ChipXocDia> chipPool = new Queue<ChipXocDia>();
     [SerializeField] private Transform m_ContainerChip;
     [SerializeField] private GameObject m_ChatInGame;
@@ -137,26 +137,27 @@ public class XocdiaView : GameView
         }
     }
 
-    public void Awake()
+    protected override void Awake()
     {
         base.Awake();
         instance = this;
         agTable = 100;
         ListValueChip = new List<int> { agTable, agTable * 2, agTable * 5, agTable * 10, agTable * 20 };
+        Debug.Log($"AgTableAwake: {agTable}");
         InitHistoryArray();
         this.timeToBet = 18;
         thisPlayer = null;
         gateValue = new List<int> { 0, 0, 0, 0, 0, 0 };
         selfGateValue = new List<int> { 0, 0, 0, 0, 0, 0 };
         gateNumber = new List<List<ChipXocDia>>
-{
-    new List<ChipXocDia>(),
-    new List<ChipXocDia>(),
-    new List<ChipXocDia>(),
-    new List<ChipXocDia>(),
-    new List<ChipXocDia>(),
-    new List<ChipXocDia>()
-};
+        {
+            new List<ChipXocDia>(),
+            new List<ChipXocDia>(),
+            new List<ChipXocDia>(),
+            new List<ChipXocDia>(),
+            new List<ChipXocDia>(),
+            new List<ChipXocDia>()
+        };
         bowlPos = bowlControl.transform.position;
         platePos = plateControl.transform.localPosition;
         isXoc = false;
@@ -169,7 +170,6 @@ public class XocdiaView : GameView
         nodeNotify.transform.SetAsLastSibling();
         dataHistory = "";
         getButtonBetVector();
-        XocDiaChipManager.SetListValueChip(ListValueChip);
         for (int i = 0; i < 80; i++)
         {
             var chip = Instantiate(chipForFly, m_ContainerChip);
@@ -296,20 +296,19 @@ public class XocdiaView : GameView
         base.handleCTable(strData);
         JObject data = JObject.Parse(strData);
         agTable = (int)data["M"];
+        Debug.Log($"AgTableCTable: {agTable}");
         acceptBanker = (int)data["F"];
         JToken betsToken = data["bets"];
         if (betsToken != null && betsToken.Type == JTokenType.Array && ((JArray)betsToken).Count > 0)
         {
             JArray betsArray = (JArray)betsToken;
             ListValueChip = betsArray.ToObject<List<int>>();
-
+            Debug.Log("betsArray = " + betsArray.ToString(Newtonsoft.Json.Formatting.None));
         }
         else
         {
             ListValueChip = new List<int> { agTable, agTable * 2, agTable * 5, agTable * 10, agTable * 20 };
         }
-
-        XocDiaChipManager.SetListValueChip(ListValueChip);
         stateGame = Globals.STATE_GAME.WAITING;
         SetValueInchip();
         SetStateButton(false);
@@ -345,18 +344,19 @@ public class XocdiaView : GameView
         base.handleRJTable(strData);
         JObject data = JObject.Parse(strData);
         agTable = (int)data["M"];
+        Debug.Log($"AgTableRJTable: {agTable}");
         JToken betsToken = data["bets"];
         if (betsToken != null && betsToken.Type == JTokenType.Array && ((JArray)betsToken).Count > 0)
         {
             JArray betsArray = (JArray)betsToken;
             ListValueChip = betsArray.ToObject<List<int>>();
+            Debug.Log("betsArray = " + betsArray.ToString(Newtonsoft.Json.Formatting.None));
         }
         else
         {
             ListValueChip = new List<int> { agTable, agTable * 2, agTable * 5, agTable * 10, agTable * 20 };
         }
         SetValueInchip();
-        XocDiaChipManager.SetListValueChip(ListValueChip);
         acceptBanker = (int)data["F"];
         stateGame = (bool)data["isWaitNewGame"] ? Globals.STATE_GAME.WAITING : Globals.STATE_GAME.VIEWING;
         timeToBet = (int)data["T"];
@@ -437,6 +437,7 @@ public class XocdiaView : GameView
         base.handleSTable(strData);
         JObject data = JObject.Parse(strData);
         agTable = getInt(data, "M");
+        Debug.Log($"AgTableSTable: {agTable}");
         m_AvatarChung.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "+" + listPlayerXocdia.Count.ToString();
         SetStateButton(false);
         acceptBanker = (int)data["F"];
@@ -444,14 +445,15 @@ public class XocdiaView : GameView
         if (betsToken != null && betsToken.Type == JTokenType.Array && ((JArray)betsToken).Count > 0)
         {
             JArray betsArray = (JArray)betsToken;
+            ListValueChip = new();
             ListValueChip = betsArray.ToObject<List<int>>();
+            Debug.Log("betsArray = " + betsArray.ToString(Newtonsoft.Json.Formatting.None));
         }
         else
         {
             ListValueChip = new List<int> { agTable, agTable * 2, agTable * 5, agTable * 10, agTable * 20 };
         }
         SetValueInchip();
-        XocDiaChipManager.SetListValueChip(ListValueChip);
         stateGame = (bool)data["isWaitNewGame"] ? Globals.STATE_GAME.WAITING : Globals.STATE_GAME.VIEWING;
         JArray listPlayer = (JArray)data["ArrP"];
         foreach (JObject playerData in listPlayer)
@@ -1577,100 +1579,121 @@ public class XocdiaView : GameView
         bowlControl.transform.DOMove(new Vector3(target.x, target.y), 2f).SetEase(Ease.InOutSine);
     }
 
+    private Sequence finishSequence;
+
     public void HighLightGateWin(int dataNumber, JObject data)
     {
-        List<int> totalYellowSprite = new List<int>();
-
-        switch (dataNumber)
+        // Determine winning gates
+        List<int> totalYellowSprite = dataNumber switch
         {
-            case 1:
-                totalYellowSprite = new List<int> { 0 };
-                break;
-            case 6:
-                totalYellowSprite = new List<int> { 0, 5 };
-                break;
-            case 3:
-                totalYellowSprite = new List<int> { 0, 2 };
-                break;
-            case 4:
-                totalYellowSprite = new List<int> { 1, 3 };
-                break;
-            case 5:
-                totalYellowSprite = new List<int> { 1, 4 };
-                break;
-            default:
-                break;
-        }
+            1 => new List<int> { 0 },
+            6 => new List<int> { 0, 5 },
+            3 => new List<int> { 0, 2 },
+            4 => new List<int> { 1, 3 },
+            5 => new List<int> { 1, 4 },
+            _ => new List<int>()
+        };
+
+        // Show all betting buttons
         for (int i = 0; i < listBtnBet.Count; i++)
         {
             listBtnBet[i].SetActive(true);
+
             GameObject gate = listBtnBet[i].transform.GetChild(3).gameObject;
             if (gate != null && !totalYellowSprite.Contains(i))
-            {
                 gate.SetActive(true);
-            }
         }
+
+        // Blink effect for winning gates
         foreach (int i in totalYellowSprite)
         {
-            GameObject winningGO = listBtnBet[i].transform.GetChild(2).gameObject;
-            winningGO.SetActive(true);
+            GameObject winObj = listBtnBet[i].transform.GetChild(2).gameObject;
+            winObj.SetActive(true);
 
-            Image img = winningGO.GetComponent<Image>();
-            if (img == null)
-            {
-                continue;
-            }
-            Sequence seq = DOTween.Sequence();
+            Image img = winObj.GetComponent<Image>();
+            if (img == null) continue;
+
+            Sequence blinkSeq = DOTween.Sequence().SetUpdate(true);
             float blinkDuration = 4f;
             int blinkCount = 15;
-            float singleBlink = blinkDuration / (blinkCount * 2);
+            float single = blinkDuration / (blinkCount * 2);
 
             for (int j = 0; j < blinkCount; j++)
             {
-                seq.Append(img.DOFade(0f, singleBlink));
-                seq.Append(img.DOFade(1f, singleBlink));
+                blinkSeq.Append(img.DOFade(0f, single));
+                blinkSeq.Append(img.DOFade(1f, single));
             }
 
-            seq.OnComplete(() => winningGO.SetActive(false));
+            blinkSeq.OnComplete(() => { if (winObj != null) winObj.SetActive(false); });
         }
-        List<int> mangToTotal = new List<int> { 0, 1, 2, 3, 4, 5 };
-        var difference = mangToTotal.Except(totalYellowSprite).ToList();
-        Sequence fullSequence = DOTween.Sequence();
-        fullSequence.AppendInterval(4f);
-        fullSequence.AppendCallback(() => ChipReturnEffect(totalYellowSprite));
-        fullSequence.AppendInterval(1f);
-        fullSequence.AppendCallback(() => returnChipForWinner(totalYellowSprite));
-        fullSequence.AppendInterval(0.5f);
-        fullSequence.AppendCallback(() => EffectMoneyForPlayer(data));
-        fullSequence.AppendInterval(2.5f);
-        fullSequence.AppendCallback(() =>
-        {
-            foreach (List<ChipXocDia> gate in gateNumber)
-            {
-                foreach (ChipXocDia chip in gate)
-                {
-                    if (chip != null)
-                    {
-                        ReturnChipToPool(chip);
-                    }
-                }
-                gate.Clear();
-            }
-            gateNumber = new List<List<ChipXocDia>>()
-            {
-                new List<ChipXocDia>(),
-                new List<ChipXocDia>(),
-                new List<ChipXocDia>(),
-                new List<ChipXocDia>(),
-                new List<ChipXocDia>(),
-                new List<ChipXocDia>()
-            };
 
-        }).AppendInterval(1.5f).
-        AppendCallback(
-            () =>
-             isFinish = false);
+        // Kill old sequence if exists
+        if (finishSequence != null && finishSequence.IsActive())
+            finishSequence.Kill();
+
+        finishSequence = DOTween.Sequence();
+        finishSequence.SetUpdate(true); // Continue even if timescale is 0
+
+        finishSequence.AppendInterval(4f)
+        .AppendCallback(() =>
+        {
+            try { ChipReturnEffect(totalYellowSprite); }
+            catch (System.Exception ex) { Debug.LogError("ChipReturnEffect ERROR: " + ex); }
+        })
+
+        .AppendInterval(1f)
+        .AppendCallback(() =>
+        {
+            try { returnChipForWinner(totalYellowSprite); }
+            catch (System.Exception ex) { Debug.LogError("returnChipForWinner ERROR: " + ex); }
+        })
+
+        .AppendInterval(0.5f)
+        .AppendCallback(() =>
+        {
+            try
+            {
+                if (data != null)
+                    EffectMoneyForPlayer(data);
+                else
+                    Debug.LogWarning("EffectMoneyForPlayer skipped → data null");
+            }
+            catch (System.Exception ex)
+            {
+                Debug.LogError("EffectMoneyForPlayer ERROR: " + ex);
+            }
+        })
+
+        .AppendInterval(2.5f)
+        .AppendCallback(() =>
+        {
+            try
+            {
+                foreach (var gate in gateNumber)
+                {
+                    foreach (var chip in gate)
+                    {
+                        if (chip != null)
+                            ReturnChipToPool(chip);
+                    }
+                    gate.Clear();
+                }
+
+                gateNumber = new List<List<ChipXocDia>>
+                {
+                new(), new(), new(), new(), new(), new()
+                };
+            }
+            catch (System.Exception ex)
+            {
+                Debug.LogError("ReturnChipPool ERROR: " + ex);
+            }
+        })
+
+        .AppendInterval(1.5f)
+        .AppendCallback(() => { isFinish = false; });
     }
+
     public void ChipReturnEffect(List<int> arrayGateWin)
     {
         int count = 0;
@@ -1712,34 +1735,78 @@ public class XocdiaView : GameView
 
     public void EffectMoneyForPlayer(JObject data)
     {
-        string JData = (string)data["data"];
-        JArray playerData = JArray.Parse(JData);
-        foreach (JObject item in playerData)
+        if (data == null)
         {
-            int uid = (int)item["uid"];
+            Debug.LogError("EffectMoneyForPlayer: DATA NULL!");
+            return;
+        }
+
+        Debug.Log($"DataEffectMoneyForPlayer RAW: {data}");
+
+        // Lấy string JSON trong trường "data"
+        string rawData = (string)data["data"];
+        if (string.IsNullOrEmpty(rawData))
+        {
+            Debug.LogError("EffectMoneyForPlayer: data[\"data\"] EMPTY!");
+            return;
+        }
+
+        // Parse thành mảng player
+        JArray arr = null;
+        try
+        {
+            arr = JArray.Parse(rawData);
+        }
+        catch (System.Exception ex)
+        {
+            Debug.LogError("EffectMoneyForPlayer: PARSE ERROR → " + ex);
+            return;
+        }
+
+        // Duyệt từng người chơi
+        foreach (JObject item in arr)
+        {
+            int uid = item["uid"] != null ? (int)item["uid"] : -1;
+            long moneyChange = item["M"] != null ? (long)item["M"] : 0;
+            long newAG = item["AG"] != null ? (long)item["AG"] : 0;
+
             Player player = getPlayerWithID(uid);
-            if (player != null)
+
+            if (player == null)
             {
-                player.ag = (int)item["AG"];
-                player.playerView.effectFlyMoney((int)item["M"], 40);
+                Debug.LogWarning($"EffectMoneyForPlayer: PLAYER NOT FOUND → UID = {uid}");
+                continue;
             }
+
+            // Cập nhật AG
+            player.ag = newAG;
+
+            // Run hiệu ứng bay tiền
+            if (player.playerView != null)
+            {
+                player.playerView.effectFlyMoney(moneyChange, 40);
+            }
+
+            Debug.Log(
+                $"[MONEY EFFECT] UID={uid} | NAME={player.namePl} | CHANGE={moneyChange} | NEW_AG={newAG}"
+            );
+
+            // Update UI
             player.updatePlayerView();
         }
+
+        // ====== LOGIC CŨ: xử lý nút đăng làm Banker ======
+
         if (thisPlayer.ag < agTable * acceptBanker)
         {
             btn_BecomeBanker.transform.parent.gameObject.SetActive(false);
         }
-        else if (thisPlayer.id == idCurrentDealer && thisPlayer.ag >= agTable * acceptBanker)
+        else if (thisPlayer.id == idCurrentDealer &&
+                 thisPlayer.ag >= agTable * acceptBanker)
         {
             btn_BecomeBanker.transform.parent.gameObject.SetActive(true);
             btn_BecomeBanker.SetActive(false);
         }
-        // else
-        // {
-        //     btn_BecomeBanker.transform.parent.gameObject.SetActive(true);
-        //     btn_CancelBanker.SetActive(true);
-        //     btn_BecomeBanker.SetActive(true);
-        // }
     }
 
     private IEnumerator FadeTo(GameObject go, float duration, float targetAlpha)

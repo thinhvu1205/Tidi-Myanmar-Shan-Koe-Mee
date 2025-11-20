@@ -261,7 +261,15 @@ public class GameView : BaseView
                 {
                     if (player.playerView == null && m_HiddenPlayersTf == null) return;
                     var idAnimation = int.Parse(string.Join("", datType.ToCharArray().Where(Char.IsDigit)));
-                    var iteChat = BundleHandler.Instantiate(BundleHandler.LoadGameObject("GameView/Objects/ItemChatAction") as GameObject, transform).GetComponent<ItemChatAction>();
+                    ItemChatAction iteChat = null;
+                    if (Config.curGameId == (int)GAMEID.SHAN_KOE_MEE)
+                    {
+                        iteChat = BundleHandler.Instantiate(BundleHandler.LoadGameObject("GameView/Objects/ItemChatAction") as GameObject, playerContainer.transform).GetComponent<ItemChatAction>();
+                    }
+                    else
+                    {
+                        iteChat = BundleHandler.Instantiate(BundleHandler.LoadGameObject("GameView/Objects/ItemChatAction") as GameObject, transform).GetComponent<ItemChatAction>();
+                    }
                     if (player.playerView != null) iteChat.transform.position = player.playerView.transform.position;
                     else iteChat.transform.position = m_HiddenPlayersTf.position;
                     if (npl.playerView != null)

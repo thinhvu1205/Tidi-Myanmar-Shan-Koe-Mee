@@ -114,6 +114,10 @@ public class Player
     public void setAg()
     {
         playerView.setAg(ag);
+        if (id == Globals.User.userMain.Userid)
+        {
+            Globals.User.userMain.AG = ag;
+        }
     }
     public void updateMoney()
     {

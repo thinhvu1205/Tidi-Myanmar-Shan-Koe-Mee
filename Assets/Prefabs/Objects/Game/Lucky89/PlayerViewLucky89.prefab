@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Three of a kind
+  m_text: 5 Point
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7708e67653374c60af5f1595e949403, type: 2}
   m_sharedMaterial: {fileID: 7800525795003925199, guid: b7708e67653374c60af5f1595e949403, type: 2}
@@ -716,7 +716,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -42.5, y: -17.5}
+  m_AnchoredPosition: {x: -35.6, y: -2.7}
   m_SizeDelta: {x: 84, y: 72}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1916952619093432453
@@ -749,8 +749,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 3
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8477b59508a79df48bce32ed62bd9675, type: 2}
-  m_sharedMaterial: {fileID: -3778855014367556274, guid: 8477b59508a79df48bce32ed62bd9675, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b7708e67653374c60af5f1595e949403, type: 2}
+  m_sharedMaterial: {fileID: 7800525795003925199, guid: b7708e67653374c60af5f1595e949403, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -774,13 +774,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 4
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -2608,7 +2608,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6673218120029277004
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2618,7 +2618,7 @@ RectTransform:
   m_GameObject: {fileID: 6725614222055028178}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6729670554420276763}
@@ -2769,6 +2769,7 @@ MonoBehaviour:
   m_DrawSG: {fileID: 990741732287550612}
   m_BetTMP: {fileID: 4138406484614123739}
   m_ScoreTMP: {fileID: 4739748232301841548}
+  m_GameRemainTMP: {fileID: 5868580770232213405}
   imageIconBanker: {fileID: 368170429047679753}
   CardParent: {fileID: 517567702908594862}
   scoreParent: {fileID: 7589940571683634130}
@@ -2777,7 +2778,6 @@ MonoBehaviour:
   animWaitOpenCard: {fileID: 3444736250104242488}
   isBanker: 0
   isLucky: 0
-  m_GameRemainTMP: {fileID: 5868580770232213405}
 --- !u!1 &7364494076208316192
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,13 +6,8 @@ public class ChipXocDia : MonoBehaviour
 {
     [SerializeField] private List<GameObject> m_ListSprChip;
     [SerializeField] private TextMeshProUGUI m_ValueChip;
-    public List<int> ListValueChip = new List<int>();
     public int playerID = 0;
     private int _valueChip;
-    public void SetListValueChip(List<int> listValueChip)
-    {
-        ListValueChip = listValueChip;
-    }
     public int GetValue()
     {
         return _valueChip;
@@ -21,9 +16,9 @@ public class ChipXocDia : MonoBehaviour
     {
         _valueChip = valueChip;
         int positionChip = -1;
-        for (int i = 0; i < ListValueChip.Count; i++)
+        for (int i = 0; i < XocdiaView.instance.ListValueChip.Count; i++)
         {
-            if (valueChip >= ListValueChip[i])
+            if (valueChip >= XocdiaView.instance.ListValueChip[i])
             {
                 positionChip = i;
             }

@@ -532,6 +532,7 @@ public class BaucuaGameView : GameView
             player.setAg();
             effectMoveChip(positionGates[i], betAmount, player);
         }
+        UpdateButtonBet();
     }
 
 
@@ -965,16 +966,12 @@ public class BaucuaGameView : GameView
         cancelValueBet();
         yield return new WaitForSeconds(1.0f);
         ShowDiceResults(result);
-
-        // Effect 2: show result dice
         m_AniStart.gameObject.SetActive(false);
         m_AniXoc.gameObject.SetActive(true);
         playSound(SOUND_HILO.DICE_OPEN);
         m_AniXoc.Initialize(true);
         m_AniXoc.AnimationState.SetAnimation(0, "open", false);
         yield return new WaitForSeconds(1.0f);
-
-        // Effect 3: show gate win
         List<int> usedIndexes = new List<int>();
         List<long> listBetWin = new List<long>();
         foreach (int gateIndex in listTableWin)
@@ -995,13 +992,12 @@ public class BaucuaGameView : GameView
                 {
                     if (int.TryParse(nwArr[i], out int gate) && gate == gateIndex)
                     {
-                        // kiểm tra xem player này + NW index đã dùng chưa
                         if (!usedIndexes.Contains(p * 100 + i))
                         {
                             if (i < mwArr.Length && int.TryParse(mwArr[i], out int money))
                             {
                                 listBetWin.Add(money);
-                                usedIndexes.Add(p * 100 + i); // đánh dấu đã dùng
+                                usedIndexes.Add(p * 100 + i);
                                 added = true;
                                 break;
                             }
@@ -1013,40 +1009,33 @@ public class BaucuaGameView : GameView
             }
 
             if (!added)
-                listBetWin.Add(0); // nếu không ai đặt gate này
+                listBetWin.Add(0);
             Image image = m_Gatebet[gateIndex - 1].transform.GetChild(1).GetComponent<Image>();
-            image.gameObject.SetActive(true); // Ensure image is active
-
-            // Flash effect
+            image.gameObject.SetActive(true);
             image.DOFade(1f, 0.2f)
                  .SetLoops(6, LoopType.Yoyo)
                  .OnComplete(() =>
                  {
-                     image.color = new Color(image.color.r, image.color.g, image.color.b, 1f); // Set alpha to 1
+                     image.color = new Color(image.color.r, image.color.g, image.color.b, 1f);
                  });
-
-            // Wait for 2 seconds and then fade out to 0
             DOVirtual.DelayedCall(4f, () =>
             {
-                image.DOFade(0f, 0.3f); // Fade out to 0
+                image.DOFade(0f, 0.3f);
             });
         }
 
-        yield return new WaitForSeconds(1.0f); // Adjust delay as needed
+        yield return new WaitForSeconds(1.0f);
         foreach (var dice in m_ListXucSac)
         {
             dice.gameObject.SetActive(false);
         }
         m_AniXoc.AnimationState.SetAnimation(0, "khong lac", false);
-
-        // Giai đoạn 1: Tạo chip và di chuyển chúng đến các ô thắng cược
         for (int i = 0; i < listTableWin.Count; i++)
         {
             CreateAndMoveChipsToWinningGate(listTableWin[i], listBetWin[i]);
         }
 
-        yield return new WaitForSeconds(2.0f); // Adjust delay as needed
-        // Giai đoạn 2: Tạo chip để bay về phía người thắng cược và cập nhật giá trị chip của người chơi
+        yield return new WaitForSeconds(2.0f);
         foreach (JObject playerResult in dataArray)
         {
             string playerName = (string)playerResult["N"];
@@ -1108,15 +1097,51 @@ public class BaucuaGameView : GameView
         Debug.Log("có chạy vào hàm checkExit" + Config.isBackGame);
         checkAutoExit();
     }
+    private void UpdateButtonBet()
+    {
+        int intChipSet = -1;
+        for (int i = 0; i < ListValueChip.Count; i++)
+        {
+            long betAmount = ListValueChip[i];
+            Debug.Log("xem nào" + DictionMeBetInGateLast.Sum() + " " + betAmount + " " + agTable * 100 + " và" + thisPlayer.ag);
+            if (
+                  (DictionMeBetInGateLast.Sum() + betAmount > agTable * 100) ||
+                 thisPlayer.ag < betAmount)
+            {
+                PositionChipbet = intChipSet = i == 0 ? 0 : i - 1;
+                ChooseChip(m_ChipBet[PositionChipbet].gameObject);
+                break;
+            }
+        }
+
+        if (intChipSet != -1)
+        {
+            for (int i = 0; i < m_ChipBet.Count; i++)
+            {
+                Debug.Log("có mà bạn");
+                m_ChipBet[i].transform.GetChild(0).gameObject.SetActive(false);
+                m_ChipBet[i].interactable = i <= intChipSet;
+            }
+            m_ChipBet[intChipSet].transform.GetChild(0).gameObject.SetActive(true);
+        }
+        else
+        {
+            for (int i = 0; i < m_ChipBet.Count; i++)
+            {
+                m_ChipBet[i].transform.GetChild(0).gameObject.SetActive(false);
+                m_ChipBet[i].interactable = true;
+            }
+            m_ChipBet[PositionChipbet].transform.GetChild(0).gameObject.SetActive(true);
+        }
+
+    }
 
     private void genAgLose()
     {
         for (int i = 0; i < players.Count; i++)
         {
             PlayerView player = players[i].playerView;
-
             player.agLose = 0 - getMoneyToUser(players[i].displayName);
-
             if (player.agLose < 0)
             {
                 player.effectFlyMoney(player.agLose, 40);
@@ -1138,7 +1163,6 @@ public class BaucuaGameView : GameView
     }
     private void CreateAndMoveChipsToWinningGate(int gateIndex, long value)
     {
-        // Chỉ tạo chip trả thưởng nếu ô này có cược
         if (ListGateAllMoney[gateIndex - 1] > 0)
         {
             GameObject gateBet = m_Gatebet[gateIndex - 1];

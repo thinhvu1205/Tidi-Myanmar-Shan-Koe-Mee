@@ -1121,7 +1121,7 @@ public class DragonTigerView : GameView
         SoundManager.instance.playEffectFromPath(Globals.SOUND_GAME.BET);
         SocketSend.sendBetDragonTiger(betValue, gateBet);
         checkBeted = true;
-        //stateGame = Globals.STATE_GAME.PLAYING;
+        stateGame = Globals.STATE_GAME.PLAYING;
         listPot[gateBet - 1].transform.GetChild(3).gameObject.SetActive(true);
         DOVirtual.DelayedCall(0.2f, () =>
         {

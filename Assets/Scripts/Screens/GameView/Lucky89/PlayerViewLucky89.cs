@@ -106,33 +106,55 @@ public class PlayerViewLucky89 : PlayerView
         m_LuckySG.gameObject.SetActive(show && isLucky);
         if (m_ScoreTMP != null && m_ScoreTMP.transform?.parent != null)
             m_ScoreTMP.transform.parent.gameObject.SetActive(show && !isLucky);
-        else
-            Debug.LogError("PlayerViewLucky89: m_ScoreTMP hoặc parent NULL");
-
-
+        else Debug.LogError("PlayerViewLucky89: m_ScoreTMP hoặc parent NULL");
         if (!show) return this;
         if (isLucky9)
             m_LuckySG.AnimationState.SetAnimation(0, "lucky9", false);
-        else if (isLucky8)
-            m_LuckySG.AnimationState.SetAnimation(0, "lucky8", false);
-        else if (score >= (int)Lucky89View.SCORE.FACE_CARDS)
-            m_ScoreTMP.text = "Face cards";
-        else if (score >= (int)Lucky89View.SCORE.STRAIGHT_FLUSH)
-            m_ScoreTMP.text = "Straight flush";
-        else if (score >= (int)Lucky89View.SCORE.FLUSH)
-            m_ScoreTMP.text = "Flush";
-        else
-            m_ScoreTMP.text = score + " points";
-
+        else if (isLucky8) m_LuckySG.AnimationState.SetAnimation(0, "lucky8", false);
+        else if (score >= (int)Lucky89View.SCORE.FACE_CARDS) m_ScoreTMP.text = "Face cards";
+        else if (score >= (int)Lucky89View.SCORE.STRAIGHT_FLUSH) m_ScoreTMP.text = "Straight flush";
+        else if (score >= (int)Lucky89View.SCORE.FLUSH) m_ScoreTMP.text = "Flush";
+        else m_ScoreTMP.text = score + " points";
         return this;
     }
 
     public PlayerViewLucky89 ShowRate(int rate)
     {
-        if (rate < 2) foreach (GameObject go in m_Rates) go.SetActive(false);
-        else for (int i = 0; i < m_Rates.Count; i++) m_Rates[i].SetActive(i == rate - 2);
+        if (m_Rates == null || m_Rates.Count == 0)
+        {
+            Debug.LogWarning("ShowRate: m_Rates is null or empty");
+            return this;
+        }
+        if (rate < 2)
+        {
+            foreach (GameObject go in m_Rates)
+            {
+                if (go != null)
+                    go.SetActive(false);
+            }
+            return this;
+        }
+        int index = rate - 2;
+        if (index < 0 || index >= m_Rates.Count)
+        {
+            Debug.LogWarning($"ShowRate: invalid rate={rate}, index={index}, m_Rates.Count={m_Rates.Count}");
+            foreach (GameObject go in m_Rates)
+            {
+                if (go != null)
+                    go.SetActive(false);
+            }
+            return this;
+        }
+        for (int i = 0; i < m_Rates.Count; i++)
+        {
+            GameObject go = m_Rates[i];
+            if (go == null) continue;
+            go.SetActive(i == index);
+        }
+
         return this;
     }
+
     public void SetCardPosition(int idPlayerview)
     {
         switch (idPlayerview)
@@ -167,7 +189,7 @@ public class PlayerViewLucky89 : PlayerView
                 break;
             case 1:
             case 2:
-                imageIconBanker.rectTransform.anchoredPosition = new Vector2(248, -52);
+                imageIconBanker.rectTransform.anchoredPosition = new Vector2(220, -52);
                 break;
             case 3:
                 imageIconBanker.rectTransform.anchoredPosition = new Vector2(158, -124);
@@ -177,7 +199,7 @@ public class PlayerViewLucky89 : PlayerView
                 break;
             case 5:
             case 6:
-                imageIconBanker.rectTransform.anchoredPosition = new Vector2(-248, -52);
+                imageIconBanker.rectTransform.anchoredPosition = new Vector2(-220, -52);
                 break;
         }
     }

@@ -932,15 +932,13 @@ public class HandleService
                     {
                         if ((int)jsonData["status"] == 0)
                         {
-
-
-                            UIManager.instance.showWaiting();
+                            // UIManager.instance.showWaiting();
                             DOTween.Sequence().AppendInterval(2.5f).AppendCallback(() =>
                             {
-                                SocketSend.getMail(12);
+                                //  
                                 SocketSend.sendDTHistory();
                                 if ((string)jsonData["msg"] != "")
-                                    UIManager.instance.showMessageBox((string)jsonData["msg"]);
+                                    UIManager.instance.showMessageBox((string)jsonData["msg"], () => SocketSend.getMail(12));
                             });
                         }
 

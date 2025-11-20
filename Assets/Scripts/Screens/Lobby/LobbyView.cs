@@ -69,10 +69,10 @@ public class LobbyView : BaseView
     }
     public void setQuickPlayGame(int gameID)
     {
-        lbQuickGame.gameObject.SetActive(true);
-        lbQuickGame.text = Config.getTextConfig(gameID.ToString()).ToUpper();
-        animQuickPlay.Initialize(true);
-        animQuickPlay.AnimationState.SetAnimation(0, "coTag", true);
+        // lbQuickGame.gameObject.SetActive(true);
+        // lbQuickGame.text = Config.getTextConfig(gameID.ToString()).ToUpper();
+        // animQuickPlay.Initialize(true);
+        // animQuickPlay.AnimationState.SetAnimation(0, "coTag", true);
     }
 
     List<GAMEID> listSlot = new List<GAMEID>() { GAMEID.SLOT_SIXIANG, GAMEID.SLOTTARZAN, GAMEID.SLOT20FRUIT, GAMEID.SLOT_JUICY_GARDEN, GAMEID.SLOT_INCA, GAMEID.SLOTNOEL, GAMEID.SLOT_SIXIANG };

@@ -62,9 +62,10 @@ public class GroupMenuView : BaseView
         var urlRule = Globals.Config.url_rule.Replace("%gameid%", curGameId + "");
         //var langLocal = cc.sys.localStorage.getItem("language_client");
         //var language = langLocal == LANGUAGE_TEXT_CONFIG.LANG_EN ? "en" : "thai"
-        var language = "thai";
-        urlRule = urlRule.Replace("%language%", language);
+        // var language = "thai";
+        // urlRule = urlRule.Replace("%language%", language);
         // https://conf.topbangkokclub.com/rule/index.html?gameid=%gameid%&language=%language%&list=true
+        // https://cfg.mmshan.net/rule/index.html?gameid=%gameid%&list=false
         List<int> listGameOther = new List<int> { (int)Globals.GAMEID.SLOT20FRUIT, (int)Globals.GAMEID.SLOT_SIXIANG, (int)Globals.GAMEID.SLOT_INCA, (int)Globals.GAMEID.SLOTNOEL, (int)Globals.GAMEID.SLOTTARZAN, (int)Globals.GAMEID.SICBO, (int)Globals.GAMEID.SLOT_INCA, (int)Globals.GAMEID.SLOT_JUICY_GARDEN, (int)Globals.GAMEID.SHAN_KOE_MEE, };
         if (listGameOther.Contains(curGameId))
         {
