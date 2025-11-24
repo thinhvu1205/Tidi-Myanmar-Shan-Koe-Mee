@@ -52,6 +52,10 @@ public class PlayerViewLucky89 : PlayerView
                 m_GameRemainTMP.gameObject.SetActive(true);
                 m_GameRemainTMP.text = $"{gameRemain}";
             }
+            else
+            {
+                m_GameRemainTMP.gameObject.SetActive(false);
+            }
         }
     }
 

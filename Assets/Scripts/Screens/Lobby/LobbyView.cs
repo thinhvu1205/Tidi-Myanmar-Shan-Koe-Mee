@@ -811,8 +811,8 @@ public class LobbyView : BaseView
             updateAgSafe();
 
         if (btnLeaderboard != null)
-            // btnLeaderboard.gameObject.SetActive(Config.listRankGame != null && Config.listRankGame.Count > 0);
-            btnLeaderboard.gameObject.SetActive(isFull);
+            btnLeaderboard.gameObject.SetActive(Config.listRankGame != null && Config.listRankGame.Count > 0);
+        // btnLeaderboard.gameObject.SetActive(isFull);
 
         if (btnGiftCode != null)
             btnGiftCode.SetActive(Config.ismaqt);

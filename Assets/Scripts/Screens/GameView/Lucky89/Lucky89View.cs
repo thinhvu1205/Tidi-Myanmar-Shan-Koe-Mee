@@ -282,7 +282,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
             if (pv.isBanker)
                 pv.ShowIconBanker(true, gameRemaining);
             else
-                pv.ShowIconBanker(false);
+                pv.ShowIconBanker(false, gameRemaining);
         }
 
         updatePositionPlayerView();
@@ -377,7 +377,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
                 pv.SetCardPosition(i);
                 pv.SetIconBankerPosition(i);
 
-                pv.ShowIconBanker(pv.isBanker);
+                pv.ShowIconBanker(pv.isBanker, gameRemaining);
             }
 
             updatePositionPlayerView();
@@ -468,7 +468,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
             }
             else
             {
-                pv.ShowIconBanker(false);
+                pv.ShowIconBanker(false, gameRemaining);
             }
         }
 
@@ -640,7 +640,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
         for (int i = 0; i < players.Count; i++)
         {
             PlayerViewLucky89 playerView = getPlayerView(players[i]);
-            playerView.ShowIconBanker(false);
+            playerView.ShowIconBanker(false, gameRemaining);
             playerView.isBanker = false;
         }
         gameRemaining = getInt(data, "gameRemain");

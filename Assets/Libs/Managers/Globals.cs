@@ -93,6 +93,9 @@ namespace Globals
             {
                 switch (currentView)
                 {
+                    case CHAT:
+                        sceneName = "CHATVIEW";
+                        break;
                     case LOGIN_VIEW:
                         sceneName = "LOGINVIEW";
                         break;

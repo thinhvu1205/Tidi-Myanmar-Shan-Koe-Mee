@@ -89,8 +89,8 @@ public class GroupMenuView : BaseView
     public void onClickFightConfirm()
     {
         SoundManager.instance.soundClick();
-        TongitsView.IsFight = !TongitsView.IsFight;
-        btnFightTongits.transform.Find("on").GetComponent<Image>().sprite = TongitsView.IsFight ? listCheck[0] : listCheck[1];
+        // TongitsView.IsFight = !TongitsView.IsFight;
+        // btnFightTongits.transform.Find("on").GetComponent<Image>().sprite = TongitsView.IsFight ? listCheck[0] : listCheck[1];
     }
     public void onClickSound()
     {
