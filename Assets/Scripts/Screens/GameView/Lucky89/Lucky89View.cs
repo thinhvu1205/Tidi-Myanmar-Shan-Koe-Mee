@@ -506,34 +506,18 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
         }
         if (distributeCards)
         {
-            // foreach (DataPlayer dp in dps)
-            // {
-            //     if (dp.PlayerP == null) continue;
-
-            //     PlayerViewLucky89 pv = (PlayerViewLucky89)dp.PlayerP.playerView;
-            //     _DistributeCardsToAPlayer(pv, dp.cardCodes, dp.rate, dp.score);
-
-            //     // if (pv.isBanker)
-            //     // {
-            //     //     Debug.Log($"Banker: {dp.PlayerP.namePl}, score={dp.score}, rate={dp.rate}");
-            //     //     pv.ShowIconBanker(true, gameRemaining);
-            //     // }
-
-            // }
-            for (int i = 0; i < dataPlayers.Count; i++)
+            foreach (DataPlayer dp in dps)
             {
-                int id = dataPlayers[i].Contains("id") ? (int)dataPlayers[i]["id"] : 0;
-                int score = dataPlayers[i].Contains("score") ? (int)dataPlayers[i]["score"] : 0;
-                int rate = dataPlayers[i].Contains("rate") ? (int)dataPlayers[i]["rate"] : 0;
-                JArray Arr = dataPlayers.Contains("Arr") ? (JArray)dataPlayers[i]["Arr"] : new JArray();
-                List<int> cardCodes = new();
-                foreach (JToken item in Arr)
+                if (dp.PlayerP == null) continue;
+
+                PlayerViewLucky89 pv = getPlayerView(dp.PlayerP);
+                _DistributeCardsToAPlayer(pv, dp.cardCodes, dp.rate, dp.score);
+
+                if (pv.isBanker)
                 {
-                    cardCodes.Add((int)item);
+                    pv.ShowIconBanker(true, gameRemaining);
                 }
-                var player = getPlayerWithID(id);
-                PlayerViewLucky89 playerview = getPlayerView(player);
-                _DistributeCardsToAPlayer(playerview, cardCodes, rate, score);
+
             }
         }
     }
@@ -774,7 +758,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
             }
             if (myScore == 8) myScore = (int)SCORE.LUCKY_8;
             else if (myScore == 9) myScore = (int)SCORE.LUCKY_9;
-            thisPlayerView.ShowRate((int)data["rate"]).ShowScore(true, myScore, listCodeCard.Count);
+            thisPlayerView.ShowRate((int)data["rate"]).ShowScore(true, myScore, listCodeCard.Count, (int)data["rate"]);
             thisPlayerView.ShowAnimWaitOpenCard(false);
         }
 
@@ -904,13 +888,9 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
 
         string name = (string)data["N"];
         Player player = players?.Find(x => x.namePl.Equals(name));
+        PlayerViewLucky89 playerView = getPlayerView(player);
         bool isDealer = player == null;
         bool isMe = player == thisPlayer;
-
-        // Nếu là dealer => dùng view dealer, nếu không => dùng view player (có thể null)
-        PlayerViewLucky89 playerView = isDealer
-            ? m_DealerPVL89
-            : (PlayerViewLucky89)(player?.playerView);
 
         if (playerView == null)
         {
@@ -918,25 +898,22 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
             return;
         }
         int cardCode = data["C"] != null ? data["C"].Value<int>() : 0;
-
-        // 🚀 Luôn chơi hiệu ứng rút bài (dù C = 0, nghĩa là chưa biết lá thật)
         StartCoroutine(_DrawCard(playerView, isMe ? cardCode : 0));
         playerView.UpdateCardsParentPositionAndRotation();
         playerView.ShowAnimWaitOpenCard(false);
-        // Hiển thị điểm và rate nếu là chính mình
         if (isMe)
         {
             int score = data.ContainsKey("score") ? (int)data["score"] : 0;
             int rate = data.ContainsKey("rate") ? (int)data["rate"] : 0;
 
             listCodeCard.Add(cardCode);
-            playerView.ShowScore(true, score, listCodeCard.Count).ShowRate(rate);
+            thisPlayerView.ShowScore(true, score, listCodeCard.Count, rate).ShowRate(rate);
 
             listCardBig[2].setTextureWithCode(cardCode);
 
             if (listCodeCard.Count > 1)
             {
-                List<Card> cardCs = playerView.GetListCards();
+                List<Card> cardCs = thisPlayerView.GetListCards();
                 int countToReveal = Mathf.Min(listCodeCard.Count - 1, cardCs.Count);
 
                 for (int i = 0; i < countToReveal; i++)
@@ -1190,17 +1167,24 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
     }
     private void _HandleFinishGame(JObject data)
     {
+        if (panelAction.activeSelf)
+        {
+            DisablePanelAction();
+            DOVirtual.DelayedCall(0.5f, () =>
+            {
+                StartCoroutine(handleData());
+            });
+        }
+        else
+        {
+            StartCoroutine(handleData());
+        }
         boxTimeAction.gameObject.SetActive(false);
-        // Ẩn hiệu ứng chờ mở bài
         for (int i = 0; i < players.Count; i++)
         {
             PlayerViewLucky89 plview = getPlayerView(players[i]);
             plview.ShowAnimWaitOpenCard(false);
         }
-
-        // Bắt đầu xử lý kết quả
-        StartCoroutine(handleData());
-
         IEnumerator handleData()
         {
             HandleData.DelayHandleLeave = 5f;
@@ -1253,7 +1237,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
                 {
                     try
                     {
-                        playerView.ShowScore(true, score, arrCard.Count)
+                        playerView.ShowScore(true, score, arrCard.Count, rate)
                                   .ShowRate(rate)
                                   .ShowAnimResult(true, chipWin);
                     }
@@ -1269,16 +1253,6 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
 
                 if (!isBanker)
                 {
-                    try
-                    {
-                        playerView.ShowScore(true, score, arrCard.Count)
-                                  .ShowRate(rate)
-                                  .ShowAnimResult(true, chipWin);
-                    }
-                    catch (Exception ex)
-                    {
-                        Debug.LogError($"[Lucky89] Error ShowScore for pid={pid}: {ex.Message}");
-                    }
                     if (chipWin > 0)
                         playerWinCbs.Add(() => StartCoroutine(playerWinChips(pid, chipWin, ag, bankerPlayer)));
                     else if (chipWin < 0)
@@ -1576,7 +1550,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
         {
             if (i < codes.Count) StartCoroutine(_DrawCard(playerView, codes[i]));
             int totalCode = 0; foreach (int code in codes) totalCode += code;
-            playerView.UpdateCardsParentPositionAndRotation().ShowRate(rate).ShowScore(totalCode > 0, score, cardCs.Count);
+            playerView.UpdateCardsParentPositionAndRotation().ShowRate(rate).ShowScore(totalCode > 0, score, cardCs.Count, rate);
         }
     }
 

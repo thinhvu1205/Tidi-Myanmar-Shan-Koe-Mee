@@ -99,7 +99,7 @@ public class PlayerViewLucky89 : PlayerView
         foreach (Card cardC in m_CardCs) if (!cardC.gameObject.activeSelf) return cardC;
         return null;
     }
-    public PlayerViewLucky89 ShowScore(bool show, int score, int cardCount)
+    public PlayerViewLucky89 ShowScore(bool show, int score, int cardCount, int rate = 0)
     {
         if (m_LuckySG == null) Debug.LogError(">>> m_LuckySG NULL");
         if (m_ScoreTMP == null) Debug.LogError(">>> m_ScoreTMP NULL");
@@ -112,14 +112,30 @@ public class PlayerViewLucky89 : PlayerView
             m_ScoreTMP.transform.parent.gameObject.SetActive(show && !isLucky);
         else Debug.LogError("PlayerViewLucky89: m_ScoreTMP hoặc parent NULL");
         if (!show) return this;
-        if (isLucky9)
+        if (isLucky && isLucky9)
+        {
             m_LuckySG.AnimationState.SetAnimation(0, "lucky9", false);
-        else if (isLucky8) m_LuckySG.AnimationState.SetAnimation(0, "lucky8", false);
-        else if (score >= (int)Lucky89View.SCORE.FACE_CARDS) m_ScoreTMP.text = "Face cards";
-        else if (score >= (int)Lucky89View.SCORE.STRAIGHT_FLUSH) m_ScoreTMP.text = "Straight flush";
-        else if (score >= (int)Lucky89View.SCORE.FLUSH) m_ScoreTMP.text = "Flush";
-        else m_ScoreTMP.text = score + " points";
+        }
+        else if (isLucky && isLucky8)
+        {
+            m_LuckySG.AnimationState.SetAnimation(0, "lucky8", false);
+        }
+        else
+        {
+            m_ScoreTMP.text = score + " points";
+        }
+        if (rate == 5)
+            m_ScoreTMP.text = score + " Three of a kind";
         return this;
+
+
+        // if (isLucky9)
+        //     m_LuckySG.AnimationState.SetAnimation(0, "lucky9", false);
+        // else if (isLucky8) m_LuckySG.AnimationState.SetAnimation(0, "lucky8", false);
+        // else if (score >= (int)Lucky89View.SCORE.FACE_CARDS) m_ScoreTMP.text = "Face cards";
+        // else if (score >= (int)Lucky89View.SCORE.STRAIGHT_FLUSH) m_ScoreTMP.text = "Straight flush";
+        // else if (score >= (int)Lucky89View.SCORE.FLUSH) m_ScoreTMP.text = "Flush";
+        // else m_ScoreTMP.text = score + " points";
     }
 
     public PlayerViewLucky89 ShowRate(int rate)

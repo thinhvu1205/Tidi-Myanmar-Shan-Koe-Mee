@@ -110,6 +110,10 @@ public class LeaderBoardView : BaseView
                 }
                 itemTab.data = itemData;
                 itemTab.gameObject.SetActive(true);
+                if (gameId == (int)GAMEID.SHAN_KOE_MEE)
+                {
+                    name = "သံကိုးမီး";
+                }
                 itemTab.setInfo(name, onClickItemGame);
                 if (gameId == gameIDOpen) indexSelect = i;
             }

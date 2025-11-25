@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: 2edf04f39cbd0824eb61e65cc0d8476c
+guid: 08cb66e9751374547b7181ff338ba9d3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4681777996029483823
-    second: sesku_myan_0
+      213: 4209172601047197285
+    second: game_9006_0
   - first:
-      213: -1897402269827345753
-    second: sesku_myan_1
+      213: 4772240245713247885
+    second: game_9006_1
   - first:
-      213: -3658810324619634108
-    second: sesku_myan_2
+      213: 4291071117018182847
+    second: game_9006_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -52,7 +52,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -81,9 +81,9 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
+    textureCompression: 3
+    compressionQuality: 100
+    crunchedCompression: 1
     allowsAlphaSplitting: 0
     overridden: 0
     ignorePlatformSupport: 0
@@ -132,7 +132,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sesku_myan_0
+      name: game_9006_0
       rect:
         serializedVersion: 2
         x: 0
@@ -147,14 +147,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1d42c6db7bbf60fb0800000000000000
-      internalID: -4681777996029483823
+      spriteID: 566a9b3fd2cf96a30800000000000000
+      internalID: 4209172601047197285
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sesku_myan_1
+      name: game_9006_1
       rect:
         serializedVersion: 2
         x: 55
@@ -169,14 +169,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7a2dbee30b21ba5e0800000000000000
-      internalID: -1897402269827345753
+      spriteID: d8e9f8418376a3240800000000000000
+      internalID: 4772240245713247885
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sesku_myan_2
+      name: game_9006_2
       rect:
         serializedVersion: 2
         x: 94
@@ -191,8 +191,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 44ad38c156b493dc0800000000000000
-      internalID: -3658810324619634108
+      spriteID: fb4bec32272fc8b30800000000000000
+      internalID: 4291071117018182847
       vertices: []
       indices: 
       edges: []
@@ -201,7 +201,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -211,9 +211,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      sesku_myan_0: -4681777996029483823
-      sesku_myan_1: -1897402269827345753
-      sesku_myan_2: -3658810324619634108
+      game_9006_0: 4209172601047197285
+      game_9006_1: 4772240245713247885
+      game_9006_2: 4291071117018182847
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

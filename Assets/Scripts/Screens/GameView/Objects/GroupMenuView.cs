@@ -74,6 +74,7 @@ public class GroupMenuView : BaseView
         else
         {
             //require("Util").onCallWebView(urlRule);
+            Debug.Log($"Tinh=))Rule URL: {urlRule}");
             UIManager.instance.showWebView(urlRule);
 
         }

@@ -513,8 +513,8 @@ public class LoadConfig : MonoBehaviour
 
             });
         }
-        if (jConfig.ContainsKey("url_rule_js_new"))
-            Config.url_rule = (string)jConfig["url_rule_js_new"];
+        if (jConfig.ContainsKey("url_rule"))
+            Config.url_rule = (string)jConfig["url_rule"];
         else
             Config.url_rule = "";
         if (jConfig.ContainsKey("url_help"))

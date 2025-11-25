@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: be3fa4cff1c9d014c9116135cc72c7b3
+guid: 2ee9c66d4deca554e8ea814eba58f295
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8663220087397763124
-    second: ShanKoeMee_0
+      213: 1739518495692918870
+    second: game_1001_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -75,9 +75,9 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
+    textureCompression: 3
+    compressionQuality: 100
+    crunchedCompression: 1
     allowsAlphaSplitting: 0
     overridden: 0
     ignorePlatformSupport: 0
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ShanKoeMee_0
+      name: game_1001_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 317
-        height: 83
+        width: 195
+        height: 84
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cc7b0afea3f06c780800000000000000
-      internalID: -8663220087397763124
+      spriteID: 6509ffffad2042810800000000000000
+      internalID: 1739518495692918870
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ShanKoeMee_0: -8663220087397763124
+      game_1001_0: 1739518495692918870
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
