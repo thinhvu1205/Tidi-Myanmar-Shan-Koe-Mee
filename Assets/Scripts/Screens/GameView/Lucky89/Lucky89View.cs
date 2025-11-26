@@ -529,9 +529,10 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
         else base.handleLTable(data);
         DOVirtual.DelayedCall(1f, () =>
         {
-            if (thisPlayerView != null && thisPlayerView.isBanker)
+            if (thisPlayerView != null && thisPlayerView.isBanker && players.Count == 1)
             {
-                SocketSend.sendUAG();
+                handleUpdatePot(null);
+                thisPlayerView.setAg(Globals.User.userMain.AG);
             }
         });
     }
@@ -543,7 +544,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
         playSound(SOUND_GAME.START_GAME);
         // stateGame = STATE_GAME.PLAYING;
         float time = (float)data["timeAction"] / 1000;
-        StartCoroutine(RunCountDownStartAndBet(time, "Start in"));
+        StartCoroutine(RunCountDownStartAndBet(time, "စတင်မည်မှာ"));
         m_DealerPVL89.ShowHideBetChips(false).ShowAnimResult(false, 0).ShowScore(false, 0, 0).ShowRate(0).HideAllCards();
         foreach (Player p in players) ((PlayerViewLucky89)p.playerView).ShowHideBetChips(false).ShowAnimResult(false, 0).ShowScore(false, 0, 0).ShowRate(0).HideAllCards().isLucky = false;
     }
@@ -668,7 +669,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
                 {
                     StartCoroutine(ShowBetOption());
                 }
-                StartCoroutine(RunCountDownStartAndBet(timeAction, "Bet Time", false));
+                StartCoroutine(RunCountDownStartAndBet(timeAction, "ခုတ်လောင်းချိန်", false));
                 m_DealerPVL89.ShowAnimWaitBetTime(false);
             }
         }
@@ -873,7 +874,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
                 }
             });
             float time = (float)data["timeAction"] / 1000;
-            StartCoroutine(RunCountDownAction(time, "Countdown"));
+            StartCoroutine(RunCountDownAction(time, "ရေတွက်ချိန်"));
         }
 
         if (thisPlayerView != null && !thisPlayerView.isBanker)
@@ -1429,6 +1430,10 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
         if (jsonData == null)
         {
             Debug.LogWarning("[handleUpdatePot] jsonData is null!");
+            for (int i = 0; i < listTextJackPot.Count; i++)
+            {
+                listTextJackPot[i].text = "0";
+            }
             return;
         }
 
@@ -1483,16 +1488,6 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
         }
         node.transform.localScale = initialScale;
     }
-    // private void _SetTickDraw(bool show, int draw)
-    // {
-    //     m_TickDontDraw.transform.parent.gameObject.SetActive(show);
-    //     m_TickDraw.transform.parent.gameObject.SetActive(show);
-    //     m_TickDraw.SetActive(draw > 0);
-    //     m_TickDontDraw.SetActive(draw < 0);
-    //     if (show && draw > 0) _DrawACard = true;
-    //     else if (show && draw < 0) _DrawACard = false;
-    //     else _DrawACard = null;
-    // }
     private void _RevealACard(Card cardC, int cardCode, Vector3 targetRotV3)
     {
         cardC.DOComplete();

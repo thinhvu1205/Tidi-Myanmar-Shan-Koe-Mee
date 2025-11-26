@@ -164,7 +164,7 @@ public class GroupMenuView : BaseView
             else//con moi 1 minh minh thi cung cho thoat
             {
                 SocketSend.sendExitGame();
-                if (Config.curGameId == (int)Globals.GAMEID.DRAGONTIGER)
+                if (Config.curGameId == (int)Globals.GAMEID.DRAGONTIGER || Config.curGameId == (int)GAMEID.SESKU)
                 {
                     UIManager.instance.onClickButtonLeave = true;
                 }

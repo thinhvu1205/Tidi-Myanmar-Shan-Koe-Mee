@@ -1045,7 +1045,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  skeletonDataAsset: {fileID: 11400000, guid: 12bff41005cb6d2458d56faa75fdb45e, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: bafe1341a60b44b45a0b41a5ea306345, type: 2}
   initialSkinName: 
   initialFlipX: 0
   initialFlipY: 0
@@ -1086,8 +1086,8 @@ MonoBehaviour:
   Type: 2
   ThisImg: {fileID: 0}
   ThisSG: {fileID: 4354073895302117527}
-  BundleLabel: assets--resources--gameview--baucua--spine
-  AssetName: Assets/Resources/GameView/Baucua/Spine/win/skeleton_SkeletonData.asset
+  BundleLabel: 
+  AssetName: Assets/Resources/GameView/Baucua/New folder (4)/win/skeleton_SkeletonData.asset
   AnimName: cam
   SetNativeSize: 0
   m_OnEnableUE:
@@ -15067,11 +15067,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  skeletonDataAsset: {fileID: 11400000, guid: 4c46994336e744841858dab5e2d4639a, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: 9956d6ae9f95d2f48a17c7b6fc7adebb, type: 2}
   initialSkinName: 
   initialFlipX: 0
   initialFlipY: 0
-  startingAnimation: 
+  startingAnimation: cam
   startingLoop: 0
   timeScale: 1
   freeze: 0
@@ -15108,8 +15108,8 @@ MonoBehaviour:
   Type: 2
   ThisImg: {fileID: 0}
   ThisSG: {fileID: 4140413979824635554}
-  BundleLabel: assets--resources--gameview--baucua--spine
-  AssetName: Assets/Resources/GameView/Baucua/Spine/lose/skeleton_SkeletonData.asset
+  BundleLabel: 
+  AssetName: Assets/Resources/GameView/Baucua/New folder (4)/lose/skeleton_SkeletonData.asset
   AnimName: cam
   SetNativeSize: 0
   m_OnEnableUE:
@@ -16870,7 +16870,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  skeletonDataAsset: {fileID: 11400000, guid: 3faa476e3135bab4f9e9fcba437fbd73, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: 204f462d00b58f5468defcc4f985c981, type: 2}
   initialSkinName: default
   initialFlipX: 0
   initialFlipY: 0
@@ -16915,8 +16915,8 @@ MonoBehaviour:
   Type: 2
   ThisImg: {fileID: 0}
   ThisSG: {fileID: 1183042295833200728}
-  BundleLabel: assets--resources--gameview--baucua--spine
-  AssetName: Assets/Resources/GameView/Baucua/Spine/startbet/skeleton_SkeletonData.asset
+  BundleLabel: 
+  AssetName: Assets/Resources/GameView/Baucua/New folder (4)/startbet/skeleton_SkeletonData.asset
   AnimName: bet_eng
   SetNativeSize: 0
   m_OnEnableUE:

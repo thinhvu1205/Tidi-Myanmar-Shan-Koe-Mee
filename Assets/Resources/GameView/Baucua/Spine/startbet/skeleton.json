@@ -1,13 +1,13 @@
 {
 "skeleton": {
-	"hash": "QesvC4mFlxJ4s6BH72J7FaWVOc8",
+	"hash": "XTJwGvtZHff7dWObBIXa+bdRBKY",
 	"spine": "3.8.99",
 	"x": -277.5,
 	"y": -132.99,
 	"width": 555,
 	"height": 301,
-	"images": "./images/",
-	"audio": "G:/game/anim edit/3.8/startbet"
+	"images": "./New folder/",
+	"audio": "E:/Z.MYANMAR/MM Shankoemee - Slots/animation/animations/startgame"
 },
 "bones": [
 	{ "name": "start" },
@@ -21,7 +21,7 @@
 	{ "name": "light1", "bone": "bone3", "attachment": "light1" },
 	{ "name": "light2", "bone": "bone3", "attachment": "light2" },
 	{ "name": "title", "bone": "bone2", "attachment": "title" },
-	{ "name": "datcuoc", "bone": "bone3", "attachment": "BET_MYR" },
+	{ "name": "datcuoc", "bone": "bone3", "attachment": "START_MYR" },
 	{ "name": "Layer 116", "bone": "Layer 116", "attachment": "Layer 116" }
 ],
 "skins": [
@@ -35,11 +35,19 @@
 				"Layer 117": { "x": 0.5, "y": 1, "rotation": 89.55, "width": 479, "height": 301 }
 			},
 			"datcuoc": {
-				"BET_MYR": { "x": 13.36, "y": 0.89, "rotation": 89.55, "width": 162, "height": 72 },
+				"BET_MYR": {
+					"x": 8.17,
+					"y": 0.93,
+					"scaleX": 0.9377,
+					"scaleY": 0.9377,
+					"rotation": 89.55,
+					"width": 308,
+					"height": 92
+				},
 				"OPEN": { "x": 14.44, "y": 0.89, "rotation": 89.55, "width": 164, "height": 51 },
-				"OPEN_MYR": { "x": 14.44, "y": 0.89, "scaleY": 0.9, "rotation": 89.55, "width": 94, "height": 63 },
+				"OPEN_MYR": { "x": 10.29, "y": 0.92, "scaleY": 0.9, "rotation": 89.55, "width": 135, "height": 87 },
 				"START GAME": { "x": 7.74, "y": 0.94, "rotation": 89.55, "width": 364, "height": 58 },
-				"START_MYR": { "x": 10.61, "y": 0.92, "rotation": 89.55, "width": 99, "height": 65 },
+				"START_MYR": { "x": 1.27, "y": 0.99, "rotation": 89.55, "width": 286, "height": 70 },
 				"start_cam": { "x": 15.39, "y": 0.88, "rotation": 89.55, "width": 117, "height": 51 }
 			},
 			"light1": {
@@ -155,6 +163,11 @@
 					{ "time": 0.1667, "color": "ffffffdd" },
 					{ "time": 1.5, "color": "ffffffff" },
 					{ "time": 1.6667, "color": "ffffff00" }
+				]
+			},
+			"datcuoc": {
+				"attachment": [
+					{ "name": "BET_MYR" }
 				]
 			},
 			"light1": {
