@@ -71,7 +71,7 @@ public class DragonTigerView : GameView
 
     protected NodePlayerDragonTiger listPlayer = null;
     private List<int> listSaveHistory = new List<int>();
-    private bool canLeave = false;
+    public bool canLeave = false;
     public bool blockOnLeave = false;
     public static DragonTigerView instance = null;
     protected override void Start()
@@ -81,6 +81,7 @@ public class DragonTigerView : GameView
 
     public void resetGame()
     {
+        HandleData.DelayHandleLeave = 0f;
         canLeave = true;
         for (int i = 0; i < 2; i++)
         {
@@ -336,6 +337,7 @@ public class DragonTigerView : GameView
 
     public void handleFinishGame(JObject dataFn)
     {
+        HandleData.DelayHandleLeave = 8f;
         Debug.Log("xem data finish" + dataFn.ToString());
         txtWaiting.gameObject.SetActive(false);
         stateGame = Globals.STATE_GAME.WAITING;
@@ -1018,24 +1020,28 @@ public class DragonTigerView : GameView
     public override void handleLTable(JObject objData)
     {
         var namePl = (string)objData["Name"];
+        Debug.Log($"LeaveTable_DragonTiger: {namePl}//{User.userMain.Username}");
         bool isMe = namePl == User.userMain.Username;
         if (isMe)
         {
+            Debug.Log($"LeaveTable_DragonTiger:1 {namePl}//{User.userMain.Username}");
             blockOnLeave = !UIManager.instance.onClickButtonLeave;
+            canLeave = false;
             StartCoroutine(WaitingForLeave());
         }
         else
         {
+            Debug.Log($"LeaveTable_DragonTiger:2 {namePl}//{User.userMain.Username}");
             base.handleLTable(objData);
             SoundManager.instance.playEffectFromPath(Globals.SOUND_GAME.REMOVE);
         }
         IEnumerator WaitingForLeave()
         {
-            canLeave = false;
+            yield return null;
             yield return new WaitUntil(() => canLeave);
-            Debug.Log($"LeaveTable_DragonTiger");
+            Debug.Log($"LeaveTable_DragonTiger:3");
             blockOnLeave = false;
-            base.handleLTable(objData);
+            // base.handleLTable(objData);
             UIManager.instance.gameView.onLeave();
             SoundManager.instance.playEffectFromPath(Globals.SOUND_GAME.REMOVE);
         }

@@ -244,11 +244,11 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
         for (int i = 0; i < players.Count; i++)
         {
             Player player = players[i];
-            PlayerViewLucky89 pv = player.playerView as PlayerViewLucky89;
+            PlayerViewLucky89 pv = getPlayerView(player);
             if (pv == null)
             {
                 player.playerView = createPlayerView();
-                pv = player.playerView as PlayerViewLucky89;
+                pv = getPlayerView(player);
                 if (pv == null)
                 {
                     Debug.LogError("handleVTable: cannot create PlayerViewLucky89 for player id " + player.id);
@@ -438,7 +438,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
         for (int i = 0; i < players.Count; i++)
         {
             Player player = players[i];
-            PlayerViewLucky89 pv = (PlayerViewLucky89)player.playerView;
+            PlayerViewLucky89 pv = getPlayerView(player);
             JObject jPl = null;
             for (int k = 0; k < dataPlayers.Count; k++)
             {
@@ -675,10 +675,11 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
         }
         playSound(SOUND_GAME.CLICK);
         if (player == null) return;
-        int betChips = (int)data["chipBet"];
-        ((PlayerViewLucky89)player.playerView).ShowHideBetChips(true, betChips);
-        player.setTurn(false);
-        player.ag -= ((PlayerViewLucky89)player.playerView).GetBetValue();
+        long betChips = (long)data["chipBet"];
+        PlayerViewLucky89 playerViewLucky89 = getPlayerView(player);
+        playerViewLucky89.ShowHideBetChips(true, (int)betChips);
+        player.ag -= betChips;
+        player.setAg();
         player.updatePlayerView();
         if (player == thisPlayer)
         {
@@ -1268,11 +1269,22 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
                 {
                     if (gameRemaining == 1)
                     {
-                        long pot = getLong(data, "pot");
-                        player.ag += pot;
-                        player.setAg();
-                        playerView.effectFlyMoney(pot);
+                        DOVirtual.DelayedCall(2f, () =>
+                        {
+                            if (thisPlayerView != null && thisPlayerView.isBanker)
+                            {
+                                thisPlayerView.setAg(ag);
+                            }
+                            else
+                            {
+                                long pot = getLong(data, "pot");
+                                playerView.effectFlyMoney(pot);
+                                playerView.setAg(ag);
+                            }
+                        });
                     }
+                    player.ag = ag;
+                    // player.setAg();
                 }
             }
 
@@ -1283,7 +1295,10 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
             foreach (Action cb in playerWinCbs) cb.Invoke();
             if (playerWinCbs.Count > 0) yield return new WaitForSeconds(3 * WIN_CHIP_DURATION);
             finalDealerCb?.Invoke();
-            handleUpdatePot(data);
+            DOVirtual.DelayedCall(2f, () =>
+            {
+                handleUpdatePot(data);
+            });
             yield return new WaitForSeconds(1f);
             foreach (Player p in players)
             {

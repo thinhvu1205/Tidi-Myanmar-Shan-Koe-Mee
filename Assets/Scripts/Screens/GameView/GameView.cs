@@ -21,7 +21,7 @@ public class GameView : BaseView
     [SerializeField]
     protected PlayerView playerViewPrefab;
     [SerializeField]
-    TextMeshProUGUI lbInfo;
+    public TextMeshProUGUI lbInfo;
 
     [SerializeField]
     GameObject invitePrefab;
@@ -706,10 +706,12 @@ public class GameView : BaseView
     public virtual void onLeave()
     {
         //// return;
-        if (DragonTigerView.instance != null && DragonTigerView.instance.blockOnLeave && Config.curGameId == (int)GAMEID.DRAGONTIGER || XocdiaView.instance != null && XocdiaView.instance.blockOnLeave && Config.curGameId == (int)GAMEID.SESKU)
+        if ((DragonTigerView.instance != null && DragonTigerView.instance.blockOnLeave && Config.curGameId == (int)GAMEID.DRAGONTIGER)
+        || (XocdiaView.instance != null && XocdiaView.instance.blockOnLeave && Config.curGameId == (int)GAMEID.SESKU))
         {
             return;
         }
+
         Globals.Logging.Log("-------------Trang thaionLeave :   " + stateGame);
         if (stateGame != STATE_GAME.PLAYING)
         {
@@ -736,7 +738,6 @@ public class GameView : BaseView
                 UIManager.instance.showLobbyScreen(false);
             }
             UIManager.instance.updateChipUser();
-
         }
         else
         {
@@ -821,11 +822,7 @@ public class GameView : BaseView
         Config.tableMark = m;
         agTable = m;
         maxbet = maxBett;
-        //Debug.Log("maxbet === " + maxBett);
         lbInfo.text = string.Format("{0} {1}\n{2}: {3}", Config.getTextConfig("txt_id"), id, Config.getTextConfig("txt_bet"), Config.FormatMoney(m));
-
-        // Config.table_mark = m;
-        // Config.tableId = id;
     }
 
     public void readDataPlayer(Player _player, JObject data)

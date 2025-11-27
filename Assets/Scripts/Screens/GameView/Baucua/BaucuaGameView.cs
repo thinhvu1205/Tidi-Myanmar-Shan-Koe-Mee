@@ -82,7 +82,6 @@ public class BaucuaGameView : GameView
                                           new List<int> { 4,6 },
                                             new List<int> { 5,6 },
     };
-
     void updateValueChipBet()
     {
         // Kiểm tra người chơi và buttons
@@ -94,6 +93,7 @@ public class BaucuaGameView : GameView
 
         long gold = (thisPlayer.ag >= agTable * 100) ? agTable * 100 : thisPlayer.ag;
         // long gold = thisPlayer.ag;
+        // long gold = agTable * 100;
 
         // Tìm index phù hợp trong mảng TEMP_VALUE_GOLD_COINS
         int x = 4;  // Bắt đầu từ index 4
@@ -1162,5 +1162,4 @@ public class BaucuaGameView : GameView
         chip.transform.localScale = new Vector2(0.7f, 0.7f);
         MoveChipFast(chip, startPos, endPos);
     }
-
 }
