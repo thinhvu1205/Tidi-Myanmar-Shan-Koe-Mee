@@ -19,7 +19,7 @@ public class ShopView : BaseView
     [SerializeField] private BaseView inputView;
     [SerializeField] private Button btnConfirmInput;
     private JObject itemBest = null;
-    private IAPManager iapManager = null;
+    private IAPManager iapManager;
     private bool isTab = false;
     private string dataDefault = "[{\"type\":\"iap\",\"title\":\"iap\",\"bestDeal\":[\"0.99 USD\",\"0.99 USD\",\"4.99 USD\",\"4.99 USD\",\"9.99 USD\",\"9.99 USD\",\"49.99 USD\",\"49.99 USD\",\"49.99 USD\",\"99.99 USD\",\"99.99 USD\"],\"focus\":false,\"title_img\":\"https://storage.googleapis.com/cdn.davaogames.com/img/shop/IAPAND.png?v=1\",\"items\":[{\"url\":\"unity.lucky777.tongitswar.1\",\"txtPromo\":\"1USD = 7,576 Chips\",\"txtChip\":\"7,500 Chips\",\"txtBuy\":\"0.990000 USD\",\"txtBonus\":\"0%\",\"cost\":1},{\"url\":\"unity.lucky777.tongitswar.2\",\"txtPromo\":\"1USD = 7,538 Chips\",\"txtChip\":\"15,000 Chips\",\"txtBuy\":\"1.990000 USD\",\"txtBonus\":\"0%\",\"cost\":2},{\"url\":\"unity.lucky777.tongitswar.5\",\"txtPromo\":\"1USD = 7,515 Chips\",\"txtChip\":\"37,500 Chips\",\"txtBuy\":\"4.990000 USD\",\"txtBonus\":\"0%\",\"cost\":5},{\"url\":\"unity.lucky777.tongitswar.10\",\"txtPromo\":\"1USD = 9,009 Chips\",\"txtChip\":\"90,000 Chips\",\"txtBuy\":\"9.990000 USD\",\"txtBonus\":\"0%\",\"cost\":10},{\"url\":\"unity.lucky777.tongitswar.20\",\"txtPromo\":\"1USD = 9,005 Chips\",\"txtChip\":\"180,000 Chips\",\"txtBuy\":\"19.990000 USD\",\"txtBonus\":\"0%\",\"cost\":20},{\"url\":\"unity.lucky777.tongitswar.50\",\"txtPromo\":\"1USD = 9,002 Chips\",\"txtChip\":\"450,000 Chips\",\"txtBuy\":\"49.990000 USD\",\"txtBonus\":\"0%\",\"cost\":50},{\"url\":\"unity.lucky777.tongitswar.100\",\"txtPromo\":\"1USD = 9,001 Chips\",\"txtChip\":\"900,000 Chips\",\"txtBuy\":\"99.990000 USD\",\"txtBonus\":\"0%\",\"cost\":100}]}]";
     private string _TabNameFocusOnBannerShowType9;
@@ -52,7 +52,14 @@ public class ShopView : BaseView
         UIManager.instance.destroyAllChildren(scrContent.content.transform);
         if (arrayData.Count == 1)
         {
-            iapManager = new IAPManager((JObject)arrayData[0]);
+            if (IAPManager.Instance == null)
+            {
+                new IAPManager((JObject)arrayData[0]); // tạo instance lần đầu
+            }
+            else
+            {
+                Debug.Log("IAPManager instance đã tồn tại, không cần tạo lại.");
+            }
             scrTabs.gameObject.SetActive(false);
             reloadListContent((JArray)arrayData[0]["items"], (string)arrayData[0]["type"], (string)arrayData[0]["title"]);
             RectTransform rectTransform = scrContent.viewport.GetComponent<RectTransform>();
@@ -82,7 +89,18 @@ public class ShopView : BaseView
                     item0 = obItem;
                 }
             }
-            if (title.Equals("iap") && iapManager == null) iapManager = new IAPManager(obItem);
+            if (title.Equals("iap"))
+            {
+                if (IAPManager.Instance == null)
+                {
+                    new IAPManager(obItem);
+                }
+                else if (!IAPManager.Instance.IsInitialized())
+                {
+                    Debug.LogWarning("IAPManager exists but not initialized. Re-initializing...");
+                    IAPManager.Instance.InitIAP();
+                }
+            }
             GameObject btn = Instantiate(btnTab, scrTabs.content);
             Image bkg = btn.transform.Find("Bkg").GetComponent<Image>();
             bkg.transform.localScale = Vector3.one;
@@ -555,10 +573,14 @@ public class ShopView : BaseView
                 {
                     //require("Util").onBuyIap(data.url);
                     Debug.Log("-=-= buy iapp 0");
-                    if (iapManager != null)
+                    if (IAPManager.Instance != null && IAPManager.Instance.IsInitialized())
                     {
-                        Debug.Log("-=-= buy iapp 1");
-                        iapManager.buyIAP(url);
+                        Debug.Log("-=-= buy iap using Instance");
+                        IAPManager.Instance.buyIAP(url);
+                    }
+                    else
+                    {
+                        Debug.LogWarning("IAPManager not ready yet.");
                     }
                     break;
                 }

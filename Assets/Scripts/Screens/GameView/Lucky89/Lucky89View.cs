@@ -45,6 +45,8 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
     long potValue = 0;
     private int gameRemaining;
     private string bankerName = "";
+    Coroutine countdownCoroutine;
+    Tween countdownTween;
 
     protected override void Awake()
     {
@@ -151,6 +153,10 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
             case "finish":
                 Debug.Log($"Tinh=))finish: {jData.ToString(Newtonsoft.Json.Formatting.None)}");
                 _HandleFinishGame(jData);
+                break;
+            case "finish_opt1":
+                Debug.Log($"Tinh=))finish_opt1: {jData.ToString(Newtonsoft.Json.Formatting.None)}");
+                _HandleFinishOtp1(jData);
                 break;
             case "tip":
                 Debug.Log($"Tinh=))tip: {jData.ToString(Newtonsoft.Json.Formatting.None)}");
@@ -596,17 +602,18 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
     }
     IEnumerator RunCountDownTimeAction(float timeCountDown)
     {
+        countdownTween?.Kill();
         imageTimeActionRemain.fillAmount = 1f;
-        imageTimeActionRemain.DOFillAmount(0f, timeCountDown);
+        countdownTween = imageTimeActionRemain
+         .DOFillAmount(0f, timeCountDown)
+         .SetEase(Ease.Linear);
         while (timeCountDown > 0)
         {
             textTimeActionCountDown.text = Mathf.CeilToInt(timeCountDown).ToString();
             yield return new WaitForSeconds(1f);
             timeCountDown -= 1f;
         }
-        // panelAction.SetActive(false);
         DisablePanelAction();
-        // DoClickDontDraw();
     }
     IEnumerator ShowBetOption(bool isShow = true)
     {
@@ -880,10 +887,10 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
                 {
                     PlayerViewLucky89 plView = getPlayerView(players[i]);
                     plView.ShowAnimWaitOpenCard(true);
-                    if (thisPlayerView != null)
-                    {
-                        thisPlayerView.ShowAnimWaitOpenCard(false);
-                    }
+                }
+                if (thisPlayerView != null)
+                {
+                    thisPlayerView.ShowAnimWaitOpenCard(false);
                 }
             });
             float time = (float)data["timeAction"] / 1000;
@@ -947,9 +954,23 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
     }
     private void _HandleCDCO(JObject data)
     {
+        bool isDisableButtonDeclare3Card = true;
+        var optTransfers = data["optTransfers"] as JArray;
+        if (optTransfers != null)
+        {
+            foreach (var item in optTransfers)
+            {
+                int opt = item.Value<int>("opt");
+                if (opt == 1)
+                {
+                    isDisableButtonDeclare3Card = item.Value<bool>("isDisable");
+                    break;
+                }
+            }
+        }
         if (thisPlayerView != null && thisPlayerView.isBanker)
         {
-            ShowPanelAction(data, 0f);
+            ShowPanelAction(data, 0f, isDisableButtonDeclare3Card);
         }
     }
     private void ShowPanelActionBankerLucky()
@@ -993,10 +1014,10 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
             StartCoroutine(RunCountDownTimeAction(timeAction));
         }
     }
-    private void ShowPanelAction(JObject data, float timeDelay)
+    private void ShowPanelAction(JObject data, float timeDelay, bool isDisableButtonDeclare3Card = false)
     {
         if (!data.ContainsKey("timeAction")) return;
-        float timeAction = getFloat(data, "timeAction") / 1000 - timeDelay; // fallback 5s
+        float timeAction = (getFloat(data, "timeAction") / 1000) - timeDelay; // fallback 5s
         if (timeAction > 0)
         {
             DOVirtual.DelayedCall(timeDelay, () =>
@@ -1030,8 +1051,12 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
                 buttonDraw.gameObject.SetActive(false);
                 buttonNotDraw.gameObject.SetActive(false);
                 buttonDeclare3Card.gameObject.SetActive(false);
-                StartCoroutine(DetectSwipe(thisPlayerView.isLucky));
-                StartCoroutine(RunCountDownTimeAction(timeAction));
+                StartCoroutine(DetectSwipe(thisPlayerView.isLucky, false, isDisableButtonDeclare3Card));
+                if (countdownCoroutine != null)
+                {
+                    StopCoroutine(countdownCoroutine);
+                }
+                countdownCoroutine = StartCoroutine(RunCountDownTimeAction(timeAction));
             });
         }
     }
@@ -1071,11 +1096,16 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
     }
     private void ClickButtonDone()
     {
+        if (thisPlayerView != null && thisPlayerView.isLucky && !thisPlayerView.isBanker)
+        {
+            SocketSend.SendDrawACardLucky89(0);
+        }
         DisablePanelAction();
     }
     private void ActiveButtonDone()
     {
         buttonDone.gameObject.SetActive(true);
+        buttonDone.interactable = true;
         buttonDraw.gameObject.SetActive(false);
         buttonNotDraw.gameObject.SetActive(false);
         buttonDeclare3Card.gameObject.SetActive(false);
@@ -1083,6 +1113,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
 
     private void DisablePanelAction()
     {
+        buttonDone.interactable = false;
         parentCardBig.transform.DOLocalMove(new Vector3(137f, -206f, 0), 0.5f).SetEase(Ease.InQuad);
         parentCardBig.transform.DOScale(new Vector3(0.25f, 0.25f, 0.25f), 0.5f).SetEase(Ease.InOutQuad).OnComplete(() =>
         {
@@ -1096,7 +1127,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
 
     }
 
-    IEnumerator DetectSwipe(bool bankerLucky = false, bool isDrawCard = false)
+    IEnumerator DetectSwipe(bool bankerLucky = false, bool isDrawCard = false, bool isDisableButtonDeclare3Card = false)
     {
         isTrackingSwipe = true;
         float minSwipeDistance = 50f;
@@ -1160,7 +1191,14 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
                                 buttonNotDraw.gameObject.SetActive(true);
                                 if (thisPlayerView != null && thisPlayerView.isBanker)
                                 {
-                                    buttonDeclare3Card.gameObject.SetActive(true);
+                                    if (!isDisableButtonDeclare3Card)
+                                    {
+                                        buttonDeclare3Card.gameObject.SetActive(true);
+                                    }
+                                    else
+                                    {
+                                        buttonDeclare3Card.gameObject.SetActive(false);
+                                    }
                                 }
                                 buttonDone.gameObject.SetActive(false);
                             }
@@ -1177,6 +1215,122 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
 
                 yield return null;
             }
+        }
+    }
+    private void _HandleFinishOtp1(JObject data)
+    {
+        if (panelAction.activeSelf)
+        {
+            DisablePanelAction();
+            DOVirtual.DelayedCall(0.5f, () =>
+            {
+                StartCoroutine(handleData());
+            });
+        }
+        else
+        {
+            StartCoroutine(handleData());
+        }
+        boxTimeAction.gameObject.SetActive(false);
+        for (int i = 0; i < players.Count; i++)
+        {
+            PlayerViewLucky89 plview = getPlayerView(players[i]);
+            plview.ShowAnimWaitOpenCard(false);
+        }
+
+        IEnumerator handleData()
+        {
+            // HandleData.DelayHandleLeave = 5f;
+            stateGame = STATE_GAME.WAITING;
+
+            List<Action> playerWinCbs = new(), playerLoseCbs = new();
+            Action finalDealerCb = null;
+            Player bankerPlayer = null;
+
+            JArray playerResults = (JArray)data["declarePlayerTransferList"];
+            if (playerResults == null)
+            {
+                Debug.LogError("[Lucky89] declarePlayerTransferList is null!");
+                yield break;
+            }
+            // long totalChipWin = 0;
+            foreach (JToken pData in playerResults)
+            {
+                int pid = pData["pid"]?.Value<int>() ?? -1;
+                bool isBanker = pData["isBanker"]?.Value<bool>() ?? false;
+                long chipWin = pData["chipWin"]?.Value<long>() ?? 0;
+                // totalChipWin += chipWin;
+                long ag = pData["ag"]?.Value<long>() ?? 0;
+                int score = pData["score"]?.Value<int>() ?? 0;
+                int rate = pData["rate"]?.Value<int>() ?? 1;
+                JArray arrCard = (JArray)pData["arr"];
+                var playerBanker = getPlayerWithID(pid);
+                PlayerViewLucky89 playerView = getPlayerView(playerBanker);
+
+                Player player = players.Find(x => x.id == pid);
+                if (player == null)
+                {
+                    Debug.LogWarning($"[Lucky89] Player not found for pid={pid}, skip display.");
+                    continue;
+                }
+                if (playerView == null)
+                {
+                    Debug.LogWarning($"[Lucky89] PlayerView is null for pid={pid}, skip.");
+                    continue;
+                }
+
+                if (isBanker)
+                    bankerPlayer = player;
+                if (arrCard != null && arrCard.Count > 0)
+                {
+                    List<Card> cardCs = playerView.GetListCards();
+                    for (int i = 0; i < arrCard.Count && i < cardCs.Count; i++)
+                        _RevealACard(cardCs[i], arrCard[i]?.Value<int>() ?? -1, cardCs[i].transform.localEulerAngles);
+                }
+                if (playerView != null)
+                {
+                    try
+                    {
+                        playerView.ShowScore(true, score, arrCard.Count, rate)
+                                  .ShowRate(rate)
+                                  .ShowAnimResult(true, chipWin);
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.LogError($"[Lucky89] Error ShowScore for pid={pid}: {ex.Message}");
+                    }
+                }
+                else
+                {
+                    Debug.LogWarning($"[Lucky89] Cannot show score, playerView is null for pid={pid}");
+                }
+
+                if (!isBanker && !playerView.isBanker)
+                {
+                    if (chipWin > 0)
+                        playerWinCbs.Add(() => StartCoroutine(playerWinChips(pid, chipWin, ag, bankerPlayer)));
+                    else if (chipWin < 0)
+                        playerLoseCbs.Add(() => StartCoroutine(playerLoseChips(pid, chipWin, ag, bankerPlayer)));
+                    else
+                    {
+                        StartCoroutine(playerWinChips(pid, chipWin, ag, bankerPlayer));
+                        player.ag += playerView.GetBetValue();
+                        player.updatePlayerView();
+                    }
+                }
+            }
+            DOVirtual.DelayedCall(0.5f, () =>
+            {
+                potValue = GetPotValue(data);
+                handleUpdatePot(potValue);
+            });
+            if (bankerPlayer == null)
+                Debug.LogWarning("[Lucky89] BankerPlayer not found in player list.");
+            foreach (Action cb in playerLoseCbs) cb.Invoke();
+            if (playerLoseCbs.Count > 0) yield return new WaitForSeconds(2 * LOSE_CHIP_DURATION + 1);
+            foreach (Action cb in playerWinCbs) cb.Invoke();
+            if (playerWinCbs.Count > 0) yield return new WaitForSeconds(3 * WIN_CHIP_DURATION);
+            finalDealerCb?.Invoke();
         }
     }
     private void _HandleFinishGame(JObject data)
@@ -1428,7 +1582,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
 
     IEnumerator playerWinChips(int pId, long changedChips, long currentChips, Player bankerPlayer)
     {
-        if (changedChips <= 0) yield break;
+        // if (changedChips <= 0) yield break;
         Transform sourceTransform = potTransform;
 
         for (int i = 0; i < 3; i++)

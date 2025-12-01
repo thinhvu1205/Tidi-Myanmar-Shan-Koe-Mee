@@ -16,6 +16,7 @@ dependencies {
     implementation 'com.facebook.android:facebook-share:[17.0.0,18)' // Assets/FacebookSDK/Plugins/Editor/Dependencies.xml:8
     implementation 'com.onesignal:OneSignal:5.1.37' // Packages/com.onesignal.unity.android/Editor/OneSignalAndroidDependencies.xml:6
     implementation 'com.parse.bolts:bolts-android:1.4.0' // Assets/FacebookSDK/Plugins/Editor/Dependencies.xml:4
+    implementation 'com.android.billingclient:billing:6.0.1'
 // Android Resolver Dependencies End
 **DEPS**}
 

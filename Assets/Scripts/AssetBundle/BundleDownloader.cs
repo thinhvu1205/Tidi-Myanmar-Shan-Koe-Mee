@@ -22,6 +22,7 @@ public class BundleDownloader : MonoBehaviour
 
     public void CheckAndDownloadAssets(string url, float delay = 0, Action onFailCb = null, Action onCompleteCb = null)
     {
+        string platformFolder = "";
         if (url.Equals(""))
         {
             onFailCb?.Invoke();
@@ -29,9 +30,9 @@ public class BundleDownloader : MonoBehaviour
         }
         if (!url[^1].Equals('/')) url += "/"; // if it does not end with "/" then add it
 #if UNITY_ANDROID
-        string platformFolder = "/" + BundleHandler.PLATFORM.Android.ToString() + "/";
+        platformFolder = "/" + BundleHandler.PLATFORM.Android.ToString() + "/";
 #elif UNITY_IOS
-        string platformFolder = "/" + BundleHandler.PLATFORM.iOS.ToString() + "/";
+        platformFolder = "/" + BundleHandler.PLATFORM.iOS.ToString() + "/";
 #endif
         if (!url.EndsWith(platformFolder)) url += platformFolder.Remove(0, 1);
         PlayerPrefs.SetString(STORED_BUNDLE_URL, url);
