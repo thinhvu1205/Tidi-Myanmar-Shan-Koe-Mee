@@ -135,11 +135,6 @@ public class DailyBonusView : BaseView
         }
         return ranNum;
     }
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
     public void reloadHistory()
     {
 

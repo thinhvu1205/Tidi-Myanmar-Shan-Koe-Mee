@@ -263,6 +263,10 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
                     continue;
                 }
             }
+            if (player.id == User.userMain.Userid)
+            {
+                thisPlayerView = pv;
+            }
             JObject jPl = null;
             for (int k = 0; k < dataPlayers.Count; k++)
             {
@@ -320,10 +324,8 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
     public override void handleSTable(string strData)
     {
         // Debug.Log($"Tinh=))handleSTable: {strData}");
-
         _WaitForFinishCompleteCb = () =>
         {
-            stateGame = STATE_GAME.WAITING;
             JObject data = JObject.Parse(strData);
             int tableId = data.Value<int?>("Id") ?? 0;
             int betValue = data.Value<int?>("M") ?? 0;
@@ -684,7 +686,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
                     }
                 }
                 // if (stateGame != STATE_GAME.PLAYING) return;
-                if (!thisPlayerView.isBanker)
+                if (thisPlayerView != null && !thisPlayerView.isBanker)
                 {
                     StartCoroutine(ShowBetOption());
                 }

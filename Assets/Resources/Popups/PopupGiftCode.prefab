@@ -967,7 +967,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: masukkan kode hadiah Anda di sini
+  m_text: "\u1021\u1011\u1030\u1038\u101C\u1000\u103A\u1006\u1031\u102C\u1004\u103A\u1000\u102F\u1012\u103A\u1000\u102D\u102F
+    \u1012\u102E\u1019\u103E\u102C \u1011\u100A\u1037\u103A\u1015\u102B\u104B"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7708e67653374c60af5f1595e949403, type: 2}
   m_sharedMaterial: {fileID: 7800525795003925199, guid: b7708e67653374c60af5f1595e949403, type: 2}

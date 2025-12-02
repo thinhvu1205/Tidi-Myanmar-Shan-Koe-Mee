@@ -37,7 +37,7 @@ public class PlayerViewLucky89 : PlayerView
     }
     public void ShowAnimWaitOpenCard(bool isShow)
     {
-        if (isBanker) return;
+        // if (isBanker) return;
         animWaitBetTime.Initialize(true);
         animWaitOpenCard.gameObject.SetActive(isShow);
     }
@@ -125,7 +125,7 @@ public class PlayerViewLucky89 : PlayerView
             m_ScoreTMP.text = score + " points";
         }
         if (rate == 5)
-            m_ScoreTMP.text = score + " Three of a kind";
+            m_ScoreTMP.text = "Three of a kind";
         return this;
 
 
