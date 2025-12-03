@@ -1,31 +1,30 @@
 ManifestFileVersion: 0
-CRC: 895158717
+UnityVersion: 6000.1.17f1
+CRC: 4050340264
+HashAppended: 0
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
-      Name: assets--resources--animicongame
+      Name: assets--resources--gameview--sixiang--sound
       Dependencies: {}
     Info_1:
-      Name: assets--resources--gameview--slotspine
-      Dependencies: {}
-    Info_2:
-      Name: assets--resources--gameview--baucua--animations
-      Dependencies: {}
-    Info_3:
-      Name: assets--resources--gameview--sixiang--spine
-      Dependencies: {}
-    Info_4:
       Name: assets--resources--gameview--emo
       Dependencies: {}
-    Info_5:
-      Name: assets--resources--gameview--threepoker--animation
+    Info_2:
+      Name: assets--resources--gameview--dragontiger--spine
       Dependencies: {}
-    Info_6:
+    Info_3:
       Name: assets--resources--sounds
       Dependencies: {}
-    Info_7:
-      Name: assets--resources--gameview--roulette--res--spine
+    Info_4:
+      Name: assets--resources--animicongame
       Dependencies: {}
-    Info_8:
-      Name: assets--resources--gameview--sixiang--sound
+    Info_5:
+      Name: assets--resources--gameview--slotspine
+      Dependencies: {}
+    Info_6:
+      Name: assets--resources--gameview--sixiang--spine
+      Dependencies: {}
+    Info_7:
+      Name: assets--sprites--gameview--ingame_shankoemee
       Dependencies: {}

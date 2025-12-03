@@ -65,11 +65,11 @@ public class PlayerViewLucky89 : PlayerView
         {
             bool isWin = changedChips > 0, isDraw = changedChips == 0, isLose = changedChips < 0;
             m_WinSg.gameObject.SetActive(show && isWin);
-            // m_DrawSG.gameObject.SetActive(show && isDraw);
+            m_DrawSG.gameObject.SetActive(show && isDraw);
             m_LoseSg.gameObject.SetActive(show && isLose);
             if (!show) return this;
             if (isWin) m_WinSg.AnimationState.SetAnimation(0, "win", false);
-            // if (isDraw) m_DrawSG.AnimationState.SetAnimation(0, "eng", false);
+            if (isDraw) m_DrawSG.AnimationState.SetAnimation(0, "win", false);
             if (isLose) m_LoseSg.AnimationState.SetAnimation(0, "lose", false);
         }
         return this;

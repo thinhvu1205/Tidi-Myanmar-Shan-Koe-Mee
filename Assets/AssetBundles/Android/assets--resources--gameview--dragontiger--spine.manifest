@@ -1,0 +1,75 @@
+ManifestFileVersion: 0
+UnityVersion: 6000.1.17f1
+CRC: 1953181080
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: bc30f1b7cdac8dca999c519997dffc15
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: e6a32554d661cad82f7fb1d1e8936e0d
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: cca04fe6357478338323fc87d852d6d8
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 49
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: a6b194f808b1af6499c93410e504af42, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f1b3b4b945939a54ea0b23d3396115fb, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers:
+- AssemblyName: spine-unity
+  ClassName: Spine.Unity.BlendModeMaterials
+- AssemblyName: spine-unity
+  ClassName: Spine.Unity.BlendModeMaterials/ReplacementMaterial
+Assets:
+- Assets/Resources/GameView/DragonTiger/spine/anim_vetcao/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/DragonTiger/spine/Dragon/skeleton_Material.mat
+- Assets/Resources/GameView/DragonTiger/spine/fight/skeleton_Material.mat
+- Assets/Resources/GameView/DragonTiger/spine/Tiger/skeleton.json
+- Assets/Resources/GameView/DragonTiger/spine/anim_vetcao/skeleton.atlas.txt
+- Assets/Resources/GameView/DragonTiger/spine/win/skeleton_Atlas.asset
+- Assets/Resources/GameView/DragonTiger/spine/win/skeleton_Material-Additive.mat
+- Assets/Resources/GameView/DragonTiger/spine/win/skeleton.json
+- Assets/Resources/GameView/DragonTiger/spine/lose/skeleton.png
+- Assets/Resources/GameView/DragonTiger/spine/Dragon/skeleton.json
+- Assets/Resources/GameView/DragonTiger/spine/Dragon/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/DragonTiger/spine/lose/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/DragonTiger/spine/Tiger/skeleton_Material.mat
+- Assets/Resources/GameView/DragonTiger/spine/Dragon/skeleton.atlas.txt
+- Assets/Resources/GameView/DragonTiger/spine/anim_vetcao/skeleton_Atlas.asset
+- Assets/Resources/GameView/DragonTiger/spine/fight/skeleton_Atlas.asset
+- Assets/Resources/GameView/DragonTiger/spine/Tiger/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/DragonTiger/spine/Tiger/skeleton.png
+- Assets/Resources/GameView/DragonTiger/spine/fight/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/DragonTiger/spine/anim_vetcao/skeleton.json
+- Assets/Resources/GameView/DragonTiger/spine/fight/skeleton.png
+- Assets/Resources/GameView/DragonTiger/spine/Tiger/skeleton.atlas.txt
+- Assets/Resources/GameView/DragonTiger/spine/fight/skeleton.atlas.txt
+- Assets/Resources/GameView/DragonTiger/spine/Tiger/skeleton_Material-Additive.mat
+- Assets/Resources/GameView/DragonTiger/spine/lose/skeleton_Atlas.asset
+- Assets/Resources/GameView/DragonTiger/spine/Dragon/skeleton_Atlas.asset
+- Assets/Resources/GameView/DragonTiger/spine/Dragon/skeleton.png
+- Assets/Resources/GameView/DragonTiger/spine/win/skeleton.png
+- Assets/Resources/GameView/DragonTiger/spine/win/skeleton_Material.mat
+- Assets/Resources/GameView/DragonTiger/spine/anim_vetcao/skeleton_Material.mat
+- Assets/Resources/GameView/DragonTiger/spine/lose/skeleton_Material.mat
+- Assets/Resources/GameView/DragonTiger/spine/win/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/DragonTiger/spine/anim_vetcao/skeleton.png
+- Assets/Resources/GameView/DragonTiger/spine/lose/skeleton.json
+- Assets/Resources/GameView/DragonTiger/spine/Dragon/skeleton_Material-Additive.mat
+- Assets/Resources/GameView/DragonTiger/spine/Tiger/skeleton_Atlas.asset
+- Assets/Resources/GameView/DragonTiger/spine/win/skeleton.atlas.txt
+- Assets/Resources/GameView/DragonTiger/spine/fight/skeleton.json
+- Assets/Resources/GameView/DragonTiger/spine/lose/skeleton.atlas.txt
+Dependencies: []

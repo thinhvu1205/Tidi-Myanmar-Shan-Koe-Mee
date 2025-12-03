@@ -3126,6 +3126,7 @@ GameObject:
   - component: {fileID: 6097135317890789268}
   - component: {fileID: 4776439463431891504}
   - component: {fileID: 2811748404010580356}
+  - component: {fileID: 1962235457822946797}
   m_Layer: 0
   m_Name: Anim_WaitOpenCard
   m_TagString: Untagged
@@ -3206,6 +3207,28 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &1962235457822946797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2826957617200591833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisImg: {fileID: 0}
+  ThisSG: {fileID: 2811748404010580356}
+  BundleLabel: assets--sprites--gameview--ingame_shankoemee
+  AssetName: Assets/Sprites/gameview/ingame_Shankoemee/Icon_chomobai/skeleton_SkeletonData.asset
+  AnimName: red
+  SetNativeSize: 0
+  m_OnEnableUE:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &3187855548051313421
 GameObject:
   m_ObjectHideFlags: 0
@@ -4049,6 +4072,7 @@ GameObject:
   - component: {fileID: 8235586985794140578}
   - component: {fileID: 6719263753852607822}
   - component: {fileID: 571872180067805691}
+  - component: {fileID: 9005161499746695374}
   m_Layer: 0
   m_Name: Dealer
   m_TagString: Untagged
@@ -4132,6 +4156,28 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &9005161499746695374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3730526982511626401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisImg: {fileID: 0}
+  ThisSG: {fileID: 571872180067805691}
+  BundleLabel: assets--sprites--gameview--ingame_shankoemee
+  AssetName: Assets/Sprites/gameview/ingame_Shankoemee/dealer/skeleton_SkeletonData.asset
+  AnimName: normal
+  SetNativeSize: 0
+  m_OnEnableUE:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &4050853803990313555
 GameObject:
   m_ObjectHideFlags: 0
@@ -4967,6 +5013,7 @@ GameObject:
   - component: {fileID: 5750664816870830845}
   - component: {fileID: 2082967146636819230}
   - component: {fileID: 8607982140364479382}
+  - component: {fileID: 3059982906627530035}
   m_Layer: 0
   m_Name: Win
   m_TagString: Untagged
@@ -5055,6 +5102,28 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &3059982906627530035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4446303002883562324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisImg: {fileID: 0}
+  ThisSG: {fileID: 8607982140364479382}
+  BundleLabel: assets--sprites--gameview--ingame_shankoemee
+  AssetName: Assets/Sprites/gameview/ingame_Shankoemee/win/skeleton_SkeletonData.asset
+  AnimName: win
+  SetNativeSize: 0
+  m_OnEnableUE:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &4496690943320944294
 GameObject:
   m_ObjectHideFlags: 0
@@ -5066,6 +5135,7 @@ GameObject:
   - component: {fileID: 7903218167342414897}
   - component: {fileID: 7943178119841610284}
   - component: {fileID: 8223835527260223727}
+  - component: {fileID: 4060981912909336628}
   m_Layer: 0
   m_Name: Anim Lucky Hand
   m_TagString: Untagged
@@ -5148,6 +5218,28 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &4060981912909336628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4496690943320944294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisImg: {fileID: 0}
+  ThisSG: {fileID: 8223835527260223727}
+  BundleLabel: assets--sprites--gameview--ingame_shankoemee
+  AssetName: Assets/Sprites/gameview/ingame_Shankoemee/shan89/skeleton_SkeletonData.asset
+  AnimName: lucky8
+  SetNativeSize: 0
+  m_OnEnableUE:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &4592109573474244515
 GameObject:
   m_ObjectHideFlags: 0
@@ -6004,7 +6096,6 @@ RectTransform:
   m_Children:
   - {fileID: 5750664816870830845}
   - {fileID: 6044532264386785513}
-  - {fileID: 541097743695346623}
   m_Father: {fileID: 1158395223790073781}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -6346,6 +6437,7 @@ GameObject:
   - component: {fileID: 6680735204258074259}
   - component: {fileID: 7418262567297700652}
   - component: {fileID: 4606778038802946575}
+  - component: {fileID: 1798654157212137512}
   m_Layer: 0
   m_Name: Anim_BeginSG
   m_TagString: Untagged
@@ -6426,6 +6518,28 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &1798654157212137512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5184273336919334978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisImg: {fileID: 0}
+  ThisSG: {fileID: 4606778038802946575}
+  BundleLabel: assets--sprites--gameview--ingame_shankoemee
+  AssetName: Assets/Sprites/gameview/ingame_Shankoemee/Start Game/skeleton_SkeletonData.asset
+  AnimName: start
+  SetNativeSize: 0
+  m_OnEnableUE:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &5196509549172294226
 GameObject:
   m_ObjectHideFlags: 0
@@ -7021,71 +7135,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!1 &5223840174214119221
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8852237956930348788}
-  - component: {fileID: 5296567330191879239}
-  - component: {fileID: 3023311656829360090}
-  m_Layer: 0
-  m_Name: Renderer0
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &8852237956930348788
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5223840174214119221}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 541097743695346623}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &5296567330191879239
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5223840174214119221}
-  m_CullTransparentMesh: 1
---- !u!114 &3023311656829360090
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5223840174214119221}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56d40949586260145be96936558e6404, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &5281767973656807201
 GameObject:
   m_ObjectHideFlags: 0
@@ -7865,6 +7914,7 @@ GameObject:
   - component: {fileID: 6044532264386785513}
   - component: {fileID: 3148805808384281506}
   - component: {fileID: 7393252503087699841}
+  - component: {fileID: 840863737634395888}
   m_Layer: 0
   m_Name: Lose
   m_TagString: Untagged
@@ -7945,6 +7995,28 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &840863737634395888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5718912150795758228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisImg: {fileID: 0}
+  ThisSG: {fileID: 7393252503087699841}
+  BundleLabel: assets--sprites--gameview--ingame_shankoemee
+  AssetName: Assets/Sprites/gameview/ingame_Shankoemee/lose/skeleton_SkeletonData.asset
+  AnimName: lose
+  SetNativeSize: 0
+  m_OnEnableUE:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &5763758000362009404
 GameObject:
   m_ObjectHideFlags: 0
@@ -8602,6 +8674,7 @@ GameObject:
   - component: {fileID: 5206614985970815436}
   - component: {fileID: 2420315832143214223}
   - component: {fileID: 8241808230926248803}
+  - component: {fileID: 3068188039443418454}
   m_Layer: 0
   m_Name: Anim_WaitBetTime
   m_TagString: Untagged
@@ -8682,6 +8755,28 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &3068188039443418454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6185432207609059015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisImg: {fileID: 0}
+  ThisSG: {fileID: 8241808230926248803}
+  BundleLabel: assets--sprites--gameview--ingame_shankoemee
+  AssetName: Assets/Sprites/gameview/ingame_Shankoemee/Icon_chomobai/skeleton_SkeletonData.asset
+  AnimName: white
+  SetNativeSize: 0
+  m_OnEnableUE:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &6198015630806482300
 GameObject:
   m_ObjectHideFlags: 0
@@ -8816,7 +8911,7 @@ MonoBehaviour:
   m_LuckySG: {fileID: 8223835527260223727}
   m_WinSg: {fileID: 8607982140364479382}
   m_LoseSg: {fileID: 7393252503087699841}
-  m_DrawSG: {fileID: 393129574514953256}
+  m_DrawSG: {fileID: 0}
   m_BetTMP: {fileID: 3577527014155126887}
   m_ScoreTMP: {fileID: 5264014169500193840}
   m_GameRemainTMP: {fileID: 0}
@@ -9430,6 +9525,7 @@ GameObject:
   - component: {fileID: 7548996688128601481}
   - component: {fileID: 4961782747233341105}
   - component: {fileID: 5103278734973254798}
+  - component: {fileID: 40829556795425468}
   m_Layer: 0
   m_Name: Anim_Hand
   m_TagString: Untagged
@@ -9510,6 +9606,28 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &40829556795425468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6749185221118899730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisImg: {fileID: 0}
+  ThisSG: {fileID: 5103278734973254798}
+  BundleLabel: assets--sprites--gameview--ingame_shankoemee
+  AssetName: Assets/Sprites/gameview/ingame_Shankoemee/bantay/bantay_SkeletonData.asset
+  AnimName: animation
+  SetNativeSize: 0
+  m_OnEnableUE:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &6766350246840539490
 GameObject:
   m_ObjectHideFlags: 0
@@ -11306,101 +11424,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8495983474149729455}
   m_CullTransparentMesh: 1
---- !u!1 &8525350774818380159
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 541097743695346623}
-  - component: {fileID: 4301511345153103062}
-  - component: {fileID: 393129574514953256}
-  m_Layer: 0
-  m_Name: Draw
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &541097743695346623
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8525350774818380159}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 8852237956930348788}
-  - {fileID: 4325646884027985032}
-  m_Father: {fileID: 4475071111549011412}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 10}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &4301511345153103062
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8525350774818380159}
-  m_CullTransparentMesh: 1
---- !u!114 &393129574514953256
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8525350774818380159}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d85b887af7e6c3f45a2e2d2920d641bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: b66cf7a186d13054989b33a5c90044e4, type: 2}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  skeletonDataAsset: {fileID: 11400000, guid: cc40d4e047826aa4eba803790f60571e, type: 2}
-  initialSkinName: 
-  initialFlipX: 0
-  initialFlipY: 0
-  startingAnimation: eng
-  startingLoop: 0
-  timeScale: 1
-  freeze: 0
-  updateWhenInvisible: 3
-  unscaledTime: 0
-  allowMultipleCanvasRenderers: 1
-  canvasRenderers:
-  - {fileID: 5296567330191879239}
-  - {fileID: 6787772342956856846}
-  separatorSlotNames: []
-  enableSeparatorSlots: 0
-  separatorParts: []
-  updateSeparatorPartLocation: 1
-  meshGenerator:
-    settings:
-      useClipping: 1
-      zSpacing: 0
-      pmaVertexColors: 1
-      tintBlack: 0
-      canvasGroupTintBlack: 0
-      calculateTangents: 0
-      addNormals: 0
-      immutableTriangles: 0
 --- !u!1 &8535603153711981224
 GameObject:
   m_ObjectHideFlags: 0
@@ -12004,71 +12027,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!1 &8864299542669191346
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4325646884027985032}
-  - component: {fileID: 6787772342956856846}
-  - component: {fileID: 3012516028456129465}
-  m_Layer: 0
-  m_Name: Renderer1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &4325646884027985032
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8864299542669191346}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 541097743695346623}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &6787772342956856846
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8864299542669191346}
-  m_CullTransparentMesh: 1
---- !u!114 &3012516028456129465
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8864299542669191346}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56d40949586260145be96936558e6404, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &8900936998137152587
 GameObject:
   m_ObjectHideFlags: 0
