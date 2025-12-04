@@ -1,0 +1,79 @@
+ManifestFileVersion: 0
+UnityVersion: 6000.1.17f1
+CRC: 3834548202
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: b0ee5f44b41c8a04a15a3d883c996afd
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: e6a32554d661cad82f7fb1d1e8936e0d
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: f79347e8b9ab6ceea5a5601b187372f8
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 49
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: a6b194f808b1af6499c93410e504af42, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f1b3b4b945939a54ea0b23d3396115fb, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers:
+- AssemblyName: spine-unity
+  ClassName: Spine.Unity.BlendModeMaterials
+- AssemblyName: spine-unity
+  ClassName: Spine.Unity.BlendModeMaterials/ReplacementMaterial
+Assets:
+- Assets/Resources/GameView/Anim_ShanKoeMee/bantay/bantay.json
+- Assets/Resources/GameView/Anim_ShanKoeMee/Icon_chomobai/skeleton_Material.mat
+- Assets/Resources/GameView/Anim_ShanKoeMee/dealer/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/Anim_ShanKoeMee/Start Game/skeleton_Atlas.asset
+- Assets/Resources/GameView/Anim_ShanKoeMee/Icon_chomobai/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/Anim_ShanKoeMee/shan89/skeleton.atlas.txt
+- Assets/Resources/GameView/Anim_ShanKoeMee/bantay/bantay_Material.mat
+- Assets/Resources/GameView/Anim_ShanKoeMee/Icon_chomobai/skeleton.png
+- Assets/Resources/GameView/Anim_ShanKoeMee/lose/skeleton.json
+- Assets/Resources/GameView/Anim_ShanKoeMee/win/skeleton.atlas.txt
+- Assets/Resources/GameView/Anim_ShanKoeMee/shan89/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/Anim_ShanKoeMee/lose/skeleton.atlas.txt
+- Assets/Resources/GameView/Anim_ShanKoeMee/Start Game/skeleton_Material.mat
+- Assets/Resources/GameView/Anim_ShanKoeMee/Start Game/skeleton.json
+- Assets/Resources/GameView/Anim_ShanKoeMee/Start Game/skeleton_Material-Additive.mat
+- Assets/Resources/GameView/Anim_ShanKoeMee/win/skeleton.json
+- Assets/Resources/GameView/Anim_ShanKoeMee/shan89/skeleton.png
+- Assets/Resources/GameView/Anim_ShanKoeMee/dealer/skeleton.atlas.txt
+- Assets/Resources/GameView/Anim_ShanKoeMee/dealer/skeleton.png
+- Assets/Resources/GameView/Anim_ShanKoeMee/Start Game/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/Anim_ShanKoeMee/dealer/skeleton.json
+- Assets/Resources/GameView/Anim_ShanKoeMee/lose/skeleton_Material.mat
+- Assets/Resources/GameView/Anim_ShanKoeMee/Start Game/skeleton.atlas.txt
+- Assets/Resources/GameView/Anim_ShanKoeMee/lose/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/Anim_ShanKoeMee/win/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/Anim_ShanKoeMee/Icon_chomobai/skeleton_Atlas.asset
+- Assets/Resources/GameView/Anim_ShanKoeMee/win/skeleton_Atlas.asset
+- Assets/Resources/GameView/Anim_ShanKoeMee/bantay/bantay_SkeletonData.asset
+- Assets/Resources/GameView/Anim_ShanKoeMee/Icon_chomobai/skeleton.json
+- Assets/Resources/GameView/Anim_ShanKoeMee/shan89/skeleton.json
+- Assets/Resources/GameView/Anim_ShanKoeMee/dealer/skeleton_Atlas.asset
+- Assets/Resources/GameView/Anim_ShanKoeMee/win/skeleton_Material.mat
+- Assets/Resources/GameView/Anim_ShanKoeMee/bantay/bantay.atlas.txt
+- Assets/Resources/GameView/Anim_ShanKoeMee/Start Game/skeleton.png
+- Assets/Resources/GameView/Anim_ShanKoeMee/bantay/bantay_Atlas.asset
+- Assets/Resources/GameView/Anim_ShanKoeMee/shan89/skeleton_Atlas.asset
+- Assets/Resources/GameView/Anim_ShanKoeMee/bantay/bantay.png
+- Assets/Resources/GameView/Anim_ShanKoeMee/win/skeleton.png
+- Assets/Resources/GameView/Anim_ShanKoeMee/Icon_chomobai/skeleton.atlas.txt
+- Assets/Resources/GameView/Anim_ShanKoeMee/dealer/skeleton_Material.mat
+- Assets/Resources/GameView/Anim_ShanKoeMee/shan89/skeleton_Material.mat
+- Assets/Resources/GameView/Anim_ShanKoeMee/lose/skeleton.png
+- Assets/Resources/GameView/Anim_ShanKoeMee/lose/skeleton_Atlas.asset
+Dependencies: []
