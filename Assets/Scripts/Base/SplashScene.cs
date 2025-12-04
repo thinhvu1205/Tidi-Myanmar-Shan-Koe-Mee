@@ -13,7 +13,8 @@ public class SplashScene : MonoBehaviour
         // SceneManager.LoadScene("MainScene");
         // "D:/Unity projects/Tidi-Phil-Win777/Assets/AssetBundles";
         // https://storage.googleapis.com/tongitswar/AssetBundles;
-        string storedUrl = PlayerPrefs.GetString(BundleDownloader.STORED_BUNDLE_URL, "https://console.cloud.google.com/storage/browser/my-shankoemee/AssetBundles");
+        //https://storage.googleapis.com/my-shankoemee/AssetBundles
+        string storedUrl = PlayerPrefs.GetString(BundleDownloader.STORED_BUNDLE_URL, "https://storage.googleapis.com/my-shankoemee/AssetBundles");
         // storedUrl = "D:/Unity projects/Tidi-Phil-Win777/Assets/AssetBundles";
         m_BundleBD.CheckAndDownloadAssets(storedUrl, 1f,
             () =>
