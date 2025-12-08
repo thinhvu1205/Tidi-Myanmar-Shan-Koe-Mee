@@ -455,28 +455,21 @@ public class BinhGameView : GameView
         {
             m_JackPotNumberTMPs[i].gameObject.SetActive(true);
             m_JackPotNumberTMPs[i].text = str[i].ToString();
-            StartCoroutine(animateJackPot(m_JackPotNumberTMPs[i].gameObject));
+            AnimateJackpot(m_JackPotNumberTMPs[i].gameObject);
         }
     }
-    private IEnumerator animateJackPot(GameObject node)
+    private void AnimateJackpot(GameObject node)
     {
-        float duration = 0.15f, time = 0;
-        Vector3 initialScale = node.transform.localScale, targetScale = initialScale * 1.2f;
-        while (time < duration)
-        {
-            time += Time.deltaTime;
-            node.transform.localScale = Vector3.Lerp(initialScale, targetScale, time / duration);
-            yield return null;
-        }
-        time = 0;
-        while (time < duration)
-        {
-            time += Time.deltaTime;
-            node.transform.localScale = Vector3.Lerp(targetScale, initialScale, time / duration);
-            yield return null;
-        }
-        node.transform.localScale = initialScale;
+        float duration = 0.15f;
+        Vector3 initialScale = node.transform.localScale;
+        Vector3 targetScale = initialScale * 1.2f;
+        node.transform.DOKill();
+        Sequence seq = DOTween.Sequence();
+
+        seq.Append(node.transform.DOScale(targetScale, duration))
+           .Append(node.transform.DOScale(initialScale, duration));
     }
+
     void resetGameDisplay()
     {
         for (int i = 0; i < players.Count; i++) clearAllCard(players[i]);

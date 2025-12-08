@@ -62,7 +62,7 @@ public class ItemTable : MonoBehaviour
             {
                 tbName = name.Substring(0, 7) + "..., ";
             }
-            tableName += tbName;
+            tableName = tbName;
         }
         txtName.text = tableName;
         txtID.text = (int)dataItem["id"] + "";

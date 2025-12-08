@@ -89,7 +89,7 @@ public class SiXiangLuckyGoldView : MonoBehaviour
         lbWinAmount.Text = Globals.Config.FormatNumber(SiXiangView.Instance.winAmount);
         Destroy(bottom.transform.Find("infoBar").gameObject);
         bottom.transform.SetSiblingIndex(transform.Find("EffectContainer").GetSiblingIndex() - 1);
-        lbRemainPick.text = remainPick + " Remaining Picks";
+        lbRemainPick.text = remainPick + " ကျန်ရွေးချယ်မှုများ";
         gameView = SiXiangView;
         luckyGoldTask = new Task(() => { });
         SiXiangView.gameState = BaseSlotView.GAME_STATE.SHOWING_RESULT;
@@ -221,7 +221,7 @@ public class SiXiangLuckyGoldView : MonoBehaviour
             }
             spineItem.gameObject.SetActive(true);
             remainPick = (int)data["numberOfPick"];
-            lbRemainPick.text = remainPick + " Remaining Picks";
+            lbRemainPick.text = remainPick + " ကျန်ရွေးချယ်မှုများ";
             currentItemComp.bgImage.raycastTarget = false;
             currentItemComp.itemImage.gameObject.SetActive(false);
             currentItemClick.transform.SetAsLastSibling();

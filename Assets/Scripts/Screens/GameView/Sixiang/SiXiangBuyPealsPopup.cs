@@ -64,7 +64,7 @@ public class SiXiangBuyPealsPopup : BaseView
         betCurrent = bet;
         imgGem.sprite = listSprGem[indexSprite];
         Debug.Log("price=" + price);
-        lbInfo.text = "Pay " + Config.FormatNumber(price) + " chips to receive this gem!";//Globals.Config.formatStr(Globals.Config.getTextConfig("text_sixiang_buy_gem"), Globals.Config.FormatNumber(price));
+        lbInfo.text = "ပေးမည် " + Config.FormatNumber(price) + " ဤဂျမ်ကိုရရန် chips";//Globals.Config.formatStr(Globals.Config.getTextConfig("text_sixiang_buy_gem"), Globals.Config.FormatNumber(price));
     }
     public void onClickClosePopup(bool isDestroy = true)
     {

@@ -1109,7 +1109,7 @@ GameObject:
   - component: {fileID: 6653539981175551784}
   - component: {fileID: 5368903708921721484}
   - component: {fileID: 3444736250104242488}
-  - component: {fileID: 2498176226621779317}
+  - component: {fileID: 3511340713927190027}
   m_Layer: 0
   m_Name: Anim_WaitOpenCard
   m_TagString: Untagged
@@ -1190,7 +1190,7 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
---- !u!114 &2498176226621779317
+--- !u!114 &3511340713927190027
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1205,8 +1205,8 @@ MonoBehaviour:
   Type: 2
   ThisImg: {fileID: 0}
   ThisSG: {fileID: 3444736250104242488}
-  BundleLabel: assets--sprites--gameview--ingame_shankoemee
-  AssetName: Assets/Sprites/gameview/ingame_Shankoemee/Icon_chomobai/skeleton_SkeletonData.asset
+  BundleLabel: assets--resources--gameview--anim_shankoemee
+  AssetName: Assets/Resources/GameView/Anim_ShanKoeMee/Icon_chomobai/skeleton_SkeletonData.asset
   AnimName: red
   SetNativeSize: 0
   m_OnEnableUE:
@@ -1298,7 +1298,7 @@ GameObject:
   - component: {fileID: 5117505581097265729}
   - component: {fileID: 1451092073889735586}
   - component: {fileID: 9205020357446681386}
-  - component: {fileID: 6304077562173865095}
+  - component: {fileID: 4557791796733675740}
   m_Layer: 0
   m_Name: Win
   m_TagString: Untagged
@@ -1387,7 +1387,7 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
---- !u!114 &6304077562173865095
+--- !u!114 &4557791796733675740
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1402,8 +1402,8 @@ MonoBehaviour:
   Type: 2
   ThisImg: {fileID: 0}
   ThisSG: {fileID: 9205020357446681386}
-  BundleLabel: assets--sprites--gameview--ingame_shankoemee
-  AssetName: Assets/Sprites/gameview/ingame_Shankoemee/win/skeleton_SkeletonData.asset
+  BundleLabel: assets--resources--gameview--anim_shankoemee
+  AssetName: Assets/Resources/GameView/Anim_ShanKoeMee/win/skeleton_SkeletonData.asset
   AnimName: win
   SetNativeSize: 0
   m_OnEnableUE:
@@ -1420,7 +1420,7 @@ GameObject:
   - component: {fileID: 7306703454025950349}
   - component: {fileID: 7417614896228852368}
   - component: {fileID: 8857333414611165267}
-  - component: {fileID: 6564351832212887880}
+  - component: {fileID: 6096139128562805851}
   m_Layer: 0
   m_Name: Anim Lucky Hand
   m_TagString: Untagged
@@ -1505,7 +1505,7 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
---- !u!114 &6564351832212887880
+--- !u!114 &6096139128562805851
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1520,8 +1520,8 @@ MonoBehaviour:
   Type: 2
   ThisImg: {fileID: 0}
   ThisSG: {fileID: 8857333414611165267}
-  BundleLabel: assets--sprites--gameview--ingame_shankoemee
-  AssetName: Assets/Sprites/gameview/ingame_Shankoemee/shan89/skeleton_SkeletonData.asset
+  BundleLabel: assets--resources--gameview--anim_shankoemee
+  AssetName: Assets/Resources/GameView/Anim_ShanKoeMee/shan89/skeleton_SkeletonData.asset
   AnimName: lucky8
   SetNativeSize: 0
   m_OnEnableUE:
@@ -1890,7 +1890,7 @@ GameObject:
   - component: {fileID: 6568782671049451605}
   - component: {fileID: 2556269066010694430}
   - component: {fileID: 7949245739576774461}
-  - component: {fileID: 5195016501025645887}
+  - component: {fileID: 4119418211850520723}
   m_Layer: 0
   m_Name: Lose
   m_TagString: Untagged
@@ -1971,7 +1971,7 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
---- !u!114 &5195016501025645887
+--- !u!114 &4119418211850520723
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1986,8 +1986,8 @@ MonoBehaviour:
   Type: 2
   ThisImg: {fileID: 0}
   ThisSG: {fileID: 7949245739576774461}
-  BundleLabel: assets--sprites--gameview--ingame_shankoemee
-  AssetName: Assets/Sprites/gameview/ingame_Shankoemee/lose/skeleton_SkeletonData.asset
+  BundleLabel: assets--resources--gameview--anim_shankoemee
+  AssetName: Assets/Resources/GameView/Anim_ShanKoeMee/lose/skeleton_SkeletonData.asset
   AnimName: lose
   SetNativeSize: 0
   m_OnEnableUE:
@@ -2603,7 +2603,7 @@ GameObject:
   - component: {fileID: 4650779869859907952}
   - component: {fileID: 2980766633794727475}
   - component: {fileID: 8839360950662493151}
-  - component: {fileID: 3157344457675793807}
+  - component: {fileID: 3420493739668017915}
   m_Layer: 0
   m_Name: Anim_WaitBetTime
   m_TagString: Untagged
@@ -2684,7 +2684,7 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
---- !u!114 &3157344457675793807
+--- !u!114 &3420493739668017915
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2699,8 +2699,8 @@ MonoBehaviour:
   Type: 2
   ThisImg: {fileID: 0}
   ThisSG: {fileID: 8839360950662493151}
-  BundleLabel: assets--sprites--gameview--ingame_shankoemee
-  AssetName: Assets/Sprites/gameview/ingame_Shankoemee/Icon_chomobai/skeleton_SkeletonData.asset
+  BundleLabel: assets--resources--gameview--anim_shankoemee
+  AssetName: Assets/Resources/GameView/Anim_ShanKoeMee/Icon_chomobai/skeleton_SkeletonData.asset
   AnimName: white
   SetNativeSize: 0
   m_OnEnableUE:
@@ -3336,7 +3336,7 @@ GameObject:
   - component: {fileID: 1101449650553250563}
   - component: {fileID: 3709126471682641002}
   - component: {fileID: 990741732287550612}
-  - component: {fileID: 3456866523224023872}
+  - component: {fileID: 5766884582016612031}
   m_Layer: 0
   m_Name: Draw
   m_TagString: Untagged
@@ -3421,7 +3421,7 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
---- !u!114 &3456866523224023872
+--- !u!114 &5766884582016612031
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3436,8 +3436,8 @@ MonoBehaviour:
   Type: 2
   ThisImg: {fileID: 0}
   ThisSG: {fileID: 990741732287550612}
-  BundleLabel: assets--sprites--gameview--ingame_shankoemee
-  AssetName: Assets/Sprites/gameview/ingame_Shankoemee/win/skeleton_SkeletonData.asset
+  BundleLabel: assets--resources--gameview--anim_shankoemee
+  AssetName: Assets/Resources/GameView/Anim_ShanKoeMee/win/skeleton_SkeletonData.asset
   AnimName: win
   SetNativeSize: 0
   m_OnEnableUE:

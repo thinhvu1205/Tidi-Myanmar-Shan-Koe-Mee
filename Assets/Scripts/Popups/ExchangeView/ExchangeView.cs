@@ -514,9 +514,17 @@ public class ExchangeView : BaseView
             {
                 string key1 = (string)textBox[0]["key_placeHolder"];
                 string key2 = (string)textBox[1]["key_placeHolder"];
+                if (indexTabNap == 0)
+                {
+                    m_PhoneIF.placeholder.GetComponent<Text>().text = Config.getTextConfig("ent_WaveId");
+                    m_ConfirmPhoneIF.placeholder.GetComponent<Text>().text = Config.getTextConfig("cnf_WaveId");
+                }
+                else
+                {
+                    m_PhoneIF.placeholder.GetComponent<Text>().text = Config.getTextConfig(key1);
+                    m_ConfirmPhoneIF.placeholder.GetComponent<Text>().text = Config.getTextConfig(key2);
 
-                m_PhoneIF.placeholder.GetComponent<Text>().text = Config.getTextConfig(key1);
-                m_ConfirmPhoneIF.placeholder.GetComponent<Text>().text = Config.getTextConfig(key2);
+                }
             }
             else
             {

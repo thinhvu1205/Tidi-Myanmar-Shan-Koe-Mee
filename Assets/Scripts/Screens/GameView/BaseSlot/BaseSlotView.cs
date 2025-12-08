@@ -103,7 +103,7 @@ public class BaseSlotView : GameView
     public long oldWinAmount = 0;
     protected float timeHoldSpin = 0;
     public int gameType = 0;
-    protected int freeSpinleft = 0;
+    public int freeSpinleft = 0;
 
     private bool isChangeBet = false;
     protected bool isGrandJackpot = false;
@@ -193,6 +193,7 @@ public class BaseSlotView : GameView
     }
     protected override void Awake()
     {
+        Instance = this;
         base.Awake();
         initCollum();
         setRandomView();

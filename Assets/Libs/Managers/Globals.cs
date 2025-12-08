@@ -799,21 +799,30 @@ namespace Globals
 
         public static string FormatMoney(int money, bool isK = false)
         {
-            double absoluteValue = Mathf.Abs(money);
-            string input = absoluteValue.ToString(), floatPart = "", format = "";
-            int idNumberNextToDotFromTail = 0, integerValue = 0;
-            int aBillion = 1000000000, aMillion = 1000000, aThousand = 1000;
+            int absoluteValue = Mathf.Abs(money);
+            string input = absoluteValue.ToString();
+            string floatPart = "";
+            string format = "";
+
+            int idNumberNextToDotFromTail = 0;
+            int integerValue = 0;
+
+            int aBillion = 1000000000;
+            int aMillion = 1000000;
+            int aThousand = 1000;
+
+            // ========= DETECT FORMAT =========
             if (absoluteValue >= aBillion)
             {
                 format = "B";
-                integerValue = (int)(absoluteValue / aBillion);
-                idNumberNextToDotFromTail = absoluteValue.ToString().Length - 9;
+                integerValue = absoluteValue / aBillion;
+                idNumberNextToDotFromTail = input.Length - 9;
             }
             else if (absoluteValue >= aMillion)
             {
                 format = "M";
-                integerValue = (int)(absoluteValue / aMillion);
-                idNumberNextToDotFromTail = absoluteValue.ToString().Length - 6;
+                integerValue = absoluteValue / aMillion;
+                idNumberNextToDotFromTail = input.Length - 6;
             }
             else
             {
@@ -822,40 +831,60 @@ namespace Globals
                     if (absoluteValue >= aThousand)
                     {
                         format = "K";
-                        integerValue = (int)(absoluteValue / aThousand);
-                        idNumberNextToDotFromTail = absoluteValue.ToString().Length - 3;
+                        integerValue = absoluteValue / aThousand;
+                        idNumberNextToDotFromTail = input.Length - 3;
                     }
-                    else return FormatNumber(money);
+                    else
+                    {
+                        return FormatNumber(money);
+                    }
                 }
-                else return FormatNumber(money);
+                else
+                {
+                    return FormatNumber(money);
+                }
             }
-            bool foundNotZero = false;
-            for (int i = idNumberNextToDotFromTail + 2; i >= idNumberNextToDotFromTail; i--)
+            if (idNumberNextToDotFromTail >= 0 && idNumberNextToDotFromTail < input.Length - 1)
             {
-                if (input[i] == '0' && !foundNotZero) continue;
-                floatPart = input[i] + floatPart;
-                foundNotZero = true;
+                int start = idNumberNextToDotFromTail;
+                int end = Math.Min(idNumberNextToDotFromTail + 2, input.Length - 1);
+
+                bool foundNotZero = false;
+                for (int i = end; i >= start; i--)
+                {
+                    if (input[i] == '0' && !foundNotZero) continue;
+
+                    floatPart = input[i] + floatPart;
+                    foundNotZero = true;
+                }
             }
-            if (floatPart.Length > 0) floatPart = "." + floatPart;
+
+            if (floatPart.Length > 0)
+                floatPart = "." + floatPart;
+
             return (money < 0 ? "-" : "") + FormatNumber(integerValue) + floatPart + format;
         }
+
         public static string FormatMoney(long money, bool isK = false)
         {
-            double absoluteValue = Mathf.Abs(money);
-            string input = absoluteValue.ToString(), floatPart = "", format = "";
+            long absoluteValue = Math.Abs(money);
+            string input = absoluteValue.ToString();
+            string floatPart = "", format = "";
             int idNumberNextToDotFromTail = 0, integerValue = 0;
+
             int aBillion = 1000000000, aMillion = 1000000, aThousand = 1000;
+
             if (absoluteValue >= aBillion)
             {
                 format = "B";
                 integerValue = (int)(absoluteValue / aBillion);
-                idNumberNextToDotFromTail = absoluteValue.ToString().Length - 9;
+                idNumberNextToDotFromTail = input.Length - 9;
             }
             else if (absoluteValue >= aMillion)
             {
                 format = "M";
                 integerValue = (int)(absoluteValue / aMillion);
-                idNumberNextToDotFromTail = absoluteValue.ToString().Length - 6;
+                idNumberNextToDotFromTail = input.Length - 6;
             }
             else
             {
@@ -865,22 +894,34 @@ namespace Globals
                     {
                         format = "K";
                         integerValue = (int)(absoluteValue / aThousand);
-                        idNumberNextToDotFromTail = absoluteValue.ToString().Length - 3;
+                        idNumberNextToDotFromTail = input.Length - 3;
                     }
-                    else return FormatNumber(money);
+                    else
+                    {
+                        return FormatNumber(money);
+                    }
                 }
-                else return FormatNumber(money);
+                else
+                {
+                    return FormatNumber(money);
+                }
             }
-            bool foundNotZero = false;
-            for (int i = idNumberNextToDotFromTail + 2; i >= idNumberNextToDotFromTail; i--)
+
+            // 🔥 FIX LỖI INDEX — chỉ lấy phần thập phân nếu đủ ký tự
+            if (input.Length > idNumberNextToDotFromTail + 1)
             {
-                if (input[i] == '0' && !foundNotZero) continue;
-                floatPart = input[i] + floatPart;
-                foundNotZero = true;
+                int tailLength = Mathf.Min(2, input.Length - (idNumberNextToDotFromTail + 1));
+                string tail = input.Substring(idNumberNextToDotFromTail + 1, tailLength);
+
+                // Xóa đuôi "00"
+                tail = tail.TrimEnd('0');
+                if (tail.Length > 0)
+                    floatPart = "." + tail;
             }
-            if (floatPart.Length > 0) floatPart = "." + floatPart;
+
             return (money < 0 ? "-" : "") + FormatNumber(integerValue) + floatPart + format;
         }
+
 
         public static string FormatMoney2(int mo, bool isK = false)
         {

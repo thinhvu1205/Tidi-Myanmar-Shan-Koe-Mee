@@ -1,24 +1,36 @@
 fileFormatVersion: 2
-guid: b8e75b0a2169d6a4c9298786885b8210
+guid: 5ddd7167b33bb454ca7ec3200bb9c2e0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -346032773034248340
-    second: text_pusoy_0
+      213: 7706386757003908858
+    second: photo_2025-12-08_13-35-41_0
   - first:
-      213: -612178831349133684
-    second: text_pusoy_1
+      213: 707168443643761310
+    second: photo_2025-12-08_13-35-41_1
   - first:
-      213: -823274939853189953
-    second: text_pusoy_2
+      213: 8422390517029131695
+    second: photo_2025-12-08_13-35-41_2
   - first:
-      213: -2576245934068504950
-    second: text_pusoy_3
+      213: -3134682356686010123
+    second: photo_2025-12-08_13-35-41_3
   - first:
-      213: 7788861513254220548
-    second: text_pusoy_4
+      213: 8990899944116980883
+    second: photo_2025-12-08_13-35-41_4
+  - first:
+      213: 6072266507571716951
+    second: photo_2025-12-08_13-35-41_5
+  - first:
+      213: 5068762968033145236
+    second: photo_2025-12-08_13-35-41_6
+  - first:
+      213: -2773896843289682520
+    second: photo_2025-12-08_13-35-41_7
+  - first:
+      213: -3479226929014438600
+    second: photo_2025-12-08_13-35-41_8
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -82,19 +94,20 @@ TextureImporter:
   swizzle: 50462976
   cookieLightType: 0
   platformSettings:
-  - serializedVersion: 3
+  - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 3
     compressionQuality: 100
     crunchedCompression: 1
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
+  - serializedVersion: 4
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -104,9 +117,10 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
+  - serializedVersion: 4
     buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -116,10 +130,11 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
+  - serializedVersion: 4
+    buildTarget: iOS
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -128,129 +143,212 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: text_pusoy_0
+      name: photo_2025-12-08_13-35-41_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 21
-        width: 52
-        height: 62
+        x: 1
+        y: 29
+        width: 25
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c6776aab605a23bf0800000000000000
-      internalID: -346032773034248340
+      spriteID: af61ef0ece592fa60800000000000000
+      internalID: 7706386757003908858
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: text_pusoy_1
+      name: photo_2025-12-08_13-35-41_1
       rect:
         serializedVersion: 2
-        x: 51
-        y: 20
-        width: 45
-        height: 42
+        x: 28
+        y: 7
+        width: 25
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c8ecb6aa89a1187f0800000000000000
-      internalID: -612178831349133684
+      spriteID: e9290c7e3fd50d900800000000000000
+      internalID: 707168443643761310
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: text_pusoy_2
+      name: photo_2025-12-08_13-35-41_2
       rect:
         serializedVersion: 2
-        x: 97
-        y: 19
-        width: 37
-        height: 46
+        x: 56
+        y: 6
+        width: 36
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fbcc199ddc32394f0800000000000000
-      internalID: -823274939853189953
+      spriteID: fa5d32f2d8752e470800000000000000
+      internalID: 8422390517029131695
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: text_pusoy_3
+      name: photo_2025-12-08_13-35-41_3
       rect:
         serializedVersion: 2
-        x: 134
-        y: 20
-        width: 46
-        height: 44
+        x: 95
+        y: 29
+        width: 28
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a866dc5f8f55f3cd0800000000000000
-      internalID: -2576245934068504950
+      spriteID: 5f8cb0e310f5f74d0800000000000000
+      internalID: -3134682356686010123
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: text_pusoy_4
+      name: photo_2025-12-08_13-35-41_4
       rect:
         serializedVersion: 2
-        x: 176
-        y: 0
-        width: 48
-        height: 63
+        x: 99
+        y: 54
+        width: 21
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 403ba367748971c60800000000000000
-      internalID: 7788861513254220548
+      spriteID: 39c0c240dd716cc70800000000000000
+      internalID: 8990899944116980883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: photo_2025-12-08_13-35-41_5
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 29
+        width: 28
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75360556736054450800000000000000
+      internalID: 6072266507571716951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: photo_2025-12-08_13-35-41_6
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 54
+        width: 23
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4913540601dd75640800000000000000
+      internalID: 5068762968033145236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: photo_2025-12-08_13-35-41_7
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 29
+        width: 67
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ad142c84832189d0800000000000000
+      internalID: -2773896843289682520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: photo_2025-12-08_13-35-41_8
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 7
+        width: 14
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8350f13ba8d47bfc0800000000000000
+      internalID: -3479226929014438600
       vertices: []
       indices: 
       edges: []
       weights: []
     outline: []
+    customData: 
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
@@ -260,12 +358,18 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
     nameFileIdTable:
-      text_pusoy_0: -346032773034248340
-      text_pusoy_1: -612178831349133684
-      text_pusoy_2: -823274939853189953
-      text_pusoy_3: -2576245934068504950
-      text_pusoy_4: 7788861513254220548
+      photo_2025-12-08_13-35-41_0: 7706386757003908858
+      photo_2025-12-08_13-35-41_1: 707168443643761310
+      photo_2025-12-08_13-35-41_2: 8422390517029131695
+      photo_2025-12-08_13-35-41_3: -3134682356686010123
+      photo_2025-12-08_13-35-41_4: 8990899944116980883
+      photo_2025-12-08_13-35-41_5: 6072266507571716951
+      photo_2025-12-08_13-35-41_6: 5068762968033145236
+      photo_2025-12-08_13-35-41_7: -2773896843289682520
+      photo_2025-12-08_13-35-41_8: -3479226929014438600
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

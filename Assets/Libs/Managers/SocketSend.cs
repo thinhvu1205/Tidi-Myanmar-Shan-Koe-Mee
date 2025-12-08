@@ -1370,7 +1370,15 @@ public class SocketSend
         WebSocketManager.getInstance().sendDataGame(data.ToString(Newtonsoft.Json.Formatting.None));
     }
     //====================END SABONG======================
-    //====================LUCKY89======================
+    //====================SHAN KOE MEE======================
+    public static void SendShowCard()
+    {
+        JObject data = new()
+        {
+            ["evt"] = "showCard",
+        };
+        WebSocketManager.getInstance().sendDataGame(data.ToString(Newtonsoft.Json.Formatting.None));
+    }
     public static void SendBetLucky89(int betValue)
     {
         JObject data = new()

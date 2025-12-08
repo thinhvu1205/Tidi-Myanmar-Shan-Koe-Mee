@@ -15,48 +15,51 @@ public class ItemChatAction : MonoBehaviour
     public IEnumerator setData(int idAnimation, Vector3 targetV3)
     {
         Globals.Logging.Log("-=-=idAnimation " + idAnimation);
-        if (lsAction[idAnimation] != null)
+        if (idAnimation < lsAction.Count)
         {
-            img.gameObject.SetActive(true);
-            img.sprite = lsAction[idAnimation];
-            img.SetNativeSize();
-        }
-        yield return new WaitForSeconds(.1f);
-        transform.DOMove(targetV3, 1).SetEase(Ease.OutQuad).OnComplete(() =>
-        {
-            img.gameObject.SetActive(false);
-            skeletonGraphic.gameObject.SetActive(true);
-            skeletonGraphic.skeletonDataAsset = lsAnimData[idAnimation];
-            skeletonGraphic.Initialize(true);
-            skeletonGraphic.startingAnimation = "animation";
-            skeletonGraphic.startingLoop = false;
-            skeletonGraphic.AnimationState.Complete += delegate
+            if (lsAction[idAnimation] != null)
             {
-                Destroy(gameObject);
-            };
-            string sound = "";
-            switch (idAnimation)
-            {
-                case 0:
-                    sound = Globals.SOUND_CHAT.BOOM;
-                    break;
-                case 1:
-                    sound = Globals.SOUND_CHAT.KISS;
-                    break;
-                case 2:
-                    sound = Globals.SOUND_CHAT.ROSE;
-                    break;
-                case 3:
-                    sound = Globals.SOUND_CHAT.BEER;
-                    break;
-                case 4:
-                    sound = Globals.SOUND_CHAT.TOMATO;
-                    break;
-                case 5:
-                    sound = Globals.SOUND_CHAT.WATER;
-                    break;
+                img.gameObject.SetActive(true);
+                img.sprite = lsAction[idAnimation];
+                img.SetNativeSize();
             }
-            SoundManager.instance.playEffectFromPath(sound);
-        });
+            yield return new WaitForSeconds(.1f);
+            transform.DOMove(targetV3, 1).SetEase(Ease.OutQuad).OnComplete(() =>
+            {
+                img.gameObject.SetActive(false);
+                skeletonGraphic.gameObject.SetActive(true);
+                skeletonGraphic.skeletonDataAsset = lsAnimData[idAnimation];
+                skeletonGraphic.Initialize(true);
+                skeletonGraphic.startingAnimation = "animation";
+                skeletonGraphic.startingLoop = false;
+                skeletonGraphic.AnimationState.Complete += delegate
+                {
+                    Destroy(gameObject);
+                };
+                string sound = "";
+                switch (idAnimation)
+                {
+                    case 0:
+                        sound = Globals.SOUND_CHAT.BOOM;
+                        break;
+                    case 1:
+                        sound = Globals.SOUND_CHAT.KISS;
+                        break;
+                    case 2:
+                        sound = Globals.SOUND_CHAT.ROSE;
+                        break;
+                    case 3:
+                        sound = Globals.SOUND_CHAT.BEER;
+                        break;
+                    case 4:
+                        sound = Globals.SOUND_CHAT.TOMATO;
+                        break;
+                    case 5:
+                        sound = Globals.SOUND_CHAT.WATER;
+                        break;
+                }
+                SoundManager.instance.playEffectFromPath(sound);
+            });
+        }
     }
 }

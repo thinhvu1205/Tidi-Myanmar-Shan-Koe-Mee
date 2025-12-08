@@ -183,9 +183,22 @@ public class SiXiangView : BaseSlotView
     public void handleDragonPealsSpin(JObject data)
     {
         dragonPearlSpin = data;
+        // Debug.Log($"handleDragonPealsSpin: {data.ToString(Newtonsoft.Json.Formatting.None)}");
         //dragonPearlSpin = JObject.Parse(SiXiangFakeData.Instance.DragonPearlSpinBug1);
         listPearls = data["pearls"].ToObject<List<JObject>>();
         freeSpinleft = getInt(data, "totalSpins");
+        if (data.ContainsKey("numberOfBonusSpins"))
+        {
+            int numberOfBonusSpins = getInt(data, "numberOfBonusSpins");
+            if (numberOfBonusSpins <= 1)
+            {
+                DOVirtual.DelayedCall(1.5f, () =>
+                {
+                    infoBar.setDPSpinLeft(freeSpinleft);
+                });
+            }
+        }
+
         isGrandJackpot = getBool(data, "isGrandJackpot");
         spinReelView.Clear();
         for (int i = 0; i < 5; i++)
@@ -202,10 +215,12 @@ public class SiXiangView : BaseSlotView
 
             if (getInt(dataSymbol, "item") == 1) //li xi
             {
+                // infoBar.setDPSpinLeft(freeSpinleft);
                 spinReelView[col][row] = 13;
             }
             else //dong vang
             {
+
                 if (!(bool)dataSymbol["isBonusSpin"])
                 {
                     spinReelView[col][row] = 11;
@@ -963,9 +978,10 @@ public class SiXiangView : BaseSlotView
         });
         await spineSpecialWinTask;
     }
-    public void updateFreeSpinLeft()
+    public void updateFreeSpinLeft(bool isJustPlus = false)
     {
         infoBar.setDPSpinLeft(freeSpinleft);
+        if (isJustPlus) return;
         infoBar.effectUpdateDBFSL();
         setStateBtnSpin();
     }
