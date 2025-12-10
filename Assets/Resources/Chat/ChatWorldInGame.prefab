@@ -2511,9 +2511,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Root: {fileID: 8653515025972154993}
+  m_GroupLine: {fileID: 2811151186451926766}
   m_DataAS: {fileID: 587264023496597492}
   m_RecordingTimeTMPUI: {fileID: 9014278001045869597}
-  m_GroupLine: {fileID: 2811151186451926766}
 --- !u!1 &5766756124522550629
 GameObject:
   m_ObjectHideFlags: 0
@@ -3604,9 +3604,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Type here
-
-'
+  m_text: "\u1012\u102E\u1019\u103E\u102C \u101B\u102D\u102F\u1000\u103A\u1011\u100A\u1037\u103A\u1015\u102B"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7708e67653374c60af5f1595e949403, type: 2}
   m_sharedMaterial: {fileID: 7800525795003925199, guid: b7708e67653374c60af5f1595e949403, type: 2}
@@ -3643,7 +3641,7 @@ MonoBehaviour:
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: -5
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -4515,7 +4513,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: CHAT
+  m_text: "\u1005\u102C\u1001\u103B\u103A\u1010\u103A"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7708e67653374c60af5f1595e949403, type: 2}
   m_sharedMaterial: {fileID: 7800525795003925199, guid: b7708e67653374c60af5f1595e949403, type: 2}
@@ -4542,8 +4540,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 60
-  m_fontSizeBase: 60
+  m_fontSize: 44
+  m_fontSizeBase: 44
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

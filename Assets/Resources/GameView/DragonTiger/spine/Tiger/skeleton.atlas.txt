@@ -271,8 +271,8 @@ repeat: none
   offset: 25, 75
   index: -1
 01/set_02
-  rotate: true
-  xy: 1768, 1298
+  rotate: false
+  xy: 487, 1154
   size: 63, 179
   orig: 117, 179
   offset: 24, 0
@@ -285,8 +285,8 @@ repeat: none
   offset: 13, 0
   index: -1
 01/set_04
-  rotate: true
-  xy: 1768, 1363
+  rotate: false
+  xy: 378, 1154
   size: 107, 179
   orig: 117, 179
   offset: 10, 0
@@ -356,7 +356,7 @@ repeat: none
   index: -1
 01/set_14
   rotate: false
-  xy: 369, 231
+  xy: 678, 117
   size: 84, 76
   orig: 117, 179
   offset: 10, 16
@@ -411,10 +411,17 @@ tay
   offset: 0, 0
   index: -1
 txt2
-  rotate: true
-  xy: 703, 427
-  size: 61, 75
-  orig: 61, 75
+  rotate: false
+  xy: 369, 242
+  size: 110, 65
+  orig: 110, 65
+  offset: 0, 0
+  index: -1
+vac
+  rotate: false
+  xy: 381, 1335
+  size: 314, 147
+  orig: 314, 149
   offset: 0, 0
   index: -1
 vang

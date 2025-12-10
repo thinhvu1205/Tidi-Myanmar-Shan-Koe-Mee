@@ -1,13 +1,13 @@
 {
 "skeleton": {
-	"hash": "3Wln3VGl5sNIkougTaAg0pQ+Uzo",
+	"hash": "qRCKGsgY2NEFVnuON9SjSApy2eU",
 	"spine": "3.8.99",
 	"x": -672.81,
 	"y": -659.33,
 	"width": 1345.62,
 	"height": 1401.41,
-	"images": "./New folder/",
-	"audio": ""
+	"images": "./images/",
+	"audio": "G:/game/slots/myanmar/juicy/animations/endGame"
 },
 "bones": [
 	{ "name": "root" },
@@ -31,12 +31,12 @@
 	{ "name": "iii2", "bone": "iiiii2", "attachment": "iii", "blend": "additive" },
 	{ "name": "popup", "bone": "root", "attachment": "popup" },
 	{ "name": "Yougrabbed", "bone": "youg", "attachment": "Yougrabbed2" },
-	{ "name": "chips", "bone": "chis", "attachment": "chips" },
+	{ "name": "chips", "bone": "chis", "attachment": "chips2" },
 	{ "name": "5/5_00000", "bone": "55", "blend": "additive" },
 	{ "name": "ggghf", "bone": "root", "attachment": "ggghf", "blend": "additive" },
-	{ "name": "groovy", "bone": "groo", "attachment": "groovy" },
+	{ "name": "groovy", "bone": "groo", "attachment": "groovy2" },
 	{ "name": "glow", "bone": "groo2", "color": "ffffff1c", "attachment": "glow", "blend": "additive" },
-	{ "name": "groovy2", "bone": "groo2", "attachment": "groovy", "blend": "additive" },
+	{ "name": "groovy2", "bone": "groo2", "attachment": "groovy3", "blend": "additive" },
 	{ "name": "lll", "bone": "L", "attachment": "lll", "blend": "additive" },
 	{ "name": "lll2", "bone": "L2", "attachment": "lll", "blend": "additive" },
 	{ "name": "lll3", "bone": "L3", "attachment": "lll", "blend": "additive" },
@@ -87,13 +87,14 @@
 			},
 			"Yougrabbed": {
 				"Yougrabbed": { "y": 12.99, "width": 372, "height": 56 },
-				"Yougrabbed2": { "y": 12.99, "width": 424, "height": 58 }
+				"Yougrabbed2": { "y": 12.99, "width": 518, "height": 79 }
 			},
 			"bg": {
 				"bg": { "y": 41.38, "scaleX": 3.282, "scaleY": 3.282, "width": 410, "height": 427 }
 			},
 			"chips": {
-				"chips": { "y": 19.69, "width": 182, "height": 62 }
+				"chips": { "y": 19.69, "width": 182, "height": 62 },
+				"chips2": { "y": 25.17, "width": 268, "height": 109 }
 			},
 			"ggghf": {
 				"ggghf": { "y": 40.25, "width": 697, "height": 627 }
@@ -102,10 +103,12 @@
 				"glow": { "y": -6.61, "scaleX": 5, "scaleY": 5, "width": 107, "height": 107 }
 			},
 			"groovy": {
-				"groovy": { "y": 9.22, "width": 547, "height": 144 }
+				"groovy": { "y": 9.22, "width": 547, "height": 144 },
+				"groovy2": { "y": 8.36, "width": 626, "height": 165 }
 			},
 			"groovy2": {
-				"groovy": { "y": 9.22, "width": 547, "height": 144 }
+				"groovy": { "y": 9.22, "width": 547, "height": 144 },
+				"groovy3": { "path": "groovy2", "y": 9.22, "width": 626, "height": 165 }
 			},
 			"iii": {
 				"iii": { "width": 300, "height": 292 }
@@ -542,16 +545,18 @@
 			}
 		},
 		"bones": {
-			"groo2": {
+			"youg": {
 				"translate": [
 					{ "curve": "stepped" },
 					{ "time": 0.1667, "curve": 0.25, "c3": 0.75 },
-					{ "time": 0.6, "y": 10.59 }
+					{ "time": 0.4, "y": 6.35, "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.6667 }
 				],
 				"scale": [
 					{ "curve": "stepped" },
 					{ "time": 0.1667, "curve": 0.25, "c3": 0.75 },
-					{ "time": 0.6, "x": 1.07, "y": 1.07 }
+					{ "time": 0.4, "x": 1.06, "y": 1.06, "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.6667 }
 				]
 			},
 			"chis": {
@@ -568,18 +573,16 @@
 					{ "time": 0.8 }
 				]
 			},
-			"youg": {
+			"groo2": {
 				"translate": [
 					{ "curve": "stepped" },
 					{ "time": 0.1667, "curve": 0.25, "c3": 0.75 },
-					{ "time": 0.4, "y": 6.35, "curve": 0.25, "c3": 0.75 },
-					{ "time": 0.6667 }
+					{ "time": 0.6, "y": 10.59 }
 				],
 				"scale": [
 					{ "curve": "stepped" },
 					{ "time": 0.1667, "curve": 0.25, "c3": 0.75 },
-					{ "time": 0.4, "x": 1.06, "y": 1.06, "curve": 0.25, "c3": 0.75 },
-					{ "time": 0.6667 }
+					{ "time": 0.6, "x": 1.07, "y": 1.07 }
 				]
 			},
 			"iiiii": {

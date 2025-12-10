@@ -1,187 +1,187 @@
 
 skeleton.png
-size: 1516,1516
+size: 2036,1208
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
 Free Spins
   rotate: false
-  xy: 1159, 241
-  size: 300, 67
-  orig: 300, 67
+  xy: 1603, 83
+  size: 334, 71
+  orig: 334, 71
   offset: 0, 0
   index: -1
 Free Spins2
   rotate: false
-  xy: 463, 227
-  size: 447, 67
-  orig: 447, 67
+  xy: 1603, 156
+  size: 356, 110
+  orig: 356, 110
   offset: 0, 0
   index: -1
 Reward value
   rotate: false
-  xy: 1159, 152
+  xy: 2, 38
   size: 206, 37
   orig: 206, 37
   offset: 0, 0
   index: -1
 Reward value2
   rotate: false
-  xy: 1159, 114
-  size: 178, 36
-  orig: 178, 36
+  xy: 1613, 21
+  size: 191, 60
+  orig: 191, 60
   offset: 0, 0
   index: -1
 You Win
   rotate: false
-  xy: 1208, 45
+  xy: 1806, 31
   size: 161, 50
   orig: 161, 50
   offset: 0, 0
   index: -1
 You Win2
-  rotate: true
-  xy: 1461, 48
-  size: 281, 51
-  orig: 281, 51
+  rotate: false
+  xy: 1126, 2
+  size: 251, 79
+  orig: 251, 79
   offset: 0, 0
   index: -1
 You get
   rotate: false
-  xy: 591, 178
+  xy: 210, 28
   size: 159, 47
   orig: 159, 47
   offset: 0, 0
   index: -1
 You get2
   rotate: false
-  xy: 1159, 191
-  size: 279, 48
-  orig: 279, 48
+  xy: 1379, 11
+  size: 232, 70
+  orig: 232, 70
   offset: 0, 0
   index: -1
 hhoa
-  rotate: true
-  xy: 945, 147
+  rotate: false
+  xy: 641, 409
   size: 728, 212
   orig: 728, 212
   offset: 0, 0
   index: -1
 ho
   rotate: true
-  xy: 1124, 44
+  xy: 1860, 441
   size: 68, 82
   orig: 68, 82
   offset: 0, 0
   index: -1
 hoa
   rotate: false
-  xy: 1434, 2
+  xy: 1313, 363
   size: 48, 44
   orig: 48, 44
   offset: 0, 0
   index: -1
 light thoi
-  rotate: true
-  xy: 1367, 97
-  size: 92, 90
-  orig: 92, 90
+  rotate: false
+  xy: 1208, 302
+  size: 103, 105
+  orig: 103, 105
   offset: 0, 0
   index: -1
 rec
   rotate: false
-  xy: 2, 935
+  xy: 2, 627
   size: 949, 579
   orig: 949, 579
   offset: 0, 0
   index: -1
 rec2
   rotate: false
-  xy: 2, 350
+  xy: 953, 623
   size: 941, 583
   orig: 941, 583
   offset: 0, 0
   index: -1
 text YAHOOO
-  rotate: true
-  xy: 1382, 331
+  rotate: false
+  xy: 1050, 170
   size: 544, 96
   orig: 544, 96
   offset: 0, 0
   index: -1
 text YAHOOO2
-  rotate: true
-  xy: 1382, 331
-  size: 544, 96
-  orig: 544, 96
+  rotate: false
+  xy: 1371, 430
+  size: 487, 191
+  orig: 487, 191
   offset: 0, 0
   index: -1
 text YAHOOOtren
-  rotate: false
-  xy: 2, 69
+  rotate: true
+  xy: 1961, 682
   size: 524, 73
   orig: 524, 73
   offset: 0, 0
   index: -1
 text_collec
   rotate: false
-  xy: 528, 27
+  xy: 641, 29
   size: 483, 52
   orig: 483, 52
   offset: 0, 0
   index: -1
 text_collec2
-  rotate: false
-  xy: 463, 296
-  size: 465, 52
-  orig: 465, 52
+  rotate: true
+  xy: 1896, 511
+  size: 695, 63
+  orig: 695, 63
   offset: 0, 0
   index: -1
 text_congratulation
-  rotate: true
-  xy: 1159, 310
+  rotate: false
+  xy: 641, 273
   size: 565, 134
   orig: 565, 134
   offset: 0, 0
   index: -1
 text_congratulation2
   rotate: false
-  xy: 2, 240
-  size: 459, 108
-  orig: 459, 108
+  xy: 1371, 268
+  size: 519, 160
+  orig: 519, 160
   offset: 0, 0
   index: -1
 tron
   rotate: false
-  xy: 1371, 34
+  xy: 1892, 378
   size: 61, 61
   orig: 61, 61
   offset: 0, 0
   index: -1
 txt wonder
-  rotate: true
-  xy: 1295, 324
+  rotate: false
+  xy: 1050, 83
   size: 551, 85
   orig: 551, 85
   offset: 0, 0
   index: -1
 txt wonder tren
-  rotate: false
-  xy: 591, 81
-  size: 531, 64
-  orig: 531, 64
+  rotate: true
+  xy: 1961, 160
+  size: 520, 56
+  orig: 520, 56
   offset: 0, 0
   index: -1
 txt wonder2
   rotate: false
-  xy: 2, 144
-  size: 587, 81
-  orig: 587, 81
+  xy: 641, 115
+  size: 407, 156
+  orig: 407, 156
   offset: 0, 0
   index: -1
 vien khung
-  rotate: true
-  xy: 953, 877
+  rotate: false
+  xy: 2, 77
   size: 637, 548
   orig: 637, 548
   offset: 0, 0

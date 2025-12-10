@@ -1523,7 +1523,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Login
+  m_text: "\u101C\u1031\u102C\u1037\u1002\u103A\u1021\u1004\u103A"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 59a76639c5ce7b74c973579941f136f6, type: 2}
   m_sharedMaterial: {fileID: 7800525795003925199, guid: 59a76639c5ce7b74c973579941f136f6, type: 2}
@@ -1550,8 +1550,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 26
+  m_fontSizeBase: 26
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4600,7 +4600,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Play as Guest
+  m_text: "\u1027\u100A\u1037\u103A\u101E\u100A\u103A\u1021\u1016\u103C\u1005\u103A\u1000\u1005\u102C\u1038\u101B\u1014\u103A"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5f19153d53ec4414e8c66f984c0987c9, type: 2}
   m_sharedMaterial: {fileID: 7800525795003925199, guid: 5f19153d53ec4414e8c66f984c0987c9, type: 2}
@@ -4627,8 +4627,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 26
+  m_fontSizeBase: 26
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -16000,7 +16000,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Create a Account
+  m_text: "\u1021\u1000\u1031\u102C\u1004\u1037\u103A\u1010\u1005\u103A\u1001\u102F
+    \u1016\u1014\u103A\u1010\u102E\u1038\u101B\u1014\u103A"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 419b0bb8d31f0b349b2b62977461955f, type: 2}
   m_sharedMaterial: {fileID: -7063504911848700030, guid: 419b0bb8d31f0b349b2b62977461955f, type: 2}
@@ -16027,8 +16028,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 26
+  m_fontSizeBase: 26
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -18800,7 +18801,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Touch to chat...
+  m_text: "\u1005\u102C\u101B\u102D\u102F\u1000\u103A\u101B\u1014\u103A \u1010\u102D\u102F\u1037\u1001\u103B\u1015\u102B\u2026"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5f19153d53ec4414e8c66f984c0987c9, type: 2}
   m_sharedMaterial: {fileID: 7800525795003925199, guid: 5f19153d53ec4414e8c66f984c0987c9, type: 2}
@@ -18827,8 +18828,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 28
-  m_fontSizeBase: 28
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

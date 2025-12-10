@@ -1,75 +1,76 @@
 {
 "skeleton": {
-	"hash": "fLHkk67u97ptIhT2enz8AjOrNvQ",
+	"hash": "GMi5Jnx5aKt4ZICRdXfe+gKsMT0",
 	"spine": "3.8.99",
-	"x": -684.3,
-	"y": -30.57,
-	"width": 1350.26,
-	"height": 666.26,
+	"x": -390.81,
+	"y": -352.72,
+	"width": 773.03,
+	"height": 694.25,
 	"images": "./New folder/",
-	"audio": "E:/SLOT/Tazran Ngang/minigame/result/popup"
+	"audio": ""
 },
 "bones": [
 	{ "name": "root" },
-	{ "name": "1", "parent": "root", "x": 651.08, "y": 358.58, "scaleX": 0.706, "scaleY": 0.706 },
-	{ "name": "2", "parent": "root", "x": -481, "y": 614.35, "scaleX": 0.837, "scaleY": 0.837 },
-	{ "name": "3", "parent": "root", "x": -652.51, "y": 514.18 },
-	{ "name": "4", "parent": "root", "x": -667.86, "y": 114.89, "scaleX": 0.687, "scaleY": 0.687 },
-	{ "name": "5", "parent": "root", "x": -250.32, "y": 598.41 },
+	{ "name": "hoa", "parent": "root", "x": -1.35, "y": 414.8 },
+	{ "name": "1", "parent": "hoa", "x": 325.55, "y": -165.66, "scaleX": 0.706, "scaleY": 0.706 },
+	{ "name": "2", "parent": "hoa", "x": -285.25, "y": -136.69, "scaleX": 0.837, "scaleY": 0.837 },
+	{ "name": "3", "parent": "hoa", "x": -322.84, "y": -156.22 },
+	{ "name": "4", "parent": "hoa", "x": -340.35, "y": -322.23, "scaleX": 0.687, "scaleY": 0.687 },
+	{ "name": "5", "parent": "hoa", "x": -107.85, "y": -101.51 },
 	{
 		"name": "6",
-		"parent": "root",
+		"parent": "hoa",
 		"rotation": 33.87,
-		"x": 615.43,
-		"y": 501.68,
+		"x": 238.06,
+		"y": -134.16,
 		"scaleX": 0.672,
 		"scaleY": 0.672
 	},
 	{
 		"name": "7",
-		"parent": "root",
+		"parent": "hoa",
 		"rotation": 63.57,
-		"x": 637.18,
-		"y": 193.87,
+		"x": 314.53,
+		"y": -325.33,
 		"scaleX": 0.662,
 		"scaleY": 0.662
 	},
-	{ "name": "8", "parent": "root", "x": -635.25, "y": 332.12 },
+	{ "name": "8", "parent": "hoa", "x": -317.1, "y": -362.76 },
 	{
 		"name": "9",
-		"parent": "root",
+		"parent": "hoa",
 		"rotation": 14.12,
-		"x": 340.83,
-		"y": 607.06,
+		"x": 170.1,
+		"y": -116.62,
 		"scaleX": 0.798,
 		"scaleY": 0.798
 	},
-	{ "name": "THE TREASURE IS YOURS_", "parent": "root", "x": 46.06, "y": 587.77 },
-	{ "name": "You won", "parent": "root", "x": -3.26, "y": 464.8, "scaleX": 0.6, "scaleY": 0.6 },
-	{ "name": "You won2", "parent": "root", "x": -3.26, "y": 465.43, "scaleX": 0.6, "scaleY": 0.6 },
-	{ "name": "lii", "parent": "root", "x": 555.89, "y": 505.91, "scaleX": 1.522, "scaleY": 1.522 },
-	{ "name": "lii2", "parent": "root", "x": 244.71, "y": 500.34, "scaleX": 1.3, "scaleY": 1.3 },
-	{ "name": "lii3", "parent": "root", "x": 3.53, "y": 500.16, "scaleX": 0.7, "scaleY": 0.7 },
-	{ "name": "lii4", "parent": "root", "x": -542.29, "y": 503.33, "scaleX": 1.022, "scaleY": 1.022 },
-	{ "name": "lii5", "parent": "root", "x": -558.54, "y": 612.19 },
-	{ "name": "lii6", "parent": "root", "x": -173.91, "y": 600.51, "scaleX": 0.7, "scaleY": 0.7 },
-	{ "name": "lii7", "parent": "root", "x": 436.7, "y": 606.43 },
-	{ "name": "lii8", "parent": "root", "x": 134.03, "y": 594.55, "scaleX": 0.5, "scaleY": 0.5 },
-	{ "name": "lii9", "parent": "root", "x": -120.4, "y": 503.34 },
-	{ "name": "lii10", "parent": "root", "x": -353.5, "y": 511.04 },
-	{ "name": "quang tron", "parent": "root", "x": -0.03, "y": 319.81 },
-	{ "name": "quang tron2", "parent": "root", "x": -0.03, "y": 319.81 },
-	{ "name": "sanng", "parent": "root", "y": 314.53 },
+	{ "name": "THE TREASURE IS YOURS_", "parent": "root", "x": 46.06, "y": 288.62 },
+	{ "name": "You won", "parent": "root", "x": -3.26, "y": 138.63 },
+	{ "name": "You won2", "parent": "root", "x": -3.26, "y": 139.26 },
+	{ "name": "lii", "parent": "hoa", "x": 319.64, "y": -201.21, "scaleX": 1.522, "scaleY": 1.522 },
+	{ "name": "lii2", "parent": "hoa", "x": 200.7, "y": -103.82, "scaleX": 1.3, "scaleY": 1.3 },
+	{ "name": "lii3", "parent": "hoa", "x": 123.68, "y": -152.96, "scaleX": 0.7, "scaleY": 0.7 },
+	{ "name": "lii4", "parent": "hoa", "x": -346.54, "y": -254.19, "scaleX": 1.022, "scaleY": 1.022 },
+	{ "name": "lii5", "parent": "hoa", "x": -196.47, "y": -102.13 },
+	{ "name": "lii6", "parent": "hoa", "x": -238.8, "y": -59.81, "scaleX": 0.7, "scaleY": 0.7 },
+	{ "name": "lii7", "parent": "hoa", "x": 263.81, "y": -163.33 },
+	{ "name": "lii8", "parent": "hoa", "x": 7.94, "y": -173.05, "scaleX": 0.5, "scaleY": 0.5 },
+	{ "name": "lii9", "parent": "hoa", "x": -172.33, "y": -159.14 },
+	{ "name": "lii10", "parent": "hoa", "x": -299.59, "y": -201.12 },
+	{ "name": "quang tron", "parent": "root", "x": -0.03, "y": 2.41 },
+	{ "name": "quang tron2", "parent": "root", "x": -0.03, "y": 2.41 },
+	{ "name": "sanng", "parent": "root" },
 	{ "name": "roun", "parent": "sanng" },
 	{ "name": "roun2", "parent": "sanng" },
-	{ "name": "star", "parent": "root", "rotation": -31.77, "x": 61.43, "y": 386.42 },
-	{ "name": "star2", "parent": "root", "rotation": 56.13, "x": -42.77, "y": 375.86 },
-	{ "name": "star3", "parent": "root", "rotation": 8.32, "x": -3.29, "y": 357.31 },
-	{ "name": "star4", "parent": "root", "rotation": 33.2, "x": 22.73, "y": 232.2 },
-	{ "name": "star5", "parent": "root", "rotation": -24.81, "x": -29.32, "y": 275.07 },
-	{ "name": "star6", "parent": "root", "rotation": -23.22, "x": -62.28, "y": 286.62 },
-	{ "name": "star7", "parent": "root", "rotation": 8.32, "x": 1.45, "y": 324.92 },
-	{ "name": "star8", "parent": "root", "rotation": 8.32, "x": 1.45, "y": 324.92 }
+	{ "name": "star", "parent": "root", "rotation": -31.77, "x": 61.43, "y": 71.89 },
+	{ "name": "star2", "parent": "root", "rotation": 56.13, "x": -42.77, "y": 61.33 },
+	{ "name": "star3", "parent": "root", "rotation": 8.32, "x": -3.29, "y": 42.78 },
+	{ "name": "star4", "parent": "root", "rotation": 33.2, "x": 22.73, "y": -82.33 },
+	{ "name": "star5", "parent": "root", "rotation": -24.81, "x": -29.32, "y": -39.46 },
+	{ "name": "star6", "parent": "root", "rotation": -23.22, "x": -62.28, "y": -27.91 },
+	{ "name": "star7", "parent": "root", "rotation": 8.32, "x": 1.45, "y": 10.39 },
+	{ "name": "star8", "parent": "root", "rotation": 8.32, "x": 1.45, "y": 10.39 }
 ],
 "slots": [
 	{ "name": "khung", "bone": "root", "attachment": "khung" },
@@ -94,10 +95,10 @@
 	{ "name": "6", "bone": "6", "attachment": "3" },
 	{ "name": "7", "bone": "7", "attachment": "3" },
 	{ "name": "9", "bone": "9", "attachment": "3" },
-	{ "name": "THE TREASURE IS YOURS_", "bone": "THE TREASURE IS YOURS_", "attachment": "THE TREASURE IS YOURS_Thai" },
+	{ "name": "THE TREASURE IS YOURS_", "bone": "THE TREASURE IS YOURS_", "attachment": "THE TREASURE IS YOURS_" },
 	{ "name": "trentxt", "bone": "THE TREASURE IS YOURS_", "attachment": "trentxt", "blend": "additive" },
-	{ "name": "You won", "bone": "You won", "attachment": "You won" },
-	{ "name": "You won2", "bone": "You won2", "attachment": "You won" },
+	{ "name": "You won", "bone": "You won", "attachment": "you won_thai" },
+	{ "name": "You won2", "bone": "You won2", "attachment": "you won_thai2" },
 	{ "name": "light tron", "bone": "quang tron", "color": "0f16faff", "attachment": "light tron", "blend": "additive" },
 	{ "name": "ligh", "bone": "lii", "attachment": "ligh", "blend": "additive" },
 	{ "name": "ligh10", "bone": "lii10", "attachment": "ligh", "blend": "additive" },
@@ -142,27 +143,19 @@
 				"3": { "x": 4.43, "y": -3.13, "width": 50, "height": 48 }
 			},
 			"THE TREASURE IS YOURS_": {
-				"THE TREASURE IS YOURS_": { "x": -49.78, "y": -8.07, "width": 559, "height": 60 },
-				"THE TREASURE IS YOURS_Thai": { "x": -62.82, "y": -12.48, "width": 582, "height": 65 }
+				"THE TREASURE IS YOURS_": { "x": -49.78, "y": -14.95, "width": 559, "height": 60 },
+				"THE TREASURE IS YOURS_Thai": { "x": -62.82, "y": -12.48, "width": 556, "height": 109 }
 			},
 			"You won": {
 				"You won": { "x": -0.33, "y": 21.79, "width": 213, "height": 51 },
-				"you won_thai": { "x": -3.64, "y": -12.73, "scaleX": 2, "scaleY": 2, "width": 317, "height": 60 }
+				"you won_thai": { "x": -3.64, "y": 23.27, "width": 176, "height": 64 }
 			},
 			"You won2": {
 				"You won": { "x": -0.33, "y": 21.79, "width": 213, "height": 51 },
-				"you won_thai2": {
-					"path": "you won_thai",
-					"x": -3.64,
-					"y": -12.81,
-					"scaleX": 2,
-					"scaleY": 2,
-					"width": 317,
-					"height": 60
-				}
+				"you won_thai2": { "path": "you won_thai", "x": -3.64, "y": 23.19, "width": 176, "height": 64 }
 			},
 			"khung": {
-				"khung": { "y": 302.43, "width": 706, "height": 666 }
+				"khung": { "x": -0.99, "y": -19.72, "width": 706, "height": 666 }
 			},
 			"ligh": {
 				"ligh": { "width": 84, "height": 47 }
@@ -180,7 +173,7 @@
 				"ligh": { "width": 84, "height": 47 }
 			},
 			"ligh6": {
-				"ligh": { "width": 84, "height": 47 }
+				"ligh": { "x": -98.74, "y": -486.51, "width": 84, "height": 47 }
 			},
 			"ligh7": {
 				"ligh": { "width": 84, "height": 47 }
@@ -234,8 +227,8 @@
 				"starr": { "y": 1, "width": 23, "height": 22 }
 			},
 			"trentxt": {
-				"trentxt": { "x": -48.78, "y": -0.5, "width": 532, "height": 31 },
-				"trentxt_thai": { "x": -62.06, "y": -12.59, "width": 555, "height": 35 }
+				"trentxt": { "x": -48.78, "y": -8.12, "width": 532, "height": 31 },
+				"trentxt_thai": { "x": -62.06, "y": -12.59, "width": 530, "height": 79 }
 			}
 		}
 	}
@@ -459,14 +452,15 @@
 		"bones": {
 			"You won": {
 				"scale": [
-					{ "x": 0.137, "y": 0.137, "curve": 0.25, "c3": 0.75 },
+					{ "x": 0.137, "y": 0.137, "curve": 0.242, "c3": 0.671, "c4": 0.68 },
+					{ "time": 0.3333, "curve": 0.378, "c2": 0.61, "c3": 0.721 },
 					{ "time": 0.4333, "x": 2.5, "y": 2.5 }
 				]
 			},
 			"You won2": {
 				"scale": [
 					{ "x": 0.137, "y": 0.137, "curve": 0.25, "c3": 0.75 },
-					{ "time": 0.3333, "x": 1.667, "y": 1.667 }
+					{ "time": 0.3333 }
 				]
 			},
 			"lii": {
@@ -746,19 +740,11 @@
 				]
 			},
 			"You won": {
-				"color": [
-					{ "color": "ffffffff", "curve": 0.25, "c3": 0.75 },
-					{ "time": 0.5, "color": "ffffff00" }
-				],
 				"attachment": [
 					{ "name": "you won_thai" }
 				]
 			},
 			"You won2": {
-				"color": [
-					{ "color": "ffffff00", "curve": 0.931, "c2": -0.01, "c3": 0.75 },
-					{ "time": 0.3333, "color": "ffffffff" }
-				],
 				"attachment": [
 					{ "name": "you won_thai2" }
 				]
@@ -957,7 +943,7 @@
 			"You won": {
 				"scale": [
 					{ "x": 0.137, "y": 0.137, "curve": 0.25, "c3": 0.75 },
-					{ "time": 0.4333, "x": 1.436, "y": 1.436 }
+					{ "time": 0.4333 }
 				]
 			},
 			"You won2": {

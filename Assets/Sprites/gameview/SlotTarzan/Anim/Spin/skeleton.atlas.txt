@@ -1,89 +1,89 @@
 
 skeleton.png
-size: 473,473
+size: 1188,216
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
 go
   rotate: false
-  xy: 2, 262
+  xy: 2, 2
   size: 233, 209
   orig: 233, 209
   offset: 0, 0
   index: -1
 rec duoi
-  rotate: false
-  xy: 237, 165
+  rotate: true
+  xy: 395, 46
   size: 165, 148
   orig: 165, 148
   offset: 0, 0
   index: -1
 rec duoi b
-  rotate: false
-  xy: 233, 15
+  rotate: true
+  xy: 545, 46
   size: 165, 148
   orig: 165, 148
   offset: 0, 0
   index: -1
 rec duoi r
-  rotate: false
-  xy: 2, 112
+  rotate: true
+  xy: 695, 46
   size: 165, 148
   orig: 165, 148
   offset: 0, 0
   index: -1
 text_spin
   rotate: true
-  xy: 413, 313
-  size: 158, 52
-  orig: 158, 52
+  xy: 845, 25
+  size: 186, 91
+  orig: 186, 91
   offset: 0, 0
   index: -1
 text_stop
-  rotate: false
-  xy: 2, 14
-  size: 174, 37
-  orig: 174, 37
+  rotate: true
+  xy: 1045, 71
+  size: 140, 85
+  orig: 140, 85
   offset: 0, 0
   index: -1
 txt
-  rotate: true
-  xy: 404, 53
+  rotate: false
+  xy: 938, 2
   size: 117, 67
   orig: 117, 67
   offset: 0, 0
   index: -1
 txt1
   rotate: false
-  xy: 2, 70
+  xy: 395, 4
   size: 157, 40
   orig: 157, 40
   offset: 0, 0
   index: -1
 txt2
   rotate: true
-  xy: 178, 131
+  xy: 1132, 82
   size: 129, 53
   orig: 129, 53
   offset: 0, 0
   index: -1
 txt_freespin
   rotate: true
-  xy: 404, 172
-  size: 139, 66
-  orig: 139, 66
+  xy: 938, 78
+  size: 133, 105
+  orig: 133, 105
   offset: 0, 0
   index: -1
 vet2
-  rotate: false
-  xy: 178, 37
+  rotate: true
+  xy: 554, 8
   size: 36, 92
   orig: 36, 92
   offset: 0, 0
   index: -1
 vien
-  rotate: false
-  xy: 237, 315
+  rotate: true
+  xy: 237, 37
   size: 174, 156
   orig: 174, 156
   offset: 0, 0

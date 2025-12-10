@@ -1,16 +1,16 @@
 ManifestFileVersion: 0
 UnityVersion: 6000.1.17f1
-CRC: 1953181080
+CRC: 2045468236
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: bc30f1b7cdac8dca999c519997dffc15
+    Hash: c90d5719046e5cb58468ddffc90b4f2f
   TypeTreeHash:
     serializedVersion: 2
     Hash: e6a32554d661cad82f7fb1d1e8936e0d
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: cca04fe6357478338323fc87d852d6d8
+    Hash: d610b25da3b195e189b94e0ad51521dd
 HashAppended: 0
 ClassTypes:
 - Class: 21
@@ -56,18 +56,16 @@ Assets:
 - Assets/Resources/GameView/DragonTiger/spine/fight/skeleton.png
 - Assets/Resources/GameView/DragonTiger/spine/Tiger/skeleton.atlas.txt
 - Assets/Resources/GameView/DragonTiger/spine/fight/skeleton.atlas.txt
-- Assets/Resources/GameView/DragonTiger/spine/Tiger/skeleton_Material-Additive.mat
+- Assets/Resources/GameView/DragonTiger/spine/win/skeleton_Material.mat
 - Assets/Resources/GameView/DragonTiger/spine/lose/skeleton_Atlas.asset
 - Assets/Resources/GameView/DragonTiger/spine/Dragon/skeleton_Atlas.asset
 - Assets/Resources/GameView/DragonTiger/spine/Dragon/skeleton.png
 - Assets/Resources/GameView/DragonTiger/spine/win/skeleton.png
-- Assets/Resources/GameView/DragonTiger/spine/win/skeleton_Material.mat
 - Assets/Resources/GameView/DragonTiger/spine/anim_vetcao/skeleton_Material.mat
 - Assets/Resources/GameView/DragonTiger/spine/lose/skeleton_Material.mat
 - Assets/Resources/GameView/DragonTiger/spine/win/skeleton_SkeletonData.asset
 - Assets/Resources/GameView/DragonTiger/spine/anim_vetcao/skeleton.png
 - Assets/Resources/GameView/DragonTiger/spine/lose/skeleton.json
-- Assets/Resources/GameView/DragonTiger/spine/Dragon/skeleton_Material-Additive.mat
 - Assets/Resources/GameView/DragonTiger/spine/Tiger/skeleton_Atlas.asset
 - Assets/Resources/GameView/DragonTiger/spine/win/skeleton.atlas.txt
 - Assets/Resources/GameView/DragonTiger/spine/fight/skeleton.json

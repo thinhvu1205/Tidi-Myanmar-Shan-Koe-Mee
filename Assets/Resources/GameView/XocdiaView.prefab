@@ -220,12 +220,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 1
+  Type: 2
   ThisImg: {fileID: 0}
-  ThisSG: {fileID: 0}
+  ThisSG: {fileID: 4807989574462369456}
   BundleLabel: 
-  AssetName: 
-  AnimName: 
+  AssetName: Assets/Resources/GameView/Xocdia/spine/xoc dia/xoc dia_SkeletonData.asset
+  AnimName: im
   SetNativeSize: 0
   m_OnEnableUE:
     m_PersistentCalls:
@@ -3573,7 +3573,7 @@ MonoBehaviour:
   Type: 2
   ThisImg: {fileID: 0}
   ThisSG: {fileID: 8260620714726623370}
-  BundleLabel: assets--resources--gameview--xocdia--spine
+  BundleLabel: 
   AssetName: Assets/Resources/GameView/Xocdia/spine/dealer/skeleton_SkeletonData.asset
   AnimName: bt
   SetNativeSize: 0
@@ -10402,7 +10402,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 932b44e1a883dd24486baed00500d25a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9ea67ca599dfe454aa973d1c2edb3d9e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

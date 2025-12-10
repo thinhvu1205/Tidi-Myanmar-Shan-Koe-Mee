@@ -1,13 +1,13 @@
 {
 "skeleton": {
-	"hash": "VDXpAIbMPz+TizzApuOV07+EkVw",
+	"hash": "e+Q1yqln9IikrUIcne0Crjp/eAM",
 	"spine": "3.8.99",
 	"x": -149.54,
 	"y": -78.65,
 	"width": 303,
 	"height": 145,
 	"images": "./images/",
-	"audio": "E:/Z.INDO/SLOTS/Slot9900/res/animations/shop"
+	"audio": "G:/game/slots/myanmar/juicy/animations/shop"
 },
 "bones": [
 	{ "name": "root" },
@@ -36,7 +36,7 @@
 	{ "name": "hoa1", "bone": "hoa1", "attachment": "hoa1" },
 	{ "name": "hoa2", "bone": "hoa2", "attachment": "hoa2" },
 	{ "name": "hoa3", "bone": "hoa3", "attachment": "hoa3" },
-	{ "name": "Buy", "bone": "Buy", "attachment": "buy2" },
+	{ "name": "Buy", "bone": "Buy", "attachment": "ဆိုင္" },
 	{ "name": "Vector Smart Object", "bone": "Vector Smart Object", "attachment": "Vector Smart Object" },
 	{ "name": "hoa4", "bone": "hoa4", "attachment": "hoa4" }
 ],
@@ -46,7 +46,7 @@
 		"attachments": {
 			"Buy": {
 				"Buy": { "x": -7.83, "y": -9.1, "width": 107, "height": 55 },
-				"buy2": { "x": -7.83, "y": -9.1, "width": 98, "height": 42 }
+				"ဆိုင္": { "x": -7.83, "y": -9.1, "width": 94, "height": 80 }
 			},
 			"Vector Smart Object": {
 				"Vector Smart Object": { "x": -8.68, "y": -12.1, "width": 78, "height": 75 }

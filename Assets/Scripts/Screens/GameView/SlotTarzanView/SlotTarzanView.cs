@@ -78,9 +78,9 @@ public class SlotTarzanView : BaseSlotGameView
         BIGWIN_ANIMPATH = "GameView/SlotSpine/Tarzan/BigWin/skeleton_SkeletonData";
         MEGAWIN_ANIMPATH = "GameView/SlotSpine/Tarzan/BigWin/skeleton_SkeletonData";
         FREESPIN_ANIMPATH = "GameView/SlotSpine/Tarzan/PopupFreespin/skeleton_SkeletonData";
-        ANIM_BIGWIN_NAME = "big";
-        ANIM_MEGAWIN_NAME = "mega";
-        ANIM_HUGEWIN_NAME = "huge";
+        ANIM_BIGWIN_NAME = "big2";
+        ANIM_MEGAWIN_NAME = "mega2";
+        ANIM_HUGEWIN_NAME = "huge2";
         TYPE_BIGWIN = 1;
         TYPE_HUGEWIN = 3;
         TYPE_MEGA = 2;
@@ -355,7 +355,7 @@ public class SlotTarzanView : BaseSlotGameView
         animPopupResult.transform.localScale = new Vector2(0.8f, 0.8f);
         effectContainer.SetActive(true);
         animPopupResult.Initialize(true);
-        animPopupResult.AnimationState.SetAnimation(0, "getgem", true);
+        animPopupResult.AnimationState.SetAnimation(0, "getgem2", true);
         animPopupResult.transform.DOScale(new Vector2(1.0f, 1.0f), 0.3f).SetEase(Ease.OutBack);
         Config.tweenNumberTo(lbChipPopupReward, getInt(finishData, "chipBonusFullExp"), 0, 1.0f, true);
         if (spintype == SPIN_TYPE.AUTO)
@@ -382,7 +382,7 @@ public class SlotTarzanView : BaseSlotGameView
         animPopupMiniGame.transform.localPosition = Vector2.zero;
         effectContainer.SetActive(true);
         animPopupMiniGame.Initialize(true);
-        animPopupMiniGame.AnimationState.SetAnimation(0, "Eng", true);
+        animPopupMiniGame.AnimationState.SetAnimation(0, "Thai", true);
         animPopupMiniGame.transform.DOScale(new Vector2(.4f, .4f), 0.3f).SetEase(Ease.OutBack);
     }
     public void showPopupResultMinigame(int value)
@@ -395,7 +395,7 @@ public class SlotTarzanView : BaseSlotGameView
         effectContainer.SetActive(true);
         animPopupResultMinigame.Initialize(true);
         animPopupResultMinigame.transform.Find("lbReward").GetComponent<TextMeshProUGUI>().text = Config.FormatMoney3(value, 10000);
-        animPopupResultMinigame.AnimationState.SetAnimation(0, "Eng", true);
+        animPopupResultMinigame.AnimationState.SetAnimation(0, "cam", true);
         animPopupResultMinigame.transform.DOScale(new Vector2(1.0f, 1.0f), 0.3f).SetEase(Ease.OutBack);
 
         agPlayer += value;
@@ -413,7 +413,7 @@ public class SlotTarzanView : BaseSlotGameView
         effectContainer.SetActive(true);
         animPopupGetFreeSpin.Initialize(true);
         animPopupGetFreeSpin.transform.Find("lbFreeSpinTurn").GetComponent<TextMeshProUGUI>().text = getInt(finishData, "freeSpinLeft").ToString();
-        animPopupGetFreeSpin.AnimationState.SetAnimation(0, "yahoo", true);
+        animPopupGetFreeSpin.AnimationState.SetAnimation(0, "yahoo2", true);
         animPopupGetFreeSpin.transform.DOScale(new Vector2(1, 1f), 0.3f).SetEase(Ease.OutBack);
         TextMeshProUGUI lbMultiplier = animPopupGetFreeSpin.transform.Find("lbMultplier").GetComponent<TextMeshProUGUI>();
         totalFreeSpinGet = getInt(finishData, "freeSpinLeft");
@@ -462,16 +462,16 @@ public class SlotTarzanView : BaseSlotGameView
         {
             if (spintype == SPIN_TYPE.FREE_AUTO || spintype == SPIN_TYPE.FREE_NORMAL)
             {
-                animBtnSpin.startingAnimation = "Freespin";
+                animBtnSpin.startingAnimation = "Freespin_cam";
                 //animBtnSpin.color = Color.gray;
             }
             else if (spintype == SPIN_TYPE.AUTO)
             {
-                animBtnSpin.startingAnimation = "stop";
+                animBtnSpin.startingAnimation = "stop_cam";
             }
             else
             {
-                animBtnSpin.startingAnimation = "Spin";
+                animBtnSpin.startingAnimation = "Spin_cam";
                 //animBtnSpin.color = Color.gray;
             }
         }
@@ -482,23 +482,23 @@ public class SlotTarzanView : BaseSlotGameView
             {
                 if (spintype == SPIN_TYPE.FREE_AUTO || spintype == SPIN_TYPE.FREE_NORMAL)
                 {
-                    animBtnSpin.startingAnimation = "Freespin";
+                    animBtnSpin.startingAnimation = "Freespin_cam";
                 }
                 else
                 {
                     if (spintype == SPIN_TYPE.AUTO)
                     {
-                        animBtnSpin.startingAnimation = "stop";
+                        animBtnSpin.startingAnimation = "stop_cam";
                     }
                     else
                     {
-                        animBtnSpin.startingAnimation = "Spin";
+                        animBtnSpin.startingAnimation = "Spin_cam";
                     }
                 }
             }
             else if (gameState == GAME_STATE.PREPARE || gameState == GAME_STATE.JOIN_GAME)
             {
-                animBtnSpin.startingAnimation = "Spin";
+                animBtnSpin.startingAnimation = "Spin_cam";
 
                 if (listBetRoom.Count == 0)
                 {
@@ -510,7 +510,7 @@ public class SlotTarzanView : BaseSlotGameView
                 }
                 if (spintype == SPIN_TYPE.FREE_AUTO || spintype == SPIN_TYPE.FREE_NORMAL)
                 {
-                    animBtnSpin.startingAnimation = "Freespin";
+                    animBtnSpin.startingAnimation = "Freespin_cam";
                     animBtnSpin.color = Color.white;
                 }
 
@@ -1170,7 +1170,7 @@ public class SlotTarzanView : BaseSlotGameView
         lbFreeSpinNum.text = totalFreeSpinGet + "";
         lbMultiplier.text = "x" + getInt(finishData, "multiFreeGame");
         Config.tweenNumberToMoney(lbFreeSpinWin, countTotalAgFreespin, 0, 1.0f, 10000);
-        animPopupResultFreeSpin.AnimationState.SetAnimation(0, "wonderful", true);
+        animPopupResultFreeSpin.AnimationState.SetAnimation(0, "wonderful2", true);
         animPopupResultFreeSpin.transform.DOScale(new Vector2(1, 1), 0.3f).SetEase(Ease.OutBack);
         totalFreeSpinGet = 0;
         if (spintype == SPIN_TYPE.FREE_AUTO)

@@ -36,8 +36,11 @@ public class SlotJuicyGardenView : BaseSlotGameView
         base.Awake();
         FREESPIN_ANIMPATH = "GameView/SlotSpine/JuicyGarden/AnimBox/skeleton_SkeletonData";
         ANIM_BG_FREESPIN = "GameView/SlotSpine/JuicyGarden/BgFreeSpin/skeleton_SkeletonData";
-        BIGWIN_ANIMPATH = "GameView/SlotSpine/JuicyGarden/big_megawinJuicy/skeleton_SkeletonData";
-        MEGAWIN_ANIMPATH = "GameView/SlotSpine/JuicyGarden/big_megawinJuicy/skeleton_SkeletonData";
+        BIGWIN_ANIMPATH = "GameView/SlotSpine/Noel/big_megawinNoel/skeleton_SkeletonData";
+        MEGAWIN_ANIMPATH = "GameView/SlotSpine/Noel/big_megawinNoel/skeleton_SkeletonData";
+
+        // BIGWIN_ANIMPATH = "GameView/SlotSpine/JuicyGarden/big_megawinJuicy/skeleton_SkeletonData";
+        // MEGAWIN_ANIMPATH = "GameView/SlotSpine/JuicyGarden/big_megawinJuicy/skeleton_SkeletonData";
         RECT_SIZE = new Vector2(120, 120);
     }
     public override void handleCTable(string data)
@@ -299,23 +302,23 @@ public class SlotJuicyGardenView : BaseSlotGameView
 
             if (spintype == SPIN_TYPE.FREE_AUTO || spintype == SPIN_TYPE.FREE_NORMAL)
             {
-                animBtnSpin.startingAnimation = "freespin";
+                animBtnSpin.startingAnimation = "freespin2";
             }
             else if (spintype == SPIN_TYPE.AUTO)
             {
-                animBtnSpin.startingAnimation = "stop";
+                animBtnSpin.startingAnimation = "stop2";
             }
             else if (spintype == SPIN_TYPE.NORMAL)
             {
                 bool isGet6Gio = (!isBonusGame && typeBonus == 5); //bat dau dc 6 gio
                 if (isGetFreeSpin || isGet6Gio)
                 {
-                    animBtnSpin.startingAnimation = "freespin";
+                    animBtnSpin.startingAnimation = "freespin2";
                 }
             }
             else
             {
-                animBtnSpin.startingAnimation = "autospin";
+                animBtnSpin.startingAnimation = "autospin2";
             }
         }
         else
@@ -325,23 +328,23 @@ public class SlotJuicyGardenView : BaseSlotGameView
             {
                 if (spintype == SPIN_TYPE.FREE_AUTO || spintype == SPIN_TYPE.FREE_NORMAL)
                 {
-                    animBtnSpin.startingAnimation = "freespin";
+                    animBtnSpin.startingAnimation = "freespin2";
                 }
                 else
                 {
                     if (spintype == SPIN_TYPE.AUTO)
                     {
-                        animBtnSpin.startingAnimation = "stop";
+                        animBtnSpin.startingAnimation = "stop2";
                     }
                     else
                     {
-                        animBtnSpin.startingAnimation = "autospin";
+                        animBtnSpin.startingAnimation = "autospin2";
                     }
                 }
             }
             else if (gameState == GAME_STATE.PREPARE || gameState == GAME_STATE.JOIN_GAME)
             {
-                animBtnSpin.startingAnimation = "autospin";
+                animBtnSpin.startingAnimation = "autospin2";
                 if (listBetRoom.Count == 0)
                 {
                 }
@@ -356,7 +359,7 @@ public class SlotJuicyGardenView : BaseSlotGameView
                 }
                 if (spintype == SPIN_TYPE.FREE_AUTO || spintype == SPIN_TYPE.FREE_NORMAL)
                 {
-                    animBtnSpin.startingAnimation = "freespin";
+                    animBtnSpin.startingAnimation = "freespin2";
                     animBtnSpin.color = Color.white;
                 }
                 if (spintype == SPIN_TYPE.NORMAL)
@@ -364,7 +367,7 @@ public class SlotJuicyGardenView : BaseSlotGameView
                     bool isGet6Gio = (!isBonusGame && typeBonus == 5); //bat dau dc 6 gio
                     if (isGetFreeSpin || isGet6Gio)
                     {
-                        animBtnSpin.startingAnimation = "freespin";
+                        animBtnSpin.startingAnimation = "freespin2";
                         animBtnSpin.color = Color.white;
                     }
 

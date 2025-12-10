@@ -1026,24 +1026,24 @@ public class BaseSlotView : GameView
                 {
                     case WIN_TYPE.NICE_WIN:
                         {
-                            animName = "nicewin";
+                            animName = "nicewin2";
                             break;
                         }
                     case WIN_TYPE.BIGWIN:
                         {
-                            animName = "bigwin";
+                            animName = "bigwin2";
                             timeRun = 2.5f;
                             break;
                         }
                     case WIN_TYPE.HUGEWIN:
                         {
-                            animName = "hugewin";
+                            animName = "hugewin2";
                             timeRun = 3.5f;
                             break;
                         }
                     case WIN_TYPE.MEGAWIN:
                         {
-                            animName = "megawin";
+                            animName = "megawin2";
                             timeRun = 5.5f;
                             break;
                         }

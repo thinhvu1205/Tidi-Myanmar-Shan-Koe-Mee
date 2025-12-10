@@ -125,7 +125,7 @@ public class ChatWorldInGame : BaseView
 
         if (string.IsNullOrEmpty(mess))
         {
-            UIManager.instance.showToast("Please enter a message.");
+            UIManager.instance.showToast("စာတို ပို့ရန် စာရိုက်ပါ။");
             return;
         }
 

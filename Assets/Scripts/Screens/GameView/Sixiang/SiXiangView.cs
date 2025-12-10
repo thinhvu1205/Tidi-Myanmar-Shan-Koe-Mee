@@ -1013,20 +1013,20 @@ public class SiXiangView : BaseSlotView
         {
             if (freeSpinleft > 0)
             {
-                animBtnSpin.AnimationState.SetAnimation(0, "freespin", true);
+                animBtnSpin.AnimationState.SetAnimation(0, "freespin2", true);
                 animBtnSpin.color = Color.white;
             }
             else
             {
-                animBtnSpin.AnimationState.SetAnimation(0, "spin", true);
+                animBtnSpin.AnimationState.SetAnimation(0, "spin2", true);
             }
         }
         else if (spintype == SPIN_TYPE.AUTO)
         {
-            animBtnSpin.AnimationState.SetAnimation(0, "stop", true);
+            animBtnSpin.AnimationState.SetAnimation(0, "stop2", true);
             if (freeSpinleft > 0)
             {
-                animBtnSpin.AnimationState.SetAnimation(0, "freespin", true);
+                animBtnSpin.AnimationState.SetAnimation(0, "freespin2", true);
                 animBtnSpin.color = Color.white;
             }
 

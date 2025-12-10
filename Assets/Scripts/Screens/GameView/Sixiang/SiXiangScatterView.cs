@@ -221,7 +221,7 @@ public class SiXiangScatterView : MonoBehaviour
         }
         else
         {
-            animName = "eng";
+            animName = "cam";
             pathSkeData = "GameView/SiXiang/Spine/WinResult/skeleton_SkeletonData";
             lbChipWins.gameObject.SetActive(true);
             //Globals.Config.tweenNumberToNumber(lbChipWins, winAmount, 0, 2.0f);

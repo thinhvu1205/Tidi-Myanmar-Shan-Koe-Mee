@@ -1,18 +1,18 @@
 {
 "skeleton": {
-	"hash": "ZCJ6bS7Fbn6IwIGiwEF13a5c4gg",
+	"hash": "/HDKdL0B9VkmC5md8p+gD+h7e74",
 	"spine": "3.8.99",
 	"x": -158.5,
-	"y": -49.18,
+	"y": -61.5,
 	"width": 317,
 	"height": 123,
-	"images": "./New folder/",
-	"audio": "E:/SLOT/Tazran Ngang/minigame/result/btn"
+	"images": "",
+	"audio": ""
 },
 "bones": [
 	{ "name": "root" },
-	{ "name": "light_txt", "parent": "root", "y": 21.93, "scaleX": 2, "scaleY": 2 },
-	{ "name": "txtt", "parent": "root", "y": 14.36 }
+	{ "name": "light_txt", "parent": "root", "y": 9.75, "scaleX": 2, "scaleY": 2 },
+	{ "name": "txtt", "parent": "root", "y": 6.34 }
 ],
 "slots": [
 	{ "name": "go", "bone": "root", "attachment": "go" },
@@ -58,12 +58,12 @@
 			},
 			"Start": {
 				"Start": { "width": 111, "height": 36 },
-				"Start2": { "width": 110, "height": 36 },
+				"Start2": { "width": 129, "height": 54 },
 				"txt": { "width": 209, "height": 31 },
-				"txt2": { "width": 151, "height": 35 }
+				"txt2": { "width": 194, "height": 49 }
 			},
 			"go": {
-				"go": { "y": 12.32, "width": 317, "height": 123 }
+				"go": { "width": 317, "height": 123 }
 			},
 			"rec duoi": {
 				"rec duoi": { "x": -0.82, "y": -1.39, "width": 131, "height": 34 }

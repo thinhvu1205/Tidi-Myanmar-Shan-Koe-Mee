@@ -1,9 +1,120 @@
 fileFormatVersion: 2
-guid: cc43dbb0c51bd4d49b2d1c552798b0a9
+guid: 35a844797a399b646ba14470541924c3
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 3095467730150388474
+    second: skeleton2_0
+  - first:
+      213: -9023543100126403337
+    second: skeleton2_1
+  - first:
+      213: -5945148462216826257
+    second: skeleton2_2
+  - first:
+      213: -5700106201100084531
+    second: skeleton2_3
+  - first:
+      213: -3031318095264401180
+    second: skeleton2_4
+  - first:
+      213: -7662495375004606564
+    second: skeleton2_5
+  - first:
+      213: 7536441766958536337
+    second: skeleton2_6
+  - first:
+      213: -483875176488000910
+    second: skeleton2_7
+  - first:
+      213: -9220771745863414688
+    second: skeleton2_8
+  - first:
+      213: -3582655789242638854
+    second: skeleton2_9
+  - first:
+      213: 6263832496934907983
+    second: skeleton2_10
+  - first:
+      213: 5772234136205097662
+    second: skeleton2_11
+  - first:
+      213: -157288378181943635
+    second: skeleton2_12
+  - first:
+      213: 7118913136644339355
+    second: skeleton2_13
+  - first:
+      213: -189489783817767779
+    second: skeleton2_14
+  - first:
+      213: -4969506373432083300
+    second: skeleton2_15
+  - first:
+      213: -9126542148946694088
+    second: skeleton2_16
+  - first:
+      213: 808831152418324699
+    second: skeleton2_17
+  - first:
+      213: 5736047696459812701
+    second: skeleton2_18
+  - first:
+      213: -1127030982253405588
+    second: skeleton2_19
+  - first:
+      213: 665159773534091177
+    second: skeleton2_20
+  - first:
+      213: 6600541037911814512
+    second: skeleton2_21
+  - first:
+      213: 7954185604947638138
+    second: skeleton2_22
+  - first:
+      213: -1355612589844772695
+    second: skeleton2_23
+  - first:
+      213: 7621046822863814523
+    second: skeleton2_24
+  - first:
+      213: 7035007327544917054
+    second: skeleton2_25
+  - first:
+      213: -2473205954940560389
+    second: skeleton2_26
+  - first:
+      213: -1206563573048654103
+    second: skeleton2_27
+  - first:
+      213: 3774399721815209435
+    second: skeleton2_28
+  - first:
+      213: -4693307944359319538
+    second: skeleton2_29
+  - first:
+      213: 8213063550377538517
+    second: skeleton2_30
+  - first:
+      213: -8340160899541793094
+    second: skeleton2_31
+  - first:
+      213: -3549591021436484899
+    second: skeleton2_32
+  - first:
+      213: 7479227547054780678
+    second: skeleton2_33
+  - first:
+      213: -9067034208250140571
+    second: skeleton2_34
+  - first:
+      213: -6136410157466267158
+    second: skeleton2_35
+  - first:
+      213: 4062212413996173521
+    second: skeleton2_36
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -65,21 +176,22 @@ TextureImporter:
   ignorePngGamma: 0
   applyGammaDecoding: 0
   swizzle: 50462976
-  cookieLightType: 1
+  cookieLightType: 0
   platformSettings:
-  - serializedVersion: 3
+  - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 1024
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 3
+    textureCompression: 1
     compressionQuality: 100
     crunchedCompression: 1
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
+  - serializedVersion: 4
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -89,21 +201,10 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Server
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
+  - serializedVersion: 4
     buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -113,10 +214,11 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: iPhone
+  - serializedVersion: 4
+    buildTarget: iOS
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -125,24 +227,14 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 1024
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites: []
     outline: []
+    customData: 
     physicsShape: []
     bones: []
     spriteID: 
@@ -152,6 +244,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
     nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0

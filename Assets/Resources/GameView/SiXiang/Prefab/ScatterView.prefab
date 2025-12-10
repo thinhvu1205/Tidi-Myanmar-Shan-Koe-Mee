@@ -2224,11 +2224,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  skeletonDataAsset: {fileID: 11400000, guid: dd7d19d16eba5e14fa13a1b1f7884802, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: 33e4b07a202285a4584b1653ce736c33, type: 2}
   initialSkinName: default
   initialFlipX: 0
   initialFlipY: 0
-  startingAnimation: 
+  startingAnimation: cam
   startingLoop: 1
   timeScale: 1
   freeze: 0
