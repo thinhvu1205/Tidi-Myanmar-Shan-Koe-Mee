@@ -5184,7 +5184,6 @@ GameObject:
   - component: {fileID: 5846885719314739960}
   - component: {fileID: 6435514875793381805}
   - component: {fileID: 1681364511074983534}
-  - component: {fileID: 5305771811199531438}
   m_Layer: 5
   m_Name: animStart
   m_TagString: Untagged
@@ -5239,11 +5238,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  skeletonDataAsset: {fileID: 0}
+  skeletonDataAsset: {fileID: 11400000, guid: b14e3e79f0553d34f897cefb7b21f3e1, type: 2}
   initialSkinName: 
   initialFlipX: 0
   initialFlipY: 0
-  startingAnimation: animation
+  startingAnimation: start_myr
   startingLoop: 0
   timeScale: 1
   freeze: 0
@@ -5265,28 +5264,6 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
---- !u!114 &5305771811199531438
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3648386138759782554}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 1681364511074983534}
-  BundleLabel: assets--resources--gameview--xocdia--spine
-  AssetName: Assets/Resources/GameView/Xocdia/spine/start game/start game_SkeletonData.asset
-  AnimName: animation
-  SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &3696085924031454560
 GameObject:
   m_ObjectHideFlags: 0
@@ -8710,7 +8687,6 @@ GameObject:
   - component: {fileID: 8030471718689071688}
   - component: {fileID: 3913026820446429274}
   - component: {fileID: 6935644011875708569}
-  - component: {fileID: 2173388385259465131}
   m_Layer: 5
   m_Name: animBet
   m_TagString: Untagged
@@ -8765,11 +8741,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  skeletonDataAsset: {fileID: 0}
+  skeletonDataAsset: {fileID: 11400000, guid: b14e3e79f0553d34f897cefb7b21f3e1, type: 2}
   initialSkinName: 
   initialFlipX: 0
   initialFlipY: 0
-  startingAnimation: 
+  startingAnimation: bet_myr
   startingLoop: 0
   timeScale: 1
   freeze: 0
@@ -8791,28 +8767,6 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
---- !u!114 &2173388385259465131
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5660027046792627278}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 6935644011875708569}
-  BundleLabel: assets--resources--gameview--xocdia--spine
-  AssetName: Assets/Resources/GameView/Xocdia/spine/bet time/bet time_SkeletonData.asset
-  AnimName: animation
-  SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &5717807103428859595
 GameObject:
   m_ObjectHideFlags: 0

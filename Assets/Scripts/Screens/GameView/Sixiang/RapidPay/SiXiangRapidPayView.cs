@@ -124,9 +124,9 @@ public class SiXiangRapidPayView : MonoBehaviour
     }
     private void showResult()
     {
-        spineResult.skeletonDataAsset = UIManager.instance.loadSkeletonData("GameView/SiXiang/Spine/BigWinRapid/skeleton_SkeletonData");
+        spineResult.skeletonDataAsset = UIManager.instance.loadSkeletonData("GameView/SiXiang/Spine/WinResult/skeleton_SkeletonData");
         spineResult.Initialize(true);
-        spineResult.AnimationState.SetAnimation(0, "eng", false);
+        spineResult.AnimationState.SetAnimation(0, "cam", false);
         spineResult.transform.parent.gameObject.SetActive(true);
         //Globals.Config.tweenNumberToNumber(lbWinResult, winAmount);
         btnCollect.gameObject.SetActive(false);

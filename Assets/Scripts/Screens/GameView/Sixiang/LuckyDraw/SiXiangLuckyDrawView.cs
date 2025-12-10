@@ -221,7 +221,7 @@ public class SiXiangLuckyDrawView : MonoBehaviour
         else
         {
             chipWin = winAmount;
-            spineResult.skeletonDataAsset = UIManager.instance.loadSkeletonData("GameView/SiXiang/Spine/BigWinGoldPick/skeleton_SkeletonData");
+            spineResult.skeletonDataAsset = UIManager.instance.loadSkeletonData("GameView/SiXiang/Spine/WinResult/skeleton_SkeletonData");
             soundPathStart = Globals.SOUND_SLOT_BASE.COUNGTING_MONEY_START;
             soundPathEnd = Globals.SOUND_SLOT_BASE.COUNGTING_MONEY_END;
         }

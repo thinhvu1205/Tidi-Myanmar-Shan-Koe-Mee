@@ -969,7 +969,7 @@ public class BaseSlotView : GameView
         spineJPWinTask = new Task(() => { spineJPWinTask = null; });
         Action<SkeletonDataAsset> cb = async (skeData) =>
         {
-            spineJackpotWin.skeletonDataAsset = skeData;// UIManager.instance.loadSkeletonData(path);
+            spineJackpotWin.skeletonDataAsset = skeData; UIManager.instance.loadSkeletonData(path);
             await Task.Delay(TimeSpan.FromSeconds(0.2f));
             spineBgMoney.skeletonDataAsset = UIManager.instance.loadSkeletonData(PATH_ANIM_SPECICAL_WIN);
             spineBgMoney.Initialize(true);

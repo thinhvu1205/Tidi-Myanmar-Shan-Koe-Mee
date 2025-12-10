@@ -217,7 +217,7 @@ public class SiXiangLuckyGoldView : MonoBehaviour
                 SoundManager.instance.playEffectFromPath(Globals.SOUND_SLOT_BASE.CLICK_ITEM_MISS);
                 spineItem.skeletonDataAsset = UIManager.instance.loadSkeletonData("GameView/SiXiang/Spine/LuckyGoldTryAgain/skeleton_SkeletonData");
                 spineItem.Initialize(true);
-                spineItem.AnimationState.SetAnimation(0, "eng", false);
+                spineItem.AnimationState.SetAnimation(0, "cam", false);
             }
             spineItem.gameObject.SetActive(true);
             remainPick = (int)data["numberOfPick"];
@@ -243,10 +243,10 @@ public class SiXiangLuckyGoldView : MonoBehaviour
     }
     private async void showAnimResult()
     {
-        animResult.skeletonDataAsset = UIManager.instance.loadSkeletonData("GameView/SiXiang/Spine/BigWinGoldPick/skeleton_SkeletonData");
+        animResult.skeletonDataAsset = UIManager.instance.loadSkeletonData("GameView/SiXiang/Spine/WinResult/skeleton_SkeletonData");
         animResult.Initialize(true);
         animResult.transform.parent.gameObject.SetActive(true);
-        animResult.AnimationState.SetAnimation(0, "eng", false);
+        animResult.AnimationState.SetAnimation(0, "cam", false);
         //Globals.Config.tweenNumberToNumber(lbTotalWin, totalWinAmount, 0, animResult.Skeleton.Data.FindAnimation("cam").Duration * 0.85f);
         btnCollect.gameObject.SetActive(false);
         AudioSource soundMoney = SoundManager.instance.playEffectFromPath(Globals.SOUND_SLOT_BASE.COUNGTING_MONEY_START);

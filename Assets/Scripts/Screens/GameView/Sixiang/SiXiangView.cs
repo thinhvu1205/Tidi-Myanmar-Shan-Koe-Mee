@@ -44,7 +44,7 @@ public class SiXiangView : BaseSlotView
     private const string PATH_ANIM_CHUTUOC = "GameView/SiXiang/Spine/Animal/Turle/skeleton_SkeletonData";
     private const string PATH_ANIM_BACHHO = "GameView/SiXiang/Spine/Animal/Tiger/skeleton_SkeletonData";
     private const string PATH_ANIM_HUYENVU = "GameView/SiXiang/Spine/Animal/Phoenix/skeleton_SkeletonData";
-    private const string PATH_ANIM_WINRESULT_DP = "GameView/SiXiang/Spine/BigWinGoldPick/skeleton_SkeletonData";
+    private const string PATH_ANIM_WINRESULT_DP = "GameView/SiXiang/Spine/WinResult/skeleton_SkeletonData";
 
     public override void OnDestroy()
     {
@@ -613,7 +613,7 @@ public class SiXiangView : BaseSlotView
             {
                 await showSpineJackpotWin(getJackpotValue(winTypeJackpot));
             }
-            await showResultMoneyAnim(PATH_ANIM_WINRESULT_DP, "eng", winAmount, new Vector2(0, -68));
+            await showResultMoneyAnim(PATH_ANIM_WINRESULT_DP, "cam", winAmount, new Vector2(0, -140));
             activeAllSymbol();
         }
         else

@@ -27,7 +27,7 @@ public class SiXiangDragonPearlView : MonoBehaviour
     public bool isBonusGame = false;
     private bool isAutoPlay = true;
     private bool isSelectBonusGame = false;
-    private string PATH_ANIM_WINRESULT = "GameView/SiXiang/Spine/BigWinGoldPick/skeleton_SkeletonData";
+    private string PATH_ANIM_WINRESULT = "GameView/SiXiang/Spine/WinResult/skeleton_SkeletonData";
     private void Awake()
     {
         for (int i = 1; i < 15; i++)

@@ -1123,7 +1123,7 @@ public class SlotJuicyGardenView : BaseSlotGameView
         effectContainer.SetActive(true);
 
         animPopupGetFreeSpin.Initialize(true);
-        animPopupGetFreeSpin.AnimationState.SetAnimation(0, "thung", true);
+        animPopupGetFreeSpin.AnimationState.SetAnimation(0, "thung2", true);
         animPopupGetFreeSpin.transform.Find("btnBoxLeft").GetComponent<Button>().interactable = true;
         animPopupGetFreeSpin.transform.Find("btnBoxRight").GetComponent<Button>().interactable = true;
         Globals.Logging.Log("showFreeSpin");
