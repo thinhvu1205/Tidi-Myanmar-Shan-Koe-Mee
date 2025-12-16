@@ -1133,6 +1133,15 @@ namespace Globals
             }
             return long.Parse(number);
         }
+        public static bool TrySplitToLong(string input, out long value)
+        {
+            value = 0;
+            if (string.IsNullOrEmpty(input)) return false;
+
+            string clean = input.Replace(",", "").Replace(".", "");
+            return long.TryParse(clean, out value);
+        }
+
 
         public static Image createSprite(Sprite _spriteFrame = null, Transform parent = null)
         {

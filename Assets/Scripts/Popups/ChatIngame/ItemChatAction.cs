@@ -5,61 +5,76 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using DG.Tweening;
+using Spine;
 
 public class ItemChatAction : MonoBehaviour
 {
-    [SerializeField] Image img;
+    // [SerializeField] Image img;
     [SerializeField] List<Sprite> lsAction = new List<Sprite>();
     [SerializeField] SkeletonGraphic skeletonGraphic;
     [SerializeField] List<SkeletonDataAsset> lsAnimData = new List<SkeletonDataAsset>();
     public IEnumerator setData(int idAnimation, Vector3 targetV3)
     {
         Globals.Logging.Log("-=-=idAnimation " + idAnimation);
-        if (idAnimation < lsAction.Count)
+
+        if (idAnimation < 0 || idAnimation >= lsAnimData.Count)
+            yield break;
+
+        // ================== SHOW IMAGE ==================
+        // if (idAnimation < lsAction.Count && lsAction[idAnimation] != null)
+        // {
+        //     img.gameObject.SetActive(true);
+        //     img.sprite = lsAction[idAnimation];
+        //     img.SetNativeSize();
+        // }
+
+        yield return new WaitForSeconds(0.1f);
+
+        // ================== MOVE ==================
+        Tween moveTween = transform.DOMove(targetV3, 1f)
+            .SetEase(Ease.OutQuad)
+            .SetLink(gameObject);
+
+        yield return moveTween.WaitForCompletion();
+
+        // ================== PLAY SPINE ==================
+        // img.gameObject.SetActive(false);
+        skeletonGraphic.gameObject.SetActive(true);
+
+        skeletonGraphic.skeletonDataAsset = lsAnimData[idAnimation];
+        skeletonGraphic.Initialize(true);
+        skeletonGraphic.AnimationState.Complete -= OnSpineComplete;
+
+        TrackEntry trackEntry = skeletonGraphic.AnimationState.SetAnimation(0, "animation", false);
+        skeletonGraphic.AnimationState.Complete += OnSpineComplete;
+
+        // ================== SOUND ==================
+        PlaySound(idAnimation);
+
+        // ================== FAILSAFE DESTROY ==================
+        float duration = trackEntry.Animation.Duration;
+        Destroy(gameObject, duration + 0.5f);
+    }
+    private void OnSpineComplete(TrackEntry trackEntry)
+    {
+        Destroy(gameObject);
+    }
+    private void PlaySound(int idAnimation)
+    {
+        string sound = idAnimation switch
         {
-            if (lsAction[idAnimation] != null)
-            {
-                img.gameObject.SetActive(true);
-                img.sprite = lsAction[idAnimation];
-                img.SetNativeSize();
-            }
-            yield return new WaitForSeconds(.1f);
-            transform.DOMove(targetV3, 1).SetEase(Ease.OutQuad).OnComplete(() =>
-            {
-                img.gameObject.SetActive(false);
-                skeletonGraphic.gameObject.SetActive(true);
-                skeletonGraphic.skeletonDataAsset = lsAnimData[idAnimation];
-                skeletonGraphic.Initialize(true);
-                skeletonGraphic.startingAnimation = "animation";
-                skeletonGraphic.startingLoop = false;
-                skeletonGraphic.AnimationState.Complete += delegate
-                {
-                    Destroy(gameObject);
-                };
-                string sound = "";
-                switch (idAnimation)
-                {
-                    case 0:
-                        sound = Globals.SOUND_CHAT.BOOM;
-                        break;
-                    case 1:
-                        sound = Globals.SOUND_CHAT.KISS;
-                        break;
-                    case 2:
-                        sound = Globals.SOUND_CHAT.ROSE;
-                        break;
-                    case 3:
-                        sound = Globals.SOUND_CHAT.BEER;
-                        break;
-                    case 4:
-                        sound = Globals.SOUND_CHAT.TOMATO;
-                        break;
-                    case 5:
-                        sound = Globals.SOUND_CHAT.WATER;
-                        break;
-                }
-                SoundManager.instance.playEffectFromPath(sound);
-            });
+            0 => Globals.SOUND_CHAT.BOOM,
+            1 => Globals.SOUND_CHAT.KISS,
+            2 => Globals.SOUND_CHAT.ROSE,
+            3 => Globals.SOUND_CHAT.BEER,
+            4 => Globals.SOUND_CHAT.TOMATO,
+            5 => Globals.SOUND_CHAT.WATER,
+            _ => string.Empty
+        };
+
+        if (!string.IsNullOrEmpty(sound))
+        {
+            SoundManager.instance.playEffectFromPath(sound);
         }
     }
 }

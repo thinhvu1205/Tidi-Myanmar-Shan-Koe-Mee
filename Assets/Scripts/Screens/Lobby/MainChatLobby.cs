@@ -144,14 +144,14 @@ public class MainChatLobby : MonoBehaviour
         string mess = m_Message.text.Trim(); // bỏ khoảng trắng đầu/cuối
         if (string.IsNullOrEmpty(mess))
         {
-            UIManager.instance.showToast("Please enter a message.");
+            UIManager.instance.showToast("ကျေးဇူးပြု၍ စာတိုတစ်စောင် ထည့်သွင်းပါ။");
             return;
         }
 
         int maxLength = 190;
         if (mess.Length >= maxLength)
         {
-            UIManager.instance.showToast($"Message too long! Max {maxLength} characters allowed.");
+            UIManager.instance.showToast($"စာတိုရှည်လွန်းပါသည်! အများဆုံး {maxLength} စာတိုရှည်လွန်းပါသည်!");
             return; // không gửi lên server
         }
 

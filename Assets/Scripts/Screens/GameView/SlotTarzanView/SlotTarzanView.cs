@@ -75,6 +75,7 @@ public class SlotTarzanView : BaseSlotGameView
     protected override void Start()
     {
         base.Start();
+        // Time.timeScale = 2;
         BIGWIN_ANIMPATH = "GameView/SlotSpine/Tarzan/BigWin/skeleton_SkeletonData";
         MEGAWIN_ANIMPATH = "GameView/SlotSpine/Tarzan/BigWin/skeleton_SkeletonData";
         FREESPIN_ANIMPATH = "GameView/SlotSpine/Tarzan/PopupFreespin/skeleton_SkeletonData";
@@ -378,12 +379,12 @@ public class SlotTarzanView : BaseSlotGameView
         animPopupMiniGame.gameObject.SetActive(true);
         animPopupMiniGame.skeletonDataAsset = UIManager.instance.loadSkeletonData(animPath);
         animPopupMiniGame.TrimRenderers();
-        animPopupMiniGame.transform.localScale = new Vector2(0.5f, 0.5f);
+        animPopupMiniGame.transform.localScale = new Vector2(1f, 1f);
         animPopupMiniGame.transform.localPosition = Vector2.zero;
         effectContainer.SetActive(true);
         animPopupMiniGame.Initialize(true);
         animPopupMiniGame.AnimationState.SetAnimation(0, "Thai", true);
-        animPopupMiniGame.transform.DOScale(new Vector2(.4f, .4f), 0.3f).SetEase(Ease.OutBack);
+        animPopupMiniGame.transform.DOScale(new Vector2(0.9f, 0.9f), 0.3f).SetEase(Ease.OutBack);
     }
     public void showPopupResultMinigame(int value)
     {

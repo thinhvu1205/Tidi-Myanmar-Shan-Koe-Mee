@@ -64,9 +64,12 @@ public class PlayerViewLucky89 : PlayerView
         if (!isBanker)
         {
             bool isWin = changedChips > 0, isDraw = changedChips == 0, isLose = changedChips < 0;
-            m_WinSg.gameObject.SetActive(show && isWin);
-            m_WinSg.gameObject.SetActive(show && isDraw);
-            m_LoseSg.gameObject.SetActive(show && isLose);
+            if (m_WinSg != null && m_DrawSG != null && m_LoseSg != null)
+            {
+                m_WinSg.gameObject.SetActive(show && isWin);
+                m_DrawSG.gameObject.SetActive(show && isDraw);
+                m_LoseSg.gameObject.SetActive(show && isLose);
+            }
             if (!show) return this;
             if (isWin) m_WinSg.AnimationState.SetAnimation(0, "win", false);
             if (isDraw) m_DrawSG.AnimationState.SetAnimation(0, "win", false);
@@ -127,15 +130,6 @@ public class PlayerViewLucky89 : PlayerView
         if (rate == 5)
             m_ScoreTMP.text = "Three of a kind";
         return this;
-
-
-        // if (isLucky9)
-        //     m_LuckySG.AnimationState.SetAnimation(0, "lucky9", false);
-        // else if (isLucky8) m_LuckySG.AnimationState.SetAnimation(0, "lucky8", false);
-        // else if (score >= (int)Lucky89View.SCORE.FACE_CARDS) m_ScoreTMP.text = "Face cards";
-        // else if (score >= (int)Lucky89View.SCORE.STRAIGHT_FLUSH) m_ScoreTMP.text = "Straight flush";
-        // else if (score >= (int)Lucky89View.SCORE.FLUSH) m_ScoreTMP.text = "Flush";
-        // else m_ScoreTMP.text = score + " points";
     }
 
     public PlayerViewLucky89 ShowRate(int rate)
