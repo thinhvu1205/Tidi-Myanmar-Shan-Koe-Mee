@@ -24,8 +24,8 @@ public class SlotFruitView : BaseSlotGameView
         RECT_SIZE = new Vector2(130, 130f);
         BIGWIN_ANIMPATH = "GameView/SlotSpine/Common/Bigwin/skeleton_SkeletonData";
         MEGAWIN_ANIMPATH = "GameView/SlotSpine/Common/Bigwin/skeleton_SkeletonData";
-        ANIM_BIGWIN_NAME = "bigwin";
-        ANIM_MEGAWIN_NAME = "megawin";
+        ANIM_BIGWIN_NAME = "bigwin_cam";
+        ANIM_MEGAWIN_NAME = "megawin_cam";
     }
 
     public override void showAnimChipBay()
@@ -60,7 +60,7 @@ public class SlotFruitView : BaseSlotGameView
             }
             else
             {
-                animBtnSpin.startingAnimation = "eng";
+                animBtnSpin.startingAnimation = "cam";
                 animBtnSpin.color = Color.gray;
             }
         }
@@ -86,7 +86,7 @@ public class SlotFruitView : BaseSlotGameView
                     }
                     else
                     {
-                        animBtnSpin.startingAnimation = "eng";
+                        animBtnSpin.startingAnimation = "cam";
                         animBtnSpin.color = Color.white;
                         animBtnSpin.gameObject.SetActive(true);
 
@@ -95,7 +95,7 @@ public class SlotFruitView : BaseSlotGameView
             }
             else if (gameState == GAME_STATE.PREPARE || gameState == GAME_STATE.JOIN_GAME)
             {
-                animBtnSpin.startingAnimation = "eng";
+                animBtnSpin.startingAnimation = "cam";
                 animBtnSpin.color = Color.white;
                 if (listBetRoom.Count == 0)
                 {

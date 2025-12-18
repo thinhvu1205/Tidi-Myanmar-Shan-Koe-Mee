@@ -710,11 +710,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  skeletonDataAsset: {fileID: 11400000, guid: 78a8c87ff08f04ef3a9c5d718a66441a, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: 8a33f0a8105ae1f4599243a8ae49adb4, type: 2}
   initialSkinName: default
   initialFlipX: 0
   initialFlipY: 0
-  startingAnimation: autospin
+  startingAnimation: autospin2
   startingLoop: 1
   timeScale: 1
   freeze: 0
@@ -3817,8 +3817,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 0
@@ -5340,8 +5340,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 0
@@ -5584,7 +5584,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d46e8f569e5f44991873c9dbd372a9a8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 05218dfe117066a45a8b1f90adf19d87, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5815,7 +5815,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Win
+  m_text: "\u1014\u102D\u102F\u1004\u103A"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 50d24157e8531a84285ce80e6f5cc27e, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 14520abe351e94c47a12e56fc1aaab38, type: 2}
@@ -5842,8 +5842,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 32
-  m_fontSizeBase: 32
+  m_fontSize: 28
+  m_fontSizeBase: 28
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 0
@@ -6101,7 +6101,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  skeletonDataAsset: {fileID: 11400000, guid: 01adcc4d991ad44708e4f28f6749098f, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: d0284993e3b0e154990333b586cc9ecb, type: 2}
   initialSkinName: default
   initialFlipX: 0
   initialFlipY: 0

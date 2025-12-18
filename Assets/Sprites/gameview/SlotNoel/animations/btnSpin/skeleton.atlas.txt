@@ -1,55 +1,55 @@
 
 skeleton.png
-size: 483,483
+size: 479,479
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
 auto spin
   rotate: false
-  xy: 249, 387
-  size: 232, 94
+  xy: 13, 384
+  size: 231, 93
   orig: 232, 94
-  offset: 0, 0
+  offset: 0, 1
   index: -1
 auto spin2
   rotate: false
-  xy: 2, 291
-  size: 232, 94
+  xy: 246, 384
+  size: 231, 93
   orig: 232, 94
-  offset: 0, 0
+  offset: 0, 1
   index: -1
 eff
   rotate: false
-  xy: 2, 470
-  size: 11, 11
+  xy: 2, 468
+  size: 9, 9
   orig: 11, 11
-  offset: 0, 0
+  offset: 1, 1
   index: -1
 free
   rotate: false
-  xy: 236, 291
-  size: 232, 94
+  xy: 2, 289
+  size: 231, 93
   orig: 232, 94
-  offset: 0, 0
+  offset: 0, 1
   index: -1
 free2
   rotate: false
-  xy: 2, 195
-  size: 232, 94
+  xy: 235, 289
+  size: 231, 93
   orig: 232, 94
-  offset: 0, 0
+  offset: 0, 1
   index: -1
 stop
   rotate: false
-  xy: 236, 195
-  size: 232, 94
+  xy: 2, 194
+  size: 231, 93
   orig: 232, 94
-  offset: 0, 0
+  offset: 0, 1
   index: -1
 stop2
   rotate: false
-  xy: 15, 387
-  size: 232, 94
+  xy: 235, 194
+  size: 231, 93
   orig: 232, 94
-  offset: 0, 0
+  offset: 0, 1
   index: -1

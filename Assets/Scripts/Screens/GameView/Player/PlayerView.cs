@@ -501,10 +501,10 @@ public class PlayerView : MonoBehaviour
 
     public void effectFlyMoney(long mo, int fonzSize = 50)
     {
-        // if (mo == 0)
-        // {
-        //     return;
-        // }
+        if (mo == 0 && Config.curGameId != (int)GAMEID.SHAN_KOE_MEE)
+        {
+            return;
+        }
         lbChipWinLose.fontSize = fonzSize;
         if (mo < 0)
         {

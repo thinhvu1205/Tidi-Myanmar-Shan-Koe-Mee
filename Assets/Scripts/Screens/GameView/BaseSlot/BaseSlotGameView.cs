@@ -136,9 +136,9 @@ public class BaseSlotGameView : GameView
     protected string MEGAWIN_ANIMPATH = "GameView/SlotSpine/Noel/big_megawinNoel/skeleton_SkeletonData";
     protected string FREESPIN_ANIMPATH = "GameView/SlotSpine/freespin/skeleton_SkeletonData";
     protected string FIVEOFAKIND_ANIMPATH = "GameView/SlotSpine/FiveOfAKind/skeleton_SkeletonData";
-    protected string ANIM_BIGWIN_NAME = "big";
-    protected string ANIM_MEGAWIN_NAME = "mega";
-    protected string ANIM_HUGEWIN_NAME = "hugethai";
+    protected string ANIM_BIGWIN_NAME = "big2";
+    protected string ANIM_MEGAWIN_NAME = "mega2";
+    protected string ANIM_HUGEWIN_NAME = "huge2";
     protected string ANIM_BG_FREESPIN = "GameView/SlotSpine/freespin/vienBg/skeleton_SkeletonData";
     protected int TYPE_BIGWIN = 1;
     protected int TYPE_MEGA = 2;

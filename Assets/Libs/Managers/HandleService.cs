@@ -1071,10 +1071,10 @@ public class HandleService
                     break;
                 case "sendChatWorld":
                     Debug.Log("sendChatWorld: " + jsonData.ToString());
-                    // if (!Config.is_show_chat /*|| Globals.User.userMain.VIP < 2*/)
-                    // {
-                    //     return;
-                    // }
+                    if (!Config.is_show_chat)
+                    {
+                        return;
+                    }
                     Debug.Log("xem là đang ở đâu" + Globals.CURRENT_VIEW.getCurrentSceneName());
                     if (MainChatLobby.instance && Globals.CURRENT_VIEW.getCurrentSceneName() == "CHATVIEW")
                     {
@@ -1090,10 +1090,10 @@ public class HandleService
 
                 case "getChatWorld":
                     {
-                        // if (!Config.is_show_chat /*|| Globals.User.userMain.VIP < 2*/)
-                        // {
-                        //     return;
-                        // }
+                        if (!Config.is_show_chat)
+                        {
+                            return;
+                        }
                         Debug.Log("getChatWorld: " + jsonData.ToString());
 
                         Debug.Log("xem là đang ở đâu" + Globals.CURRENT_VIEW.getCurrentSceneName());

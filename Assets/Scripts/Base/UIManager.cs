@@ -646,7 +646,7 @@ public class UIManager : MonoBehaviour
     {
         lobbyView.updateAg();
         lobbyView.updateAgSafe();
-        lobbyView.refreshUIFromConfig(true, LobbyView.instance.isFull);
+        lobbyView.refreshUIFromConfig(true);
         if (gameView != null)
         {
             gameView.updateVip();
@@ -710,7 +710,7 @@ public class UIManager : MonoBehaviour
 
     public void refreshUIFromConfig()
     {
-        lobbyView.refreshUIFromConfig(false, LobbyView.instance.isFull);
+        lobbyView.refreshUIFromConfig(false);
     }
 
     public void updateBotWithScrollShop(Vector2 value)

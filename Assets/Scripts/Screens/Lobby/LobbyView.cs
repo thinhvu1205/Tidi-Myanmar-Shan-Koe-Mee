@@ -50,7 +50,7 @@ public class LobbyView : BaseView
     {
         isRunStart = true;
         base.Start();
-        refreshUIFromConfig(true, isFull);
+        refreshUIFromConfig(true);
         for (var i = 0; i < listTabs.Count; i++)
         {
             var btn = listTabs[i];
@@ -784,7 +784,7 @@ public class LobbyView : BaseView
         icNotiMessage.gameObject.SetActive(state);
     }
 
-    public void refreshUIFromConfig(bool isStart = false, bool showFull = false)
+    public void refreshUIFromConfig(bool isStart = false)
     {
         if (User.userMain != null && m_VipFarmBVF != null)
         {
@@ -809,7 +809,9 @@ public class LobbyView : BaseView
 
         if (issket)
             updateAgSafe();
-
+        btnChatLobby.SetActive(
+                      Config.is_show_chat
+                    );
         if (btnLeaderboard != null)
             btnLeaderboard.gameObject.SetActive(Config.listRankGame != null && Config.listRankGame.Count > 0);
         // btnLeaderboard.gameObject.SetActive(isFull);
@@ -823,9 +825,9 @@ public class LobbyView : BaseView
             _ReloadListGames();
 
         // bool isShow = Config.arrOnlistTrue.Count >= 1;
-        shop.SetActive(isFull);
-        shopFull.SetActive(!isFull);
-        exChange.SetActive(isFull);
+        shop.SetActive(Config.is_dt);
+        shopFull.SetActive(!Config.is_dt);
+        exChange.SetActive(Config.is_dt);
 
         // setDefaultPosBtnMore();
     }

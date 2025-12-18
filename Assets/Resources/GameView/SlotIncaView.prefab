@@ -313,7 +313,6 @@ MonoBehaviour:
   m_text: 'Freespin left: 3'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7708e67653374c60af5f1595e949403, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 2100000, guid: bfb96f7d0e52c834292468ebe82f8fad, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -354,15 +353,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_TextWrappingMode: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 0
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -663,10 +664,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: WIN
+  m_text: "\u1014\u102D\u102F\u1004\u103A"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7708e67653374c60af5f1595e949403, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 2100000, guid: 72e8b5eeedb6f4953b2d51becb22b1af, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -691,8 +691,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -707,15 +707,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_TextWrappingMode: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -767,7 +769,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -4, y: 0}
   m_SizeDelta: {x: 271.99997, y: 130.6734}
   m_Pivot: {x: 0.49816176, y: 0.44768098}
 --- !u!222 &5804089343968608827
@@ -798,11 +800,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  skeletonDataAsset: {fileID: 11400000, guid: 8c430ff41a7a9ab4c82521fad4abefad, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: 12332ab101e5444428d8d77c2cc85e56, type: 2}
   initialSkinName: default
   initialFlipX: 0
   initialFlipY: 0
-  startingAnimation: eng
+  startingAnimation: cam
   startingLoop: 1
   timeScale: 1
   freeze: 0
@@ -892,7 +894,6 @@ MonoBehaviour:
   m_text: 20
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7708e67653374c60af5f1595e949403, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 7800525795003925199, guid: b7708e67653374c60af5f1595e949403, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -933,15 +934,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -992,10 +995,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 9082131055446980074}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 238.00002, y: 0}
-  m_SizeDelta: {x: 0, y: 58.79}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 238.00002, y: -20}
+  m_SizeDelta: {x: 134.27, y: 58.79}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &7482162969014981150
 CanvasRenderer:
@@ -1028,7 +1031,6 @@ MonoBehaviour:
   m_text: pays 20.000
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7708e67653374c60af5f1595e949403, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 7800525795003925199, guid: b7708e67653374c60af5f1595e949403, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1069,15 +1071,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_TextWrappingMode: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
+  m_ActiveFontFeatures: 
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 0
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -2007,7 +2011,6 @@ MonoBehaviour:
   m_text: 500
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7708e67653374c60af5f1595e949403, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 2100000, guid: 36cecf7bba6e1f241987271018ed8fd0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2048,15 +2051,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_TextWrappingMode: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 0
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -2468,7 +2473,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c0f9551a8ffc6034a96377b0ea72063c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a8e52873078b85443aca717e28806683, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2752,7 +2757,6 @@ MonoBehaviour:
   m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7708e67653374c60af5f1595e949403, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 7800525795003925199, guid: b7708e67653374c60af5f1595e949403, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2793,15 +2797,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 0
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -2933,7 +2939,6 @@ MonoBehaviour:
   m_text: "\u0E01\u0E14 \u0E2B\u0E21\u0E38\u0E19 \u0E40\u0E1E\u0E37\u0E48\u0E2D\u0E40\u0E25\u0E48\u0E19"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7708e67653374c60af5f1595e949403, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 2100000, guid: 90d6d9d1ea02a4720bf1df977d059d92, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2958,8 +2963,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 22
+  m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 0
@@ -2968,21 +2973,23 @@ MonoBehaviour:
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: -5
   m_wordSpacing: 0
   m_lineSpacing: 1
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_TextWrappingMode: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 0
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -3768,7 +3775,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b65b2d6a83bdf8e428b44d84565dc874, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ebf493250a8dba047aa05dd655c0d692, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4059,7 +4066,6 @@ MonoBehaviour:
   m_text: BET
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7708e67653374c60af5f1595e949403, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 7800525795003925199, guid: b7708e67653374c60af5f1595e949403, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -4084,8 +4090,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 22
-  m_fontSizeBase: 22
+  m_fontSize: 16
+  m_fontSizeBase: 16
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 0
@@ -4094,21 +4100,23 @@ MonoBehaviour:
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: -5
   m_wordSpacing: 0
   m_lineSpacing: -20
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
+  m_ActiveFontFeatures: 
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 0
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -4460,7 +4468,6 @@ MonoBehaviour:
   m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7708e67653374c60af5f1595e949403, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 7800525795003925199, guid: b7708e67653374c60af5f1595e949403, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -4501,15 +4508,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 0
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -4905,11 +4914,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  skeletonDataAsset: {fileID: 11400000, guid: 857a2e51df6c56a4e9fe0b45a41ad6c9, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: 38d1dd5164eefbc41afdbfdb53105622, type: 2}
   initialSkinName: default
   initialFlipX: 0
   initialFlipY: 0
-  startingAnimation: spinHoldforAuto
+  startingAnimation: spinHoldforAuto_cam
   startingLoop: 1
   timeScale: 1
   freeze: 0
@@ -5399,7 +5408,6 @@ MonoBehaviour:
   m_text: 123123
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 849836c8a0815f54384b508bd3bf1a90, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 2100000, guid: fa30dea16f61fd74aa254194cdde3d67, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -5440,15 +5448,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_TextWrappingMode: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -5611,7 +5621,6 @@ MonoBehaviour:
   m_text: 20
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7708e67653374c60af5f1595e949403, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 7800525795003925199, guid: b7708e67653374c60af5f1595e949403, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -5652,15 +5661,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -5715,10 +5726,10 @@ RectTransform:
   - {fileID: 6309495731800955402}
   m_Father: {fileID: 9082131055446980074}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 218.00002, y: 0}
-  m_SizeDelta: {x: 0, y: 40}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 218.00002, y: -20}
+  m_SizeDelta: {x: 218.00002, y: 40}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &7275891223319465665
 MonoBehaviour:

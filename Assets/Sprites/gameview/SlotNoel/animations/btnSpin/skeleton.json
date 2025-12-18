@@ -1,13 +1,13 @@
 {
 "skeleton": {
-	"hash": "bAwsEydGPvKJcrIClxSYmUGgZWg",
+	"hash": "eYzp7vBwm+PrV6Zhp555/Nm2VnQ",
 	"spine": "3.8.99",
 	"x": -116,
 	"y": -47,
 	"width": 232,
 	"height": 94,
-	"images": "",
-	"audio": ""
+	"images": "./New folder/",
+	"audio": "E:/Z.MYANMAR/SLOTS/noel/animations/btnspin"
 },
 "bones": [
 	{ "name": "root" },

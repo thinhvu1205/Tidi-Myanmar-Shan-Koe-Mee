@@ -22,16 +22,16 @@ public class SlotNoelView : BaseSlotGameView
         {
             if (spintype == SPIN_TYPE.FREE_AUTO || spintype == SPIN_TYPE.FREE_NORMAL)
             {
-                animBtnSpin.startingAnimation = "freespin";
+                animBtnSpin.startingAnimation = "freespin2";
                 //animBtnSpin.color = Color.gray;
             }
             else if (spintype == SPIN_TYPE.AUTO)
             {
-                animBtnSpin.startingAnimation = "stop";
+                animBtnSpin.startingAnimation = "stop2";
             }
             else
             {
-                animBtnSpin.startingAnimation = "autospin";
+                animBtnSpin.startingAnimation = "autospin2";
                 animBtnSpin.color = Color.gray;
             }
         }
@@ -42,23 +42,23 @@ public class SlotNoelView : BaseSlotGameView
             {
                 if (spintype == SPIN_TYPE.FREE_AUTO || spintype == SPIN_TYPE.FREE_NORMAL)
                 {
-                    animBtnSpin.startingAnimation = "freespin";
+                    animBtnSpin.startingAnimation = "freespin2";
                 }
                 else
                 {
                     if (spintype == SPIN_TYPE.AUTO)
                     {
-                        animBtnSpin.startingAnimation = "stop";
+                        animBtnSpin.startingAnimation = "stop2";
                     }
                     else
                     {
-                        animBtnSpin.startingAnimation = "autospin";
+                        animBtnSpin.startingAnimation = "autospin2";
                     }
                 }
             }
             else if (gameState == GAME_STATE.PREPARE || gameState == GAME_STATE.JOIN_GAME)
             {
-                animBtnSpin.startingAnimation = "autospin";
+                animBtnSpin.startingAnimation = "autospin2";
                 Debug.Log("listBetRoom.Count=" + listBetRoom.Count);
                 if (listBetRoom.Count == 0)
                 {
@@ -70,7 +70,7 @@ public class SlotNoelView : BaseSlotGameView
                 }
                 if (spintype == SPIN_TYPE.FREE_AUTO || spintype == SPIN_TYPE.FREE_NORMAL)
                 {
-                    animBtnSpin.startingAnimation = "freespin";
+                    animBtnSpin.startingAnimation = "freespin2";
                     //animBtnSpin.color = Color.white;
                 }
             }

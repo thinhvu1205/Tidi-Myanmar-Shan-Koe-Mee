@@ -18,8 +18,8 @@ public class SlotInCaView : BaseSlotGameView
         ANIM_BG_FREESPIN = "GameView/SlotSpine/InCa/bgFreeSpin/skeleton_SkeletonData";
         BIGWIN_ANIMPATH = "GameView/SlotSpine/Common/Bigwin/skeleton_SkeletonData";
         MEGAWIN_ANIMPATH = "GameView/SlotSpine/Common/Bigwin/skeleton_SkeletonData";
-        ANIM_BIGWIN_NAME = "bigwin";
-        ANIM_MEGAWIN_NAME = "megawin";
+        ANIM_BIGWIN_NAME = "bigwin_cam";
+        ANIM_MEGAWIN_NAME = "megawin_cam";
     }
     public override void HandlerUpdateUserChips(JObject data)
     {
@@ -34,7 +34,7 @@ public class SlotInCaView : BaseSlotGameView
         {
             if (spintype == SPIN_TYPE.FREE_AUTO || spintype == SPIN_TYPE.FREE_NORMAL)
             {
-                animBtnSpin.startingAnimation = "freespin";
+                animBtnSpin.startingAnimation = "freespin_cam";
                 //animBtnSpin.color = Color.gray;
             }
             else if (spintype == SPIN_TYPE.AUTO)
@@ -44,7 +44,7 @@ public class SlotInCaView : BaseSlotGameView
             }
             else
             {
-                animBtnSpin.startingAnimation = "spinHoldforAuto";
+                animBtnSpin.startingAnimation = "spinHoldforAuto_cam";
                 animBtnSpin.color = Color.gray;
             }
         }
@@ -55,7 +55,7 @@ public class SlotInCaView : BaseSlotGameView
             {
                 if (spintype == SPIN_TYPE.FREE_AUTO || spintype == SPIN_TYPE.FREE_NORMAL)
                 {
-                    animBtnSpin.startingAnimation = "freespin";
+                    animBtnSpin.startingAnimation = "freespin_cam";
                     animBtnSpin.color = Color.white;
                 }
                 else
@@ -67,14 +67,14 @@ public class SlotInCaView : BaseSlotGameView
                     }
                     else
                     {
-                        animBtnSpin.startingAnimation = "spinHoldforAuto";
+                        animBtnSpin.startingAnimation = "spinHoldforAuto_cam";
 
                     }
                 }
             }
             else if (gameState == GAME_STATE.PREPARE || gameState == GAME_STATE.JOIN_GAME)
             {
-                animBtnSpin.startingAnimation = "spinHoldforAuto";
+                animBtnSpin.startingAnimation = "spinHoldforAuto_cam";
                 if (listBetRoom.Count == 0)
                 {
                     //animBtnSpin.color = Color.gray;
@@ -85,7 +85,7 @@ public class SlotInCaView : BaseSlotGameView
                 }
                 if (spintype == SPIN_TYPE.FREE_AUTO || spintype == SPIN_TYPE.FREE_NORMAL)
                 {
-                    animBtnSpin.startingAnimation = "freespin";
+                    animBtnSpin.startingAnimation = "freespin_cam";
                     animBtnSpin.color = Color.white;
                 }
             }

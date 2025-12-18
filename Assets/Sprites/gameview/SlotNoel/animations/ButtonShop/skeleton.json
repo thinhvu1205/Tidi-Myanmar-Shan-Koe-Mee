@@ -1,13 +1,13 @@
 {
 "skeleton": {
-	"hash": "zp4NimqDW3jLPPbnbnTYf79Qoto",
+	"hash": "lheXkJ0PgIUPtz1nhOwdWPqwXlg",
 	"spine": "3.8.99",
 	"x": -198.64,
 	"y": -67.35,
 	"width": 391.53,
 	"height": 167.86,
-	"images": "",
-	"audio": ""
+	"images": "./New folder/",
+	"audio": "C:/Users/LL/Desktop/slot/SlotNoel/animations/buychip"
 },
 "bones": [
 	{ "name": "root" },
@@ -18,7 +18,7 @@
 "slots": [
 	{ "name": "xanhduoi", "bone": "root", "attachment": "xanhduoi" },
 	{ "name": "xanh", "bone": "root", "attachment": "xanh" },
-	{ "name": "BUY", "bone": "root", "attachment": "BUY" },
+	{ "name": "BUY", "bone": "root", "attachment": "text_buy" },
 	{ "name": "light", "bone": "root", "attachment": "light", "blend": "additive" },
 	{ "name": "ligghttt", "bone": "bone", "attachment": "ligghttt", "blend": "additive" },
 	{ "name": "ligghttt3", "bone": "bone3", "attachment": "ligghttt", "blend": "additive" },
@@ -76,7 +76,7 @@
 				"1/1_00044": { "width": 160, "height": 48 }
 			},
 			"BUY": {
-				"BUY": { "width": 118, "height": 49 }
+				"text_buy": { "width": 134, "height": 73 }
 			},
 			"ligghttt": {
 				"ligghttt": { "scaleX": 0.5, "scaleY": 0.5, "width": 300, "height": 300 }
