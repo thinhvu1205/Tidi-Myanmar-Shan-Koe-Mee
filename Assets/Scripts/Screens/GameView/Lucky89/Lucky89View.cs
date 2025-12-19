@@ -208,7 +208,12 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
 
         stateGame = STATE_GAME.VIEWING;
         JObject data = JObject.Parse(strData);
-
+        if (runCountdownCoroutine != null)
+        {
+            StopCoroutine(runCountdownCoroutine);
+        }
+        float time = data.ContainsKey("bankerWaitTime") ? (float)data["bankerWaitTime"] : 0;
+        runCountdownCoroutine = StartCoroutine(RunCountDownAction(time / 1000, "ရေတွက်ချိန်"));
         int tableId = data.ContainsKey("Id") ? (int)data["Id"] : 0;
         int betValue = data.ContainsKey("M") ? (int)data["M"] : 0;
         potValue = GetPotValue(data);
@@ -432,7 +437,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
              .ShowHideBetChips(player.agBet > 0, player.agBet)
              .HideAllCards()
              .UpdateCardsParentPositionAndRotation();
-
+            pv.ShowScore(false, 0, 0).ShowRate(0).ShowAnimResult(false, 0);
             pv.SetCardPosition(i);
             pv.SetIconBankerPosition(i);
         }
@@ -447,22 +452,28 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
     public override void handleRJTable(string strData)
     {
         Debug.Log($"Tinh=))handleRJTable: {strData}");
-
+        // base.handleRJTable(strData);
         stateGame = STATE_GAME.PLAYING;
         JObject data = JObject.Parse(strData);
         int tableId = data.ContainsKey("Id") ? (int)data["Id"] : 0;
         int betValue = data.ContainsKey("M") ? (int)data["M"] : 0;
+        if (runCountdownCoroutine != null)
+        {
+            StopCoroutine(runCountdownCoroutine);
+        }
+        float time = data.ContainsKey("bankerWaitTime") ? (float)data["bankerWaitTime"] : 0;
+        runCountdownCoroutine = StartCoroutine(RunCountDownAction(time / 1000, "ရေတွက်ချိန်"));
         potValue = GetPotValue(data);
         handleUpdatePot(potValue);
         setGameInfo(m: betValue, id: tableId, maxBett: 0);
         JObject bankerInfo = data.ContainsKey("bankerInfoTransfer") ? (JObject)data["bankerInfoTransfer"] : null;
         int bankerId = bankerInfo != null && bankerInfo.ContainsKey("pid") ? (int)bankerInfo["pid"] : -1;
         gameRemaining = bankerInfo.ContainsKey("gameRemain") ? (int)bankerInfo["gameRemain"] : 0;
-        for (int i = 0; i < players.Count; i++)
-        {
-            if (players[i].playerView != null)
-                Destroy(players[i].playerView.gameObject);
-        }
+        // for (int i = 0; i < players.Count; i++)
+        // {
+        //     if (players[i].playerView != null)
+        //         Destroy(players[i].playerView.gameObject);
+        // }
         players.Clear();
         JArray dataPlayers = (JArray)data["ArrP"];
         if (dataPlayers == null)
@@ -473,13 +484,15 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
         foreach (JObject jPl in dataPlayers)
         {
             Player player = new Player();
-            readDataPlayer(player, jPl);
-
+            player.ag = jPl.ContainsKey("AG") ? (int)jPl["AG"] : 0;
             player.playerView = createPlayerView();
+            readDataPlayer(player, jPl);
+            player.setAg();
             player.agBet = jPl.ContainsKey("AGC") ? (int)jPl["AGC"] : 0;
             if (player.id == User.userMain.Userid)
             {
                 thisPlayer = player;
+                thisPlayerView = getPlayerView(thisPlayer);
                 players.Insert(0, player);
             }
             else players.Add(player);
@@ -1032,8 +1045,12 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
                     thisPlayerView.ShowAnimWaitOpenCard(false);
                 }
             });
+            if (runCountdownCoroutine != null)
+            {
+                StopCoroutine(runCountdownCoroutine);
+            }
             float time = (float)data["timeAction"] / 1000;
-            StartCoroutine(RunCountDownAction(time, "ရေတွက်ချိန်"));
+            runCountdownCoroutine = StartCoroutine(RunCountDownAction(time, "ရေတွက်ချိန်"));
         }
 
         if (thisPlayerView != null && !thisPlayerView.isBanker)
@@ -1111,9 +1128,26 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
         {
             ShowPanelAction(data, 0f, isDisableButtonDeclare3Card);
         }
+        else
+        {
+            float time = data.ContainsKey("timeAction") ? (float)data["timeAction"] : 0;
+            if (runCountdownCoroutine != null)
+            {
+                StopCoroutine(runCountdownCoroutine);
+            }
+            runCountdownCoroutine = StartCoroutine(RunCountDownAction(time / 1000, "ရေတွက်ချိန်"));
+        }
+        for (int i = 0; i < players.Count; i++)
+        {
+            PlayerViewLucky89 plView = getPlayerView(players[i]);
+            if (plView != null)
+            {
+                plView.ShowAnimWaitOpenCard(false);
+            }
+        }
     }
     private bool isBankerLuckyShowing = false;
-    private Coroutine detectSwipeCoroutine;
+    private Coroutine detectSwipeCoroutine, runCountdownCoroutine;
     private void ShowPanelActionBankerLucky()
     {
         if (stateGame == STATE_GAME.VIEWING) return;

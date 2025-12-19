@@ -553,6 +553,7 @@ public class LoadConfig : MonoBehaviour
             Config.chat_tele_support_link = (string)jConfig["supportgroup"];
         PlayerPrefs.Save();
         _isConfigLoaded = true;
+        // Debug.Log($"Tinh=))URLHELP: {Config.url_help}");
     }
 
     void handleUserInfo(string strData)
