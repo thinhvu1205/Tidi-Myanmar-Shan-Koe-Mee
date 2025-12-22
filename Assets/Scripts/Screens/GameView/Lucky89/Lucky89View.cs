@@ -142,7 +142,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
                 break;
             case "cShan":
                 Debug.Log($"Tinh=))cShan: {jData.ToString(Newtonsoft.Json.Formatting.None)}");
-                _HandleReceiveLuckyCards(jData);
+                _HandleAnyoneReceivesLuckyCards(jData);
                 break;
             case "bc":
                 Debug.Log($"Tinh=))bc: {jData.ToString(Newtonsoft.Json.Formatting.None)}");
@@ -208,12 +208,12 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
 
         stateGame = STATE_GAME.VIEWING;
         JObject data = JObject.Parse(strData);
-        if (runCountdownCoroutine != null)
-        {
-            StopCoroutine(runCountdownCoroutine);
-        }
-        float time = data.ContainsKey("bankerWaitTime") ? (float)data["bankerWaitTime"] : 0;
-        runCountdownCoroutine = StartCoroutine(RunCountDownAction(time / 1000, "ရေတွက်ချိန်"));
+        // if (runCountdownCoroutine != null)
+        // {
+        //     StopCoroutine(runCountdownCoroutine);
+        // }
+        // float time = data.ContainsKey("bankerWaitTime") ? (float)data["bankerWaitTime"] : 0;
+        // runCountdownCoroutine = StartCoroutine(RunCountDownAction(time / 1000, "ရေတွက်ချိန်"));
         int tableId = data.ContainsKey("Id") ? (int)data["Id"] : 0;
         int betValue = data.ContainsKey("M") ? (int)data["M"] : 0;
         potValue = GetPotValue(data);
@@ -451,70 +451,73 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
     }
     public override void handleRJTable(string strData)
     {
-        Debug.Log($"Tinh=))handleRJTable: {strData}");
-        // base.handleRJTable(strData);
+        Debug.Log($"handleRJTable: {strData}");
+
         stateGame = STATE_GAME.PLAYING;
+
         JObject data = JObject.Parse(strData);
-        int tableId = data.ContainsKey("Id") ? (int)data["Id"] : 0;
-        int betValue = data.ContainsKey("M") ? (int)data["M"] : 0;
-        if (runCountdownCoroutine != null)
-        {
-            StopCoroutine(runCountdownCoroutine);
-        }
-        float time = data.ContainsKey("bankerWaitTime") ? (float)data["bankerWaitTime"] : 0;
-        runCountdownCoroutine = StartCoroutine(RunCountDownAction(time / 1000, "ရေတွက်ချိန်"));
+
+        int tableId = data.Value<int?>("Id") ?? 0;
+        int betValue = data.Value<int?>("M") ?? 0;
+
         potValue = GetPotValue(data);
         handleUpdatePot(potValue);
         setGameInfo(m: betValue, id: tableId, maxBett: 0);
-        JObject bankerInfo = data.ContainsKey("bankerInfoTransfer") ? (JObject)data["bankerInfoTransfer"] : null;
-        int bankerId = bankerInfo != null && bankerInfo.ContainsKey("pid") ? (int)bankerInfo["pid"] : -1;
-        gameRemaining = bankerInfo.ContainsKey("gameRemain") ? (int)bankerInfo["gameRemain"] : 0;
-        // for (int i = 0; i < players.Count; i++)
-        // {
-        //     if (players[i].playerView != null)
-        //         Destroy(players[i].playerView.gameObject);
-        // }
-        players.Clear();
-        JArray dataPlayers = (JArray)data["ArrP"];
-        if (dataPlayers == null)
+
+        JObject bankerInfo = data.Value<JObject>("bankerInfoTransfer");
+        int bankerId = bankerInfo?.Value<int?>("pid") ?? -1;
+        gameRemaining = bankerInfo?.Value<int?>("gameRemain") ?? 0;
+
+        JArray arrPlayers = data.Value<JArray>("ArrP");
+        if (arrPlayers == null || arrPlayers.Count == 0)
         {
-            Debug.LogWarning("handleRJTable: ArrP null!");
+            Debug.LogWarning("handleRJTable: ArrP empty");
             return;
         }
-        foreach (JObject jPl in dataPlayers)
+
+        // players.Clear();
+
+        Dictionary<int, JObject> mapPlayerData = new();
+        List<DataPlayer> dataPlayers = new();
+
+        bool needDistributeCards = false;
+        foreach (JObject jPl in arrPlayers)
         {
+            int pid = jPl.Value<int>("id");
+            mapPlayerData[pid] = jPl;
+
             Player player = new Player();
-            player.ag = jPl.ContainsKey("AG") ? (int)jPl["AG"] : 0;
             player.playerView = createPlayerView();
+
             readDataPlayer(player, jPl);
+
+            player.ag = jPl.Value<int?>("AG") ?? 0;
+            player.agBet = jPl.Value<int?>("AGC") ?? 0;
             player.setAg();
-            player.agBet = jPl.ContainsKey("AGC") ? (int)jPl["AGC"] : 0;
+            player.updatePlayerView();
             if (player.id == User.userMain.Userid)
             {
                 thisPlayer = player;
-                thisPlayerView = getPlayerView(thisPlayer);
+                thisPlayerView = getPlayerView(player);
                 players.Insert(0, player);
             }
-            else players.Add(player);
+            else
+            {
+                players.Add(player);
+            }
         }
+
+        // =========================
+        // 2. Setup PlayerView + DataPlayer
+        // =========================
         for (int i = 0; i < players.Count; i++)
         {
             Player player = players[i];
             PlayerViewLucky89 pv = getPlayerView(player);
-            JObject jPl = null;
-            for (int k = 0; k < dataPlayers.Count; k++)
-            {
-                JObject tmp = (JObject)dataPlayers[k];
-                if (tmp != null && tmp.ContainsKey("id") && (int)tmp["id"] == player.id)
-                {
-                    jPl = tmp;
-                    break;
-                }
-            }
+
+            JObject jPl = mapPlayerData[player.id];
 
             pv.isBanker = player.id == bankerId;
-
-            player.updatePlayerView();
 
             pv.SetBetPosition(i)
               .ShowHideBetChips(player.agBet > 0, player.agBet)
@@ -523,67 +526,56 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
 
             pv.SetCardPosition(i);
             pv.SetIconBankerPosition(i);
-            if (pv.isBanker)
-            {
-                pv.ShowIconBanker(true, gameRemaining);
-                Debug.Log($"Tinh=))BatIconBanker");
-            }
-            else
-            {
-                pv.ShowIconBanker(false, gameRemaining);
-            }
+            pv.ShowIconBanker(pv.isBanker, gameRemaining);
+
             updatePositionPlayerView();
-        }
 
-        List<DataPlayer> dps = new();
-        bool distributeCards = false;
+            // =========================
+            // DataPlayer
+            // =========================
+            JArray cardsArr = jPl.Value<JArray>("Arr") ?? new JArray();
 
-        foreach (JObject jPl in dataPlayers)
-        {
-            int pid = (int)jPl["id"];
-            Player player = players.Find(x => x.id == pid);
-            if (player == null) continue;
-
-            JArray cardsArr = jPl.ContainsKey("Arr") ? (JArray)jPl["Arr"] : new JArray();
             DataPlayer dp = new DataPlayer
             {
                 PlayerP = player,
-                rate = jPl.ContainsKey("rate") ? (int)jPl["rate"] : 0,
-                score = jPl.ContainsKey("score") ? (int)jPl["score"] : 0,
+                rate = jPl.Value<int?>("rate") ?? 0,
+                score = jPl.Value<int?>("score") ?? 0,
                 cardCount = cardsArr.Count
             };
 
             foreach (JToken c in cardsArr)
-                dp.cardCodes.Add((int)c);
-
-            dps.Add(dp);
-            if (player == thisPlayer)
             {
-                foreach (int num in dp.cardCodes)
-                    if (num > 0)
-                    {
-                        distributeCards = true;
-                        break;
-                    }
+                int card = (int)c;
+                dp.cardCodes.Add(card);
+                if (card > 0) needDistributeCards = true;
             }
+
+            dataPlayers.Add(dp);
         }
-        if (distributeCards)
+        if (needDistributeCards)
         {
-            foreach (DataPlayer dp in dps)
+            foreach (DataPlayer dp in dataPlayers)
             {
                 if (dp.PlayerP == null) continue;
 
                 PlayerViewLucky89 pv = getPlayerView(dp.PlayerP);
-                _DistributeCardsToAPlayer(pv, dp.cardCodes, dp.rate, dp.score, dp.cardCount);
+
+                _DistributeCardsToAPlayer(
+                    pv,
+                    dp.cardCodes,
+                    dp.rate,
+                    dp.score,
+                    dp.cardCount
+                );
 
                 if (pv.isBanker)
                 {
                     pv.ShowIconBanker(true, gameRemaining);
                 }
-
             }
         }
     }
+
 
 
     public override void handleLTable(JObject data)
@@ -799,59 +791,6 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
         }
         return view;
     }
-    private void _HandleReceiveLuckyCards(JObject data)
-    {
-        // if (data == null) return;
-
-        // string userName = data.Value<string>("userName");
-        // if (string.IsNullOrEmpty(userName)) return;
-
-        // JArray dataLuckyCards = (JArray)data["arr"];
-        // if (dataLuckyCards == null || dataLuckyCards.Count == 0) return;
-
-        // int score = data.Value<int?>("score") ?? 0;
-        // int rate = data.Value<int?>("rate") ?? 1;
-
-        // // Tìm PlayerView theo userName
-        // PlayerViewLucky89 targetPV = null;
-        // foreach (var pv in players)
-        // {
-        //     if (pv != null && pv != null &&
-        //         pv.namePl == userName)
-        //     {
-        //         targetPV = getPlayerView(pv);
-        //         break;
-        //     }
-        // }
-
-        // if (targetPV == null) return;
-        // if (score == 8)
-        //     score = (int)SCORE.LUCKY_8;
-        // else if (score == 9)
-        //     score = (int)SCORE.LUCKY_9;
-
-        // targetPV.isLucky = true;
-        // List<Card> cards = targetPV.GetListCards();
-        // for (int i = 0; i < cards.Count && i < dataLuckyCards.Count; i++)
-        // {
-        //     _RevealACard(
-        //         cards[i],
-        //         (int)dataLuckyCards[i],
-        //         cards[i].transform.localEulerAngles
-        //     );
-        // }
-        // targetPV
-        //     .ShowRate(rate)
-        //     .ShowScore(
-        //         true,
-        //         score,
-        //         dataLuckyCards.Count,
-        //         rate
-        //     );
-
-        // targetPV.ShowAnimWaitOpenCard(false);
-        _HandleAnyoneReceivesLuckyCards(data);
-    }
 
     private void _HandleAnyoneReceivesLuckyCards(JObject data)
     {
@@ -861,7 +800,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
         //======================================================
         IEnumerator handleData()
         {
-            yield return new WaitForSeconds(2.5f);
+            yield return new WaitForSeconds(3.5f);
             string userName = data.Value<string>("userName");
             if (userName == Globals.User.userMain.Username) yield break;
             if (string.IsNullOrEmpty(userName)) yield break;

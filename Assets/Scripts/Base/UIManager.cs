@@ -37,6 +37,7 @@ public class UIManager : MonoBehaviour
     public Image iconNotiCheckinBonus;
     public bool hasDailyBonus = false;
     public bool hasWeeklyBonus = false;
+    public bool isCanUpdateVipFarmInPusoy = true;
     [SerializeField] GameObject nodeLoad;
 
     [SerializeField] public Transform parentPopups, parentGame, parentBanner;

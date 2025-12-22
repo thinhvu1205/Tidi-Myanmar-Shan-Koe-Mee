@@ -212,6 +212,7 @@ public class BinhGameView : GameView
     }
     private void _HandleCountdownToStart(JObject data)
     {
+        UIManager.instance.isCanUpdateVipFarmInPusoy = false;
         cleanTable();
         for (int i = 0; i < players.Count; i++) clearAllCard(players[i]);
         _CanClear = false;
@@ -1479,6 +1480,7 @@ public class BinhGameView : GameView
                 }
             }
         }
+        UIManager.instance.isCanUpdateVipFarmInPusoy = true;
         stateGame = STATE_GAME.WAITING;
     }
     void setPointAtChi(TextMeshProUGUI pointTMP, TextMeshProUGUI scoreTMP, int rank, int point, int bonus)

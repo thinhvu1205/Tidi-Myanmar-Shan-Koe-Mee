@@ -6,6 +6,7 @@ using DG.Tweening.Core.Easing;
 using Globals;
 using Socket.Quobject.EngineIoClientDotNet.Modules;
 using System;
+using Unity.VisualScripting;
 
 public class HandleService
 {
@@ -1022,7 +1023,28 @@ public class HandleService
                     {
                         Debug.Log($"Tinh=))DataVipFarm: {jsonData}");
                         Globals.Config.dataVipFarm = jsonData;
-                        UIManager.instance.SetDataVipFarmList();
+                        if (Config.curGameId == (int)GAMEID.PUSOY)
+                        {
+                            // Tweener tweener;
+                            DOVirtual.DelayedCall(0f, () =>
+                            {
+                                DOVirtual.Float(0, 1, 9999f, _ => { })
+                                    .SetUpdate(true)
+                                    .OnUpdate(() =>
+                                    {
+                                        if (UIManager.instance != null && UIManager.instance.isCanUpdateVipFarmInPusoy)
+                                        {
+                                            UIManager.instance.SetDataVipFarmList();
+                                            // DOTween.Kill(this); // dừng tween
+                                        }
+                                    });
+                            });
+                        }
+                        else
+                        {
+                            UIManager.instance.SetDataVipFarmList();
+                        }
+
                         float farmPercent = (float)jsonData["farmPercent"];
                         if (farmPercent >= 100f)
                         {
