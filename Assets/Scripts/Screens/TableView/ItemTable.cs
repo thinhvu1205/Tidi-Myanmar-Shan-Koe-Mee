@@ -40,6 +40,7 @@ public class ItemTable : MonoBehaviour
     public void setInfo(JObject _dataItem, System.Action _callback)
     {
         dataItem = _dataItem;
+        Debug.Log($"Tinh=))setInfo: {_dataItem.ToString(Newtonsoft.Json.Formatting.None)}");
         callback = _callback;
         int sizeTable = (int)dataItem["size"];
         for (var i = 0; i < listPlayer.Count; i++)
@@ -62,9 +63,10 @@ public class ItemTable : MonoBehaviour
             {
                 tbName = name.Substring(0, 7) + "..., ";
             }
-            tableName = tbName;
+            tableName += tbName;
         }
         txtName.text = tableName;
+        Globals.Config.effectTextRunInMask(txtName);
         txtID.text = (int)dataItem["id"] + "";
         //var gameId = Globals.Config.curGameId;
         //if (gameId == (int)Globals.GAMEID.TONGITS || gameId == (int)Globals.GAMEID.TONGITS_JOKER)
