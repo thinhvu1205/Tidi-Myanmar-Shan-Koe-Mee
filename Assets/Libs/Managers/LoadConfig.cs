@@ -442,9 +442,9 @@ public class LoadConfig : MonoBehaviour
             sortedListGameJA.AddRange(tempListGameJA);
             Config.listGame.AddRange(sortedListGameJA);
             //TODO: sua ServerIp
-            Config.curServerIp = (string)Config.listGame[0]["ip_dm"];
             // Config.curServerIp = "test.app.1707casino.com";
-            // Config.curServerIp = "app1.mmshan.net";
+            Config.curServerIp = (string)Config.listGame[0]["ip_dm"];
+            // Config.curServerIp = "apptest.mmshan.net";
             PlayerPrefs.SetString("curServerIp", Config.curServerIp);
         }
         Debug.Log("=-=-=-=-=-=-=-=-=- list agam");

@@ -63,6 +63,10 @@ public class ItemTable : MonoBehaviour
             {
                 tbName = name.Substring(0, 7) + "..., ";
             }
+            else
+            {
+                tbName = name + ", ";
+            }
             tableName += tbName;
         }
         txtName.text = tableName;

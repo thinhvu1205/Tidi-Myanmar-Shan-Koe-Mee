@@ -665,6 +665,8 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
     }
     Tweener countdownFillTween;
     Tweener countdownTextTween;
+    const string ACTION_DELAY_ID = "ActionDelay";
+    const string ACTION_SHOW_ID = "ActionShow";
     void RunCountDownTimeAction(float timeCountDown, int sessionId)
     {
         countdownFillTween?.Kill(false);
@@ -678,8 +680,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
         float remainTime = timeCountDown;
         countdownFillTween = imageTimeActionRemain
             .DOFillAmount(0f, timeCountDown)
-            .SetEase(Ease.Linear)
-            .SetId("ActionCountdownFill");
+            .SetEase(Ease.Linear);
         countdownTextTween = DOTween.To(
                 () => remainTime,
                 x => remainTime = x,
@@ -687,7 +688,6 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
                 timeCountDown
             )
             .SetEase(Ease.Linear)
-            .SetId("ActionCountdownText")
             .OnUpdate(() =>
             {
                 int sec = Mathf.CeilToInt(remainTime);
@@ -699,7 +699,9 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
             })
             .OnComplete(() =>
             {
-                if (sessionId != actionSessionId) return; // 🔒 chặn cdco cũ
+                countdownFillTween?.Kill(false);
+                countdownTextTween?.Kill(false);
+                if (sessionId != actionSessionId) return;
                 textTimeActionCountDown.text = "0";
                 DisablePanelAction();
             });
@@ -707,6 +709,10 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
 
     IEnumerator ShowBetOption(bool isShow = true)
     {
+        if (stateGame != STATE_GAME.PLAYING)
+        {
+            yield break;
+        }
         for (int i = 0; i < m_BetOptionTMPs.Count; i++)
         {
             Transform tf = m_BetOptionTMPs[i].transform;
@@ -832,15 +838,11 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
 
             bool isDealerLucky = false;
             bool isThisPlayerLucky = false;
-
-            // ===== Tìm player =====
             Player playerP = players.Find(x => x.namePl == userName);
             PlayerViewLucky89 pvl89 =
                 playerP == null ? m_DealerPVL89 : (PlayerViewLucky89)playerP.playerView;
 
             if (pvl89 == null) yield break;
-
-            // ===== Reveal bài =====
             List<Card> cardCs = pvl89.GetListCards();
             for (int i = 0; i < cardCs.Count && i < dataCards.Count; i++)
             {
@@ -851,14 +853,10 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
                     cardCs[i].transform.localEulerAngles
                 );
             }
-
-            // ===== Chuẩn hóa score =====
             if (score == 8) score = (int)SCORE.LUCKY_8;
             else if (score == 9) score = (int)SCORE.LUCKY_9;
 
             pvl89.isLucky = score >= (int)SCORE.LUCKY_8;
-
-            // ===== Show điểm + rate =====
             pvl89
                 .ShowRate(rate)
                 .ShowScore(true, score, dataCards.Count, rate);
@@ -1171,54 +1169,55 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
     }
     private void ShowPanelAction(JObject data, float timeDelay, bool isDisableButtonDeclare3Card = false)
     {
-        actionSessionId++;
-        int currentSession = actionSessionId;
-
-        if (stateGame == STATE_GAME.VIEWING) return;
         if (!data.ContainsKey("timeAction")) return;
-        // StopAllCoroutines();
-        DOTween.Kill("ActionTween");
-        float timeAction = (getFloat(data, "timeAction") / 1000) - timeDelay; // fallback 5s
-        if (timeAction > 0)
+        if (stateGame != STATE_GAME.PLAYING) return;
+        actionSessionId++;
+        int session = actionSessionId;
+        DOTween.Kill(ACTION_DELAY_ID, false);
+        DOTween.Kill(ACTION_SHOW_ID, false);
+        countdownFillTween?.Kill(false);
+        countdownTextTween?.Kill(false);
+
+        float timeAction = (getFloat(data, "timeAction") / 1000f) - timeDelay;
+        if (timeAction <= 0.1f) return;
+
+        DOVirtual.DelayedCall(timeDelay, () =>
         {
-            DOVirtual.DelayedCall(timeDelay, () =>
-            {
-                panelAction.SetActive(true);
-                imageCardRotate.gameObject.SetActive(true);
-                imageCardRotate.transform.localRotation = Quaternion.Euler(Vector3.zero);
-                imageCardRotate.transform.DORotate(new Vector3(0, 90, 0), 0.5f).SetEase(Ease.InQuad).OnComplete(() =>
+            if (session != actionSessionId) return;
+
+            // ===== SHOW PANEL =====
+            panelAction.SetActive(true);
+
+            imageCardRotate.gameObject.SetActive(true);
+            imageCardRotate.transform.localRotation = Quaternion.identity;
+
+            imageCardRotate.transform
+                .DORotate(new Vector3(0, 90, 0), 0.5f)
+                .SetEase(Ease.InQuad)
+                .SetId(ACTION_SHOW_ID)
+                .OnComplete(() =>
                 {
-                    parentCardBig.transform.localPosition = Vector3.zero;
-                    parentCardBig.transform.localScale = Vector3.one;
+                    if (session != actionSessionId) return;
                     imageCardRotate.gameObject.SetActive(false);
-                    for (int i = 0; i < listCodeCard.Count; i++)
-                    {
-                        listCardBig[i].gameObject.SetActive(true);
-                    }
-                    for (int i = 0; i < listCardBig.Count; i++)
-                    {
-                        listCardBig[i].transform.localPosition = new Vector3(0f, 120f, 0f);
-                        listCardBig[i].transform.localRotation = Quaternion.Euler(new Vector3(0, 90, 0));
-                        listCardBig[i].transform.DORotate(Vector3.zero, 0.5f)
-                        .SetEase(Ease.Linear)
-                        .OnComplete(() =>
-                        {
-                            animHand.Initialize(true);
-                            animHand.gameObject.SetActive(true);
-                        });
-                    }
                 });
-                buttonDone.gameObject.SetActive(false);
-                buttonDraw.gameObject.SetActive(false);
-                buttonNotDraw.gameObject.SetActive(false);
-                buttonDeclare3Card.gameObject.SetActive(false);
-                DOVirtual.DelayedCall(0.5f, () =>
-                {
-                    StartCoroutine(DetectSwipe(thisPlayerView.isLucky, false, isDisableButtonDeclare3Card));
-                });
-                RunCountDownTimeAction(timeAction, actionSessionId);
+
+            // Reset buttons
+            buttonDone.gameObject.SetActive(false);
+            buttonDraw.gameObject.SetActive(false);
+            buttonNotDraw.gameObject.SetActive(false);
+            buttonDeclare3Card.gameObject.SetActive(false);
+
+            // Detect swipe
+            DOVirtual.DelayedCall(0.5f, () =>
+            {
+                if (session != actionSessionId) return;
+                StartCoroutine(DetectSwipe(thisPlayerView.isLucky, false, isDisableButtonDeclare3Card));
             });
-        }
+
+            // ===== START COUNTDOWN =====
+            RunCountDownTimeAction(timeAction, session);
+
+        }).SetId(ACTION_DELAY_ID);
     }
     private void ActionDrawCard()
     {
@@ -1278,6 +1277,11 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
 
     private void DisablePanelAction()
     {
+        countdownFillTween?.Kill(false);
+        countdownTextTween?.Kill(false);
+        DOTween.Kill(ACTION_SHOW_ID, false);
+        DOTween.Kill(ACTION_DELAY_ID, false);
+
         animHand.gameObject.SetActive(false);
         buttonDone.interactable = false;
         parentCardBig.transform.DOLocalMove(new Vector3(137f, -206f, 0), 0.5f).SetEase(Ease.InQuad);
@@ -1581,7 +1585,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
                         playerLoseCbs.Add(() => StartCoroutine(playerLoseChips(pid, chipWin, ag, bankerPlayer)));
                     player.ag = ag;
                     player.setAg();
-                    // player.updatePlayerView();
+                    player.updatePlayerView();
                 }
                 else
                 {
