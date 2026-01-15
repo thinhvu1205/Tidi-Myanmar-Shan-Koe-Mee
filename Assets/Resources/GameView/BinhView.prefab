@@ -8026,6 +8026,8 @@ MonoBehaviour:
   m_PrefabChipCB: {fileID: 4611135933894580274, guid: 79a5a8497f2634ed6a6960d4fb7acc33, type: 3}
   m_JackpotAnimA: {fileID: 1569502493262201597}
   m_ChosenCardsBCGC: {fileID: 3509646141592772608}
+  m_BgJackpot: {fileID: 6363091298011532786}
+  m_JackpotSG: {fileID: 4237942179824527838}
 --- !u!1 &4898754434953903682
 GameObject:
   m_ObjectHideFlags: 0

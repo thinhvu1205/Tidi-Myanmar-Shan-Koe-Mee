@@ -39,6 +39,8 @@ public class BinhGameView : GameView
     [SerializeField] private ChipBet m_PrefabChipCB;
     [SerializeField] private Animation m_JackpotAnimA;
     [SerializeField] private BinhChosenGroupCards m_ChosenCardsBCGC;
+    [SerializeField] private GameObject m_BgJackpot;
+    [SerializeField] private SkeletonGraphic m_JackpotSG;
     private const float SCALE_CARD = 0.55f, CARD_HEIGHT = 198f, CARD_WIDTH = 147f, ORG_CARD = 0.8f;
     private List<List<List<Card>>> _HintRankCs = new();
     private List<Card> _CardPoolCs = new(), _FakeCardOnDragCs = new();
@@ -446,6 +448,32 @@ public class BinhGameView : GameView
             await Awaitable.WaitForSecondsAsync(2f);
         }
         doEndGameFlow();
+    }
+    public void _HandleAnimJackpot(JObject data)
+    {
+        Player playerP = getPlayer(getString(data, "N"));
+        playerP.playerView.chipJackpot = (long)data["M"];
+        showJackpotWin((long)data["M"]);
+    }
+    private void showJackpotWin(long M)
+    {
+        m_BgJackpot.SetActive(true);
+        m_BgJackpot.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = Globals.Config.FormatMoney(M, true);
+
+        m_JackpotSG.gameObject.SetActive(true);
+        m_JackpotSG.Initialize(true);
+        m_JackpotSG.AnimationState.SetAnimation(0, "animation", false);
+
+        thisPlayer.ag += M;
+        thisPlayer.setAg();
+
+        StartCoroutine(HideJackpotAfterDelay(3f)); // chạy coroutine sau 3 giây
+    }
+    private IEnumerator HideJackpotAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        m_JackpotSG.gameObject.SetActive(false);
+        m_BgJackpot.SetActive(false);
     }
     public void UpdateJackPot()
     {
@@ -2663,9 +2691,11 @@ public class BinhGameView : GameView
             .SetLoops(-1).SetId("updateJackpot");
 
     }
+    public static BinhGameView instance = null;
     protected override void Awake()
     {
         base.Awake();
+        instance = this;
         _TimeTMP = m_TimeRemain.transform.GetComponentInChildren<TextMeshProUGUI>();
         _ScreenLeftClamp = -Screen.currentResolution.width / 2 + 40;
         _ScreenRightClamp = Screen.currentResolution.width / 2 - 40;

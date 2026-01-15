@@ -77,7 +77,7 @@ public class BinhJackpotView : BaseView
         JObject dataJP = JObject.Parse((string)data["data"]);
         List<JObject> lswin = dataJP["lswin"].ToObject<List<JObject>>();
 
-        for (var i = 0; i < lswin.Count; i++)
+        for (var i = lswin.Count - 1; i >= 0; i--)
         {
             JObject dataPl = (JObject)lswin[i];
             GameObject item = Instantiate(itemHistory, scrHistoryJackPot.content.transform);

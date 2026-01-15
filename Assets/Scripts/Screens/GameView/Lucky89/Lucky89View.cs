@@ -542,9 +542,9 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
                 dp.cardCodes.Add(card);
                 if (card > 0) needDistributeCards = true;
             }
-
             dataPlayers.Add(dp);
         }
+        thisPlayerView = getPlayerView(thisPlayer);
         if (needDistributeCards)
         {
             foreach (DataPlayer dp in dataPlayers)
@@ -564,6 +564,14 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
                 if (pv.isBanker)
                 {
                     pv.ShowIconBanker(true, gameRemaining);
+                }
+                if (thisPlayerView == pv)
+                {
+                    listCodeCard = dp.cardCodes;
+                    for (int i = 0; i < dp.cardCodes.Count; i++)
+                    {
+                        listCardBig[i].setTextureWithCode(dp.cardCodes[i]);
+                    }
                 }
             }
         }
@@ -642,7 +650,10 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
             {
                 m_BeginSG.gameObject.SetActive(false);
             };
-            stateGame = STATE_GAME.PLAYING;
+            if (stateGame != STATE_GAME.VIEWING)
+            {
+                stateGame = STATE_GAME.PLAYING;
+            }
         }
         else
         {
@@ -667,13 +678,14 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
     Tweener countdownTextTween;
     const string ACTION_DELAY_ID = "ActionDelay";
     const string ACTION_SHOW_ID = "ActionShow";
-    void RunCountDownTimeAction(float timeCountDown, int sessionId)
+    Coroutine coroutine;
+    void RunCountDownTimeAction(float timeCountDown)
     {
         countdownFillTween?.Kill(false);
         countdownTextTween?.Kill(false);
 
         imageTimeActionRemain.fillAmount = 1f;
-
+        textTimeActionCountDown.gameObject.SetActive(true);
         int lastSecond = Mathf.CeilToInt(timeCountDown);
         textTimeActionCountDown.text = lastSecond.ToString();
 
@@ -701,12 +713,18 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
             {
                 countdownFillTween?.Kill(false);
                 countdownTextTween?.Kill(false);
-                if (sessionId != actionSessionId) return;
+                // if (sessionId != actionSessionId) return;
                 textTimeActionCountDown.text = "0";
-                DisablePanelAction();
+                textTimeActionCountDown.gameObject.SetActive(false);
             });
+        coroutine = StartCoroutine(WaitForDisablePanelAction(timeCountDown));
     }
 
+    IEnumerator WaitForDisablePanelAction(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        DisablePanelAction();
+    }
     IEnumerator ShowBetOption(bool isShow = true)
     {
         if (stateGame != STATE_GAME.PLAYING)
@@ -857,9 +875,12 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
             else if (score == 9) score = (int)SCORE.LUCKY_9;
 
             pvl89.isLucky = score >= (int)SCORE.LUCKY_8;
-            pvl89
-                .ShowRate(rate)
-                .ShowScore(true, score, dataCards.Count, rate);
+            if (pvl89 != thisPlayerView)
+            {
+                pvl89
+                    .ShowRate(rate)
+                    .ShowScore(true, score, dataCards.Count, rate);
+            }
 
             pvl89.ShowAnimWaitOpenCard(false);
 
@@ -1082,7 +1103,10 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
         }
         if (thisPlayerView != null && thisPlayerView.isBanker)
         {
-            ShowPanelAction(data, 0f, isDisableButtonDeclare3Card);
+            if (actionSessionId == 0)
+            {
+                ShowPanelAction(data, 0f, isDisableButtonDeclare3Card);
+            }
         }
         else
         {
@@ -1159,33 +1183,23 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
             StopCoroutine(detectSwipeCoroutine);
 
         detectSwipeCoroutine = StartCoroutine(DelaySwipe());
-        RunCountDownTimeAction(timeAction, actionSessionId);
+        RunCountDownTimeAction(timeAction);
     }
 
     private IEnumerator DelaySwipe()
     {
-        yield return new WaitForSeconds(0.5f);
         yield return DetectSwipe(true);
     }
     private void ShowPanelAction(JObject data, float timeDelay, bool isDisableButtonDeclare3Card = false)
     {
         if (!data.ContainsKey("timeAction")) return;
         if (stateGame != STATE_GAME.PLAYING) return;
-        actionSessionId++;
-        int session = actionSessionId;
-        DOTween.Kill(ACTION_DELAY_ID, false);
-        DOTween.Kill(ACTION_SHOW_ID, false);
-        countdownFillTween?.Kill(false);
-        countdownTextTween?.Kill(false);
 
         float timeAction = (getFloat(data, "timeAction") / 1000f) - timeDelay;
         if (timeAction <= 0.1f) return;
 
         DOVirtual.DelayedCall(timeDelay, () =>
         {
-            if (session != actionSessionId) return;
-
-            // ===== SHOW PANEL =====
             panelAction.SetActive(true);
 
             imageCardRotate.gameObject.SetActive(true);
@@ -1194,30 +1208,36 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
             imageCardRotate.transform
                 .DORotate(new Vector3(0, 90, 0), 0.5f)
                 .SetEase(Ease.InQuad)
-                .SetId(ACTION_SHOW_ID)
                 .OnComplete(() =>
                 {
-                    if (session != actionSessionId) return;
+                    parentCardBig.transform.localPosition = Vector3.zero;
+                    parentCardBig.transform.localScale = Vector3.one;
                     imageCardRotate.gameObject.SetActive(false);
+                    for (int i = 0; i < listCodeCard.Count; i++)
+                    {
+                        listCardBig[i].gameObject.SetActive(true);
+                    }
+                    for (int i = 0; i < listCardBig.Count; i++)
+                    {
+                        listCardBig[i].transform.localPosition = new Vector3(0f, 120f, 0f);
+                        listCardBig[i].transform.localRotation = Quaternion.Euler(new Vector3(0, 90, 0));
+                        listCardBig[i].transform.DORotate(Vector3.zero, 0.5f)
+                        .SetEase(Ease.Linear)
+                        .OnComplete(() =>
+                        {
+                            animHand.Initialize(true);
+                            animHand.gameObject.SetActive(true);
+                        });
+                    }
                 });
-
-            // Reset buttons
             buttonDone.gameObject.SetActive(false);
             buttonDraw.gameObject.SetActive(false);
             buttonNotDraw.gameObject.SetActive(false);
             buttonDeclare3Card.gameObject.SetActive(false);
+            StartCoroutine(DetectSwipe(thisPlayerView.isLucky, false, isDisableButtonDeclare3Card));
+            RunCountDownTimeAction(timeAction);
 
-            // Detect swipe
-            DOVirtual.DelayedCall(0.5f, () =>
-            {
-                if (session != actionSessionId) return;
-                StartCoroutine(DetectSwipe(thisPlayerView.isLucky, false, isDisableButtonDeclare3Card));
-            });
-
-            // ===== START COUNTDOWN =====
-            RunCountDownTimeAction(timeAction, session);
-
-        }).SetId(ACTION_DELAY_ID);
+        });
     }
     private void ActionDrawCard()
     {
@@ -1277,6 +1297,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
 
     private void DisablePanelAction()
     {
+        StopCoroutine(coroutine);
         countdownFillTween?.Kill(false);
         countdownTextTween?.Kill(false);
         DOTween.Kill(ACTION_SHOW_ID, false);
@@ -1299,6 +1320,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
 
     IEnumerator DetectSwipe(bool bankerLucky = false, bool isDrawCard = false, bool isDisableButtonDeclare3Card = false)
     {
+        yield return new WaitForSeconds(0.5f);
         isTrackingSwipe = true;
         float minSwipeDistance = 50f;
         if (isDrawCard)
@@ -1410,9 +1432,6 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
 
         IEnumerator handleData()
         {
-            // HandleData.DelayHandleLeave = 5f;
-            stateGame = STATE_GAME.WAITING;
-
             List<Action> playerWinCbs = new(), playerLoseCbs = new();
             Action finalDealerCb = null;
             Player bankerPlayer = null;
@@ -1499,6 +1518,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
     }
     private void _HandleFinishGame(JObject data)
     {
+        actionSessionId = 0;
         if (panelAction.activeSelf)
         {
             DisablePanelAction();

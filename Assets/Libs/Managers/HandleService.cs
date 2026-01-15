@@ -444,6 +444,14 @@ public class HandleService
                         //Global.LobbyView.recivceData(jsonData);
                         break;
                     }
+                case "jackpotwin":
+                    {
+                        if (BinhGameView.instance != null)
+                        {
+                            BinhGameView.instance._HandleAnimJackpot(jsonData);
+                        }
+                        break;
+                    }
                 case "roomVip":
                     //cc.NGWlog("---------------------------------------------> hanlde data roomVip");
                     //if (!jsonData.data) return;
@@ -849,11 +857,11 @@ public class HandleService
                     //    GameManager.getInstance().handleJackPot(jsonData);
                     //}
                     break;
-                case "jackpotwin":
-                    {
-                        //GameManager.getInstance().handleJackPotWin(jsonData);
-                        break;
-                    }
+                // case "jackpotwin":
+                //     {
+                //         //GameManager.getInstance().handleJackPotWin(jsonData);
+                //         break;
+                //     }
                 case "updatejackpot":
                     {
                         //GameManager.getInstance().handleUpdateJackPot(jsonData);
