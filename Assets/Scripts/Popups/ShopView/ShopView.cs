@@ -29,7 +29,7 @@ public class ShopView : BaseView
         if (UIManager.instance.gameView == null)
         {
             CURRENT_VIEW.setCurView(CURRENT_VIEW.PAYMENT);
-            SocketIOManager.getInstance().emitSIOCCCNew(Config.formatStr("ClickShop_%s", CURRENT_VIEW.getCurrentSceneName()));
+            // SocketIOManager.getInstance().emitSIOCCCNew(Config.formatStr("ClickShop_%s", CURRENT_VIEW.getCurrentSceneName()));
         }
         instance = this;
         if (!Config.infoChip.Equals("")) LoadConfig.instance.getInfoShop(updateInfo, () => updateInfo(dataDefault));

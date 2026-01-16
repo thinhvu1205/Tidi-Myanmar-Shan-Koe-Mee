@@ -138,6 +138,11 @@ public class BannerView : BaseView
                                     urlOpen = urlOpen.Replace("%username%", UIManager.instance.loginView.accPlayNow);
                                     urlOpen = urlOpen.Replace("%password%", UIManager.instance.loginView.passPlayNow);
                                 }
+                                if (urlOpen.Contains("%uid%"))
+                                {
+                                    urlOpen = urlOpen.Replace("%uid%", User.userMain.Userid.ToString());
+                                    urlOpen = urlOpen.Replace("vip=1", $"vip={User.userMain.VIP.ToString()}");
+                                }
                                 Application.OpenURL(urlOpen);
                                 break;
                             }
@@ -161,6 +166,7 @@ public class BannerView : BaseView
                         case "pm":
                             {
                                 UIManager.instance.openShop((string)dtBtn["titlePM"]);
+                                Debug.Log($"Title PM: {(string)dtBtn["titlePM"]}");
                                 break;
                             }
                         case "playnow":
