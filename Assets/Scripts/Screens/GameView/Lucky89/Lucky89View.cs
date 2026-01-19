@@ -861,15 +861,18 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
                 playerP == null ? m_DealerPVL89 : (PlayerViewLucky89)playerP.playerView;
 
             if (pvl89 == null) yield break;
-            List<Card> cardCs = pvl89.GetListCards();
-            for (int i = 0; i < cardCs.Count && i < dataCards.Count; i++)
+            if (pvl89 != thisPlayerView)
             {
-                cardCs[i].setTextureWithCode((int)dataCards[i]);
-                _RevealACard(
-                    cardCs[i],
-                    (int)dataCards[i],
-                    cardCs[i].transform.localEulerAngles
-                );
+                List<Card> cardCs = pvl89.GetListCards();
+                for (int i = 0; i < cardCs.Count && i < dataCards.Count; i++)
+                {
+                    cardCs[i].setTextureWithCode((int)dataCards[i]);
+                    _RevealACard(
+                        cardCs[i],
+                        (int)dataCards[i],
+                        cardCs[i].transform.localEulerAngles
+                    );
+                }
             }
             if (score == 8) score = (int)SCORE.LUCKY_8;
             else if (score == 9) score = (int)SCORE.LUCKY_9;
@@ -1192,8 +1195,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
     }
     private void ShowPanelAction(JObject data, float timeDelay, bool isDisableButtonDeclare3Card = false)
     {
-        if (!data.ContainsKey("timeAction")) return;
-        if (stateGame != STATE_GAME.PLAYING) return;
+        if (!data.ContainsKey("timeAction") || stateGame != STATE_GAME.PLAYING) return;
 
         float timeAction = (getFloat(data, "timeAction") / 1000f) - timeDelay;
         if (timeAction <= 0.1f) return;
@@ -1540,7 +1542,10 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
         IEnumerator handleData()
         {
             HandleData.DelayHandleLeave = 5f;
-            stateGame = STATE_GAME.WAITING;
+            if (stateGame != STATE_GAME.VIEWING)
+            {
+                stateGame = STATE_GAME.WAITING;
+            }
 
             List<Action> playerWinCbs = new(), playerLoseCbs = new();
             Action finalDealerCb = null;
