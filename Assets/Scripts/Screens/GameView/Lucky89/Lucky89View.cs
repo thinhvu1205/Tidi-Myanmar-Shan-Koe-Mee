@@ -168,6 +168,11 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
                 Debug.Log($"Tinh=))tip: {jData.ToString(Newtonsoft.Json.Formatting.None)}");
                 HandlerTip(jData);
                 break;
+            case "banker_old_update":
+                Debug.Log($"Tinh=))banker_old_update: {jData.ToString(Newtonsoft.Json.Formatting.None)}");
+                thisPlayer.ag = (long)jData["ag"];
+                thisPlayer.setAg();
+                break;
         }
     }
     public override void setGameInfo(int m, int id = 0, int maxBett = 0)
@@ -616,6 +621,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
                 playerView.ShowIconBanker(false);
             }
         }
+        SocketSend.sendUAG();
     }
     private void _HandleStartGame(JObject data)
     {
