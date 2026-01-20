@@ -149,6 +149,7 @@ public class SocketIOManager
                     {
                         if (HandleData.DelayHandleLeave > 0) await Task.Delay((int)(HandleData.DelayHandleLeave + 0.5f) * 1000); //delay thêm 0.5s cho chắc
                         JArray arrData = (JArray)data["data"];
+                        Debug.Log($"DataBanner: {data.ToString()}");
                         JArray arrOnlistFalse = new(), arrOnlistTrue = new(), arrBannerLobby = new();
                         for (int i = 0; i < arrData.Count; i++)
                         {

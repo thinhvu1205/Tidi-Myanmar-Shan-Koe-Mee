@@ -22,23 +22,24 @@ public class ItemHistoryEx : MonoBehaviour
 
     public void setInfo(JObject _dataItem, int chip)
     {
-        //    {
-        //        "id": 1,
-        //  "CashValue": 50.0,
-        //  "GcashId": "123",
-        //  "typeName": "Gcash",
-        //  "CreateTime": 1621239907437,
-        //  "status": 2
-        //}
+        //   dataItem:{
+        //   "id": 2073,
+        //   "CashValue": 2000.0,
+        //   "walletId": "09668975483",
+        //   "typeName": "Kbz",
+        //   "CreateTime": 1768897534440,
+        //   "status": 2
+        // }
+        Debug.Log("dataItem:" + _dataItem.ToString());
         dataItem = _dataItem;
         DateTime time_ = new DateTime(1970, 1, 1).AddMilliseconds((double)dataItem["CreateTime"]);
         time_ = time_.ToLocalTime();
         txtTime.text = addZero(time_.Day) + "/" + addZero(time_.Month) + "/" + time_.Year + "\n" + addZero(time_.Hour) + ":" + addZero(time_.Minute);
         int cash = (int)dataItem["CashValue"];
         txtAmount.text = Globals.Config.FormatNumber(cash);
-        txtPrice.text = Globals.Config.FormatNumber(cash * 20000); // sv bảo fix rate là 20000
+        txtPrice.text = Globals.Config.FormatNumber(cash);
         //Debug.Log("txtPrice:" + chip);
-        this.txtMobile.text = (string)dataItem["GcashId"];
+        this.txtMobile.text = (string)dataItem["walletId"];
 
         if (txtMobile.text.Length > 15)
             txtMobile.text = txtMobile.text.Substring(0, 12) + "...";

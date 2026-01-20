@@ -44,6 +44,7 @@ public class ExchangeView : BaseView
             m_PhoneIF.text = "";
             m_ConfirmPhoneIF.text = "";
             SocketSend.sendCashOut(value, phoneNumber, typeName);
+            Debug.Log($"onConfirmCashOut: value={value}, typeName={typeName}, phoneNumber={phoneNumber}");
             UIManager.instance.showWaiting();
         }
     }
@@ -146,7 +147,7 @@ public class ExchangeView : BaseView
         {
             await genTabTop((JArray)objData["child"]);
         }
-        DoClickButton(go, objData);
+        // DoClickButton(go, objData);
     }
 
 
@@ -310,7 +311,6 @@ public class ExchangeView : BaseView
             if (tabNamesJA.Count > indexTabNap)
                 typeTabHistory = (string)(tabNamesJA[indexTabNap]["TypeName"] ?? tabNamesJA[indexTabNap]["title"]);
         }
-
         curDataTabNap = dataItem;
         if (listDataHis.Count > 0)
         {
@@ -341,6 +341,7 @@ public class ExchangeView : BaseView
 
     void DoClickButton(GameObject obj, JObject objDataItem)
     {
+        Debug.Log($"Tinh=)) ObjDataItem: {objDataItem}");
         SoundManager.instance.soundClick();
 
         GameObject rewardGo = m_RewardTMP.transform.parent.gameObject;
@@ -387,6 +388,7 @@ public class ExchangeView : BaseView
 
     void reloadListItem(JObject objDataItem)
     {
+        Debug.Log($"Tinh=)) ObjDataItem: {objDataItem}");
         if (objDataItem == null) return;
 
         JArray items = new JArray();

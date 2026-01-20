@@ -247,8 +247,8 @@ public class SocketSend
         data["evt"] = "getgift";
         data["Id"] = Globals.User.userMain.Userid;
         data["CashValue"] = value;
-        data["GcashId"] = wingId;
-        data["TypeName"] = typeName;
+        data["WingId"] = wingId;
+        data["type"] = typeName;
         Debug.Log("Send Cashout:" + data.ToString());
         WebSocketManager.getInstance().sendService(data.ToString(Newtonsoft.Json.Formatting.None));
     }
