@@ -98,13 +98,19 @@ public class MicrophoneRecorder : MonoBehaviour
 #endif
         if (!HasMicPermission())
             return;
+
         var devices = Microphone.devices;
         if (devices == null || devices.Length == 0)
-        {
             return;
-        }
 
         _MicDevice = devices[0];
+
+        // Reset & Start Stopwatch
+        testSW.Reset();
+        testSW.Start();
+
+        // Lưu thời điểm bắt đầu
+        _StartTime = Time.realtimeSinceStartup;
 
         // Bắt đầu Coroutine
         if (_RecordingC != null)
@@ -112,6 +118,7 @@ public class MicrophoneRecorder : MonoBehaviour
 
         _RecordingC = StartCoroutine(_Recording());
     }
+
 
 
 
@@ -125,14 +132,17 @@ public class MicrophoneRecorder : MonoBehaviour
     private void _EndRecording()
     {
         Microphone.End(_MicDevice);
+
+        if (testSW.IsRunning)
+            testSW.Stop();
+
         _MicAC = _TrimAudioClip();
         m_RecordingTimeTMPUI.gameObject.SetActive(false);
-
     }
+
     public void ResetRecordingState()
     {
 #if UNITY_ANDROID
-        // Nếu không có quyền → TUYỆT ĐỐI KHÔNG gọi bất kỳ Microphone API nào
         if (!HasMicPermission())
         {
             if (_RecordingC != null) StopCoroutine(_RecordingC);
@@ -169,7 +179,11 @@ public class MicrophoneRecorder : MonoBehaviour
             m_DataAS.clip = null;
         }
 
-        testSW?.Reset();
+        if (testSW != null)
+        {
+            testSW.Reset();
+        }
+
     }
     private AudioClip _TrimAudioClip()
     {
@@ -208,6 +222,7 @@ public class MicrophoneRecorder : MonoBehaviour
         else _OnEndRecordingCb.Invoke();
         _IsRecording = false;
     }
+
 
     private void Start()
     {

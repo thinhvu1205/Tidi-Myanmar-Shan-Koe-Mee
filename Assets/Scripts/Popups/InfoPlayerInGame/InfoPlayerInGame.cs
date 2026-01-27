@@ -13,10 +13,12 @@ public class InfoPlayerInGame : BaseView
 
     [SerializeField] VipContainer vipContainer;
     [SerializeField] private GameObject m_ActionButtons;
+    [SerializeField] private GameObject m_AddFriend;
     private bool blockSpamTabGame = false;
     Player player;
     async public void setInfo(Player _player, bool showActionButtons = true)
     {
+
         m_ActionButtons.SetActive(showActionButtons);
         player = _player;
         //pname = (string)jsonData["name"];
@@ -50,6 +52,18 @@ public class InfoPlayerInGame : BaseView
         avatar.loadAvatarAsync(player.avatar_id, txtName.text, player.fid);
         vipContainer.setVip(player.vip);
         avatar.setVip(player.vip);
+        Debug.Log("xem là có cái id đó ko " + Globals.COMMON_DATA.IdFriend.Contains(player.id));
+        m_AddFriend.SetActive(player.id != Globals.User.userMain.Userid && player.vip >= 2 && !Globals.COMMON_DATA.IdFriend.Contains(player.id) && !Globals.COMMON_DATA.IdRequestFriend.Contains(player.id) && !Globals.COMMON_DATA.IdInviteFriend.Contains(player.id));
+        Debug.Log("check var, checker var" + (player.id != Globals.User.userMain.Userid) + " " + (player.vip >= 2) + " " + (!Globals.COMMON_DATA.IdFriend.Contains(player.id)) + " " + (!Globals.COMMON_DATA.IdRequestFriend.Contains(player.id)) + " " + (!Globals.COMMON_DATA.IdInviteFriend.Contains(player.id)));
+    }
+    public void onClickRequestAddFriend()
+    {
+        SocketSend.sendRequestAddFriend(player.id);
+        DOVirtual.DelayedCall(0.5f, () =>
+        {
+            m_AddFriend.SetActive(false);
+        });
+
     }
 
     public void onClickChatAction(int action)

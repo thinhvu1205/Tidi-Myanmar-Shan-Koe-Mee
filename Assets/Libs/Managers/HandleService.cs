@@ -1134,6 +1134,193 @@ public class HandleService
                         Globals.COMMON_DATA.ListChatWorld = JArray.Parse((string)jsonData["data"]);
                         break;
                     }
+
+                case "friend_list":
+                    Globals.COMMON_DATA.JsonDataFriend = jsonData;
+                    Globals.COMMON_DATA.CloseFriend.Clear();
+                    Globals.COMMON_DATA.BestFriend.Clear();
+                    Globals.COMMON_DATA.Soulmate.Clear();
+                    Globals.COMMON_DATA.Friend.Clear();
+                    Globals.COMMON_DATA.IdFriend.Clear();
+                    Globals.COMMON_DATA.IdInviteFriend.Clear();
+                    Globals.COMMON_DATA.IdRequestFriend.Clear();
+                    JArray rawList = (JArray)jsonData["listFriend"];
+                    JArray ListInvited = (JArray)jsonData["listInvite"];
+                    JArray ListRequest = (JArray)jsonData["listRequest"];
+                    foreach (var item in ListRequest)
+                    {
+                        long userId = (long)item["userid"];
+                        if (!Globals.COMMON_DATA.IdRequestFriend.Contains(userId))
+                        {
+                            Globals.COMMON_DATA.IdRequestFriend.Add(userId);
+                        }
+
+                    }
+                    foreach (var item in ListInvited)
+                    {
+                        long userId = (int)item["userid"];
+                        if (!Globals.COMMON_DATA.IdInviteFriend.Contains(userId))
+                        {
+                            Globals.COMMON_DATA.IdInviteFriend.Add(userId);
+                        }
+                    }
+                    foreach (var item in rawList)
+                    {
+                        long userId = (long)item["userId"];
+                        if (!Globals.COMMON_DATA.IdFriend.Contains(userId))
+                        {
+                            Globals.COMMON_DATA.IdFriend.Add(userId);
+                        }
+                        string friendLevel = (string)item["friendLevel"];
+                        switch (friendLevel)
+                        {
+                            case "Friend":
+                                if (!Globals.COMMON_DATA.Friend.Contains(userId))
+                                {
+                                    Globals.COMMON_DATA.Friend.Add(userId);
+                                }
+
+                                break;
+                            case "CloseFriend":
+                                if (!Globals.COMMON_DATA.CloseFriend.Contains(userId))
+                                {
+                                    Globals.COMMON_DATA.CloseFriend.Add(userId);
+                                }
+
+                                break;
+                            case "BestFriend":
+                                if (!Globals.COMMON_DATA.BestFriend.Contains(userId))
+                                {
+                                    Globals.COMMON_DATA.BestFriend.Add(userId);
+                                }
+
+                                break;
+                            case "SoulMate":
+                                if (!Globals.COMMON_DATA.Soulmate.Contains(userId))
+                                {
+                                    Globals.COMMON_DATA.Soulmate.Add(userId);
+                                }
+
+                                break;
+                        }
+                    }
+                    if (ScreenFriendView.instance != null && ScreenFriendView.instance.gameObject.activeSelf)
+                    {
+                        ScreenFriendView.instance.reloadListFriend();
+                        if (ScreenFriendView.instance.m_PopupInviteFriend.activeSelf)
+                        {
+                            ScreenFriendView.instance.setDataAddMore();
+                        }
+                    }
+
+                    break;
+                case "friend_list_chat":
+                    Globals.COMMON_DATA.JsonDataListChatFriend = (JArray)jsonData["data"];
+                    break;
+                case "friend_chat":
+                    if (ChatFriend.Instance != null && ChatFriend.Instance.gameObject.activeSelf)
+                    {
+                        ChatFriend.Instance.setInfo(null, true, jsonData);
+                    }
+                    break;
+                case "upgrade_Friend":
+                    SocketSend.getListFriend();
+                    UIManager.instance.showMessageBox((string)jsonData["msg"]);
+                    break;
+                case "Friend_Delete":
+                    SocketSend.getListFriend();
+                    UIManager.instance.showMessageBox((string)jsonData["msg"]);
+                    break;
+                case "friend_chat_detail":
+                    if (ChatFriend.Instance != null && ChatFriend.Instance.gameObject.activeSelf)
+                    {
+                        ChatFriend.Instance.setInfo(jsonData, false, null);
+                    }
+                    break;
+                case "make_Friend_delete":
+                    SocketSend.getListFriend();
+                    if ((bool)jsonData["status"])
+                    {
+                        UIManager.instance.showMessageBox("Delete Friend success");
+                    }
+                    else
+                    {
+                        UIManager.instance.showMessageBox("Delete Friend failure");
+                    }
+                    break;
+                case "make_Friend_Response":
+                    SocketSend.getListFriend();
+                    UIManager.instance.showMessageBox((string)jsonData["msg"]);
+                    break;
+                case "Gift_shop":
+                    if (ListGift.instance != null && ListGift.instance.gameObject.activeSelf)
+                    {
+                        ListGift.instance.SetInfoListData((JArray)jsonData["data"]);
+                    }
+                    break;
+                case "Gift_Item":
+                    if (jsonData.ContainsKey("msg"))
+                    {
+                        SocketSend.SendFriendNotification();
+                        SocketSend.getListFriend();
+                        SocketSend.sendUAG();
+                        UIManager.instance.showMessageBox((string)jsonData["msg"]);
+                    }
+                    break;
+                case "Gift_Chip":
+                    if (jsonData.ContainsKey("msg"))
+                    {
+                        UIManager.instance.showMessageBox((string)jsonData["msg"]);
+                    }
+                    break;
+                case "downgrade_Friend":
+                    SocketSend.getListFriend();
+                    if (jsonData.ContainsKey("msg"))
+                    {
+                        UIManager.instance.showMessageBox((string)jsonData["msg"]);
+                    }
+                    break;
+                case "friend_notification":
+                    JArray Noti = (JArray)jsonData["data"];
+                    Globals.COMMON_DATA.ListDataNotiFriend.Clear();
+                    Globals.COMMON_DATA.ListDataNotiFriendUnread.Clear();
+                    for (int i = 0; i < Noti.Count; i++)
+                    {
+                        Globals.COMMON_DATA.ListDataNotiFriend.Add((JObject)Noti[i]);
+                        if (!(bool)((JObject)Noti[i])["S"])
+                        {
+                            Globals.COMMON_DATA.ListDataNotiFriendUnread.Add((JObject)Noti[i]);
+                        }
+                    }
+                    if (ScreenFriendView.instance != null && ScreenFriendView.instance.gameObject.activeSelf)
+                    {
+                        ScreenFriendView.instance.setOnNoti();
+                    }
+                    if (Notification.instance != null && Notification.instance.gameObject.activeSelf)
+                    {
+                        Notification.instance.setListNoti();
+                    }
+                    break;
+                case "Transfer_Info":
+
+                    if (jsonData.ContainsKey("chip"))
+                    {
+                        if (SendChip.instance != null && SendChip.instance.gameObject.activeSelf)
+                        {
+                            SendChip.instance.setLastCount((int)jsonData["times"], (long)jsonData["chip"]);
+                        }
+                    }
+                    break;
+                case "ServiceTransportPacket":
+
+                    if (jsonData.ContainsKey("msg"))
+                    {
+                        SocketSend.sendUAG();
+                        UIManager.instance.showMessageBox((string)jsonData["msg"]);
+                    }
+
+                    break;
+
             }
         }
         else if (jsonData.ContainsKey("idevt"))

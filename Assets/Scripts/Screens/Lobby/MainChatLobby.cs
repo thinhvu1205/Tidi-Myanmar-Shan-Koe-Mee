@@ -163,8 +163,8 @@ public class ChatWorldLobbyData
     public string Content { get; set; }
     public int Vip { get; set; }
     public int Avatar { get; set; } = -1;
-    public int ID { get; set; }
-    public int FaceID { get; set; }
+    public long ID { get; set; }
+    public long FaceID { get; set; }
     public string Time { get; set; }
     public bool IsAudio { get; set; }
 }

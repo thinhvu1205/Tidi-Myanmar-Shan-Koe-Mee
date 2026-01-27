@@ -385,7 +385,18 @@ public class LoadConfig : MonoBehaviour
         {
             Config.u_SIO = "";
         }
-
+        if (jConfig.ContainsKey("ruleReferral"))
+        {
+            string link = (string)jConfig["ruleReferral"];
+            if (!link.StartsWith("https://")) link = "https://" + link;
+            Config.linkRuleFriend = link;
+        }
+        if (jConfig.ContainsKey("RuleFortuneGift "))
+        {
+            string link = (string)jConfig["RuleFortuneGift "];
+            if (!link.StartsWith("https://")) link = "https://" + link;
+            Config.RuleFortuneGift = link;
+        }
         if (jConfig.ContainsKey("avatar_fb"))
             Config.avatar_fb = (string)jConfig["avatar_fb"];
         if (jConfig.ContainsKey("name_fb"))

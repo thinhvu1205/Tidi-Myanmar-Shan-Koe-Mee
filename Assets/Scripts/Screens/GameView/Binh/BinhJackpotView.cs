@@ -84,7 +84,7 @@ public class BinhJackpotView : BaseView
 
             long epochTime = (long)dataPl["timeWin"];
             DateTimeOffset dateTimeOffset = DateTimeOffset.FromUnixTimeMilliseconds(epochTime);
-            DateTime dateTime = dateTimeOffset.DateTime;
+            DateTime dateTime = dateTimeOffset.LocalDateTime;
             item.transform.Find("textTime").GetComponent<TextMeshProUGUI>().text = dateTime.ToString();
             item.transform.Find("textPlayer").GetComponent<TextMeshProUGUI>().text
                 = ObjectParse.getString(dataPl, "username");

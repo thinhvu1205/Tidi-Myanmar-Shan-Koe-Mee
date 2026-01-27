@@ -14,6 +14,7 @@ public class ItemChat : MonoBehaviour
     private const float MIN_WIDTH = 100f;
     private const float DEFAULT_MAX_WIDTH = 400f;
     private const float LOBBY_MAX_WIDTH = 800f;
+    private const float CHAT_FRIEND = 650f;
 
     [SerializeField] private TextMeshProUGUI m_NamePeopleR;
     [SerializeField] private TextMeshProUGUI m_MessageR;
@@ -35,6 +36,7 @@ public class ItemChat : MonoBehaviour
     private ChatWorldLobbyData _DataCWLD;
     private AudioSource _AudioAS;
     public bool isLobby = true;
+    public bool isChatFriend = false;
 
     // playback state
     private bool _isPlaying = false;
@@ -59,6 +61,7 @@ public class ItemChat : MonoBehaviour
         float textWidth = messageText.preferredWidth;
 
         float maxWidth = isLobby ? LOBBY_MAX_WIDTH : DEFAULT_MAX_WIDTH;
+        maxWidth = isChatFriend ? CHAT_FRIEND : maxWidth;
         float finalWidth = Mathf.Clamp(textWidth + PADDING, MIN_WIDTH, maxWidth);
 
         messageText.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, finalWidth);
@@ -69,10 +72,10 @@ public class ItemChat : MonoBehaviour
         RectTransform frameRect = frameContent.GetComponent<RectTransform>();
         if (frameRect != null)
         {
-            frameRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, finalWidth + PADDING * 6);
-            frameRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, finalHeight + PADDING);
-            height = finalHeight + PADDING;
-            width = finalWidth + PADDING * 6;
+            frameRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, isChatFriend ? finalWidth + PADDING * 2 : finalWidth + PADDING * 6);
+            frameRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, isChatFriend ? finalHeight : finalHeight + PADDING);
+            height = isChatFriend ? finalHeight : finalHeight + PADDING;
+            width = isChatFriend ? finalWidth + PADDING * 2 : finalWidth + PADDING * 6;
         }
     }
 

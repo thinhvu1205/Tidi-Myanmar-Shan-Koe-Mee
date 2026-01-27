@@ -446,6 +446,10 @@ public class LobbyView : BaseView
         Logging.LogWarning("arrOnlistTrue  " + Config.arrOnlistTrue.ToString());
         btnBannerNews.SetActive(isShow);
     }
+    public void showMenuFriend()
+    {
+        UIManager.instance.showMenuFriend();
+    }
     public void onClickNext()
     {
         m_GamesSR.DOHorizontalNormalizedPos(1.0f, 0.2f).SetEase(Ease.OutSine);

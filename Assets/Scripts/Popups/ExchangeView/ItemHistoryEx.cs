@@ -36,8 +36,17 @@ public class ItemHistoryEx : MonoBehaviour
         time_ = time_.ToLocalTime();
         txtTime.text = addZero(time_.Day) + "/" + addZero(time_.Month) + "/" + time_.Year + "\n" + addZero(time_.Hour) + ":" + addZero(time_.Minute);
         int cash = (int)dataItem["CashValue"];
+        long chipValue = 100000;
+        if (dataItem.ContainsKey("chipValue"))
+        {
+            chipValue = (long)dataItem["chipValue"];
+        }
+        else
+        {
+            chipValue = cash * 50;
+        }
         txtAmount.text = Globals.Config.FormatNumber(cash);
-        txtPrice.text = Globals.Config.FormatNumber(cash);
+        txtPrice.text = Globals.Config.FormatNumber(chipValue);
         //Debug.Log("txtPrice:" + chip);
         this.txtMobile.text = (string)dataItem["walletId"];
 
