@@ -269,7 +269,9 @@ public class ItemChat : MonoBehaviour
         _DataCWLD = dataCWLD;
         _AudioAS = dataAS;
         // Debug.Log("xem là đoạn audio đó dài bao nhiêu" + dataAS.clip.length);
-        bool isMe = dataCWLD.Name.Equals(User.userMain.displayName);
+        bool isMe = dataCWLD.Name.Equals(User.userMain.displayName) ||
+        dataCWLD.Name.Equals(User.userMain.Username) ||
+        (dataCWLD.ID != 0 && dataCWLD.ID == User.userMain.Userid);
         int avatar = dataCWLD.Avatar;
 
         m_ChatRight.SetActive(isMe);

@@ -3478,15 +3478,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 2811748404010580356}
   BundleLabel: assets--resources--gameview--anim_shankoemee
   AssetName: Assets/Resources/GameView/Anim_ShanKoeMee/Icon_chomobai/skeleton_SkeletonData.asset
   AnimName: red
   SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &3187855548051313421
 GameObject:
   m_ObjectHideFlags: 0
@@ -4427,15 +4422,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 571872180067805691}
   BundleLabel: assets--resources--gameview--anim_shankoemee
   AssetName: Assets/Resources/GameView/Anim_ShanKoeMee/dealer/skeleton_SkeletonData.asset
   AnimName: normal
   SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &4050853803990313555
 GameObject:
   m_ObjectHideFlags: 0
@@ -5373,15 +5363,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 8607982140364479382}
   BundleLabel: assets--resources--gameview--anim_shankoemee
   AssetName: Assets/Resources/GameView/Anim_ShanKoeMee/win/skeleton_SkeletonData.asset
   AnimName: win
   SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &4496690943320944294
 GameObject:
   m_ObjectHideFlags: 0
@@ -5489,15 +5474,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 8223835527260223727}
   BundleLabel: assets--resources--gameview--anim_shankoemee
   AssetName: Assets/Resources/GameView/Anim_ShanKoeMee/shan89/skeleton_SkeletonData.asset
   AnimName: lucky8
   SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &4592109573474244515
 GameObject:
   m_ObjectHideFlags: 0
@@ -6789,15 +6769,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 4606778038802946575}
   BundleLabel: assets--resources--gameview--anim_shankoemee
   AssetName: Assets/Resources/GameView/Anim_ShanKoeMee/Start Game/skeleton_SkeletonData.asset
   AnimName: start
   SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &5196509549172294226
 GameObject:
   m_ObjectHideFlags: 0
@@ -6832,7 +6807,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 916, y: 1488.28}
+  m_SizeDelta: {x: 916, y: 2100}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!1 &5215012004262557767
 GameObject:
@@ -8267,15 +8242,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 7393252503087699841}
   BundleLabel: assets--resources--gameview--anim_shankoemee
   AssetName: Assets/Resources/GameView/Anim_ShanKoeMee/lose/skeleton_SkeletonData.asset
   AnimName: lose
   SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &5763758000362009404
 GameObject:
   m_ObjectHideFlags: 0
@@ -9027,15 +8997,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 8241808230926248803}
   BundleLabel: assets--resources--gameview--anim_shankoemee
   AssetName: Assets/Resources/GameView/Anim_ShanKoeMee/Icon_chomobai/skeleton_SkeletonData.asset
   AnimName: white
   SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &6198015630806482300
 GameObject:
   m_ObjectHideFlags: 0
@@ -9878,15 +9843,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 5103278734973254798}
   BundleLabel: assets--resources--gameview--anim_shankoemee
   AssetName: Assets/Resources/GameView/Anim_ShanKoeMee/bantay/bantay_SkeletonData.asset
   AnimName: animation
   SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &6766350246840539490
 GameObject:
   m_ObjectHideFlags: 0
@@ -12192,30 +12152,32 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Shan 9/ Shan 8\n\n- 2 \u1000\u1012\u1039\u1011\u1032\u1014\u1032\u1094
-    8 \u101E\u102D\u102F\u1094\u1019\u101F\u102F\u1010\u1039 9 points \u101B\u1010\u1032\u1037\u1021\u1001\u102B
-    \u1019\u103A\u102D\u1033\u1038\u1000\u102D\u102F\u1031\u1001\u105A\u1015\u102B\u1010\u101A\u1039\n-
-    \u1000\u1005\u102C\u1038\u101E\u1019\u102C\u1038 \u108F\u103D\u1005\u1039\u1026\u1038
-    points \u1010\u1030\u1031\u1014\u1015\u102B\u1000 \u1000\u1012\u1039\u1021\u1006\u1004\u1037\u1039\u1021\u1014\u102D\u1019\u1037\u1039\u1021\u103B\u1019\u1004\u1037\u1039\u1031\u1015\u105A\u1019\u1030\u1010\u100A\u1039\u103B\u1015\u102E\u1038
-    \u1006\u1036\u102F\u1038\u103B\u1016\u1010\u1039\u1015\u102B\u1010\u101A\u1039\n\nEg:
-    8\u2662J\u2665 (x1) > 4\u26604\u2663 (x2)\n- \u1000\u1012\u1039\u1021\u1006\u1004\u1037\u1039\u1021\u1014\u102D\u1019\u1037\u1039\u1021\u103B\u1019\u1004\u1037\u1039\u1015\u102B\u1010\u1030\u1031\u1014\u1015\u102B\u1000
-    \u1000\u1012\u1039\u1021\u1005\u1036\u102F\u1010\u1030\u100A\u102E\u1019\u1088\u1031\u1015\u105A\u1019\u1030\u1010\u100A\u1039\u107F\u1015\u102E\u1038
-    \u1006\u1036\u102F\u1038\u103B\u1016\u1010\u1039\u1015\u102B\u1010\u101A\u1039
-    \n\nEg: K\u26629\u2662 (x2) >\_ K\u26639\u2665 (x1)\n\n\u1019\u1004\u1039\u1038\u1080\u1000\u102E\u1038\u101E\u1036\u102F\u1038\u1015\u102B\u1038\u1000\u1012\u1039\u1010\u1030\n-
-    \u1010\u1014\u1039\u1016\u102D\u102F\u1038\u1010\u1030 \u1000\u1012\u1039 3 \u1000\u1012\u1039
-    \u101B\u1010\u1032\u1037\u1021\u1001\u102B\u1019\u103A\u102D\u1033\u1038\u1000\u102D\u102F\u1031\u1001\u105A\u1015\u102B\u1010\u101A\u1039\n\u1025\u1015\u1019\u102C:
-    (QQQ) x5 > (999) x5\n\n\u101E\u102C\u1019\u1014\u1039\u1000\u1012\u1039\u1019\u103A\u102C\u1038\n\n-
-    A = 1 ; K,Q,J,10 = 0 ; 9=9 ; ...; 2=2\n\n-\u1000\u1012\u1039\u1005\u102F\u1005\u102F\u1031\u1015\u102B\u1004\u1039\u1038\u1010\u1014\u1039\u1016\u102D\u102F\u1038\u1019\u103A\u102C\u1038\u1010\u1030\u100A\u102E\u1031\u1014\u1015\u102B\u1000
-    \u1000\u1012\u1039\u1021\u1014\u100A\u1039\u1038\u1006\u1036\u102F\u1038\u101E\u1030\u1000
-    \u1021\u108F\u102D\u102F\u1004\u1039\u101B\u1019\u103D\u102C\u103B\u1016\u1005\u1039\u1015\u102B\u1010\u101A\u1039\n\nEg:
-    8\u26658\u2663 (x2) > K\u26623\u26603\u2663\n\n- \u1000\u1012\u1039\u1005\u102F\u1005\u102F\u1031\u1015\u102B\u1004\u1039\u1038\u1010\u1014\u1039\u1016\u102D\u102F\u1038\u101E\u102C\u1019\u1000
-    \u1000\u1012\u1039\u1014\u1036\u1015\u102B\u1010\u1039\u1019\u103A\u102C\u1038\u1015\u102B\u1010\u1030\u1031\u1014\u1015\u102B\u1000
-    \u1000\u1012\u1039\u1021\u1006\u1004\u1037\u1039\u1021\u1014\u102D\u1019\u1037\u1039\u1021\u103B\u1019\u1004\u1037\u1039\u1031\u1015\u105A\u1019\u1030\u1010\u100A\u1039\u103B\u1015\u102E\u1038
-    \u1006\u1036\u102F\u1038\u103B\u1016\u1010\u1039\u1031\u1015\u1038\u1015\u102B\u1010\u101A\u1039
-    \n\nEg:\_ K\u2662Q\u26625\u2662 (x3) > Q\u26633\u26622\u2665\n\n- \u1000\u1012\u1039\u1021\u103B\u1019\u1004\u1037\u1039\u1010\u1030\u107F\u1015\u102E\u1038\u1010\u1014\u1039\u1016\u102D\u102F\u1038\u1010\u1030\u1031\u1014\u1015\u102B\u1000\u101C\u100A\u1039\u1038
-    \u1000\u1012\u1039\u1021\u1005\u1036\u102F\u1031\u1015\u105A\u1019\u1030\u1010\u100A\u1039\u107F\u1015\u102E\u1038\u1006\u1036\u102F\u1038\u103B\u1016\u1010\u1039\u1031\u1015\u1038\u1015\u102B\u1010\u101A\u1039\n 
-    \nEg: Q\u26604\u26653\u2663 > Q\u26635\u26622\u2665\n\n \u2660 > \u2662 > \u2665
-    > \u2663"
+  m_text: "Shan 9/ Shan 8\n\n- \u1021\u1019\u103E\u1010\u103A \u1048 \u101E\u102D\u102F\u1037\u1019\u101F\u102F\u1010\u103A
+    \u1049 \u101B\u101E\u1031\u102C \u1016\u1032 \u1042 \u1001\u103B\u1015\u103A\u104B\n-
+    \u1021\u1019\u103E\u1010\u103A\u1010\u1030\u1014\u1031\u1015\u102B\u1000\u104A
+    \u1021\u1000\u103C\u102E\u1038\u1006\u102F\u1036\u1038\u1016\u1032\u1001\u103B\u1015\u103A\u104F
+    \u1010\u1014\u103A\u1016\u102D\u102F\u1038\u1016\u103C\u1004\u1037\u103A \u1021\u1006\u1004\u1037\u103A\u1001\u103D\u1032\u1001\u103C\u102C\u1038\u1006\u102F\u1036\u1038\u1016\u103C\u1010\u103A\u101E\u100A\u103A\u104B\n\u1025\u1015\u1019\u102C:
+    8\u2662J\u2665 (\u1041 \u1006 \u1014\u102D\u102F\u1004\u103A) > 4\u26604\u2663
+    (\u1042 \u1006 \u1014\u102D\u102F\u1004\u103A)\n- \u1021\u1000\u103C\u102E\u1038\u1006\u102F\u1036\u1038\u1016\u1032\u1001\u103B\u1015\u103A\u104F
+    \u1010\u1014\u103A\u1016\u102D\u102F\u1038 \u1010\u1030\u1014\u1031\u1015\u102B\u1000\u104A
+    \u1021\u1015\u103D\u1004\u1037\u103A\u1016\u103C\u1004\u1037\u103A \u1021\u1006\u1004\u1037\u103A\u1001\u103D\u1032\u1001\u103C\u102C\u1038\u1006\u102F\u1036\u1038\u1016\u103C\u1010\u103A\u101E\u100A\u103A\u104B\n\u1025\u1015\u1019\u102C:
+    K\u26629\u2662 (\u1042 \u1006 \u1014\u102D\u102F\u1004\u103A) > K\u26639\u2665
+    (\u1041 \u1006 \u1014\u102D\u102F\u1004\u103A)\n\n\u101E\u102F\u1036\u1038\u1019\u103B\u102D\u102F\u1038\u1010\u1030\n\n-
+    \u1010\u1014\u103A\u1016\u102D\u102F\u1038\u1010\u1030\u100A\u102E\u101E\u1031\u102C
+    \u1016\u1032 \u1043 \u1001\u103B\u1015\u103A\u104B\n222 < 333 < ... < KKK < AAA\n\u1025\u1015\u1019\u102C:
+    (999) -> \u1045 \u1006 \u1014\u102D\u102F\u1004\u103A\n\n \r\r\n\u101E\u102C\u1019\u1014\u103A\u1016\u1032\u1019\u103B\u102C\u1038\n\r\n-
+    A = 1 ; K,Q,J,10 = 0 ; 9=9 ; ...; 2=2\r\n- \u1021\u1019\u103E\u1010\u103A\u1010\u1030\u1014\u1031\u1015\u102B\u1000\u104A
+    \u1016\u1032\u1021\u1001\u103B\u1015\u103A\u101B\u1031 \u1014\u100A\u103A\u1038\u101E\u1030\u1000
+    \u1021\u1014\u102D\u102F\u1004\u103A\u101B\u101E\u100A\u103A\u104B\r\n\u1025\u1015\u1019\u102C:
+    8\u26658\u2663 (\u1042 \u1006 \u1014\u102D\u102F\u1004\u103A) > K\u26623\u26603\u2663\r\n-
+    \u1021\u1019\u103E\u1010\u103A\u1014\u103E\u1004\u1037\u103A \u1016\u1032\u1021\u1001\u103B\u1015\u103A\u101B\u1031
+    \u1010\u1030\u1014\u1031\u1015\u102B\u1000\u104A \u1021\u1000\u103C\u102E\u1038\u1006\u102F\u1036\u1038\u1016\u1032\u1001\u103B\u1015\u103A\u104F
+    \u1010\u1014\u103A\u1016\u102D\u102F\u1038\u1016\u103C\u1004\u1037\u103A \u1021\u1006\u1004\u1037\u103A\u1001\u103D\u1032\u1001\u103C\u102C\u1038\u1006\u102F\u1036\u1038\u1016\u103C\u1010\u103A\u101E\u100A\u103A\u104B\r\n\u1025\u1015\u1019\u102C:
+    K\u2662Q\u26625\u2662 (\u1043 \u1006 \u1014\u102D\u102F\u1004\u103A) > Q\u26633\u26622\u2665\r\n-
+    \u1016\u1032\u1010\u1014\u103A\u1016\u102D\u102F\u1038\u1019\u103B\u102C\u1038
+    \u1010\u1030\u1014\u1031\u1015\u102B\u1000\u104A \u1021\u1015\u103D\u1004\u1037\u103A\u1016\u103C\u1004\u1037\u103A
+    \u1021\u1006\u1004\u1037\u103A\u1001\u103D\u1032\u1001\u103C\u102C\u1038\u1006\u102F\u1036\u1038\u1016\u103C\u1010\u103A\u101E\u100A\u103A\u104B\r\n\u1025\u1015\u1019\u102C:
+    Q\u26604\u26653\u2663 > Q\u26635\u26622\u2665\n \u2660 > \u2662 > \u2665 > \u2663"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7708e67653374c60af5f1595e949403, type: 2}
   m_sharedMaterial: {fileID: 7800525795003925199, guid: b7708e67653374c60af5f1595e949403, type: 2}
@@ -12254,7 +12216,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: 77.36
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
