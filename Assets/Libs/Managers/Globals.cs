@@ -584,7 +584,7 @@ namespace Globals
         public static bool isVibration = false;
         public static bool invitePlayGame = true;
         public static bool isErrorNet = false;
-        public static string language = "THAI";
+        public static string language = "mm";
         public static bool isReconnect = false;
         public static LOGIN_TYPE typeLogin = LOGIN_TYPE.NORMAL;
         //TODO: sua ServerIp
@@ -1627,7 +1627,7 @@ namespace Globals
         static JObject jsonConfig = null;
         static JObject jsonConfigOff = null;
 
-        public static void loadTextConfig(string lang = "THAI")
+        public static void loadTextConfig(string lang = "mm")
         {
             jsonConfig = null;
             language = PlayerPrefs.GetString("language_client", "");

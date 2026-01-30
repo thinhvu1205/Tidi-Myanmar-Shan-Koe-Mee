@@ -119,7 +119,7 @@ public class WebSocketManager : MonoBehaviour
             UIManager.instance.showLoginScreen(false);
             if (!UserLogout)
             {
-                UIManager.instance.showDialog("You have logged in from another place!", "Confirm");
+                UIManager.instance.showDialog("သင်သည် အခြားနေရာမှ လော့ဂ်အင် ဝင်ရောက်ထားပါသည်!", "အတည်ပြု");
             }
         });
     }

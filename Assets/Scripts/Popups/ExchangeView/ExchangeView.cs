@@ -75,7 +75,7 @@ public class ExchangeView : BaseView
         {
             Transform tf = Instantiate(m_PrefabHistoryTf, m_HistoryTf);
             tf.gameObject.SetActive(true);
-            tf.GetChild(0).GetComponent<TextMeshProUGUI>().text = DateTimeOffset.FromUnixTimeMilliseconds((long)content[i]["time"]).DateTime.ToString("dd/MM/yyyy hh:mm:ss tt");
+            tf.GetChild(0).GetComponent<TextMeshProUGUI>().text = DateTimeOffset.FromUnixTimeMilliseconds((long)content[i]["time"]).LocalDateTime.ToString("dd/MM/yyyy hh:mm:ss tt");
             tf.GetChild(1).GetComponent<TextMeshProUGUI>().text = (string)content[i]["content"];
 
         }
@@ -134,7 +134,7 @@ public class ExchangeView : BaseView
         if (dataCO.Count <= 0) return;
 
         JObject objData = (JObject)dataCO[0];
-        m_RewardTMP.text = ((string)objData["title"]).ToUpper();
+        // m_RewardTMP.text = ((string)objData["title"]).ToUpper();
         GameObject go = m_RewardTMP.transform.parent.gameObject;
         go.GetComponent<Button>().onClick.AddListener(() => DoClickButton(go, objData));
         if (!((string)objData["type"]).Equals("agency"))
@@ -147,7 +147,7 @@ public class ExchangeView : BaseView
         {
             await genTabTop((JArray)objData["child"]);
         }
-        // DoClickButton(go, objData);
+        DoClickButton(go, objData);
     }
 
 
@@ -301,7 +301,7 @@ public class ExchangeView : BaseView
         {
             typeTabHistory = (string)dataItem["TypeName"];
         }
-        else if (dataItem["title"] != null)
+        else if (dataItem["title"] != null && !((string)dataItem["title"]).Equals("reward"))
         {
             typeTabHistory = (string)dataItem["title"];
         }
@@ -397,13 +397,13 @@ public class ExchangeView : BaseView
         Debug.Log("-=-= reloadListItem " + objDataItem.ToString());
         if (objDataItem["TypeName"] != null)
             typeNet = (string)objDataItem["TypeName"];
-        else if (objDataItem["title"] != null)
+        if (objDataItem["title"] != null && ((string)objDataItem["title"]) != "reward")
             typeNet = (string)objDataItem["title"];
-        else if (objDataItem["child"] != null)
+        if (objDataItem["child"] != null)
         {
             JArray tabNamesJA = (JArray)objDataItem["child"];
             if (tabNamesJA.Count > indexTabNap)
-                typeNet = (string)(tabNamesJA[indexTabNap]["TypeName"] ?? tabNamesJA[indexTabNap]["title"]);
+                typeNet = (string)tabNamesJA[indexTabNap]["title"];
         }
 
         bool isAgency = objDataItem.ContainsKey("type") && ((string)objDataItem["type"]).Equals("agency");
@@ -446,11 +446,13 @@ public class ExchangeView : BaseView
         for (var i = 0; i < listDataHis.Count; i++)
         {
             JObject data = listDataHis[i];
+            Debug.Log($"Tinh=)) reloadListItemHistory data: {data}");
             string typeNameItem = "";
             if (data["typeName"] != null) typeNameItem = (string)data["typeName"];
             else if (data["TypeName"] != null) typeNameItem = (string)data["TypeName"];
             else if (data["title"] != null) typeNameItem = (string)data["title"];
             else if (data["type"] != null) typeNameItem = (string)data["type"];
+            Debug.Log($"Tinh=)) typeNameItem: {typeNameItem} // typeTabHistory: {typeTabHistory}");
             if (!string.IsNullOrEmpty(typeTabHistory) && typeNameItem.Equals(typeTabHistory, StringComparison.OrdinalIgnoreCase))
             {
                 GameObject objItem;
@@ -478,61 +480,20 @@ public class ExchangeView : BaseView
     void onChooseCashOut(int ag, int value)
     {
         SoundManager.instance.soundClick();
-        Debug.Log("typenet ==" + typeNet);
-        Debug.Log("Current Tab=" + indexTabNap);
 
         if (Globals.User.userMain.AG < ag)
         {
             UIManager.instance.showMessageBox(Globals.Config.getTextConfig("txt_koduchip"));
-            return;
         }
-
-        popupInput.show();
-
-        if (rewardData != null)
+        else
         {
-            JArray textBox = null;
-            if (rewardData["textBox"] != null && rewardData["textBox"] is JArray)
-            {
-                textBox = (JArray)rewardData["textBox"];
-            }
-            else
-            {
-                if (rewardData != null && rewardData.ContainsKey("child") && rewardData["child"] is JArray)
-                {
-                    JArray childArr = (JArray)rewardData["child"];
-                    if (childArr.Count > indexTabNap && childArr[indexTabNap] is JObject)
-                    {
-                        JObject childObj = (JObject)childArr[indexTabNap];
-                        if (childObj["textBox"] != null && childObj["textBox"] is JArray)
-                        {
-                            textBox = (JArray)childObj["textBox"];
-                        }
-                    }
-                }
-            }
+            popupInput.show();
+            JArray textBox = (JArray)curDataTabNap["textBox"];
+            m_PhoneIF.placeholder.GetComponent<Text>().text =
+                Config.getTextConfig((string)textBox[0]["key_placeHolder"]);
 
-            if (textBox != null && textBox.Count >= 2)
-            {
-                string key1 = (string)textBox[0]["key_placeHolder"];
-                string key2 = (string)textBox[1]["key_placeHolder"];
-                if (indexTabNap == 0)
-                {
-                    m_PhoneIF.placeholder.GetComponent<Text>().text = Config.getTextConfig("ent_WaveId");
-                    m_ConfirmPhoneIF.placeholder.GetComponent<Text>().text = Config.getTextConfig("cnf_WaveId");
-                }
-                else
-                {
-                    m_PhoneIF.placeholder.GetComponent<Text>().text = Config.getTextConfig(key1);
-                    m_ConfirmPhoneIF.placeholder.GetComponent<Text>().text = Config.getTextConfig(key2);
-
-                }
-            }
-            else
-            {
-                m_PhoneIF.placeholder.GetComponent<Text>().text = "Enter ID";
-                m_ConfirmPhoneIF.placeholder.GetComponent<Text>().text = "Confirm ID";
-            }
+            m_ConfirmPhoneIF.placeholder.GetComponent<Text>().text =
+                Config.getTextConfig((string)textBox[1]["key_placeHolder"]);
         }
 
         valueCO = value;

@@ -12,7 +12,10 @@ public class ScreenFriendView : MonoBehaviour
     [SerializeField] private GameObject m_ItemTabScreenFrien;
     [SerializeField] private Transform m_ParentListTab;
     [SerializeField] private ScrollRect m_ScrollContentFriend;
-    [SerializeField] private GameObject m_BtnCancel;
+    [SerializeField] private Button buttonDelete;
+    [SerializeField] private GameObject confirmation;
+    [SerializeField] private TextMeshProUGUI textContentDeleteFriend;
+    [SerializeField] private Button buttonConfirm, buttonCancel, buttonCloseConfirmation;
 
     private JObject FriendData = new JObject();
     private JArray ListTabFriend = new JArray();
@@ -49,7 +52,7 @@ public class ScreenFriendView : MonoBehaviour
         SocketSend.SendFriendNotification();
         //SocketSend.downgrade_Friend(8509775);
         ListTabFriend = new JArray
-{
+    {
     new JObject
     {
         ["name"] = "Friend",
@@ -95,9 +98,52 @@ public class ScreenFriendView : MonoBehaviour
         ReloadListTabFriend();
         m_Sort.onValueChanged.AddListener(OnSelectOption);
         Sort(0);
+        buttonDelete.onClick.AddListener(ClickButtonDeleteFriend);
+        buttonCancel.onClick.AddListener(ClickButtonCancelDeleteFriend);
+        buttonCloseConfirmation.onClick.AddListener(ClickButtonCancelDeleteFriend);
         //0:point
         //1:vip
         //2:status
+    }
+    private void ClickButtonCancelDeleteFriend()
+    {
+        confirmation.SetActive(false);
+    }
+    private void ClickButtonDeleteFriend()
+    {
+        FriendData = Globals.COMMON_DATA.JsonDataFriend;
+        JArray rawList = (JArray)FriendData["listFriend"];
+        long friendId = listFrienDelete[0];
+        string friendName = friendId.ToString();
+        long userId = 0;
+
+        if (rawList != null)
+        {
+            foreach (JObject friend in rawList)
+            {
+                long id = (long)friend["id"];
+
+                if (id == friendId)
+                {
+                    friendName = (string)friend["userName"];
+                    userId = (long)friend["userId"];
+                    break;
+                }
+            }
+        }
+        confirmation.SetActive(true);
+        if (listFrienDelete.Count <= 1)
+        {
+            textContentDeleteFriend.text = $"You are deleting {friendName} ID: {userId} from your Friend List. Please check and confirm your action.";
+        }
+        else
+        {
+            textContentDeleteFriend.text = $"You are deleting {listFrienDelete.Count} Friends from your Friend List.";
+        }
+        if (isTab > 0)
+        {
+            textContentDeleteFriend.text = $"You are Downgrading. Please check and confirm your action.";
+        }
     }
     public void OnClickOpenNoti()
     {
@@ -200,7 +246,7 @@ public class ScreenFriendView : MonoBehaviour
     void OnClickTabFriend(int index)
     {
         listFrienDelete.Clear();
-        m_BtnCancel.SetActive(false);
+        buttonDelete.gameObject.SetActive(false);
         foreach (GameObject itemTab in listTabFriend)
         {
             itemTab.transform.GetChild(1).gameObject.SetActive(false);
@@ -297,7 +343,7 @@ public class ScreenFriendView : MonoBehaviour
     }
     public void setButtonDelete(bool isTrue)
     {
-        m_BtnCancel.SetActive(isTrue);
+        buttonDelete.gameObject.SetActive(isTrue);
         if (isTrue)
         {
             setListenerButtonDelete();
@@ -307,8 +353,8 @@ public class ScreenFriendView : MonoBehaviour
     public void setListenerButtonDelete()
     {
 
-        m_BtnCancel.GetComponent<Button>().onClick.RemoveAllListeners();
-        m_BtnCancel.GetComponent<Button>().onClick.AddListener(() =>
+        buttonConfirm.GetComponent<Button>().onClick.RemoveAllListeners();
+        buttonConfirm.GetComponent<Button>().onClick.AddListener(() =>
         {
             if (isTab == 0)
             {
@@ -324,11 +370,12 @@ public class ScreenFriendView : MonoBehaviour
     public void onClickDelete()
     {
         SocketSend.deleteFriend(listFrienDelete);
-
+        confirmation.SetActive(false);
     }
     public void DowgradeFriend()
     {
         SocketSend.downgrade_Friend(listFrienDelete[0]);
+        confirmation.SetActive(false);
     }
     public void showFortuneGift()
     {

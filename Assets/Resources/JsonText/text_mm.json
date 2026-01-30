@@ -987,8 +987,8 @@
 		"txt_rewards_vip_farm": "\"Vip's Farm\" တွင် ဆုရနိုင်သည်",
 		"txt_pending": "စောင့်ဆိုင်းနေသည်",
 		"txt_4XReward": "ဂိမ်းရွေးချယ်ပြီး <color=#FF0000>4X</color> ဆုနှင့် ပျော်ပါ",
-		"ent_WingId": "Kbz pay ID ထည့်ပါ",
-		"cnf_WingId": "Kbz pay ID အတည်ပြုပါ",
+		"ent_KbzId": "Kbz pay ID ထည့်ပါ",
+		"cnf_KbzId": "Kbz pay ID အတည်ပြုပါ",
 		"ent_WaveId": "Wave ID ထည့်ပါ",
 		"cnf_WaveId": "Wave ID အတည်ပြုပါ"
 	}

@@ -391,9 +391,9 @@ public class LoadConfig : MonoBehaviour
             if (!link.StartsWith("https://")) link = "https://" + link;
             Config.linkRuleFriend = link;
         }
-        if (jConfig.ContainsKey("RuleFortuneGift "))
+        if (jConfig.ContainsKey("ruleFortuneGift"))
         {
-            string link = (string)jConfig["RuleFortuneGift "];
+            string link = (string)jConfig["ruleFortuneGift"];
             if (!link.StartsWith("https://")) link = "https://" + link;
             Config.RuleFortuneGift = link;
         }
