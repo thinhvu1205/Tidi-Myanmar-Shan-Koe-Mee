@@ -1258,7 +1258,7 @@ public class HiloView : GameView
             PlayerViewSicbo playerV = getPlayerView(player);
             if (player == thisPlayer)
             {
-                nodeAniWinLose.transform.parent.SetSiblingIndex(transform.childCount - 2);
+                nodeAniWinLose.transform.parent.SetSiblingIndex(layerPopup.transform.GetSiblingIndex() - 1);
                 if (playerV.agWin > 0)
                 {
                     playSound(SOUND_HILO.WIN);

@@ -819,7 +819,7 @@ public class LobbyView : BaseView
         if (btnLeaderboard != null)
             btnLeaderboard.gameObject.SetActive(Config.listRankGame != null && Config.listRankGame.Count > 0);
         // btnLeaderboard.gameObject.SetActive(isFull);
-
+        Debug.Log($"Config.listRankGame.Count = {Config.listRankGame?.Count ?? 0}");
         if (btnGiftCode != null)
             btnGiftCode.SetActive(Config.ismaqt);
 

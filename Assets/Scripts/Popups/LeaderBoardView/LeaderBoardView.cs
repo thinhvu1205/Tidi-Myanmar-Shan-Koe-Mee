@@ -168,18 +168,29 @@ public class LeaderBoardView : BaseView
     }
     private void countDownTime()
     {
-        long currentTime = DateTimeOffset.Now.ToUnixTimeMilliseconds();
-        long deltaTime = timeRemain - currentTime;
-        string seconds = Math.Floor(((double)(deltaTime / 1000) % 60)) + "";
-        string minutes = Math.Floor(((double)(deltaTime / 1000 / 60) % 60)) + "";
-        string hours = Math.Floor(((double)(deltaTime / (1000 * 60 * 60)) % 24)) + "";
-        string days = Math.Floor(((double)deltaTime / (1000 * 60 * 60 * 24))) + "";
-        double dayNum = Math.Floor(((double)deltaTime / (1000 * 60 * 60 * 24)));
-        if (hours.Length < 2) hours = "0" + hours;
-        if (minutes.Length < 2) minutes = "0" + minutes;
-        if (seconds.Length < 2) seconds = "0" + seconds;
+        DateTime targetTime = DateTimeOffset
+            .FromUnixTimeMilliseconds(timeRemain)
+            .ToLocalTime()
+            .DateTime;
 
-        string time_ = days + (dayNum < 2 ? " " + Config.getTextConfig("txt_day") : " " + Config.getTextConfig("txt_day")) + ", " + hours + ":" + minutes + ":" + seconds;
+        TimeSpan deltaTime = targetTime - DateTime.Now;
+        if (deltaTime.TotalSeconds <= 0)
+        {
+            lbTimeRemain.text = "0 " + Config.getTextConfig("txt_day") + ", 00:00:00";
+            return;
+        }
+
+        int days = deltaTime.Days;
+        int hours = deltaTime.Hours;
+        int minutes = deltaTime.Minutes;
+        int seconds = deltaTime.Seconds;
+
+        string time_ =
+            days + " " + Config.getTextConfig("txt_day") + ", " +
+            hours.ToString("00") + ":" +
+            minutes.ToString("00") + ":" +
+            seconds.ToString("00");
+
         lbTimeRemain.text = time_;
     }
 }

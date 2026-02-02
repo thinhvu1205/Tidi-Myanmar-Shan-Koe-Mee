@@ -124,6 +124,15 @@ public class HandleService
 
                         break;
                     }
+                case "Transfer_Chip":
+
+                    if (jsonData.ContainsKey("msg"))
+                    {
+                        SocketSend.sendUAG();
+                        UIManager.instance.showMessageBox((string)jsonData["msg"]);
+                    }
+
+                    break;
 
                 case "toprich":
 

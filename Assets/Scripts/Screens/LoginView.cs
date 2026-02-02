@@ -68,7 +68,7 @@ public class LoginView : BaseView
     protected override void OnEnable()
     {
         Globals.Config.arrBannerLobby.Clear();
-        Globals.Config.arrOnlistTrue.Clear();
+        Globals.Config.arrOnlistTrue = new();
         // if (UIManager.instance == null)
         // {
         //     LobbyView lobbyView = transform.parent.Find("LobbyView").GetComponent<LobbyView>();

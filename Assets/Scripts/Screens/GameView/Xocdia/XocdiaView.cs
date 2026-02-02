@@ -754,7 +754,7 @@ public class XocdiaView : GameView
             {
                 animStart.gameObject.SetActive(true);
                 SkeletonGraphic skeleton = animStart.GetComponent<SkeletonGraphic>();
-                animStart.AnimationState.SetAnimation(0, "animation", true);
+                animStart.AnimationState.SetAnimation(0, "animation", false);
                 playSound(Globals.SOUND_HILO.START_GAME);
             })
             .AppendInterval(1f)
