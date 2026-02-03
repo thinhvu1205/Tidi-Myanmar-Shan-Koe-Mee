@@ -140,7 +140,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1214552224860492907, guid: 9b659b7893637e646b3205afc678bfa0, type: 3}
+  m_Sprite: {fileID: 7359307771755282399, guid: 5f5fce7153d31df489cfab691208acf1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -295,7 +295,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5057994892160445937}
-  - component: {fileID: 2919989518953407349}
   - component: {fileID: 5669408763132319762}
   - component: {fileID: 5186154012398028342}
   - component: {fileID: 1205430302284954454}
@@ -329,21 +328,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 172, y: 62}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2919989518953407349
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5226747667891948518}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7cae86cb2647d64d972d74511fd0e17, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_TxtNameTab: {fileID: 5794552017439552619}
-  m_TabOn: {fileID: 988079907416456126}
-  m_TxtCountFriend: {fileID: 6349514330649211275}
 --- !u!114 &5669408763132319762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -384,7 +368,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 1205430302284954454}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []

@@ -1716,8 +1716,9 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
             }
             _WaitForFinishCompleteCb?.Invoke();
             _WaitForFinishCompleteCb = null;
-            checkAutoExit();
         }
+        stateGame = STATE_GAME.WAITING;
+        checkAutoExit();
     }
     long GetPotValue(JObject data)
     {

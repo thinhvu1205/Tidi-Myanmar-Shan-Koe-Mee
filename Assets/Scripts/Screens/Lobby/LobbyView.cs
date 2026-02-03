@@ -413,7 +413,7 @@ public class LobbyView : BaseView
     public void updateName()
     {
         lb_name.text = User.userMain.displayName;
-        // Config.effectTextRunInMask(lb_name, true);
+        Config.effectTextRunInMask(lb_name, true);
     }
 
     public void updateAg()
