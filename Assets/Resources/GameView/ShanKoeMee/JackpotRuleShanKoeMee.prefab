@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5493540772304728488}
   - component: {fileID: 7850802375220410987}
   - component: {fileID: 1407623895797814737}
+  - component: {fileID: 3271941624869100892}
   m_Layer: 5
   m_Name: textVip
   m_TagString: Untagged
@@ -68,7 +69,6 @@ MonoBehaviour:
   m_text: 3
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7708e67653374c60af5f1595e949403, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 7800525795003925199, guid: b7708e67653374c60af5f1595e949403, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -109,15 +109,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -135,6 +137,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3271941624869100892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 406346735383009718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 1407623895797814737}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/Atrament Medium SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &427256198679173983
 GameObject:
   m_ObjectHideFlags: 0
@@ -146,6 +169,7 @@ GameObject:
   - component: {fileID: 2010295325014035834}
   - component: {fileID: 2254514460543604129}
   - component: {fileID: 5937076874551558173}
+  - component: {fileID: 8176089304685278642}
   m_Layer: 5
   m_Name: textVip
   m_TagString: Untagged
@@ -203,7 +227,6 @@ MonoBehaviour:
   m_text: 4
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7708e67653374c60af5f1595e949403, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 7800525795003925199, guid: b7708e67653374c60af5f1595e949403, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -244,15 +267,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -270,6 +295,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8176089304685278642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 427256198679173983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 5937076874551558173}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/Atrament Medium SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &613111876453766403
 GameObject:
   m_ObjectHideFlags: 0
@@ -356,6 +402,7 @@ GameObject:
   - component: {fileID: 7866774046567822983}
   - component: {fileID: 9075823542241324249}
   - component: {fileID: 676401419183102948}
+  - component: {fileID: 2759173223039473524}
   m_Layer: 5
   m_Name: textBonus
   m_TagString: Untagged
@@ -413,7 +460,6 @@ MonoBehaviour:
   m_text: 2.5
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7708e67653374c60af5f1595e949403, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 7800525795003925199, guid: b7708e67653374c60af5f1595e949403, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -454,15 +500,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -480,6 +528,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &2759173223039473524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1052092609113423046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 676401419183102948}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/Atrament Medium SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &1382889996597323576
 GameObject:
   m_ObjectHideFlags: 0
@@ -491,6 +560,7 @@ GameObject:
   - component: {fileID: 5437437065915979668}
   - component: {fileID: 8738638012102901454}
   - component: {fileID: 7083170790292769764}
+  - component: {fileID: 4927226610286331769}
   m_Layer: 5
   m_Name: textBonus
   m_TagString: Untagged
@@ -548,7 +618,6 @@ MonoBehaviour:
   m_text: Bonus
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7708e67653374c60af5f1595e949403, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 7800525795003925199, guid: b7708e67653374c60af5f1595e949403, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -589,15 +658,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -615,6 +686,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &4927226610286331769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1382889996597323576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 7083170790292769764}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/Atrament Medium SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &1454526958677235372
 GameObject:
   m_ObjectHideFlags: 0
@@ -626,6 +718,7 @@ GameObject:
   - component: {fileID: 7737680846544442018}
   - component: {fileID: 811493742843620464}
   - component: {fileID: 1313930845373472963}
+  - component: {fileID: 5509884618433709471}
   m_Layer: 5
   m_Name: textVip
   m_TagString: Untagged
@@ -683,7 +776,6 @@ MonoBehaviour:
   m_text: 6
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7708e67653374c60af5f1595e949403, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 7800525795003925199, guid: b7708e67653374c60af5f1595e949403, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -724,15 +816,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -750,6 +844,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5509884618433709471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1454526958677235372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 1313930845373472963}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/Atrament Medium SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &1494100172481303484
 GameObject:
   m_ObjectHideFlags: 0
@@ -761,6 +876,7 @@ GameObject:
   - component: {fileID: 2339882560987298684}
   - component: {fileID: 5471500988184871706}
   - component: {fileID: 3683075815362553972}
+  - component: {fileID: 2012143845893657206}
   m_Layer: 5
   m_Name: textBonus
   m_TagString: Untagged
@@ -818,7 +934,6 @@ MonoBehaviour:
   m_text: 2
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7708e67653374c60af5f1595e949403, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 7800525795003925199, guid: b7708e67653374c60af5f1595e949403, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -859,15 +974,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -885,6 +1002,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &2012143845893657206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1494100172481303484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 3683075815362553972}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/Atrament Medium SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &1525543876502552471
 GameObject:
   m_ObjectHideFlags: 0
@@ -1067,6 +1205,7 @@ GameObject:
   - component: {fileID: 7541109426972251601}
   - component: {fileID: 9040975330344403944}
   - component: {fileID: 4572277946481057267}
+  - component: {fileID: 406967112653101552}
   m_Layer: 5
   m_Name: textVip
   m_TagString: Untagged
@@ -1124,7 +1263,6 @@ MonoBehaviour:
   m_text: 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7708e67653374c60af5f1595e949403, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 7800525795003925199, guid: b7708e67653374c60af5f1595e949403, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1165,15 +1303,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -1191,6 +1331,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &406967112653101552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1696369522984817365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 4572277946481057267}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/Atrament Medium SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &1715489725456162207
 GameObject:
   m_ObjectHideFlags: 0
@@ -1317,6 +1478,7 @@ GameObject:
   - component: {fileID: 4274771493606711884}
   - component: {fileID: 6282008437990454372}
   - component: {fileID: 912651114097294756}
+  - component: {fileID: 292526829526296780}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -1374,7 +1536,6 @@ MonoBehaviour:
   m_text: JACKPOT
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9ed4e059626f66a4ab12d44c4b01496f, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: -2348403466568245366, guid: 9ed4e059626f66a4ab12d44c4b01496f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1415,15 +1576,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_TextWrappingMode: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -1441,6 +1604,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &292526829526296780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1884498120225053571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 912651114097294756}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/FontTitle SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &1912302576601296036
 GameObject:
   m_ObjectHideFlags: 0
@@ -1452,6 +1636,7 @@ GameObject:
   - component: {fileID: 1733707899790941100}
   - component: {fileID: 7162440761831022184}
   - component: {fileID: 6317381045344593780}
+  - component: {fileID: 1933290359250154242}
   m_Layer: 5
   m_Name: textVip
   m_TagString: Untagged
@@ -1509,7 +1694,6 @@ MonoBehaviour:
   m_text: 8
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7708e67653374c60af5f1595e949403, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 7800525795003925199, guid: b7708e67653374c60af5f1595e949403, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1550,15 +1734,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -1576,6 +1762,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1933290359250154242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1912302576601296036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 6317381045344593780}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/Atrament Medium SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &1937802572763000992
 GameObject:
   m_ObjectHideFlags: 0
@@ -2020,6 +2227,7 @@ GameObject:
   - component: {fileID: 6714325315037214119}
   - component: {fileID: 1946895949126480713}
   - component: {fileID: 6579031987212547583}
+  - component: {fileID: 956314639395002629}
   m_Layer: 5
   m_Name: textVip
   m_TagString: Untagged
@@ -2077,7 +2285,6 @@ MonoBehaviour:
   m_text: 7
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7708e67653374c60af5f1595e949403, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 7800525795003925199, guid: b7708e67653374c60af5f1595e949403, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2118,15 +2325,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -2144,6 +2353,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &956314639395002629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2571178274487965291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 6579031987212547583}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/Atrament Medium SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &2645173048348439933
 GameObject:
   m_ObjectHideFlags: 0
@@ -2155,6 +2385,7 @@ GameObject:
   - component: {fileID: 1880506276217879507}
   - component: {fileID: 2859925975754273555}
   - component: {fileID: 7046121227101774693}
+  - component: {fileID: 1224548598497562662}
   m_Layer: 5
   m_Name: textPlayer
   m_TagString: Untagged
@@ -2212,7 +2443,6 @@ MonoBehaviour:
   m_text: Bonus
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7708e67653374c60af5f1595e949403, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 7800525795003925199, guid: b7708e67653374c60af5f1595e949403, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2253,15 +2483,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -2279,6 +2511,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1224548598497562662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2645173048348439933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/Atrament Medium SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &2652536331517006516
 GameObject:
   m_ObjectHideFlags: 0
@@ -2403,6 +2656,7 @@ GameObject:
   - component: {fileID: 3113267226814651742}
   - component: {fileID: 6379392155033215990}
   - component: {fileID: 2049288890590472798}
+  - component: {fileID: 208539226967991741}
   m_Layer: 5
   m_Name: textTime
   m_TagString: Untagged
@@ -2460,7 +2714,6 @@ MonoBehaviour:
   m_text: Time
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7708e67653374c60af5f1595e949403, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 7800525795003925199, guid: b7708e67653374c60af5f1595e949403, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2501,15 +2754,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -2527,6 +2782,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &208539226967991741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3159096102814621645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/Atrament Medium SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &3169306098865724494
 GameObject:
   m_ObjectHideFlags: 0
@@ -2538,6 +2814,7 @@ GameObject:
   - component: {fileID: 1219267388247907989}
   - component: {fileID: 4335162879793467596}
   - component: {fileID: 7495013572412526593}
+  - component: {fileID: 4697949549461711271}
   m_Layer: 5
   m_Name: lbTitle2
   m_TagString: Untagged
@@ -2595,7 +2872,6 @@ MonoBehaviour:
   m_text: 'Jackpot Reward: 100x Table Bet x Vip Bonus'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 94eef266de55bee4a831593844a08794, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 7800525795003925199, guid: 94eef266de55bee4a831593844a08794, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2636,15 +2912,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_TextWrappingMode: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -2662,6 +2940,28 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &4697949549461711271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3169306098865724494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 7495013572412526593}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/Atrament Medium SDF
+    2.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &3275849968304089064
 GameObject:
   m_ObjectHideFlags: 0
@@ -2673,6 +2973,7 @@ GameObject:
   - component: {fileID: 3124218658599309577}
   - component: {fileID: 3341117729155655899}
   - component: {fileID: 1701271681093273527}
+  - component: {fileID: 8321533598736551466}
   m_Layer: 5
   m_Name: textBonus
   m_TagString: Untagged
@@ -2730,7 +3031,6 @@ MonoBehaviour:
   m_text: 2.5
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7708e67653374c60af5f1595e949403, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 7800525795003925199, guid: b7708e67653374c60af5f1595e949403, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2771,15 +3071,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -2797,6 +3099,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8321533598736551466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3275849968304089064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 1701271681093273527}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/Atrament Medium SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &3348179675171050130
 GameObject:
   m_ObjectHideFlags: 0
@@ -2921,6 +3244,7 @@ GameObject:
   - component: {fileID: 8786921192611023683}
   - component: {fileID: 6070044088362362570}
   - component: {fileID: 5366790178284584449}
+  - component: {fileID: 6151979098526756122}
   m_Layer: 5
   m_Name: lbTitle1_1
   m_TagString: Untagged
@@ -2979,7 +3303,6 @@ MonoBehaviour:
     25M chip'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 94eef266de55bee4a831593844a08794, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 7800525795003925199, guid: 94eef266de55bee4a831593844a08794, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -3020,15 +3343,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -3046,6 +3371,28 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &6151979098526756122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3780903170147515122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 5366790178284584449}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/Atrament Medium SDF
+    2.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &3783397387547989688
 GameObject:
   m_ObjectHideFlags: 0
@@ -3057,6 +3404,7 @@ GameObject:
   - component: {fileID: 3055504180840766880}
   - component: {fileID: 2493960121410618617}
   - component: {fileID: 4682322550533367599}
+  - component: {fileID: 8217634030915520677}
   m_Layer: 5
   m_Name: textVip
   m_TagString: Untagged
@@ -3114,7 +3462,6 @@ MonoBehaviour:
   m_text: 9
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7708e67653374c60af5f1595e949403, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 7800525795003925199, guid: b7708e67653374c60af5f1595e949403, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -3155,15 +3502,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -3181,6 +3530,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8217634030915520677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3783397387547989688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 4682322550533367599}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/Atrament Medium SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &3863074361131832152
 GameObject:
   m_ObjectHideFlags: 0
@@ -3816,6 +4186,7 @@ GameObject:
   - component: {fileID: 3639157717084189596}
   - component: {fileID: 3020990126646721376}
   - component: {fileID: 2133951360736489736}
+  - component: {fileID: 5839471759842962211}
   m_Layer: 5
   m_Name: textVip
   m_TagString: Untagged
@@ -3873,7 +4244,6 @@ MonoBehaviour:
   m_text: 2
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7708e67653374c60af5f1595e949403, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 7800525795003925199, guid: b7708e67653374c60af5f1595e949403, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -3914,15 +4284,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -3940,6 +4312,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5839471759842962211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4848485682443069638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 2133951360736489736}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/Atrament Medium SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &4859336049781073759
 GameObject:
   m_ObjectHideFlags: 0
@@ -3951,6 +4344,7 @@ GameObject:
   - component: {fileID: 301355610946372787}
   - component: {fileID: 4724707413972610315}
   - component: {fileID: 1535709049000159389}
+  - component: {fileID: 8329645900843563603}
   m_Layer: 5
   m_Name: lbTitle1
   m_TagString: Untagged
@@ -4009,7 +4403,6 @@ MonoBehaviour:
   m_text: 'You will win Jackpot when you have:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 94eef266de55bee4a831593844a08794, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 7800525795003925199, guid: 94eef266de55bee4a831593844a08794, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -4050,15 +4443,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_TextWrappingMode: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -4076,6 +4471,28 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8329645900843563603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4859336049781073759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 1535709049000159389}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/Atrament Medium SDF
+    2.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &5145688122553708302
 GameObject:
   m_ObjectHideFlags: 0
@@ -4125,6 +4542,7 @@ GameObject:
   - component: {fileID: 5059583890481882922}
   - component: {fileID: 4015087487827664564}
   - component: {fileID: 7123506465862771557}
+  - component: {fileID: 4101171328698066433}
   m_Layer: 5
   m_Name: textBonus
   m_TagString: Untagged
@@ -4182,7 +4600,6 @@ MonoBehaviour:
   m_text: 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7708e67653374c60af5f1595e949403, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 7800525795003925199, guid: b7708e67653374c60af5f1595e949403, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -4223,15 +4640,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -4249,6 +4668,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &4101171328698066433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5248135502456262695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 7123506465862771557}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/Atrament Medium SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &5552547068253580207
 GameObject:
   m_ObjectHideFlags: 0
@@ -4297,6 +4737,7 @@ GameObject:
   - component: {fileID: 3866646386758597927}
   - component: {fileID: 318855867746275437}
   - component: {fileID: 1619036740118305978}
+  - component: {fileID: 7602018958761478824}
   m_Layer: 5
   m_Name: textBonus
   m_TagString: Untagged
@@ -4354,7 +4795,6 @@ MonoBehaviour:
   m_text: 2
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7708e67653374c60af5f1595e949403, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 7800525795003925199, guid: b7708e67653374c60af5f1595e949403, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -4395,15 +4835,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -4421,6 +4863,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &7602018958761478824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5578105162102582982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 1619036740118305978}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/Atrament Medium SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &5819383614765038792
 GameObject:
   m_ObjectHideFlags: 0
@@ -4470,6 +4933,7 @@ GameObject:
   - component: {fileID: 2595424411830335253}
   - component: {fileID: 3316455185964409577}
   - component: {fileID: 1912235408454462755}
+  - component: {fileID: 1469822735280520512}
   m_Layer: 5
   m_Name: textBonus
   m_TagString: Untagged
@@ -4527,7 +4991,6 @@ MonoBehaviour:
   m_text: 2.5
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7708e67653374c60af5f1595e949403, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 7800525795003925199, guid: b7708e67653374c60af5f1595e949403, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -4568,15 +5031,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -4594,6 +5059,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1469822735280520512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5896466226481181894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 1912235408454462755}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/Atrament Medium SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &5901542274623785862
 GameObject:
   m_ObjectHideFlags: 0
@@ -4605,6 +5091,7 @@ GameObject:
   - component: {fileID: 7745887731417420173}
   - component: {fileID: 5719030876823313630}
   - component: {fileID: 4339010631264866396}
+  - component: {fileID: 3688605129411116}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -4662,7 +5149,6 @@ MonoBehaviour:
   m_text: History
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ac5fbb6b0a614fc4384b7a354b0cf07c, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 7800525795003925199, guid: ac5fbb6b0a614fc4384b7a354b0cf07c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -4703,15 +5189,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -4729,6 +5217,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3688605129411116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5901542274623785862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 4339010631264866396}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/text.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &5966037223219006754
 GameObject:
   m_ObjectHideFlags: 0
@@ -4740,6 +5249,7 @@ GameObject:
   - component: {fileID: 2183145132113247373}
   - component: {fileID: 4794055737921383972}
   - component: {fileID: 5962684730740651813}
+  - component: {fileID: 644925838924535637}
   m_Layer: 5
   m_Name: textPlayer
   m_TagString: Untagged
@@ -4797,7 +5307,6 @@ MonoBehaviour:
   m_text: Player
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7708e67653374c60af5f1595e949403, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 7800525795003925199, guid: b7708e67653374c60af5f1595e949403, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -4838,15 +5347,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -4864,6 +5375,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &644925838924535637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5966037223219006754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/Atrament Medium SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &6162495528554237142
 GameObject:
   m_ObjectHideFlags: 0
@@ -5025,6 +5557,7 @@ GameObject:
   - component: {fileID: 6340210679147738804}
   - component: {fileID: 7939693864246902183}
   - component: {fileID: 5514754692899346087}
+  - component: {fileID: 5759276106724237808}
   m_Layer: 5
   m_Name: textVip
   m_TagString: Untagged
@@ -5082,7 +5615,6 @@ MonoBehaviour:
   m_text: VIP
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7708e67653374c60af5f1595e949403, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 7800525795003925199, guid: b7708e67653374c60af5f1595e949403, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -5123,15 +5655,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -5149,6 +5683,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5759276106724237808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6407118079979420824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 5514754692899346087}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/Atrament Medium SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &6414041398686896985
 GameObject:
   m_ObjectHideFlags: 0
@@ -5343,6 +5898,7 @@ GameObject:
   - component: {fileID: 3003577090753779348}
   - component: {fileID: 6223464943124435785}
   - component: {fileID: 2935636242763599854}
+  - component: {fileID: 6048769459216215603}
   m_Layer: 5
   m_Name: textVip
   m_TagString: Untagged
@@ -5400,7 +5956,6 @@ MonoBehaviour:
   m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7708e67653374c60af5f1595e949403, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 7800525795003925199, guid: b7708e67653374c60af5f1595e949403, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -5441,15 +5996,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -5467,6 +6024,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &6048769459216215603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6645329013952195063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 2935636242763599854}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/Atrament Medium SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &6648655641012779853
 GameObject:
   m_ObjectHideFlags: 0
@@ -5628,6 +6206,7 @@ GameObject:
   - component: {fileID: 4810331145955352804}
   - component: {fileID: 7679470296469022309}
   - component: {fileID: 4857142548729572448}
+  - component: {fileID: 1483783399497006222}
   m_Layer: 5
   m_Name: textBonus
   m_TagString: Untagged
@@ -5685,7 +6264,6 @@ MonoBehaviour:
   m_text: 2
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7708e67653374c60af5f1595e949403, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 7800525795003925199, guid: b7708e67653374c60af5f1595e949403, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -5726,15 +6304,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -5752,6 +6332,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1483783399497006222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6906971244639164722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 4857142548729572448}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/Atrament Medium SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &7021206006700091028
 GameObject:
   m_ObjectHideFlags: 0
@@ -5935,6 +6536,7 @@ GameObject:
   - component: {fileID: 5498164671687015121}
   - component: {fileID: 965367854308293713}
   - component: {fileID: 5113678745076568708}
+  - component: {fileID: 7428482063803243964}
   m_Layer: 5
   m_Name: textBonus
   m_TagString: Untagged
@@ -5992,7 +6594,6 @@ MonoBehaviour:
   m_text: 2.5
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7708e67653374c60af5f1595e949403, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 7800525795003925199, guid: b7708e67653374c60af5f1595e949403, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -6033,15 +6634,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -6059,6 +6662,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &7428482063803243964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7111314298062393447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 5113678745076568708}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/Atrament Medium SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &7183344266325340290
 GameObject:
   m_ObjectHideFlags: 0
@@ -6070,6 +6694,7 @@ GameObject:
   - component: {fileID: 2576932267508066298}
   - component: {fileID: 2175803370811101127}
   - component: {fileID: 8170372338472613691}
+  - component: {fileID: 6850718650653344280}
   m_Layer: 5
   m_Name: textVip
   m_TagString: Untagged
@@ -6127,7 +6752,6 @@ MonoBehaviour:
   m_text: 10
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7708e67653374c60af5f1595e949403, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 7800525795003925199, guid: b7708e67653374c60af5f1595e949403, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -6168,15 +6792,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -6194,6 +6820,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &6850718650653344280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7183344266325340290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 8170372338472613691}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/Atrament Medium SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &7272377075645708391
 GameObject:
   m_ObjectHideFlags: 0
@@ -6483,6 +7130,7 @@ GameObject:
   - component: {fileID: 7259241844715299619}
   - component: {fileID: 3707054363274369164}
   - component: {fileID: 7071388407866738710}
+  - component: {fileID: 4122154624102637237}
   m_Layer: 5
   m_Name: textTime
   m_TagString: Untagged
@@ -6542,7 +7190,6 @@ MonoBehaviour:
     sdsdsdsdsdsdsd'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7708e67653374c60af5f1595e949403, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 7800525795003925199, guid: b7708e67653374c60af5f1595e949403, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -6583,15 +7230,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -6609,6 +7258,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &4122154624102637237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7696555297477897307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/Atrament Medium SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &7734302887911579246
 GameObject:
   m_ObjectHideFlags: 0
@@ -6620,6 +7290,7 @@ GameObject:
   - component: {fileID: 179945801268577812}
   - component: {fileID: 6631428112234868005}
   - component: {fileID: 3228205130310333263}
+  - component: {fileID: 8414079533918327752}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -6677,7 +7348,6 @@ MonoBehaviour:
   m_text: Rule
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ac5fbb6b0a614fc4384b7a354b0cf07c, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 7800525795003925199, guid: ac5fbb6b0a614fc4384b7a354b0cf07c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -6718,15 +7388,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -6744,6 +7416,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8414079533918327752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7734302887911579246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 3228205130310333263}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/text.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &7829521982570678187
 GameObject:
   m_ObjectHideFlags: 0
@@ -6755,6 +7448,7 @@ GameObject:
   - component: {fileID: 7820018518833573641}
   - component: {fileID: 896209552116840047}
   - component: {fileID: 49435970312053691}
+  - component: {fileID: 2301080136428856213}
   m_Layer: 5
   m_Name: textReward
   m_TagString: Untagged
@@ -6812,7 +7506,6 @@ MonoBehaviour:
   m_text: Reward
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7708e67653374c60af5f1595e949403, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 7800525795003925199, guid: b7708e67653374c60af5f1595e949403, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -6853,15 +7546,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -6879,6 +7574,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &2301080136428856213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7829521982570678187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/Atrament Medium SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &7931582055129720709
 GameObject:
   m_ObjectHideFlags: 0
@@ -6890,6 +7606,7 @@ GameObject:
   - component: {fileID: 8953996597848712235}
   - component: {fileID: 6711303876158562815}
   - component: {fileID: 6154383331306393842}
+  - component: {fileID: 2256670069792951746}
   m_Layer: 5
   m_Name: textReward
   m_TagString: Untagged
@@ -6947,7 +7664,6 @@ MonoBehaviour:
   m_text: Bonus
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7708e67653374c60af5f1595e949403, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 7800525795003925199, guid: b7708e67653374c60af5f1595e949403, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -6988,15 +7704,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -7014,6 +7732,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &2256670069792951746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7931582055129720709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/Atrament Medium SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &8025511581836600373
 GameObject:
   m_ObjectHideFlags: 0
@@ -7116,6 +7855,7 @@ GameObject:
   - component: {fileID: 3421825598988715653}
   - component: {fileID: 3914612447904764877}
   - component: {fileID: 3402493282479015248}
+  - component: {fileID: 3004663257300995263}
   m_Layer: 5
   m_Name: textVip
   m_TagString: Untagged
@@ -7173,7 +7913,6 @@ MonoBehaviour:
   m_text: 5
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7708e67653374c60af5f1595e949403, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 7800525795003925199, guid: b7708e67653374c60af5f1595e949403, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -7214,15 +7953,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -7240,6 +7981,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3004663257300995263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8218357979273557638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 3402493282479015248}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/Atrament Medium SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &8221769429416901710
 GameObject:
   m_ObjectHideFlags: 0
@@ -7493,6 +8255,7 @@ GameObject:
   - component: {fileID: 1096311959971672217}
   - component: {fileID: 630680515615006291}
   - component: {fileID: 6629178250399611616}
+  - component: {fileID: 4430080205704680290}
   m_Layer: 5
   m_Name: textBonus
   m_TagString: Untagged
@@ -7550,7 +8313,6 @@ MonoBehaviour:
   m_text: 2.5
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7708e67653374c60af5f1595e949403, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 7800525795003925199, guid: b7708e67653374c60af5f1595e949403, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -7591,15 +8353,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -7617,6 +8381,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &4430080205704680290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8928209428495221415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 6629178250399611616}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/Atrament Medium SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &8977683582019948319
 GameObject:
   m_ObjectHideFlags: 0
@@ -7628,6 +8413,7 @@ GameObject:
   - component: {fileID: 5512444960102812570}
   - component: {fileID: 8042751039345058478}
   - component: {fileID: 8090362358363518714}
+  - component: {fileID: 7473396937885471751}
   m_Layer: 5
   m_Name: textBonus
   m_TagString: Untagged
@@ -7685,7 +8471,6 @@ MonoBehaviour:
   m_text: 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7708e67653374c60af5f1595e949403, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 7800525795003925199, guid: b7708e67653374c60af5f1595e949403, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -7726,15 +8511,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -7752,6 +8539,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &7473396937885471751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8977683582019948319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 8090362358363518714}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/Atrament Medium SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &8977876735355194485
 GameObject:
   m_ObjectHideFlags: 0
@@ -7763,6 +8571,7 @@ GameObject:
   - component: {fileID: 7450905835142201981}
   - component: {fileID: 2649806244331312372}
   - component: {fileID: 4338976269233358012}
+  - component: {fileID: 3637968073779767526}
   m_Layer: 5
   m_Name: textBonus
   m_TagString: Untagged
@@ -7820,7 +8629,6 @@ MonoBehaviour:
   m_text: 2.5
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7708e67653374c60af5f1595e949403, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 7800525795003925199, guid: b7708e67653374c60af5f1595e949403, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -7861,15 +8669,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -7887,3 +8697,24 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3637968073779767526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8977876735355194485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 4338976269233358012}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/Atrament Medium SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0

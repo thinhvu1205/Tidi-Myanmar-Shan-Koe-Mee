@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6294215579672999554}
   - component: {fileID: 5679229980910366195}
   - component: {fileID: 78753978979939207}
+  - component: {fileID: 6527624027367605313}
   m_Layer: 5
   m_Name: Label
   m_TagString: Untagged
@@ -68,7 +69,6 @@ MonoBehaviour:
   m_text: Agency
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ff5b2522edfe57e4caea2837d71612d9, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 965980177655340851, guid: ff5b2522edfe57e4caea2837d71612d9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -109,15 +109,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_TextWrappingMode: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -135,6 +137,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &6527624027367605313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3865853684344477152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 78753978979939207}
+  BundleLabel: assets--resources--fonts--thailandtmp
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/ThaiLandTMP/UTM_Neo_Sans_Intel SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &4075830078204545036
 GameObject:
   m_ObjectHideFlags: 0

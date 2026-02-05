@@ -1,6 +1,6 @@
 ManifestFileVersion: 0
 UnityVersion: 6000.1.17f1
-CRC: 2113432933
+CRC: 845891107
 HashAppended: 0
 AssetBundleManifest:
   AssetBundleInfos:
@@ -11,20 +11,66 @@ AssetBundleManifest:
       Name: assets--resources--gameview--anim_shankoemee
       Dependencies: {}
     Info_2:
-      Name: assets--resources--gameview--slotspine
-      Dependencies: {}
+      Name: assets--resources--fonts--fontslottarzan
+      Dependencies:
+        Dependency_0: assets--resources--fonts--originalfontfile
     Info_3:
-      Name: assets--resources--gameview--sixiang--spine
-      Dependencies: {}
+      Name: assets--resources--fonts--fontsslotnoel
+      Dependencies:
+        Dependency_0: assets--resources--fonts--originalfontfile
     Info_4:
-      Name: assets--resources--gameview--dragontiger--spine
-      Dependencies: {}
+      Name: assets--resources--fonts--tmpbitmap
+      Dependencies:
+        Dependency_0: assets--resources--fonts--originalfontfile
+        Dependency_1: assets--resources--fonts--thailandtmp
     Info_5:
-      Name: assets--resources--gameview--emo
-      Dependencies: {}
-    Info_6:
       Name: assets--resources--sounds
       Dependencies: {}
+    Info_6:
+      Name: assets--resources--fonts--slotjuicegarden
+      Dependencies:
+        Dependency_0: assets--resources--fonts--originalfontfile
     Info_7:
+      Name: assets--resources--gameview--sixiang--spine
+      Dependencies: {}
+    Info_8:
+      Name: assets--resources--fonts--fontslotfruit
+      Dependencies:
+        Dependency_0: assets--resources--fonts--originalfontfile
+    Info_9:
+      Name: assets--resources--fonts--binhfonts
+      Dependencies: {}
+    Info_10:
+      Name: assets--resources--fonts--otherfonts
+      Dependencies:
+        Dependency_0: assets--resources--fonts--originalfontfile
+    Info_11:
       Name: assets--resources--gameview--sixiang--sound
       Dependencies: {}
+    Info_12:
+      Name: assets--resources--gameview--slotspine
+      Dependencies: {}
+    Info_13:
+      Name: assets--resources--gameview--dragontiger--spine
+      Dependencies: {}
+    Info_14:
+      Name: assets--resources--fonts--originalfontfile
+      Dependencies: {}
+    Info_15:
+      Name: assets--resources--gameview--emo
+      Dependencies: {}
+    Info_16:
+      Name: assets--resources--fonts--thailandtmp
+      Dependencies:
+        Dependency_0: assets--resources--fonts--originalfontfile
+    Info_17:
+      Name: assets--resources--fonts--fonttimedigital
+      Dependencies: {}
+    Info_18:
+      Name: assets--resources--fonts--fontsotableview
+      Dependencies:
+        Dependency_0: assets--resources--fonts--originalfontfile
+    Info_19:
+      Name: assets--resources--fonts--fontslotsixiang
+      Dependencies:
+        Dependency_0: assets--resources--fonts--originalfontfile

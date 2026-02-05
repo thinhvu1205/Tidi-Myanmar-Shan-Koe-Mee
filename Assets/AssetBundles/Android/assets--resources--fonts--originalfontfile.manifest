@@ -1,0 +1,79 @@
+ManifestFileVersion: 0
+UnityVersion: 6000.1.17f1
+CRC: 384025990
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 4fa68446d248bdf01eb98e3568f64d6f
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 798280d5773b3c724e8e76b154f257ba
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: f1e038c3c1359bdd38294e2c15793911
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 49
+  Script: {instanceID: 0}
+- Class: 128
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Resources/Fonts/OriginalFontFile/red.png
+- Assets/Resources/Fonts/OriginalFontFile/Atrament Medium 1.ttf
+- Assets/Resources/Fonts/OriginalFontFile/green.fnt
+- Assets/Resources/Fonts/OriginalFontFile/KlokanTechNotoSans-Regular.ttf
+- Assets/Resources/Fonts/OriginalFontFile/MAILGETS DEMO.TTF
+- Assets/Resources/Fonts/OriginalFontFile/win.fontsettings
+- Assets/Resources/Fonts/OriginalFontFile/FontTitle.TTF
+- Assets/Resources/Fonts/OriginalFontFile/win.png
+- Assets/Resources/Fonts/OriginalFontFile/AlfaSlabOne-Regular.ttf
+- Assets/Resources/Fonts/OriginalFontFile/font.fontsettings
+- Assets/Resources/Fonts/OriginalFontFile/font_win.TTF
+- Assets/Resources/Fonts/OriginalFontFile/SanFranciscoDisplay-Heavy.ttf
+- Assets/Resources/Fonts/OriginalFontFile/yellow.fontsettings
+- Assets/Resources/Fonts/OriginalFontFile/UTM_Neo_Sans_Intel.ttf
+- Assets/Resources/Fonts/OriginalFontFile/PassionOne-Regular.ttf
+- Assets/Resources/Fonts/OriginalFontFile/font-title-export.fontsettings
+- Assets/Resources/Fonts/OriginalFontFile/font-title-export.png
+- Assets/Resources/Fonts/OriginalFontFile/win_ex.fontsettings
+- Assets/Resources/Fonts/OriginalFontFile/Neuron ExtraBold.otf
+- Assets/Resources/Fonts/OriginalFontFile/MANGALB.TTF
+- Assets/Resources/Fonts/OriginalFontFile/Pridi Regular.ttf
+- Assets/Resources/Fonts/OriginalFontFile/lose_ex.fnt
+- Assets/Resources/Fonts/OriginalFontFile/coutndown_ex.fnt
+- Assets/Resources/Fonts/OriginalFontFile/green.png
+- Assets/Resources/Fonts/OriginalFontFile/win_ex.png
+- Assets/Resources/Fonts/OriginalFontFile/red.fontsettings
+- Assets/Resources/Fonts/OriginalFontFile/yellow/yellow.fnt
+- Assets/Resources/Fonts/OriginalFontFile/JS Pitsanu Regular.ttf
+- Assets/Resources/Fonts/OriginalFontFile/coutndown_ex.png
+- Assets/Resources/Fonts/OriginalFontFile/Atrament Medium.ttf
+- Assets/Resources/Fonts/OriginalFontFile/BalihoScript_0.otf
+- Assets/Resources/Fonts/OriginalFontFile/font.fnt
+- Assets/Resources/Fonts/OriginalFontFile/ARBORIA-BOLD.TTF
+- Assets/Resources/Fonts/OriginalFontFile/ARBORIA-BLACK.TTF
+- Assets/Resources/Fonts/OriginalFontFile/ARBORIA-BOOK.TTF
+- Assets/Resources/Fonts/OriginalFontFile/NotoSansJP-Regular.otf
+- Assets/Resources/Fonts/OriginalFontFile/coutndown_ex.fontsettings
+- Assets/Resources/Fonts/OriginalFontFile/Rowdies-Regular.ttf
+- Assets/Resources/Fonts/OriginalFontFile/font.png
+- Assets/Resources/Fonts/OriginalFontFile/win.fnt
+- Assets/Resources/Fonts/OriginalFontFile/green.fontsettings
+- Assets/Resources/Fonts/OriginalFontFile/digital.ttf
+- Assets/Resources/Fonts/OriginalFontFile/win_ex.fnt
+- Assets/Resources/Fonts/OriginalFontFile/NEONS_DEMO.TTF
+- Assets/Resources/Fonts/OriginalFontFile/go3v2.ttf
+- Assets/Resources/Fonts/OriginalFontFile/lose_ex.fontsettings
+- Assets/Resources/Fonts/OriginalFontFile/NotoSansThaiLooped-Regular.ttf
+- Assets/Resources/Fonts/OriginalFontFile/font-title-export.fnt
+- Assets/Resources/Fonts/OriginalFontFile/yellow/yellow.png
+- Assets/Resources/Fonts/OriginalFontFile/red.fnt
+- Assets/Resources/Fonts/OriginalFontFile/lose_ex.png
+Dependencies: []

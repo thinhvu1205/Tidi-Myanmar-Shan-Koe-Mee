@@ -194,6 +194,7 @@ GameObject:
   - component: {fileID: 810248005308000583}
   - component: {fileID: 810248005308000577}
   - component: {fileID: 7662820767843244366}
+  - component: {fileID: 3205746625546361697}
   m_Layer: 5
   m_Name: lbTime
   m_TagString: Untagged
@@ -333,6 +334,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3205746625546361697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 810248005308000579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 7662820767843244366}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/Atrament Medium SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &810248006172298357
 GameObject:
   m_ObjectHideFlags: 0
@@ -795,6 +817,7 @@ GameObject:
   - component: {fileID: 3414439433087428280}
   - component: {fileID: 4774193048635396627}
   - component: {fileID: 6428407530879954249}
+  - component: {fileID: 3199762664355032435}
   m_Layer: 5
   m_Name: lbMsg
   m_TagString: Untagged
@@ -934,6 +957,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3199762664355032435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8081072653546918978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 6428407530879954249}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/Atrament Medium SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &8884621692673845120
 GameObject:
   m_ObjectHideFlags: 0
@@ -946,6 +990,7 @@ GameObject:
   - component: {fileID: 2597378564177745274}
   - component: {fileID: 5271586304931996113}
   - component: {fileID: 7828420475546641781}
+  - component: {fileID: 1110385816511448952}
   m_Layer: 5
   m_Name: lbFrom
   m_TagString: Untagged
@@ -1085,6 +1130,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1110385816511448952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8884621692673845120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 7828420475546641781}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/Atrament Medium SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &8958424073984493273
 GameObject:
   m_ObjectHideFlags: 0
@@ -1096,7 +1162,7 @@ GameObject:
   - component: {fileID: 7670646560558837053}
   - component: {fileID: 444999418236795662}
   - component: {fileID: 1127114751562679209}
-  - component: {fileID: 8256959994300600841}
+  - component: {fileID: 7695341942891117664}
   m_Layer: 5
   m_Name: title
   m_TagString: Untagged
@@ -1151,7 +1217,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ADMIN
+  m_text: Missing txt_mail_admin
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9ed4e059626f66a4ab12d44c4b01496f, type: 2}
   m_sharedMaterial: {fileID: -2348403466568245366, guid: 9ed4e059626f66a4ab12d44c4b01496f, type: 2}
@@ -1222,7 +1288,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &8256959994300600841
+--- !u!114 &7695341942891117664
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1231,14 +1297,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 8958424073984493273}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 489ab9b30bbc94ccbbfd360ae829d09f, type: 3}
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
-  key: txt_mail_admin
-  sprites: []
-  animName: []
-  isUpper: 0
+  Type: 3
+  ThisTMPUGUI: {fileID: 1127114751562679209}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: txt_mail_admin
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/FontTitle SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &9158796072005449893
 GameObject:
   m_ObjectHideFlags: 0

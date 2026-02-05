@@ -103,6 +103,7 @@ GameObject:
   - component: {fileID: 4931050983831386365}
   - component: {fileID: 4481276294348554516}
   - component: {fileID: 6858069506119240228}
+  - component: {fileID: 1496143450566637302}
   m_Layer: 5
   m_Name: lbPayWin
   m_TagString: Untagged
@@ -242,6 +243,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 2
   m_VerticalFit: 0
+--- !u!114 &1496143450566637302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 381321597911515058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 4481276294348554516}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/Atrament Medium SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &449796143063770493
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,6 +275,7 @@ GameObject:
   - component: {fileID: 8749127265941599267}
   - component: {fileID: 354132276057761640}
   - component: {fileID: 3847664787757340470}
+  - component: {fileID: 3088022360817329060}
   m_Layer: 5
   m_Name: lbNumLine
   m_TagString: Untagged
@@ -378,6 +401,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3088022360817329060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 449796143063770493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 3847664787757340470}
+  BundleLabel: assets--resources--fonts--fontslotfruit
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/FontSlotFruit/SanFranciscoDisplay-Heavy SDF.asset
+  FontMaterialName: Assets/Resources/Fonts/FontSlotFruit/SanFranciscoDisplay-Heavy_SDF_Brown.mat
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &611447134244314209
 GameObject:
   m_ObjectHideFlags: 0
@@ -483,15 +527,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 2394997424107397160}
+  ThisTMPUGUI: {fileID: 0}
   BundleLabel: assets--resources--gameview--slotspine
   AssetName: Assets/Resources/GameView/SlotSpine/NearFreeSpin/skeleton_SkeletonData.asset
   AnimName: animation
-  SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &677796681642647116
 GameObject:
   m_ObjectHideFlags: 0
@@ -1074,6 +1117,7 @@ GameObject:
   - component: {fileID: 2021318820662020026}
   - component: {fileID: 2021318820662020028}
   - component: {fileID: 7141305923829436560}
+  - component: {fileID: 2759284167642011285}
   m_Layer: 5
   m_Name: lbCurrentBet
   m_TagString: Untagged
@@ -1213,6 +1257,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &2759284167642011285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2021318820662020030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 7141305923829436560}
+  BundleLabel: assets--resources--fonts--fontslotfruit
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/FontSlotFruit/SanFranciscoDisplay-Heavy SDF.asset
+  FontMaterialName: Assets/Resources/Fonts/FontSlotFruit/SanFranciscoDisplay-Heavy_SDF_Brown.mat
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &2021318820901205600
 GameObject:
   m_ObjectHideFlags: 0
@@ -1679,7 +1744,7 @@ GameObject:
   - component: {fileID: 2021318821305514991}
   - component: {fileID: 2021318821305514993}
   - component: {fileID: 2231535125111247376}
-  - component: {fileID: 2265232130421357244}
+  - component: {fileID: 1550847369761793894}
   m_Layer: 5
   m_Name: lbInfoSession
   m_TagString: Untagged
@@ -1748,7 +1813,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0E01\u0E14 \u0E2B\u0E21\u0E38\u0E19 \u0E40\u0E1E\u0E37\u0E48\u0E2D\u0E40\u0E25\u0E48\u0E19"
+  m_text: Missing txt_press_spin_to_play
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c6ae0ead5d12b324eaf9cd2dead9358e, type: 2}
   m_sharedMaterial: {fileID: -2370530641075021722, guid: c6ae0ead5d12b324eaf9cd2dead9358e, type: 2}
@@ -1819,7 +1884,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &2265232130421357244
+--- !u!114 &1550847369761793894
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1828,14 +1893,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 2021318821305514994}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 489ab9b30bbc94ccbbfd360ae829d09f, type: 3}
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
-  key: txt_press_spin_to_play
-  sprites: []
-  animName: []
-  isUpper: 0
+  Type: 3
+  ThisTMPUGUI: {fileID: 2231535125111247376}
+  BundleLabel: assets--resources--fonts--fontslotfruit
+  AssetName: txt_press_spin_to_play
+  AnimName: 
+  FontName: Assets/Resources/Fonts/FontSlotFruit/SanFranciscoDisplay-Heavy SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &2021318821314938490
 GameObject:
   m_ObjectHideFlags: 0
@@ -1849,6 +1918,7 @@ GameObject:
   - component: {fileID: 2585782585050720544}
   - component: {fileID: 413094594206197564}
   - component: {fileID: 7537924674097349221}
+  - component: {fileID: 280631579111072225}
   m_Layer: 5
   m_Name: lbChipWin
   m_TagString: Untagged
@@ -2004,6 +2074,27 @@ MonoBehaviour:
   isFormatMoney: 0
   scale: 1
   FormatType: 0
+--- !u!114 &280631579111072225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2021318821314938490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 2585782585050720544}
+  BundleLabel: assets--resources--fonts--fontslotfruit
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/FontSlotFruit/SanFranciscoDisplay-Heavy SDF.asset
+  FontMaterialName: Assets/Resources/Fonts/FontSlotFruit/SanFranciscoDisplay-Heavy_SDF_Green.mat
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &2021318821353141488
 GameObject:
   m_ObjectHideFlags: 0
@@ -2749,6 +2840,7 @@ GameObject:
   - component: {fileID: 2021318821910318122}
   - component: {fileID: 2021318821910318121}
   - component: {fileID: 5481672222294920677}
+  - component: {fileID: 8629789616616254999}
   m_Layer: 5
   m_Name: lbStateBet
   m_TagString: Untagged
@@ -2874,6 +2966,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8629789616616254999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2021318821910318125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 5481672222294920677}
+  BundleLabel: assets--resources--fonts--fontslotfruit
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/FontSlotFruit/SanFranciscoDisplay-Heavy SDF.asset
+  FontMaterialName: Assets/Resources/Fonts/FontSlotFruit/SanFranciscoDisplay-Heavy_SDF_Brown.mat
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &2021318821963480220
 GameObject:
   m_ObjectHideFlags: 0
@@ -3831,6 +3944,7 @@ GameObject:
   - component: {fileID: 8200809571654605098}
   - component: {fileID: 2084305716584574337}
   - component: {fileID: 4868395610995256869}
+  - component: {fileID: 3356959821411129163}
   m_Layer: 5
   m_Name: lbFreespinNum
   m_TagString: Untagged
@@ -3970,6 +4084,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3356959821411129163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3352959105664953296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--fonts--fontslotfruit
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/FontSlotFruit/SanFranciscoDisplay-Heavy SDF.asset
+  FontMaterialName: Assets/Resources/Fonts/FontSlotFruit/SanFranciscoDisplay-Heavy_SDF_Green.mat
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &3419401476627499591
 GameObject:
   m_ObjectHideFlags: 0
@@ -4131,6 +4266,7 @@ GameObject:
   - component: {fileID: 1339087972904606777}
   - component: {fileID: 402442552376594032}
   - component: {fileID: 7569008058587041374}
+  - component: {fileID: 7500494253839345372}
   m_Layer: 5
   m_Name: lbStateWin
   m_TagString: Untagged
@@ -4256,6 +4392,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &7500494253839345372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4236082633772536141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 7569008058587041374}
+  BundleLabel: assets--resources--fonts--fontslotfruit
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/FontSlotFruit/SanFranciscoDisplay-Heavy SDF.asset
+  FontMaterialName: Assets/Resources/Fonts/FontSlotFruit/SanFranciscoDisplay-Heavy_SDF_Green.mat
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &4582304154837565584
 GameObject:
   m_ObjectHideFlags: 0
@@ -4414,6 +4571,7 @@ GameObject:
   - component: {fileID: 2660727549844778905}
   - component: {fileID: 5406049330814434113}
   - component: {fileID: 4884590669099520442}
+  - component: {fileID: 4605280950663159896}
   m_Layer: 5
   m_Name: lbNumLine
   m_TagString: Untagged
@@ -4539,6 +4697,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &4605280950663159896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4678078973274386697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 4884590669099520442}
+  BundleLabel: assets--resources--fonts--fontslotfruit
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/FontSlotFruit/SanFranciscoDisplay-Heavy SDF.asset
+  FontMaterialName: Assets/Resources/Fonts/FontSlotFruit/SanFranciscoDisplay-Heavy_SDF_Brown.mat
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &5359988431730403177
 GameObject:
   m_ObjectHideFlags: 0
@@ -5118,6 +5297,7 @@ GameObject:
   - component: {fileID: 4377091983300012473}
   - component: {fileID: 3244146527932090121}
   - component: {fileID: 8028243394610741912}
+  - component: {fileID: 9215387012434846373}
   m_Layer: 5
   m_Name: lbCurrentChips
   m_TagString: Untagged
@@ -5259,6 +5439,27 @@ MonoBehaviour:
   isFormatMoney: 0
   scale: 1
   FormatType: 0
+--- !u!114 &9215387012434846373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7203991004549225283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 3244146527932090121}
+  BundleLabel: assets--resources--fonts--fontslotfruit
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/FontSlotFruit/SanFranciscoDisplay-Heavy SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &7729734852686298921
 GameObject:
   m_ObjectHideFlags: 0
@@ -5825,6 +6026,7 @@ GameObject:
   - component: {fileID: 2701242328757282750}
   - component: {fileID: 5215005969550791445}
   - component: {fileID: 3692543869073514401}
+  - component: {fileID: 3140732884263879914}
   m_Layer: 5
   m_Name: lbBigWin
   m_TagString: Untagged
@@ -5964,6 +6166,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3140732884263879914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8807782787896120644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--fonts--fontslottarzan
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/FontSlotTarzan/Neuron ExtraBold SDF.asset
+  FontMaterialName: Assets/Resources/Fonts/FontSlotTarzan/Neuron_ExtraBold_SDF_Yellow.mat
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &8831089707584917317
 GameObject:
   m_ObjectHideFlags: 0

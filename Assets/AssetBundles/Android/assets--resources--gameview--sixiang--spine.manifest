@@ -1,16 +1,16 @@
 ManifestFileVersion: 0
 UnityVersion: 6000.1.17f1
-CRC: 1363187195
+CRC: 3159485474
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: fe93790fa64b1c1252276f6a75b4a22a
+    Hash: 7c7c3aba4bbfef997129d2edb5e39f8b
   TypeTreeHash:
     serializedVersion: 2
     Hash: 9c5ed9360926ca5bcd7e8675f5ab974d
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: d0af11b6f76304cd0246e6f8989552a4
+    Hash: 75c565d7e60de0f84739c5923a2220af
 HashAppended: 0
 ClassTypes:
 - Class: 21
@@ -46,6 +46,7 @@ Assets:
 - Assets/Resources/GameView/SiXiang/Spine/Icon/Turtle/skeleton.atlas.txt
 - Assets/Resources/GameView/SiXiang/Spine/LuckyGoldItem/skeleton.png
 - Assets/Resources/GameView/SiXiang/Spine/DragonPearl/BgGame/skeleton.png
+- Assets/Resources/GameView/SiXiang/Spine/DragonPearl/BachHo/eye_tiger.png
 - Assets/Resources/GameView/SiXiang/Spine/Icon/A/skeleton.atlas.txt
 - Assets/Resources/GameView/SiXiang/Spine/DragonPearl/BgGame/skeleton.atlas.txt
 - Assets/Resources/GameView/SiXiang/Spine/Icon/J/skeleton_SkeletonData.asset
@@ -78,7 +79,6 @@ Assets:
 - Assets/Resources/GameView/SiXiang/Spine/Animal/Tiger/skeleton.json
 - Assets/Resources/GameView/SiXiang/Spine/LuckyDraw/BigWin/skeleton.atlas.txt
 - Assets/Resources/GameView/SiXiang/Spine/Icon/10/skeleton.json
-- Assets/Resources/GameView/SiXiang/Spine/DragonPearl/ChuTuoc/eye_turtle.png
 - Assets/Resources/GameView/SiXiang/Spine/DragonPearl/Lixi/skeleton_Material.mat
 - Assets/Resources/GameView/SiXiang/Spine/Animal/Tiger/skeleton.atlas.txt
 - Assets/Resources/GameView/SiXiang/Spine/Icon/J/skeleton.png
@@ -141,6 +141,7 @@ Assets:
 - Assets/Resources/GameView/SiXiang/Spine/BgLuckySpin/skeleton_Atlas.asset
 - Assets/Resources/GameView/SiXiang/Spine/Icon/K/skeleton_Material.mat
 - Assets/Resources/GameView/SiXiang/Spine/CutSceneBonus/skeleton_Atlas.asset
+- Assets/Resources/GameView/SiXiang/Spine/DragonPearl/ItemGold/vang.png
 - Assets/Resources/GameView/SiXiang/Spine/DragonPearl/ItemGold/skeleton.png
 - Assets/Resources/GameView/SiXiang/Spine/Animal/Dragon/skeleton.png
 - Assets/Resources/GameView/SiXiang/Spine/BgMiniGame/skeleton2.png
@@ -155,15 +156,13 @@ Assets:
 - Assets/Resources/GameView/SiXiang/Spine/Icon/K/skeleton.png
 - Assets/Resources/GameView/SiXiang/Spine/BigWinGoldPick/skeleton.json
 - Assets/Resources/GameView/SiXiang/Spine/Icon/Q/skeleton_Material.mat
-- Assets/Resources/GameView/SiXiang/Spine/DragonPearl/BachHo/eye_tiger.png
+- Assets/Resources/GameView/SiXiang/Spine/LuckyGoldItem/skeleton_Atlas.asset
 - Assets/Resources/GameView/SiXiang/Spine/BgMiniGame/skeleton_skeleton2.mat
-- Assets/Resources/GameView/SiXiang/Spine/DragonPearl/ItemGold/vang.png
 - Assets/Resources/GameView/SiXiang/Spine/Icon/J/skeleton_Material.mat
 - Assets/Resources/GameView/SiXiang/Spine/LuckyDraw/BgGame/skeleton_SkeletonData.asset
 - Assets/Resources/GameView/SiXiang/Spine/Animal/Tiger/skeleton.png
 - Assets/Resources/GameView/SiXiang/Spine/Icon/K/skeleton_SkeletonData.asset
 - Assets/Resources/GameView/SiXiang/Spine/LuckyGoldItem/skeleton_SkeletonData.asset
-- Assets/Resources/GameView/SiXiang/Spine/LuckyGoldItem/skeleton_Atlas.asset
 - Assets/Resources/GameView/SiXiang/Spine/Icon/Scatter/skeleton.json
 - Assets/Resources/GameView/SiXiang/Spine/BigWinGoldPick/skeleton_Material.mat
 - Assets/Resources/GameView/SiXiang/Spine/itemPick/skeleton.json
@@ -202,6 +201,7 @@ Assets:
 - Assets/Resources/GameView/SiXiang/Spine/LuckyDraw/BigWin/skeleton_SkeletonData.asset
 - Assets/Resources/GameView/SiXiang/Spine/LuckyDraw/LuckyDrawItem/skeleton.png
 - Assets/Resources/GameView/SiXiang/Spine/LuckyDraw/LuckyDrawItem/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/SiXiang/Spine/DragonPearl/ChuTuoc/eye_turtle.png
 - Assets/Resources/GameView/SiXiang/Spine/Icon/Dragon/skeleton_Atlas.asset
 - Assets/Resources/GameView/SiXiang/Spine/Icon/A/skeleton_Atlas.asset
 - Assets/Resources/GameView/SiXiang/Spine/BgMiniGame/skeleton.png
@@ -239,7 +239,6 @@ Assets:
 - Assets/Resources/GameView/SiXiang/Spine/Icon/A/skeleton.png
 - Assets/Resources/GameView/SiXiang/Spine/Icon/Turtle/skeleton_Atlas.asset
 - Assets/Resources/GameView/SiXiang/Spine/Icon/Q/skeleton_Atlas.asset
-- Assets/Resources/GameView/SiXiang/Spine/DragonPearl/HuyenVu/eye_phoenix.png
 - Assets/Resources/GameView/SiXiang/Spine/FourWin/skeleton_Atlas.asset
 - Assets/Resources/GameView/SiXiang/Spine/BtnSpin/skeleton_SkeletonData.asset
 - Assets/Resources/GameView/SiXiang/Spine/Icon/A/skeleton_Material.mat
@@ -284,6 +283,7 @@ Assets:
 - Assets/Resources/GameView/SiXiang/Spine/Icon/Phoenix/skeleton.atlas.txt
 - Assets/Resources/GameView/SiXiang/Spine/itemPick/skeleton.atlas.txt
 - Assets/Resources/GameView/SiXiang/Spine/FourWin/skeleton.json
+- Assets/Resources/GameView/SiXiang/Spine/DragonPearl/HuyenVu/eye_phoenix.png
 - Assets/Resources/GameView/SiXiang/Spine/Icon/Dragon/skeleton.json
 - Assets/Resources/GameView/SiXiang/Spine/DragonPearl/ThanhLong/skeleton_Material.mat
 - Assets/Resources/GameView/SiXiang/Spine/BgRapidPay/skeleton.atlas.txt

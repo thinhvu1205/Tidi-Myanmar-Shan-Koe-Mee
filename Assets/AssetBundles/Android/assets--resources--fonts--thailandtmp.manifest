@@ -1,0 +1,63 @@
+ManifestFileVersion: 0
+UnityVersion: 6000.1.17f1
+CRC: 73083475
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 5ecc5b76c89c16dc7d95b6d24d89bbbc
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 1e7a1b0bf9c2b07fa4aa31c46f2d0f11
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 83ed0b7143cc59eaf2e130735e930735
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 128
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers:
+- AssemblyName: Unity.TextMeshPro
+  ClassName: TMPro.FaceInfo_Legacy
+- AssemblyName: Unity.TextMeshPro
+  ClassName: TMPro.FontAssetCreationSettings
+- AssemblyName: Unity.TextMeshPro
+  ClassName: TMPro.KerningTable
+- AssemblyName: Unity.TextMeshPro
+  ClassName: TMPro.TMP_Character
+- AssemblyName: Unity.TextMeshPro
+  ClassName: TMPro.TMP_FontFeatureTable
+- AssemblyName: Unity.TextMeshPro
+  ClassName: TMPro.TMP_FontWeightPair
+- AssemblyName: UnityEngine.TextCoreFontEngineModule
+  ClassName: UnityEngine.TextCore.FaceInfo
+- AssemblyName: UnityEngine.TextCoreFontEngineModule
+  ClassName: UnityEngine.TextCore.Glyph
+- AssemblyName: UnityEngine.TextCoreFontEngineModule
+  ClassName: UnityEngine.TextCore.GlyphMetrics
+- AssemblyName: UnityEngine.TextCoreFontEngineModule
+  ClassName: UnityEngine.TextCore.GlyphRect
+- AssemblyName: UnityEngine.TextCoreFontEngineModule
+  ClassName: UnityEngine.TextCore.LowLevel.GlyphAdjustmentRecord
+- AssemblyName: UnityEngine.TextCoreFontEngineModule
+  ClassName: UnityEngine.TextCore.LowLevel.GlyphPairAdjustmentRecord
+- AssemblyName: UnityEngine.TextCoreFontEngineModule
+  ClassName: UnityEngine.TextCore.LowLevel.GlyphValueRecord
+Assets:
+- Assets/Resources/Fonts/ThaiLandTMP/UTM_Neo_Sans_Intel SDF.asset
+- Assets/Resources/Fonts/ThaiLandTMP/UTM_Neo_Sans_Intel_SDF_Gray.mat
+- Assets/Resources/Fonts/ThaiLandTMP/outlineTitleFace.png
+- Assets/Resources/Fonts/ThaiLandTMP/face_title.png
+Dependencies:
+- C:/Users/Phan Tinh/Desktop/Project_TIDI/Tidi-Myanmar-Shan-Koe-Mee/Assets/AssetBundles/Android/assets--resources--fonts--originalfontfile

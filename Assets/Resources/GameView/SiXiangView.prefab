@@ -76,6 +76,7 @@ GameObject:
   - component: {fileID: 7029689369128981582}
   - component: {fileID: 276682192880941640}
   - component: {fileID: 2057552557001454941}
+  - component: {fileID: 8162501801742270241}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -201,6 +202,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8162501801742270241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 229705673570197790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/Atrament Medium SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &243872928772209015
 GameObject:
   m_ObjectHideFlags: 0
@@ -1046,6 +1068,7 @@ GameObject:
   - component: {fileID: 2247232384999584022}
   - component: {fileID: 1987247634008203717}
   - component: {fileID: 6352929101340067465}
+  - component: {fileID: 6250692070922789243}
   m_Layer: 5
   m_Name: lbChip
   m_TagString: Untagged
@@ -1171,6 +1194,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &6250692070922789243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1118829644682735622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--fonts--fontslotsixiang
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/FontSlotSiXiang/go3v2 SDF.asset
+  FontMaterialName: Assets/Resources/Fonts/FontSlotSiXiang/go3v2_SDF_YELLOW.mat
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &1146951714443267523
 GameObject:
   m_ObjectHideFlags: 0
@@ -1276,15 +1320,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 5348249832474300982}
+  ThisTMPUGUI: {fileID: 0}
   BundleLabel: assets--resources--gameview--slotspine
   AssetName: Assets/Resources/GameView/SlotSpine/NearFreeSpin/skeleton_SkeletonData.asset
   AnimName: animation
-  SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &1337519335489217365
 GameObject:
   m_ObjectHideFlags: 0
@@ -1528,7 +1571,7 @@ MonoBehaviour:
   freeze: 0
   updateWhenInvisible: 3
   unscaledTime: 0
-  allowMultipleCanvasRenderers: 1
+  allowMultipleCanvasRenderers: 0
   canvasRenderers:
   - {fileID: 6455081746625980819}
   separatorSlotNames: []
@@ -1558,15 +1601,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 5790761887145093738}
+  ThisTMPUGUI: {fileID: 0}
   BundleLabel: assets--resources--gameview--sixiang--spine
   AssetName: Assets/Resources/GameView/SiXiang/Spine/BtnSpin/skeleton_SkeletonData.asset
   AnimName: spin2
-  SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &1414075250814146033
 GameObject:
   m_ObjectHideFlags: 0
@@ -1932,6 +1974,7 @@ GameObject:
   - component: {fileID: 4975389450899508464}
   - component: {fileID: 6088923135023207802}
   - component: {fileID: 796499653415600491}
+  - component: {fileID: 4071397649136798149}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -2057,6 +2100,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &4071397649136798149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1558568021391069214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--fonts--fontslotsixiang
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/FontSlotSiXiang/go3v2 SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &1593163830636385288
 GameObject:
   m_ObjectHideFlags: 0
@@ -2265,6 +2329,7 @@ GameObject:
   - component: {fileID: 4625449338806133560}
   - component: {fileID: 246825845739849258}
   - component: {fileID: 5723863071605462741}
+  - component: {fileID: 7877445246781531703}
   m_Layer: 5
   m_Name: lbTotalLine
   m_TagString: Untagged
@@ -2390,6 +2455,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &7877445246781531703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1766723796532198073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 5723863071605462741}
+  BundleLabel: assets--resources--fonts--fontslotsixiang
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/FontSlotSiXiang/go3v2 SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &1804333779137093830
 GameObject:
   m_ObjectHideFlags: 0
@@ -3002,6 +3088,7 @@ GameObject:
   - component: {fileID: 3038035079958547177}
   - component: {fileID: 936601632634318699}
   - component: {fileID: 1825932294201860094}
+  - component: {fileID: 5019246900597278313}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -3127,6 +3214,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5019246900597278313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1963963700171974202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--fonts--fontslotsixiang
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/FontSlotSiXiang/go3v2 SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &1964604106361997232
 GameObject:
   m_ObjectHideFlags: 0
@@ -3502,6 +3610,7 @@ GameObject:
   - component: {fileID: 2697213119643950660}
   - component: {fileID: 8936215153244708162}
   - component: {fileID: 2579780585150645829}
+  - component: {fileID: 5830707425859187041}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -3627,6 +3736,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5830707425859187041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2187252551517062466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--fonts--fontslotsixiang
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/FontSlotSiXiang/go3v2 SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &2239416919122060204
 GameObject:
   m_ObjectHideFlags: 0
@@ -3639,6 +3769,7 @@ GameObject:
   - component: {fileID: 642379970780019676}
   - component: {fileID: 7700807509648341474}
   - component: {fileID: 8691552708200394802}
+  - component: {fileID: 3078670845272832107}
   m_Layer: 5
   m_Name: lbSpinInfo
   m_TagString: Untagged
@@ -3778,6 +3909,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 2
   m_VerticalFit: 0
+--- !u!114 &3078670845272832107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2239416919122060204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 7700807509648341474}
+  BundleLabel: assets--resources--fonts--fontslotsixiang
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/FontSlotSiXiang/go3v2 SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &2332475438237123814
 GameObject:
   m_ObjectHideFlags: 0
@@ -3927,15 +4079,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 5254513431763206914}
+  ThisTMPUGUI: {fileID: 0}
   BundleLabel: assets--resources--gameview--sixiang--spine
   AssetName: Assets/Resources/GameView/SiXiang/Spine/buy/skeleton_SkeletonData.asset
   AnimName: buy2
-  SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &2403816827355058021
 GameObject:
   m_ObjectHideFlags: 0
@@ -4462,6 +4613,7 @@ GameObject:
   - component: {fileID: 4438793664308954163}
   - component: {fileID: 471797450340658747}
   - component: {fileID: 8794869326109320736}
+  - component: {fileID: 5993746898517357993}
   m_Layer: 5
   m_Name: lbAutoRemain
   m_TagString: Untagged
@@ -4587,6 +4739,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5993746898517357993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2632706951686025611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/Atrament Medium SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &2691392845841231604
 GameObject:
   m_ObjectHideFlags: 0
@@ -5061,15 +5234,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 6731601060912676216}
+  ThisTMPUGUI: {fileID: 0}
   BundleLabel: assets--resources--gameview--sixiang--spine
   AssetName: Assets/Resources/GameView/SiXiang/Spine/buy/skeleton_SkeletonData.asset
   AnimName: buy2
-  SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &3037761497256358481
 GameObject:
   m_ObjectHideFlags: 0
@@ -5212,6 +5384,7 @@ GameObject:
   - component: {fileID: 1707505825738781780}
   - component: {fileID: 510631098592774333}
   - component: {fileID: 1475876639331954976}
+  - component: {fileID: 5515009791931992139}
   m_Layer: 5
   m_Name: lbJPGrand
   m_TagString: Untagged
@@ -5353,6 +5526,27 @@ MonoBehaviour:
   isFormatMoney: 0
   scale: 1
   FormatType: 0
+--- !u!114 &5515009791931992139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3090181955861730900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 510631098592774333}
+  BundleLabel: assets--resources--fonts--fontslotsixiang
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/FontSlotSiXiang/go3v2 SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &3117804650261599101
 GameObject:
   m_ObjectHideFlags: 0
@@ -5770,6 +5964,7 @@ GameObject:
   - component: {fileID: 7444263662063065167}
   - component: {fileID: 1350413207850208645}
   - component: {fileID: 8937448906318610883}
+  - component: {fileID: 4844052099098298362}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -5895,6 +6090,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &4844052099098298362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3389321514576201762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--fonts--fontslotsixiang
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/FontSlotSiXiang/go3v2 SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &3510443496187205706
 GameObject:
   m_ObjectHideFlags: 0
@@ -5907,6 +6123,7 @@ GameObject:
   - component: {fileID: 3576051300468912640}
   - component: {fileID: 7205854468380863826}
   - component: {fileID: 9040228466994775819}
+  - component: {fileID: 664334911020285757}
   m_Layer: 5
   m_Name: lbJPMajor
   m_TagString: Untagged
@@ -6048,6 +6265,27 @@ MonoBehaviour:
   isFormatMoney: 0
   scale: 1
   FormatType: 0
+--- !u!114 &664334911020285757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3510443496187205706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 7205854468380863826}
+  BundleLabel: assets--resources--fonts--fontslotsixiang
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/FontSlotSiXiang/go3v2 SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &3533989435799101791
 GameObject:
   m_ObjectHideFlags: 0
@@ -8040,6 +8278,7 @@ GameObject:
   - component: {fileID: 7743002822108931294}
   - component: {fileID: 6663608511061883301}
   - component: {fileID: 9134996937292324034}
+  - component: {fileID: 3272168034703591446}
   m_Layer: 5
   m_Name: lbFSP
   m_TagString: Untagged
@@ -8165,6 +8404,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3272168034703591446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4958276089780709143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--fonts--fontslotsixiang
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/FontSlotSiXiang/go3v2 SDF.asset
+  FontMaterialName: Assets/Resources/Fonts/FontSlotSiXiang/go3v2_SDF_YELLOW.mat
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &4982446778662143211
 GameObject:
   m_ObjectHideFlags: 0
@@ -8377,7 +8637,7 @@ GameObject:
   - component: {fileID: 4973718964419748345}
   - component: {fileID: 3581133293210138702}
   - component: {fileID: 6879134414166911347}
-  - component: {fileID: 5399127474429907918}
+  - component: {fileID: 3833242700568870755}
   m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -8503,7 +8763,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &5399127474429907918
+--- !u!114 &3833242700568870755
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8512,14 +8772,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 5076735095839366879}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 489ab9b30bbc94ccbbfd360ae829d09f, type: 3}
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
-  key: txt_ok
-  sprites: []
-  animName: []
-  isUpper: 0
+  Type: 3
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--fonts--fontslotsixiang
+  AssetName: txt_ok
+  AnimName: 
+  FontName: Assets/Resources/Fonts/FontSlotSiXiang/go3v2 SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &5105204465745674393
 GameObject:
   m_ObjectHideFlags: 0
@@ -8672,6 +8936,7 @@ GameObject:
   - component: {fileID: 323917695542890829}
   - component: {fileID: 3881164056177287548}
   - component: {fileID: 8960696380128418323}
+  - component: {fileID: 2636879386693876565}
   m_Layer: 5
   m_Name: lbBalance
   m_TagString: Untagged
@@ -8813,6 +9078,27 @@ MonoBehaviour:
   isFormatMoney: 0
   scale: 1
   FormatType: 0
+--- !u!114 &2636879386693876565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5215179864882488666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 3881164056177287548}
+  BundleLabel: assets--resources--fonts--fontslotsixiang
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/FontSlotSiXiang/go3v2 SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &5281425871743341461
 GameObject:
   m_ObjectHideFlags: 0
@@ -8902,6 +9188,7 @@ GameObject:
   - component: {fileID: 520735296549085896}
   - component: {fileID: 5379343862309622312}
   - component: {fileID: 3631711748389801137}
+  - component: {fileID: 7790833742239390598}
   m_Layer: 0
   m_Name: lbJackpotWin
   m_TagString: Untagged
@@ -9043,6 +9330,27 @@ MonoBehaviour:
   isFormatMoney: 0
   scale: 1
   FormatType: 0
+--- !u!114 &7790833742239390598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5294489493886056095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--fonts--fontslotsixiang
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/FontSlotSiXiang/go3v2 SDF.asset
+  FontMaterialName: Assets/Resources/Fonts/FontSlotSiXiang/go3v2_SDF_Gradient.mat
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &5436042007473048149
 GameObject:
   m_ObjectHideFlags: 0
@@ -9576,15 +9884,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 7864831807772772807}
+  ThisTMPUGUI: {fileID: 0}
   BundleLabel: assets--resources--gameview--sixiang--spine
   AssetName: Assets/Resources/GameView/SiXiang/Spine/BigWinGoldPick/skeleton_SkeletonData.asset
   AnimName: cam
-  SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &5825034134473767962
 GameObject:
   m_ObjectHideFlags: 0
@@ -9794,7 +10101,7 @@ GameObject:
   - component: {fileID: 6978605188416506288}
   - component: {fileID: 4950919691868409401}
   - component: {fileID: 3337677589108015718}
-  - component: {fileID: 887492308441262712}
+  - component: {fileID: 8840399420037466228}
   m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -9920,7 +10227,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &887492308441262712
+--- !u!114 &8840399420037466228
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9929,14 +10236,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 5884191659192035349}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 489ab9b30bbc94ccbbfd360ae829d09f, type: 3}
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
-  key: txt_ok
-  sprites: []
-  animName: []
-  isUpper: 0
+  Type: 3
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--fonts--fontslotsixiang
+  AssetName: txt_ok
+  AnimName: 
+  FontName: Assets/Resources/Fonts/FontSlotSiXiang/go3v2 SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &6011177111154007306
 GameObject:
   m_ObjectHideFlags: 0
@@ -10023,7 +10334,7 @@ GameObject:
   - component: {fileID: 2912143322555683401}
   - component: {fileID: 4535439153292302592}
   - component: {fileID: 2947549340712559757}
-  - component: {fileID: 5655897323941072181}
+  - component: {fileID: 2146160462882614093}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -10149,7 +10460,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &5655897323941072181
+--- !u!114 &2146160462882614093
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10158,14 +10469,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 6055987272661673617}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 489ab9b30bbc94ccbbfd360ae829d09f, type: 3}
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
-  key: txt_4XReward
-  sprites: []
-  animName: []
-  isUpper: 0
+  Type: 3
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: txt_4XReward
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/Atrament Medium SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &6215290924553335778
 GameObject:
   m_ObjectHideFlags: 0
@@ -10397,6 +10712,7 @@ GameObject:
   - component: {fileID: 2685883681886129873}
   - component: {fileID: 6539891751139419423}
   - component: {fileID: 2377113611459924468}
+  - component: {fileID: 7285837543946885043}
   m_Layer: 5
   m_Name: lbJpMinor
   m_TagString: Untagged
@@ -10538,6 +10854,27 @@ MonoBehaviour:
   isFormatMoney: 0
   scale: 1
   FormatType: 0
+--- !u!114 &7285837543946885043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6391175396171142319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 6539891751139419423}
+  BundleLabel: assets--resources--fonts--fontslotsixiang
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/FontSlotSiXiang/go3v2 SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &6505023379214983848
 GameObject:
   m_ObjectHideFlags: 0
@@ -10857,6 +11194,7 @@ GameObject:
   - component: {fileID: 2806750047480468046}
   - component: {fileID: 8651476562392955244}
   - component: {fileID: 8854265393965220370}
+  - component: {fileID: 5014073088786763603}
   m_Layer: 0
   m_Name: lbMoneyBigMega
   m_TagString: Untagged
@@ -10998,6 +11336,27 @@ MonoBehaviour:
   isFormatMoney: 0
   scale: 1
   FormatType: 0
+--- !u!114 &5014073088786763603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6640266673355101320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--fonts--fontslotsixiang
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/FontSlotSiXiang/go3v2 SDF.asset
+  FontMaterialName: Assets/Resources/Fonts/FontSlotSiXiang/go3v2_SDF_Gradient.mat
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &6807976371666471460
 GameObject:
   m_ObjectHideFlags: 0
@@ -11235,15 +11594,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 6771719192560335550}
+  ThisTMPUGUI: {fileID: 0}
   BundleLabel: assets--resources--gameview--sixiang--spine
   AssetName: Assets/Resources/GameView/SiXiang/Spine/buy/skeleton_SkeletonData.asset
   AnimName: buy2
-  SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &6900195339463670736
 GameObject:
   m_ObjectHideFlags: 0
@@ -11701,6 +12059,7 @@ GameObject:
   - component: {fileID: 5381430156656154765}
   - component: {fileID: 13162776532094585}
   - component: {fileID: 5447352574273661489}
+  - component: {fileID: 2016526427423944686}
   m_Layer: 5
   m_Name: lbTotalWin
   m_TagString: Untagged
@@ -11842,6 +12201,27 @@ MonoBehaviour:
   isFormatMoney: 0
   scale: 1
   FormatType: 0
+--- !u!114 &2016526427423944686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7337201377417356435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 13162776532094585}
+  BundleLabel: assets--resources--fonts--fontslotsixiang
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/FontSlotSiXiang/go3v2 SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &7380144141590227015
 GameObject:
   m_ObjectHideFlags: 0
@@ -12070,15 +12450,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 165942515883690355}
+  ThisTMPUGUI: {fileID: 0}
   BundleLabel: assets--resources--gameview--sixiang--spine
   AssetName: Assets/Resources/GameView/SiXiang/Spine/WinResult/skeleton_SkeletonData.asset
   AnimName: cam
-  SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &7439860391288568186
 GameObject:
   m_ObjectHideFlags: 0
@@ -12711,6 +13090,7 @@ GameObject:
   - component: {fileID: 337621055910904632}
   - component: {fileID: 6138569439357122658}
   - component: {fileID: 5973820753167500788}
+  - component: {fileID: 7076752959220858626}
   m_Layer: 0
   m_Name: lbMoneyWinResult
   m_TagString: Untagged
@@ -12836,6 +13216,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &7076752959220858626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7656044026005708088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--fonts--fontslotsixiang
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/FontSlotSiXiang/go3v2 SDF.asset
+  FontMaterialName: Assets/Resources/Fonts/FontSlotSiXiang/go3v2_SDF_Gradient.mat
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &7659083171546912839
 GameObject:
   m_ObjectHideFlags: 0
@@ -12976,15 +13377,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 2375662973135679049}
+  ThisTMPUGUI: {fileID: 0}
   BundleLabel: assets--resources--gameview--sixiang--spine
   AssetName: Assets/Resources/GameView/SiXiang/Spine/buy/skeleton_SkeletonData.asset
   AnimName: buy2
-  SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &7689241238381809544
 GameObject:
   m_ObjectHideFlags: 0
@@ -13333,15 +13733,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 5578956257289322967}
+  ThisTMPUGUI: {fileID: 0}
   BundleLabel: assets,resources,gameview,sixiang,spine
   AssetName: Assets/Resources/GameView/SiXiang/Spine/BgMiniGame/skeleton_SkeletonData.asset
   AnimName: spin
-  SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &8118362079785703580
 GameObject:
   m_ObjectHideFlags: 0
@@ -13354,6 +13753,7 @@ GameObject:
   - component: {fileID: 1536850964978508737}
   - component: {fileID: 4931094038482724687}
   - component: {fileID: 8542369788832704516}
+  - component: {fileID: 5319383719948766401}
   m_Layer: 5
   m_Name: lbJPMega
   m_TagString: Untagged
@@ -13495,6 +13895,27 @@ MonoBehaviour:
   isFormatMoney: 0
   scale: 1
   FormatType: 0
+--- !u!114 &5319383719948766401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8118362079785703580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 4931094038482724687}
+  BundleLabel: assets--resources--fonts--fontslotsixiang
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/FontSlotSiXiang/go3v2 SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &8191633127044179164
 GameObject:
   m_ObjectHideFlags: 0
@@ -13600,15 +14021,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 7168008539888612133}
+  ThisTMPUGUI: {fileID: 0}
   BundleLabel: assets--resources--gameview--sixiang--spine
   AssetName: Assets/Resources/GameView/SiXiang/Spine/BonusChooseGamePopup/skeleton_SkeletonData.asset
   AnimName: animation
-  SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &8226084125577171671
 GameObject:
   m_ObjectHideFlags: 0
@@ -14141,6 +14561,7 @@ GameObject:
   - component: {fileID: 1078375359798908902}
   - component: {fileID: 1769837929049268926}
   - component: {fileID: 1872184131208251250}
+  - component: {fileID: 89273609811198170}
   m_Layer: 5
   m_Name: lbTotalBet
   m_TagString: Untagged
@@ -14266,6 +14687,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &89273609811198170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8804449081308288091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 1872184131208251250}
+  BundleLabel: assets--resources--fonts--fontslotsixiang
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/FontSlotSiXiang/go3v2 SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &8813706230026055812
 GameObject:
   m_ObjectHideFlags: 0

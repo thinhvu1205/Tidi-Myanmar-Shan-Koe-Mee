@@ -182,6 +182,7 @@ GameObject:
   - component: {fileID: 5963186221643131785}
   - component: {fileID: 4603434856557616930}
   - component: {fileID: 4936876228418540438}
+  - component: {fileID: 3781518369061029235}
   m_Layer: 5
   m_Name: lbBigWin
   m_TagString: Untagged
@@ -321,6 +322,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3781518369061029235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 974541237296060787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--fonts--fontsslotnoel
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/fontsSlotNoel/Rowdies-Regular SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &1460420230673946484
 GameObject:
   m_ObjectHideFlags: 0
@@ -333,6 +355,7 @@ GameObject:
   - component: {fileID: 5405249911121241486}
   - component: {fileID: 6537051567578467134}
   - component: {fileID: 4356895865294141423}
+  - component: {fileID: 5617806533382597647}
   m_Layer: 5
   m_Name: lbCurrentChips
   m_TagString: Untagged
@@ -474,6 +497,27 @@ MonoBehaviour:
   isFormatMoney: 0
   scale: 1
   FormatType: 0
+--- !u!114 &5617806533382597647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1460420230673946484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 6537051567578467134}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/Atrament Medium SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &1558117786748830010
 GameObject:
   m_ObjectHideFlags: 0
@@ -2000,6 +2044,7 @@ GameObject:
   - component: {fileID: 464683348665685277}
   - component: {fileID: 7733017911472660918}
   - component: {fileID: 3759880975327699474}
+  - component: {fileID: 4607635944476781588}
   m_Layer: 5
   m_Name: lbFreespinNum
   m_TagString: Untagged
@@ -2139,6 +2184,28 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &4607635944476781588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6428283026140784615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/Atrament Medium SDF.asset
+  FontMaterialName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/Atrament Medium
+    SDF - Outline - Green.mat
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &6564756658185692672
 GameObject:
   m_ObjectHideFlags: 0
@@ -3554,6 +3621,7 @@ GameObject:
   - component: {fileID: 6079657597098501399}
   - component: {fileID: 8216351913018534667}
   - component: {fileID: 1227079152853852926}
+  - component: {fileID: 7522234400312054993}
   m_Layer: 5
   m_Name: lbChipWin
   m_TagString: Untagged
@@ -3709,6 +3777,27 @@ MonoBehaviour:
   isFormatMoney: 0
   scale: 1
   FormatType: 3
+--- !u!114 &7522234400312054993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7759958421831453261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 6079657597098501399}
+  BundleLabel: assets--resources--fonts--fontsslotnoel
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/fontsSlotNoel/Rowdies-Regular SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &7759958421861873605
 GameObject:
   m_ObjectHideFlags: 0
@@ -3721,7 +3810,7 @@ GameObject:
   - component: {fileID: 7759958421861873624}
   - component: {fileID: 7759958421861873606}
   - component: {fileID: 7585683069551074855}
-  - component: {fileID: 1437684306272900268}
+  - component: {fileID: 2891285733584864174}
   m_Layer: 5
   m_Name: lbInfoSession
   m_TagString: Untagged
@@ -3790,7 +3879,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: " \u0E01\u0E14 \u0E2B\u0E21\u0E38\u0E19\u0E40\u0E1E\u0E37\u0E48\u0E2D\u0E40\u0E25\u0E48\u0E19"
+  m_text: "Spin \u1000\u102D\u102F \u1014\u103E\u102D\u1015\u103A\u104D \u1000\u1005\u102C\u1038\u1015\u102B"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7708e67653374c60af5f1595e949403, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 90d6d9d1ea02a4720bf1df977d059d92, type: 2}
@@ -3861,7 +3950,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &1437684306272900268
+--- !u!114 &2891285733584864174
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3870,14 +3959,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 7759958421861873605}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 489ab9b30bbc94ccbbfd360ae829d09f, type: 3}
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
-  key: txt_press_spin_to_play
-  sprites: []
-  animName: []
-  isUpper: 0
+  Type: 3
+  ThisTMPUGUI: {fileID: 7585683069551074855}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: txt_press_spin_to_play
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/Atrament Medium SDF.asset
+  FontMaterialName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/Atrament Medium
+    SDF - No - Outline.mat
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &7759958421904687365
 GameObject:
   m_ObjectHideFlags: 0
@@ -4184,6 +4278,7 @@ GameObject:
   - component: {fileID: 7759958422216657805}
   - component: {fileID: 7759958422216657803}
   - component: {fileID: 1488088068834876583}
+  - component: {fileID: 3834497583061747299}
   m_Layer: 5
   m_Name: lbCurrentBet
   m_TagString: Untagged
@@ -4323,6 +4418,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3834497583061747299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7759958422216657801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 1488088068834876583}
+  BundleLabel: assets--resources--fonts--fontsslotnoel
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/fontsSlotNoel/Rowdies-Regular SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &7759958422221419117
 GameObject:
   m_ObjectHideFlags: 0
@@ -4335,6 +4451,7 @@ GameObject:
   - component: {fileID: 7759958422221419104}
   - component: {fileID: 7759958422221419118}
   - component: {fileID: 3035893408889151114}
+  - component: {fileID: 5947495103803908811}
   m_Layer: 5
   m_Name: lbLine
   m_TagString: Untagged
@@ -4474,6 +4591,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5947495103803908811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7759958422221419117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 3035893408889151114}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/FontTimeCowDown/BalihoScript_0 SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &7759958422534617687
 GameObject:
   m_ObjectHideFlags: 0
@@ -4801,6 +4939,7 @@ GameObject:
   - component: {fileID: 7759958423101364617}
   - component: {fileID: 7759958423101364663}
   - component: {fileID: 7046412530957688997}
+  - component: {fileID: 2571783156045427239}
   m_Layer: 5
   m_Name: lbLine
   m_TagString: Untagged
@@ -4940,6 +5079,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &2571783156045427239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7759958423101364658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 7046412530957688997}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/FontTimeCowDown/BalihoScript_0 SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &7759958423272681452
 GameObject:
   m_ObjectHideFlags: 0
@@ -5259,6 +5419,7 @@ GameObject:
   - component: {fileID: 7759958423401119773}
   - component: {fileID: 7759958423401119774}
   - component: {fileID: 4300669397499544018}
+  - component: {fileID: 5616381901956308157}
   m_Layer: 5
   m_Name: lbStateBet
   m_TagString: Untagged
@@ -5384,6 +5545,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5616381901956308157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7759958423401119770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 4300669397499544018}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/Atrament Medium SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &7759958423458881584
 GameObject:
   m_ObjectHideFlags: 0
@@ -5761,6 +5943,7 @@ GameObject:
   - component: {fileID: 4918061843989977342}
   - component: {fileID: 5058889453021353133}
   - component: {fileID: 4787549345146159451}
+  - component: {fileID: 7002937772393445995}
   m_Layer: 5
   m_Name: lbStateWin
   m_TagString: Untagged
@@ -5900,6 +6083,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 2
   m_VerticalFit: 0
+--- !u!114 &7002937772393445995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8125691688999939507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 5058889453021353133}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Win/font_win SDF.asset
+  FontMaterialName: Assets/Resources/Fonts/TMPBitMap/Win/font_winSDF_Normal.mat
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &8284224356954567557
 GameObject:
   m_ObjectHideFlags: 0
@@ -5911,6 +6115,7 @@ GameObject:
   - component: {fileID: 7566454951258113058}
   - component: {fileID: 3734433443476763850}
   - component: {fileID: 5300018626347076899}
+  - component: {fileID: 8591260220393254181}
   m_Layer: 5
   m_Name: lbPayWin
   m_TagString: Untagged
@@ -6036,6 +6241,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8591260220393254181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8284224356954567557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/Atrament Medium SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &8495798484187764015
 GameObject:
   m_ObjectHideFlags: 0
@@ -6470,12 +6696,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 6233402618920365087}
+  ThisTMPUGUI: {fileID: 0}
   BundleLabel: assets--resources--gameview--slotspine
   AssetName: Assets/Resources/GameView/SlotSpine/NearFreeSpin/skeleton_SkeletonData.asset
   AnimName: animation
-  SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0

@@ -26,10 +26,10 @@ public class CreateAssetBundles
         AssetBundleManifest manifestABM = BuildPipeline.BuildAssetBundles(basePath, BuildAssetBundleOptions.None, BuildTarget.iOS);
         _BuildCategory(basePath, manifestABM);
     }
-    private static string _PrepareRootFolder(BundleHandler.PLATFORM platformType)
+    private static string _PrepareRootFolder(BundleHandler.PLATFORM _platformType)
     {
         string basePath = BundleHandler.BASE_PATH;
-        switch (platformType)
+        switch (_platformType)
         {
             case BundleHandler.PLATFORM.Android:
                 {
@@ -56,25 +56,25 @@ public class CreateAssetBundles
         }
         return basePath;
     }
-    private static void _BuildCategory(string path, AssetBundleManifest manifestABM)
+    private static void _BuildCategory(string _path, AssetBundleManifest _manifestABM)
     {
-        DirectoryInfo aDI = new(path);
+        DirectoryInfo aDI = new(_path);
         FileInfo[] infoFIs = aDI.GetFiles();
         List<string> hashedNames = new();
-        foreach (FileInfo infoFI in infoFIs) _RenameBundle(manifestABM, AssetDatabase.GetAllAssetBundleNames(), infoFI, hashedNames);
+        foreach (FileInfo infoFI in infoFIs) _RenameBundle(_manifestABM, AssetDatabase.GetAllAssetBundleNames(), infoFI, hashedNames);
         string categoryContent = "[" + string.Join(",", hashedNames) + "]";
-        string categoryPath = path + "/" + BundleHandler.CATEGORY;
+        string categoryPath = _path + "/" + BundleHandler.CATEGORY;
         if (File.Exists(categoryPath)) File.Delete(categoryPath);
         File.WriteAllText(categoryPath, categoryContent);
     }
-    private static void _RenameBundle(AssetBundleManifest manifestABM, string[] assetBundleNames, FileInfo infoFI, List<string> nodes)
+    private static void _RenameBundle(AssetBundleManifest _manifestABM, string[] _assetBundleNames, FileInfo _infoFI, List<string> _nodes)
     {
-        if (!infoFI.Name.EndsWith(".manifest") && assetBundleNames.Contains(infoFI.Name))
+        if (!_infoFI.Name.EndsWith(".manifest") && _assetBundleNames.Contains(_infoFI.Name))
         {
-            Hash128 hash = manifestABM.GetAssetBundleHash(infoFI.Name);
+            Hash128 hash = _manifestABM.GetAssetBundleHash(_infoFI.Name);
             string suffix = BundleHandler.SPLIT + hash.ToString();
-            nodes.Add('"' + infoFI.Name + suffix + '"');
-            File.Move(infoFI.FullName, infoFI.FullName + suffix);
+            _nodes.Add('"' + _infoFI.Name + suffix + '"');
+            File.Move(_infoFI.FullName, _infoFI.FullName + suffix);
         }
     }
 }

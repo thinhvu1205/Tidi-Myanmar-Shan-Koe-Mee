@@ -545,15 +545,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 8139589355109134393}
+  ThisTMPUGUI: {fileID: 0}
   BundleLabel: assets,resources,gameview,sixiang,spine
   AssetName: Assets/Resources/GameView/SiXiang/Spine/BgRapidPick/skeleton_SkeletonData.asset
   AnimName: animation
-  SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &797831920283394014
 GameObject:
   m_ObjectHideFlags: 0
@@ -659,15 +658,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 2929828568156046039}
+  ThisTMPUGUI: {fileID: 0}
   BundleLabel: assets,resources,gameview,sixiang,spine
   AssetName: Assets/Resources/GameView/SiXiang/Spine/itemPick/skeleton_SkeletonData.asset
   AnimName: normal
-  SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &947985123166274359
 GameObject:
   m_ObjectHideFlags: 0
@@ -773,15 +771,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 7349307790201249051}
+  ThisTMPUGUI: {fileID: 0}
   BundleLabel: assets,resources,gameview,sixiang,spine
   AssetName: Assets/Resources/GameView/SiXiang/Spine/itemPick/skeleton_SkeletonData.asset
   AnimName: normal
-  SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &1274823930771205382
 GameObject:
   m_ObjectHideFlags: 0
@@ -987,15 +984,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 5585853850707489385}
+  ThisTMPUGUI: {fileID: 0}
   BundleLabel: assets,resources,gameview,sixiang,spine
   AssetName: Assets/Resources/GameView/SiXiang/Spine/itemPick/skeleton_SkeletonData.asset
   AnimName: normal
-  SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &1367399372386826378
 GameObject:
   m_ObjectHideFlags: 0
@@ -1685,15 +1681,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 1886261220794242518}
+  ThisTMPUGUI: {fileID: 0}
   BundleLabel: assets,resources,gameview,sixiang,spine
   AssetName: Assets/Resources/GameView/SiXiang/Spine/BgRapidPick/skeleton_SkeletonData.asset
   AnimName: animation
-  SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &2068789470598513443
 GameObject:
   m_ObjectHideFlags: 0
@@ -1961,15 +1956,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 7325365201852764482}
+  ThisTMPUGUI: {fileID: 0}
   BundleLabel: assets,resources,gameview,sixiang,spine
   AssetName: Assets/Resources/GameView/SiXiang/Spine/BgRapidPay/skeleton_SkeletonData.asset
   AnimName: animation
-  SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &3316173832709000970
 GameObject:
   m_ObjectHideFlags: 0
@@ -2317,15 +2311,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 1552894858947905939}
+  ThisTMPUGUI: {fileID: 0}
   BundleLabel: assets,resources,gameview,sixiang,spine
   AssetName: Assets/Resources/GameView/SiXiang/Spine/itemPick/skeleton_SkeletonData.asset
   AnimName: normal
-  SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &4067791420897865325
 GameObject:
   m_ObjectHideFlags: 0
@@ -2431,15 +2424,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 6473343313408340161}
+  ThisTMPUGUI: {fileID: 0}
   BundleLabel: assets,resources,gameview,sixiang,spine
   AssetName: Assets/Resources/GameView/SiXiang/Spine/itemPick/skeleton_SkeletonData.asset
   AnimName: normal
-  SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &4302487931828297011
 GameObject:
   m_ObjectHideFlags: 0
@@ -2545,15 +2537,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 1851761732090476435}
+  ThisTMPUGUI: {fileID: 0}
   BundleLabel: assets,resources,gameview,sixiang,spine
   AssetName: Assets/Resources/GameView/SiXiang/Spine/itemPick/skeleton_SkeletonData.asset
   AnimName: normal
-  SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &4517942376991735737
 GameObject:
   m_ObjectHideFlags: 0
@@ -2659,15 +2650,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 3854569680687270981}
+  ThisTMPUGUI: {fileID: 0}
   BundleLabel: assets,resources,gameview,sixiang,spine
   AssetName: Assets/Resources/GameView/SiXiang/Spine/RapidLight/skeleton_SkeletonData.asset
   AnimName: 4
-  SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &4614166633884604981
 GameObject:
   m_ObjectHideFlags: 0
@@ -2773,15 +2763,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 244520341807561987}
+  ThisTMPUGUI: {fileID: 0}
   BundleLabel: assets,resources,gameview,sixiang,spine
   AssetName: Assets/Resources/GameView/SiXiang/Spine/itemPick/skeleton_SkeletonData.asset
   AnimName: normal
-  SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &4645302274007981410
 GameObject:
   m_ObjectHideFlags: 0
@@ -2887,15 +2876,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 5862973344456547613}
+  ThisTMPUGUI: {fileID: 0}
   BundleLabel: assets,resources,gameview,sixiang,spine
   AssetName: Assets/Resources/GameView/SiXiang/Spine/itemPick/skeleton_SkeletonData.asset
   AnimName: normal
-  SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &4648984083770780827
 GameObject:
   m_ObjectHideFlags: 0
@@ -3093,15 +3081,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 8749052619128395187}
+  ThisTMPUGUI: {fileID: 0}
   BundleLabel: assets,resources,gameview,sixiang,spine
   AssetName: Assets/Resources/GameView/SiXiang/Spine/itemPick/skeleton_SkeletonData.asset
   AnimName: normal
-  SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &4817730417278418534
 GameObject:
   m_ObjectHideFlags: 0
@@ -3207,15 +3194,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 3961702281782608323}
+  ThisTMPUGUI: {fileID: 0}
   BundleLabel: assets,resources,gameview,sixiang,spine
   AssetName: Assets/Resources/GameView/SiXiang/Spine/itemPick/skeleton_SkeletonData.asset
   AnimName: normal
-  SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &4950775943375804658
 GameObject:
   m_ObjectHideFlags: 0
@@ -3563,15 +3549,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 8636281839945568736}
+  ThisTMPUGUI: {fileID: 0}
   BundleLabel: assets,resources,gameview,sixiang,spine
   AssetName: Assets/Resources/GameView/SiXiang/Spine/itemPick/skeleton_SkeletonData.asset
   AnimName: normal
-  SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &5299739493863477988
 GameObject:
   m_ObjectHideFlags: 0
@@ -3583,6 +3568,7 @@ GameObject:
   - component: {fileID: 7738336665776365723}
   - component: {fileID: 7539407819813464255}
   - component: {fileID: 5691795037213856664}
+  - component: {fileID: 2713460222518348446}
   m_Layer: 5
   m_Name: lbMultiplier
   m_TagString: Untagged
@@ -3708,6 +3694,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &2713460222518348446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5299739493863477988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 5691795037213856664}
+  BundleLabel: assets--resources--fonts--fontslotsixiang
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/FontSlotSiXiang/go3v2 SDF.asset
+  FontMaterialName: Assets/Resources/Fonts/FontSlotSiXiang/go3v2_SDF_YELLOW.mat
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &5475600173449997685
 GameObject:
   m_ObjectHideFlags: 0
@@ -3813,15 +3820,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 3066149904648888238}
+  ThisTMPUGUI: {fileID: 0}
   BundleLabel: assets,resources,gameview,sixiang,spine
   AssetName: Assets/Resources/GameView/SiXiang/Spine/itemPick/skeleton_SkeletonData.asset
   AnimName: normal
-  SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &5564279410175685062
 GameObject:
   m_ObjectHideFlags: 0
@@ -4686,15 +4692,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 2623416779556766789}
+  ThisTMPUGUI: {fileID: 0}
   BundleLabel: assets,resources,gameview,sixiang,spine
   AssetName: Assets/Resources/GameView/SiXiang/Spine/itemPick/skeleton_SkeletonData.asset
   AnimName: normal
-  SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &6112583663475889241
 GameObject:
   m_ObjectHideFlags: 0
@@ -4933,15 +4938,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 8638139986655535053}
+  ThisTMPUGUI: {fileID: 0}
   BundleLabel: assets,resources,gameview,sixiang,spine
   AssetName: Assets/Resources/GameView/SiXiang/Spine/itemPick/skeleton_SkeletonData.asset
   AnimName: normal
-  SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &6455999107715530881
 GameObject:
   m_ObjectHideFlags: 0
@@ -5047,15 +5051,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 6400552359178858376}
+  ThisTMPUGUI: {fileID: 0}
   BundleLabel: assets,resources,gameview,sixiang,spine
   AssetName: Assets/Resources/GameView/SiXiang/Spine/itemPick/skeleton_SkeletonData.asset
   AnimName: normal
-  SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &6822503012946804508
 GameObject:
   m_ObjectHideFlags: 0
@@ -5161,15 +5164,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 6920600477550052669}
+  ThisTMPUGUI: {fileID: 0}
   BundleLabel: assets,resources,gameview,sixiang,spine
   AssetName: Assets/Resources/GameView/SiXiang/Spine/itemPick/skeleton_SkeletonData.asset
   AnimName: normal
-  SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &7095852618912758079
 GameObject:
   m_ObjectHideFlags: 0
@@ -5275,15 +5277,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 8908884208519565016}
+  ThisTMPUGUI: {fileID: 0}
   BundleLabel: assets,resources,gameview,sixiang,spine
   AssetName: Assets/Resources/GameView/SiXiang/Spine/itemPick/skeleton_SkeletonData.asset
   AnimName: normal
-  SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &7209138184942689380
 GameObject:
   m_ObjectHideFlags: 0
@@ -5845,6 +5846,7 @@ GameObject:
   - component: {fileID: 1110689232034900057}
   - component: {fileID: 2794234985734404296}
   - component: {fileID: 9163713570510891820}
+  - component: {fileID: 4219190461687686845}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -5970,6 +5972,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &4219190461687686845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7962500578983013743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/Atrament Medium SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &8023879062827258688
 GameObject:
   m_ObjectHideFlags: 0
@@ -6151,15 +6174,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 6258682727063834321}
+  ThisTMPUGUI: {fileID: 0}
   BundleLabel: assets,resources,gameview,sixiang,spine
   AssetName: Assets/Resources/GameView/SiXiang/Spine/itemPick/skeleton_SkeletonData.asset
   AnimName: normal
-  SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &8877742252804553061
 GameObject:
   m_ObjectHideFlags: 0
@@ -6172,6 +6194,7 @@ GameObject:
   - component: {fileID: 4951155408314122110}
   - component: {fileID: 6421793594036097448}
   - component: {fileID: 4901889876934729959}
+  - component: {fileID: 4586229628940850266}
   m_Layer: 0
   m_Name: lbWin
   m_TagString: Untagged
@@ -6313,6 +6336,27 @@ MonoBehaviour:
   isFormatMoney: 0
   scale: 1
   FormatType: 0
+--- !u!114 &4586229628940850266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8877742252804553061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--fonts--fontslotsixiang
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/FontSlotSiXiang/go3v2 SDF.asset
+  FontMaterialName: Assets/Resources/Fonts/FontSlotSiXiang/go3v2_SDF_YELLOW.mat
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &9167730727670822080
 GameObject:
   m_ObjectHideFlags: 0
@@ -6324,6 +6368,7 @@ GameObject:
   - component: {fileID: 4997510656516433056}
   - component: {fileID: 1025739800821020435}
   - component: {fileID: 7687913822712811643}
+  - component: {fileID: 30747608440100323}
   m_Layer: 5
   m_Name: lbChipMultiplier
   m_TagString: Untagged
@@ -6449,3 +6494,24 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &30747608440100323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9167730727670822080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 7687913822712811643}
+  BundleLabel: assets--resources--fonts--fontslotsixiang
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/FontSlotSiXiang/go3v2 SDF.asset
+  FontMaterialName: Assets/Resources/Fonts/FontSlotSiXiang/go3v2_SDF_YELLOW.mat
+  IsSetNativeSize: 0
+  IsTextUpper: 0

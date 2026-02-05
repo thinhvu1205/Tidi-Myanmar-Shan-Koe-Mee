@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 9043307121060592927}
   - component: {fileID: 8966559808787799924}
   - component: {fileID: 116334199624824351}
+  - component: {fileID: 6045884985220982446}
   m_Layer: 5
   m_Name: txt_money_receive
   m_TagString: Untagged
@@ -151,6 +152,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 2
   m_VerticalFit: 0
+--- !u!114 &6045884985220982446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 231101943504681500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 8966559808787799924}
+  BundleLabel: assets--resources--fonts--thailandtmp
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/ThaiLandTMP/UTM_Neo_Sans_Intel SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &317162258038839027
 GameObject:
   m_ObjectHideFlags: 0
@@ -633,6 +655,7 @@ GameObject:
   - component: {fileID: 2521622502783292256}
   - component: {fileID: 7095303846063434953}
   - component: {fileID: 3488080446282542929}
+  - component: {fileID: 7968564060194728173}
   m_Layer: 5
   m_Name: txt_money_receive
   m_TagString: Untagged
@@ -758,6 +781,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &7968564060194728173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2554720599746516034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/FontTitle SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &3515805777260839931
 GameObject:
   m_ObjectHideFlags: 0
@@ -1011,6 +1055,7 @@ GameObject:
   - component: {fileID: 2275494021281138007}
   - component: {fileID: 8991841575152665149}
   - component: {fileID: 3302422392738816315}
+  - component: {fileID: 3525590460983211626}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -1136,6 +1181,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3525590460983211626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3709476497387281258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/Atrament Medium SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &3818335245650066772
 GameObject:
   m_ObjectHideFlags: 0
@@ -1721,6 +1787,7 @@ GameObject:
   - component: {fileID: 7585758311175046947}
   - component: {fileID: 1444027376493949786}
   - component: {fileID: 6662201438694803227}
+  - component: {fileID: 8730239219251629217}
   m_Layer: 5
   m_Name: txt_lv
   m_TagString: Untagged
@@ -1846,6 +1913,28 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8730239219251629217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6169377313357572581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 6662201438694803227}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/NotoSansThaiLooped-Regular
+    SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &6525691599069769087
 GameObject:
   m_ObjectHideFlags: 0
@@ -2114,6 +2203,7 @@ GameObject:
   - component: {fileID: 6044267977600486733}
   - component: {fileID: 4018042302299629918}
   - component: {fileID: 2764224841964650874}
+  - component: {fileID: 2344775261786465730}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -2239,6 +2329,28 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &2344775261786465730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6843678954604658817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 2764224841964650874}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/NotoSansThaiLooped-Regular
+    SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &7288232531163199470
 GameObject:
   m_ObjectHideFlags: 0
@@ -2325,6 +2437,7 @@ GameObject:
   - component: {fileID: 5018533080292832450}
   - component: {fileID: 7588209604587911767}
   - component: {fileID: 335811385245335135}
+  - component: {fileID: 3491333079878370668}
   m_Layer: 5
   m_Name: txt_lv
   m_TagString: Untagged
@@ -2450,6 +2563,28 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3491333079878370668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7478447259094078893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 335811385245335135}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/NotoSansThaiLooped-Regular
+    SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &7531703724807885545
 GameObject:
   m_ObjectHideFlags: 0
@@ -2767,6 +2902,7 @@ GameObject:
   - component: {fileID: 8922912244212215934}
   - component: {fileID: 5242404878547074645}
   - component: {fileID: 8499068390846127147}
+  - component: {fileID: 9184918367482966704}
   m_Layer: 5
   m_Name: txt_money
   m_TagString: Untagged
@@ -2892,6 +3028,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &9184918367482966704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8099116380929113215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 8499068390846127147}
+  BundleLabel: assets--resources--fonts--thailandtmp
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/ThaiLandTMP/UTM_Neo_Sans_Intel SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &8291794312398775671
 GameObject:
   m_ObjectHideFlags: 0
@@ -3071,6 +3228,7 @@ GameObject:
   - component: {fileID: 394188859769094593}
   - component: {fileID: 6008452784401704041}
   - component: {fileID: 7044620630484413139}
+  - component: {fileID: 6169675467673904186}
   m_Layer: 5
   m_Name: txt_money
   m_TagString: Untagged
@@ -3196,6 +3354,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &6169675467673904186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8961034899395135395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 7044620630484413139}
+  BundleLabel: assets--resources--fonts--thailandtmp
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/ThaiLandTMP/UTM_Neo_Sans_Intel SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &9001454703538838035
 GameObject:
   m_ObjectHideFlags: 0

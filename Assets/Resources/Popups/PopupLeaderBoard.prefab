@@ -312,6 +312,7 @@ GameObject:
   - component: {fileID: 7507479145417131997}
   - component: {fileID: 2331506116068787691}
   - component: {fileID: 1431266321848448087}
+  - component: {fileID: 8749085711230375633}
   m_Layer: 5
   m_Name: lbStt
   m_TagString: Untagged
@@ -437,6 +438,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8749085711230375633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1856472691448760258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 1431266321848448087}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/Atrament Medium SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &1954711577215072463
 GameObject:
   m_ObjectHideFlags: 0
@@ -995,6 +1017,7 @@ GameObject:
   - component: {fileID: 3480848500707041128}
   - component: {fileID: 1281908926311636761}
   - component: {fileID: 8643216979500913062}
+  - component: {fileID: 2370181082237108452}
   m_Layer: 5
   m_Name: txt_off
   m_TagString: Untagged
@@ -1120,6 +1143,28 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &2370181082237108452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5864875128831676825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/Atrament Medium SDF.asset
+  FontMaterialName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/Atrament Medium
+    SDF - Outline - Blue.mat
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &6101013597485253174
 GameObject:
   m_ObjectHideFlags: 0
@@ -1570,6 +1615,7 @@ GameObject:
   - component: {fileID: 7115152592610840429}
   - component: {fileID: 1734505376042625008}
   - component: {fileID: 3631696616419425874}
+  - component: {fileID: 7462472411176091338}
   m_Layer: 5
   m_Name: txt_on
   m_TagString: Untagged
@@ -1695,6 +1741,28 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &7462472411176091338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7256747930859957050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/Atrament Medium SDF.asset
+  FontMaterialName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/Atrament Medium
+    SDF - Outline - Blue.mat
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &8543123688447870566
 GameObject:
   m_ObjectHideFlags: 0
@@ -1940,19 +2008,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2711142236720872119, guid: 04264119c82d04ccfbbff4425fd05c19, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2711142236720872119, guid: 04264119c82d04ccfbbff4425fd05c19, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2711142236720872119, guid: 04264119c82d04ccfbbff4425fd05c19, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 47
       objectReference: {fileID: 0}
     - target: {fileID: 2711142236720872119, guid: 04264119c82d04ccfbbff4425fd05c19, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -11.5
       objectReference: {fileID: 0}
     - target: {fileID: 5812262428090000269, guid: 04264119c82d04ccfbbff4425fd05c19, type: 3}
       propertyPath: m_Pivot.x
@@ -2036,19 +2104,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6375188295317436433, guid: 04264119c82d04ccfbbff4425fd05c19, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6375188295317436433, guid: 04264119c82d04ccfbbff4425fd05c19, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6375188295317436433, guid: 04264119c82d04ccfbbff4425fd05c19, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 146
       objectReference: {fileID: 0}
     - target: {fileID: 6375188295317436433, guid: 04264119c82d04ccfbbff4425fd05c19, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -11.5
       objectReference: {fileID: 0}
     - target: {fileID: 6415546529699577651, guid: 04264119c82d04ccfbbff4425fd05c19, type: 3}
       propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
@@ -2064,57 +2132,96 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8109608922660626416, guid: 04264119c82d04ccfbbff4425fd05c19, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8109608922660626416, guid: 04264119c82d04ccfbbff4425fd05c19, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8109608922660626416, guid: 04264119c82d04ccfbbff4425fd05c19, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 8109608922660626416, guid: 04264119c82d04ccfbbff4425fd05c19, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -11.5
       objectReference: {fileID: 0}
     - target: {fileID: 8444180302952567483, guid: 04264119c82d04ccfbbff4425fd05c19, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8444180302952567483, guid: 04264119c82d04ccfbbff4425fd05c19, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8444180302952567483, guid: 04264119c82d04ccfbbff4425fd05c19, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 8444180302952567483, guid: 04264119c82d04ccfbbff4425fd05c19, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -11.5
       objectReference: {fileID: 0}
     - target: {fileID: 8613831978282804244, guid: 04264119c82d04ccfbbff4425fd05c19, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8613831978282804244, guid: 04264119c82d04ccfbbff4425fd05c19, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8613831978282804244, guid: 04264119c82d04ccfbbff4425fd05c19, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 113
       objectReference: {fileID: 0}
     - target: {fileID: 8613831978282804244, guid: 04264119c82d04ccfbbff4425fd05c19, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -11.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5011957272329884045, guid: 04264119c82d04ccfbbff4425fd05c19, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7279603111623519790}
+    - targetCorrespondingSourceObject: {fileID: 695958624345553645, guid: 04264119c82d04ccfbbff4425fd05c19, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2704017053449467256}
+    - targetCorrespondingSourceObject: {fileID: 4333840440417664364, guid: 04264119c82d04ccfbbff4425fd05c19, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1829602520014485673}
+    - targetCorrespondingSourceObject: {fileID: 5357727341627193240, guid: 04264119c82d04ccfbbff4425fd05c19, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2422517343936601439}
   m_SourcePrefab: {fileID: 100100000, guid: 04264119c82d04ccfbbff4425fd05c19, type: 3}
+--- !u!1 &240848509115229633 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 695958624345553645, guid: 04264119c82d04ccfbbff4425fd05c19, type: 3}
+  m_PrefabInstance: {fileID: 792388201858899756}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2704017053449467256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 240848509115229633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 1955420224250534224}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/Atrament Medium SDF.asset
+  FontMaterialName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/Atrament Medium
+    SDF - Outline - Blue.mat
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!114 &1341951300680435969 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1756598768996505133, guid: 04264119c82d04ccfbbff4425fd05c19, type: 3}
@@ -2126,8 +2233,121 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff094226422a44b0f92babeeac916f97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1955420224250534224 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1286952566836676220, guid: 04264119c82d04ccfbbff4425fd05c19, type: 3}
+  m_PrefabInstance: {fileID: 792388201858899756}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 240848509115229633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &3952968826308764224 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4333840440417664364, guid: 04264119c82d04ccfbbff4425fd05c19, type: 3}
+  m_PrefabInstance: {fileID: 792388201858899756}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1829602520014485673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3952968826308764224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 7689100952085850749}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/Atrament Medium SDF.asset
+  FontMaterialName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/Atrament Medium
+    SDF - Outline - Cooper.mat
+  IsSetNativeSize: 0
+  IsTextUpper: 0
+--- !u!1 &4658226689536731316 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5357727341627193240, guid: 04264119c82d04ccfbbff4425fd05c19, type: 3}
+  m_PrefabInstance: {fileID: 792388201858899756}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2422517343936601439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4658226689536731316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/Atrament Medium SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
+--- !u!1 &5724405300902629025 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5011957272329884045, guid: 04264119c82d04ccfbbff4425fd05c19, type: 3}
+  m_PrefabInstance: {fileID: 792388201858899756}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7279603111623519790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5724405300902629025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 6050508364603531295}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/Atrament Medium SDF.asset
+  FontMaterialName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/Atrament Medium
+    SDF - No - Outline.mat
+  IsSetNativeSize: 0
+  IsTextUpper: 0
+--- !u!114 &6050508364603531295 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6415546529699577651, guid: 04264119c82d04ccfbbff4425fd05c19, type: 3}
+  m_PrefabInstance: {fileID: 792388201858899756}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5724405300902629025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &6509510420836252833 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5812262428090000269, guid: 04264119c82d04ccfbbff4425fd05c19, type: 3}
   m_PrefabInstance: {fileID: 792388201858899756}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7689100952085850749 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6938371700152300881, guid: 04264119c82d04ccfbbff4425fd05c19, type: 3}
+  m_PrefabInstance: {fileID: 792388201858899756}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3952968826308764224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

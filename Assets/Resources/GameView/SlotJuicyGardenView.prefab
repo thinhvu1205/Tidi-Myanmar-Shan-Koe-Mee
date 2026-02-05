@@ -841,6 +841,7 @@ GameObject:
   - component: {fileID: 478369270531792257}
   - component: {fileID: 478369270531792258}
   - component: {fileID: 6249983927546010702}
+  - component: {fileID: 1477241075683332521}
   m_Layer: 5
   m_Name: lbStateBet
   m_TagString: Untagged
@@ -966,6 +967,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1477241075683332521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 478369270531792262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 6249983927546010702}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/Atrament Medium SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &478369270591159724
 GameObject:
   m_ObjectHideFlags: 0
@@ -1857,7 +1879,7 @@ GameObject:
   - component: {fileID: 478369271143852612}
   - component: {fileID: 478369271143852634}
   - component: {fileID: 312623921953506235}
-  - component: {fileID: 289291243634851475}
+  - component: {fileID: 5167278816361710915}
   m_Layer: 5
   m_Name: lbInfoSession
   m_TagString: Untagged
@@ -1926,7 +1948,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0E01\u0E14 \u0E2B\u0E21\u0E38\u0E19 \u0E40\u0E1E\u0E37\u0E48\u0E2D\u0E40\u0E25\u0E48\u0E19"
+  m_text: Missing txt_press_spin_to_play
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7708e67653374c60af5f1595e949403, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 90d6d9d1ea02a4720bf1df977d059d92, type: 2}
@@ -1997,7 +2019,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &289291243634851475
+--- !u!114 &5167278816361710915
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2006,14 +2028,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 478369271143852633}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 489ab9b30bbc94ccbbfd360ae829d09f, type: 3}
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
-  key: txt_press_spin_to_play
-  sprites: []
-  animName: []
-  isUpper: 0
+  Type: 3
+  ThisTMPUGUI: {fileID: 312623921953506235}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: txt_press_spin_to_play
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/Atrament Medium SDF.asset
+  FontMaterialName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/Atrament Medium
+    SDF - No - Outline.mat
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &478369271144896465
 GameObject:
   m_ObjectHideFlags: 0
@@ -2027,6 +2054,7 @@ GameObject:
   - component: {fileID: 478369271144896467}
   - component: {fileID: 4128713565250189451}
   - component: {fileID: 1876462000233177753}
+  - component: {fileID: 5041270007007563696}
   m_Layer: 5
   m_Name: lbChipWin
   m_TagString: Untagged
@@ -2182,6 +2210,27 @@ MonoBehaviour:
   isFormatMoney: 0
   scale: 1
   FormatType: 3
+--- !u!114 &5041270007007563696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 478369271144896465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 4128713565250189451}
+  BundleLabel: assets--resources--fonts--fontslottarzan
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/FontSlotTarzan/Neuron ExtraBold SDF.asset
+  FontMaterialName: Assets/Resources/Fonts/FontSlotTarzan/Neuron_ExtraBold_SDF_Yellow.mat
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &478369271248332546
 GameObject:
   m_ObjectHideFlags: 0
@@ -2651,6 +2700,7 @@ GameObject:
   - component: {fileID: 478369271833630225}
   - component: {fileID: 478369271833630231}
   - component: {fileID: 8770104371502055739}
+  - component: {fileID: 6118166814836782979}
   m_Layer: 5
   m_Name: lbCurrentBet
   m_TagString: Untagged
@@ -2790,6 +2840,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &6118166814836782979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 478369271833630229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 8770104371502055739}
+  BundleLabel: assets--resources--fonts--fontslottarzan
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/FontSlotTarzan/Neuron ExtraBold SDF.asset
+  FontMaterialName: Assets/Resources/Fonts/FontSlotTarzan/Neuron_ExtraBold_SDF_Yellow.mat
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &478369271908131180
 GameObject:
   m_ObjectHideFlags: 0
@@ -3094,6 +3165,7 @@ GameObject:
   - component: {fileID: 1258542318519074208}
   - component: {fileID: 2923670109268182069}
   - component: {fileID: 8604331467879896977}
+  - component: {fileID: 6221116699988852043}
   m_Layer: 0
   m_Name: lbFreeSpinNum
   m_TagString: Untagged
@@ -3219,6 +3291,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &6221116699988852043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 767447403345375639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--fonts--slotjuicegarden
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/SlotJuiceGarden/AlfaSlabOne-Regular SDF.asset
+  FontMaterialName: Assets/Resources/Fonts/SlotJuiceGarden/AlfaSlabOne-Regular SDF_FreeSpinNum.mat
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &773247428864859730
 GameObject:
   m_ObjectHideFlags: 0
@@ -3427,6 +3520,7 @@ GameObject:
   - component: {fileID: 488598356705431248}
   - component: {fileID: 3558116232158350322}
   - component: {fileID: 4605671371930557014}
+  - component: {fileID: 409015218583288095}
   m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -3552,6 +3646,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &409015218583288095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 845403448586558823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/Atrament Medium SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &863268023278858954
 GameObject:
   m_ObjectHideFlags: 0
@@ -3995,7 +4110,7 @@ GameObject:
   - component: {fileID: 699749718803714863}
   - component: {fileID: 1628409789336898946}
   - component: {fileID: 6569388631497881734}
-  - component: {fileID: 2818901758358537354}
+  - component: {fileID: 267246649505253374}
   m_Layer: 5
   m_Name: lbTitle_2
   m_TagString: Untagged
@@ -4121,23 +4236,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &2818901758358537354
+--- !u!114 &267246649505253374
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1210706207001607559}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 489ab9b30bbc94ccbbfd360ae829d09f, type: 3}
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
-  key: text_slot_9900_congrat
-  sprites: []
-  animName: []
-  isUpper: 0
+  Type: 3
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--fonts--slotjuicegarden
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/SlotJuiceGarden/AlfaSlabOne-Regular SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &1264952652124237455
 GameObject:
   m_ObjectHideFlags: 0
@@ -4441,6 +4560,7 @@ GameObject:
   - component: {fileID: 5060337289521646632}
   - component: {fileID: 1778750997751959880}
   - component: {fileID: 4413418155203948398}
+  - component: {fileID: 8326578506306002489}
   m_Layer: 0
   m_Name: lbPackageValueWin
   m_TagString: Untagged
@@ -4566,6 +4686,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8326578506306002489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357404522842787283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--fonts--slotjuicegarden
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/SlotJuiceGarden/AlfaSlabOne-Regular SDF.asset
+  FontMaterialName: Assets/Resources/Fonts/SlotJuiceGarden/AlfaSlabOne-Regular SDF_Blue_mini.mat
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &1358612230142896428
 GameObject:
   m_ObjectHideFlags: 0
@@ -5582,6 +5723,7 @@ GameObject:
   - component: {fileID: 313141473143417099}
   - component: {fileID: 6999018686732622452}
   - component: {fileID: 2502927378071114010}
+  - component: {fileID: 2622107921284009954}
   m_Layer: 0
   m_Name: titleplayBiger
   m_TagString: Untagged
@@ -5707,6 +5849,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &2622107921284009954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1944469495046015375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/Atrament Medium SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &2132251684270869738
 GameObject:
   m_ObjectHideFlags: 0
@@ -5973,6 +6136,7 @@ GameObject:
   - component: {fileID: 293325457764456894}
   - component: {fileID: 6827514403120228694}
   - component: {fileID: 2638574604477681855}
+  - component: {fileID: 2569260442940090482}
   m_Layer: 5
   m_Name: lbPayWin
   m_TagString: Untagged
@@ -6098,6 +6262,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &2569260442940090482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2297980858591030809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 2638574604477681855}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Atrament_Material/Atrament Medium SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &2390300222156684182
 GameObject:
   m_ObjectHideFlags: 0
@@ -6175,6 +6360,7 @@ GameObject:
   - component: {fileID: 1483283008029389066}
   - component: {fileID: 7059393613132403295}
   - component: {fileID: 5437206097956809750}
+  - component: {fileID: 8911115021276171689}
   m_Layer: 5
   m_Name: lbJackpotGrand
   m_TagString: Untagged
@@ -6316,6 +6502,27 @@ MonoBehaviour:
   isFormatMoney: 0
   scale: 1
   FormatType: 0
+--- !u!114 &8911115021276171689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2412346830261803201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 7059393613132403295}
+  BundleLabel: assets--resources--fonts--slotjuicegarden
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/SlotJuiceGarden/AlfaSlabOne-Regular SDF.asset
+  FontMaterialName: Assets/Resources/Fonts/SlotJuiceGarden/AlfaSlabOne-Regular SDF_Black.mat
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &2664953295108015839
 GameObject:
   m_ObjectHideFlags: 0
@@ -7244,6 +7451,7 @@ GameObject:
   - component: {fileID: 3671175136545099773}
   - component: {fileID: 3671175136545099775}
   - component: {fileID: 3671175136545099774}
+  - component: {fileID: 5908794768142828050}
   m_Layer: 5
   m_Name: lbNumline_1
   m_TagString: Untagged
@@ -7369,6 +7577,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5908794768142828050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3671175136545099772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 3671175136545099774}
+  BundleLabel: assets--resources--fonts--slotjuicegarden
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/SlotJuiceGarden/AlfaSlabOne-Regular SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &3671175138515048206
 GameObject:
   m_ObjectHideFlags: 0
@@ -7380,6 +7609,7 @@ GameObject:
   - component: {fileID: 3671175138515048207}
   - component: {fileID: 3671175138515048201}
   - component: {fileID: 3671175138515048200}
+  - component: {fileID: 3513436908981164411}
   m_Layer: 5
   m_Name: lbNumline
   m_TagString: Untagged
@@ -7505,6 +7735,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3513436908981164411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3671175138515048206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 3671175138515048200}
+  BundleLabel: assets--resources--fonts--slotjuicegarden
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/SlotJuiceGarden/AlfaSlabOne-Regular SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &3757886762950998651
 GameObject:
   m_ObjectHideFlags: 0
@@ -7516,6 +7767,7 @@ GameObject:
   - component: {fileID: 1257117272604429490}
   - component: {fileID: 7737615479520135297}
   - component: {fileID: 6430767056017522574}
+  - component: {fileID: 31400775435997081}
   m_Layer: 5
   m_Name: lbFreespinNum
   m_TagString: Untagged
@@ -7641,6 +7893,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &31400775435997081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3757886762950998651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--fonts--slotjuicegarden
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/SlotJuiceGarden/AlfaSlabOne-Regular SDF.asset
+  FontMaterialName: Assets/Resources/Fonts/SlotJuiceGarden/AlfaSlabOne-Regular SDF_Green_Maijor.mat
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &3816667043862039992
 GameObject:
   m_ObjectHideFlags: 0
@@ -7962,7 +8235,7 @@ GameObject:
   - component: {fileID: 7370642153066916657}
   - component: {fileID: 3135939222664016947}
   - component: {fileID: 343452708641708193}
-  - component: {fileID: 3781505870441929437}
+  - component: {fileID: 6747505885917445482}
   m_Layer: 5
   m_Name: lbTitle_1
   m_TagString: Untagged
@@ -8090,23 +8363,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &3781505870441929437
+--- !u!114 &6747505885917445482
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4154227435460962745}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 489ab9b30bbc94ccbbfd360ae829d09f, type: 3}
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
-  key: text_slot_9900_collect
-  sprites: []
-  animName: []
-  isUpper: 0
+  Type: 3
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--fonts--slotjuicegarden
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/SlotJuiceGarden/AlfaSlabOne-Regular SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &4474335227723401408
 GameObject:
   m_ObjectHideFlags: 0
@@ -8743,7 +9020,7 @@ GameObject:
   - component: {fileID: 4503858292039770895}
   - component: {fileID: 9201835178440887222}
   - component: {fileID: 6758423652111490092}
-  - component: {fileID: 7278249697764792996}
+  - component: {fileID: 5134069007164256419}
   m_Layer: 5
   m_Name: lbTitle_3
   m_TagString: Untagged
@@ -8869,23 +9146,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &7278249697764792996
+--- !u!114 &5134069007164256419
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5280232829929556462}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 489ab9b30bbc94ccbbfd360ae829d09f, type: 3}
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
-  key: text_slot_9900_collect
-  sprites: []
-  animName: []
-  isUpper: 0
+  Type: 3
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--fonts--slotjuicegarden
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/SlotJuiceGarden/AlfaSlabOne-Regular SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &5450941042930950940
 GameObject:
   m_ObjectHideFlags: 0
@@ -9291,6 +9572,7 @@ GameObject:
   - component: {fileID: 6882922510181029504}
   - component: {fileID: 2306116472043304830}
   - component: {fileID: 8201041002406084280}
+  - component: {fileID: 3224137925727228929}
   m_Layer: 0
   m_Name: lbAddedWild
   m_TagString: Untagged
@@ -9416,6 +9698,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3224137925727228929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5595112233774501028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--fonts--slotjuicegarden
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/SlotJuiceGarden/AlfaSlabOne-Regular SDF.asset
+  FontMaterialName: Assets/Resources/Fonts/SlotJuiceGarden/AlfaSlabOne-Regular SDF_Violet_Minor.mat
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &5604977193775287567
 GameObject:
   m_ObjectHideFlags: 0
@@ -9578,6 +9881,7 @@ GameObject:
   - component: {fileID: 5319685438801969819}
   - component: {fileID: 7083272855706518771}
   - component: {fileID: 3441621829304184432}
+  - component: {fileID: 6645184506721430971}
   m_Layer: 5
   m_Name: lbJPMajor
   m_TagString: Untagged
@@ -9719,6 +10023,27 @@ MonoBehaviour:
   isFormatMoney: 0
   scale: 1
   FormatType: 0
+--- !u!114 &6645184506721430971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5773319890977334293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 7083272855706518771}
+  BundleLabel: assets--resources--fonts--slotjuicegarden
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/SlotJuiceGarden/AlfaSlabOne-Regular SDF.asset
+  FontMaterialName: Assets/Resources/Fonts/SlotJuiceGarden/AlfaSlabOne-Regular SDF_Black.mat
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &5822074082194781890
 GameObject:
   m_ObjectHideFlags: 0
@@ -9935,6 +10260,7 @@ GameObject:
   - component: {fileID: 6273340960673468632}
   - component: {fileID: 4668925677048185356}
   - component: {fileID: 449767910752214528}
+  - component: {fileID: 5882999174848274452}
   m_Layer: 0
   m_Name: lbReward
   m_TagString: Untagged
@@ -10060,6 +10386,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5882999174848274452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6107238619422229347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--fonts--fontslottarzan
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/FontSlotTarzan/Neuron ExtraBold SDF.asset
+  FontMaterialName: Assets/Resources/Fonts/FontSlotTarzan/Neuron_ExtraBold_SDF_Yellow.mat
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &6126697222252733573
 GameObject:
   m_ObjectHideFlags: 0
@@ -10536,7 +10883,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 103, y: -20}
-  m_SizeDelta: {x: 0, y: 40}
+  m_SizeDelta: {x: 206, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6768038577821889929
 MonoBehaviour:
@@ -11056,6 +11403,7 @@ GameObject:
   - component: {fileID: 3707429547565228628}
   - component: {fileID: 4092780833295517927}
   - component: {fileID: 7510887300022561893}
+  - component: {fileID: 1510283965207978824}
   m_Layer: 5
   m_Name: lbChipPackage
   m_TagString: Untagged
@@ -11181,6 +11529,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1510283965207978824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6940190100386734751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--fonts--slotjuicegarden
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/SlotJuiceGarden/AlfaSlabOne-Regular SDF.asset
+  FontMaterialName: Assets/Resources/Fonts/SlotJuiceGarden/AlfaSlabOne-Regular SDF_Black.mat
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &6959520840603731183
 GameObject:
   m_ObjectHideFlags: 0
@@ -11192,6 +11561,7 @@ GameObject:
   - component: {fileID: 5026492390707524134}
   - component: {fileID: 4598761282556376597}
   - component: {fileID: 2994935012843343370}
+  - component: {fileID: 1021838120071698950}
   m_Layer: 5
   m_Name: lbBigWin
   m_TagString: Untagged
@@ -11317,6 +11687,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1021838120071698950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6959520840603731183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--fonts--slotjuicegarden
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/SlotJuiceGarden/AlfaSlabOne-Regular SDF.asset
+  FontMaterialName: Assets/Resources/Fonts/SlotJuiceGarden/AlfaSlabOne-Regular SDF_Black.mat
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &7084757958655471484
 GameObject:
   m_ObjectHideFlags: 0
@@ -11618,7 +12009,7 @@ GameObject:
   - component: {fileID: 2202415834808716722}
   - component: {fileID: 7248380161779371080}
   - component: {fileID: 2077371541572268578}
-  - component: {fileID: 7989583184117008454}
+  - component: {fileID: 4465385923623477594}
   m_Layer: 0
   m_Name: lbAdded
   m_TagString: Untagged
@@ -11744,7 +12135,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &7989583184117008454
+--- !u!114 &4465385923623477594
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -11753,14 +12144,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 7433729227378027699}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 489ab9b30bbc94ccbbfd360ae829d09f, type: 3}
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
-  key: txt_add
-  sprites: []
-  animName: []
-  isUpper: 0
+  Type: 3
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--fonts--slotjuicegarden
+  AssetName: txt_add
+  AnimName: 
+  FontName: Assets/Resources/Fonts/SlotJuiceGarden/AlfaSlabOne-Regular SDF.asset
+  FontMaterialName: Assets/Resources/Fonts/SlotJuiceGarden/AlfaSlabOne-Regular SDF_Violet_Minor.mat
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &7624310848125750657
 GameObject:
   m_ObjectHideFlags: 0
@@ -12083,7 +12478,7 @@ GameObject:
   - component: {fileID: 8058539632682807836}
   - component: {fileID: 5563430604460606138}
   - component: {fileID: 5586320792969196887}
-  - component: {fileID: 408050414925136173}
+  - component: {fileID: 3822638220399082548}
   m_Layer: 5
   m_Name: lbTitle
   m_TagString: Untagged
@@ -12210,23 +12605,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &408050414925136173
+--- !u!114 &3822638220399082548
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8441390047097760551}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 489ab9b30bbc94ccbbfd360ae829d09f, type: 3}
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
-  key: text_slot_9900_congrat
-  sprites: []
-  animName: []
-  isUpper: 0
+  Type: 3
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--fonts--slotjuicegarden
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/SlotJuiceGarden/AlfaSlabOne-Regular SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &8520176586474127529
 GameObject:
   m_ObjectHideFlags: 0
@@ -12238,6 +12637,7 @@ GameObject:
   - component: {fileID: 1230171105781700177}
   - component: {fileID: 5065587002563470754}
   - component: {fileID: 5233618509150677205}
+  - component: {fileID: 4094286735578506860}
   m_Layer: 5
   m_Name: lbTotalPackageWin
   m_TagString: Untagged
@@ -12363,6 +12763,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &4094286735578506860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8520176586474127529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--fonts--slotjuicegarden
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/SlotJuiceGarden/AlfaSlabOne-Regular SDF.asset
+  FontMaterialName: Assets/Resources/Fonts/SlotJuiceGarden/AlfaSlabOne-Regular SDF_PackageValue.mat
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &8582475432386625833
 GameObject:
   m_ObjectHideFlags: 0
@@ -12562,6 +12983,7 @@ GameObject:
   - component: {fileID: 6602318168958578034}
   - component: {fileID: 6855427646629373331}
   - component: {fileID: 272966765253182882}
+  - component: {fileID: 2079947521675663529}
   m_Layer: 0
   m_Name: lbPackageValueWin
   m_TagString: Untagged
@@ -12687,6 +13109,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &2079947521675663529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8659324999634918164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--fonts--slotjuicegarden
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/SlotJuiceGarden/AlfaSlabOne-Regular SDF.asset
+  FontMaterialName: Assets/Resources/Fonts/SlotJuiceGarden/AlfaSlabOne-Regular SDF_Pink.mat
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &8682956210651550714
 GameObject:
   m_ObjectHideFlags: 0
@@ -12699,6 +13142,7 @@ GameObject:
   - component: {fileID: 7006255174932373419}
   - component: {fileID: 7820698088442058401}
   - component: {fileID: 6327542913529596210}
+  - component: {fileID: 1127090298395051901}
   m_Layer: 5
   m_Name: lbMinor
   m_TagString: Untagged
@@ -12840,6 +13284,27 @@ MonoBehaviour:
   isFormatMoney: 0
   scale: 1
   FormatType: 0
+--- !u!114 &1127090298395051901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8682956210651550714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 7820698088442058401}
+  BundleLabel: assets--resources--fonts--slotjuicegarden
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/SlotJuiceGarden/AlfaSlabOne-Regular SDF.asset
+  FontMaterialName: Assets/Resources/Fonts/SlotJuiceGarden/AlfaSlabOne-Regular SDF_Black.mat
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &8686564743898242214
 GameObject:
   m_ObjectHideFlags: 0
@@ -12992,6 +13457,7 @@ GameObject:
   - component: {fileID: 2742733287474247698}
   - component: {fileID: 4011351051682813602}
   - component: {fileID: 1141722433687194438}
+  - component: {fileID: 4915388564631271105}
   m_Layer: 5
   m_Name: lbCurrentChips
   m_TagString: Untagged
@@ -13133,6 +13599,27 @@ MonoBehaviour:
   isFormatMoney: 0
   scale: 1
   FormatType: 0
+--- !u!114 &4915388564631271105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8743491514241387240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 4011351051682813602}
+  BundleLabel: assets--resources--fonts--fontsslotnoel
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/fontsSlotNoel/green_noel.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &8761284608784754224
 GameObject:
   m_ObjectHideFlags: 0
@@ -13145,6 +13632,7 @@ GameObject:
   - component: {fileID: 4860183556610371209}
   - component: {fileID: 4125369324852054867}
   - component: {fileID: 8811949957702201499}
+  - component: {fileID: 1988339055620557025}
   m_Layer: 5
   m_Name: lbJPMini
   m_TagString: Untagged
@@ -13286,6 +13774,27 @@ MonoBehaviour:
   isFormatMoney: 0
   scale: 1
   FormatType: 0
+--- !u!114 &1988339055620557025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8761284608784754224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 4125369324852054867}
+  BundleLabel: assets--resources--fonts--slotjuicegarden
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/SlotJuiceGarden/AlfaSlabOne-Regular SDF.asset
+  FontMaterialName: Assets/Resources/Fonts/SlotJuiceGarden/AlfaSlabOne-Regular SDF_Black.mat
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &9040524296955361389
 GameObject:
   m_ObjectHideFlags: 0

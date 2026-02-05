@@ -1,0 +1,61 @@
+ManifestFileVersion: 0
+UnityVersion: 6000.1.17f1
+CRC: 1167680623
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 048173cea1b43ed99e03740f7b23ace3
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 1e7a1b0bf9c2b07fa4aa31c46f2d0f11
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 0cdc33c178c1518febc543b3528e4f9f
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 128
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers:
+- AssemblyName: Unity.TextMeshPro
+  ClassName: TMPro.FaceInfo_Legacy
+- AssemblyName: Unity.TextMeshPro
+  ClassName: TMPro.FontAssetCreationSettings
+- AssemblyName: Unity.TextMeshPro
+  ClassName: TMPro.KerningTable
+- AssemblyName: Unity.TextMeshPro
+  ClassName: TMPro.TMP_Character
+- AssemblyName: Unity.TextMeshPro
+  ClassName: TMPro.TMP_FontFeatureTable
+- AssemblyName: Unity.TextMeshPro
+  ClassName: TMPro.TMP_FontWeightPair
+- AssemblyName: UnityEngine.TextCoreFontEngineModule
+  ClassName: UnityEngine.TextCore.FaceInfo
+- AssemblyName: UnityEngine.TextCoreFontEngineModule
+  ClassName: UnityEngine.TextCore.Glyph
+- AssemblyName: UnityEngine.TextCoreFontEngineModule
+  ClassName: UnityEngine.TextCore.GlyphMetrics
+- AssemblyName: UnityEngine.TextCoreFontEngineModule
+  ClassName: UnityEngine.TextCore.GlyphRect
+Assets:
+- Assets/Resources/Fonts/FontSlotSiXiang/go3v2_SDF_White_Red.mat
+- Assets/Resources/Fonts/FontSlotSiXiang/go3v2_SDF_Blue.mat
+- Assets/Resources/Fonts/FontSlotSiXiang/go3v2_green.png
+- Assets/Resources/Fonts/FontSlotSiXiang/go3v2 SDF.asset
+- Assets/Resources/Fonts/FontSlotSiXiang/go3v2 SDF.png
+- Assets/Resources/Fonts/FontSlotSiXiang/go3v2_SDF_face.png
+- Assets/Resources/Fonts/FontSlotSiXiang/go3v2_SDF_YELLOW.mat
+- Assets/Resources/Fonts/FontSlotSiXiang/go3v2_SDF_Gradient.mat
+Dependencies:
+- C:/Users/Phan Tinh/Desktop/Project_TIDI/Tidi-Myanmar-Shan-Koe-Mee/Assets/AssetBundles/Android/assets--resources--fonts--originalfontfile

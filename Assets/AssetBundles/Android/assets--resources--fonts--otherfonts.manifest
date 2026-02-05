@@ -1,0 +1,54 @@
+ManifestFileVersion: 0
+UnityVersion: 6000.1.17f1
+CRC: 759320805
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 8378e2f9c98745890176d7fd9042cfcd
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 87c63507d24fe9b8b9ba2343038052b3
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: e382ec3d469a44c37d1e2afb82a6a16f
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers:
+- AssemblyName: Unity.TextMeshPro
+  ClassName: TMPro.FaceInfo_Legacy
+- AssemblyName: Unity.TextMeshPro
+  ClassName: TMPro.FontAssetCreationSettings
+- AssemblyName: Unity.TextMeshPro
+  ClassName: TMPro.KerningTable
+- AssemblyName: Unity.TextMeshPro
+  ClassName: TMPro.TMP_Character
+- AssemblyName: Unity.TextMeshPro
+  ClassName: TMPro.TMP_FontFeatureTable
+- AssemblyName: Unity.TextMeshPro
+  ClassName: TMPro.TMP_FontWeightPair
+- AssemblyName: UnityEngine.TextCoreFontEngineModule
+  ClassName: UnityEngine.TextCore.FaceInfo
+- AssemblyName: UnityEngine.TextCoreFontEngineModule
+  ClassName: UnityEngine.TextCore.Glyph
+- AssemblyName: UnityEngine.TextCoreFontEngineModule
+  ClassName: UnityEngine.TextCore.GlyphMetrics
+- AssemblyName: UnityEngine.TextCoreFontEngineModule
+  ClassName: UnityEngine.TextCore.GlyphRect
+Assets:
+- Assets/Resources/Fonts/OtherFonts/ARBORIA-BLACK SDF Outline black.asset
+- Assets/Resources/Fonts/OtherFonts/ARBORIA-BOLD SDF.asset
+- Assets/Resources/Fonts/OtherFonts/ARBORIA-BLACK SDF.asset
+- Assets/Resources/Fonts/OtherFonts/ARBORIA-BOOK SDF.asset
+- Assets/Resources/Fonts/OtherFonts/MAILGETS DEMO SDF.asset
+Dependencies:
+- C:/Users/Phan Tinh/Desktop/Project_TIDI/Tidi-Myanmar-Shan-Koe-Mee/Assets/AssetBundles/Android/assets--resources--fonts--originalfontfile

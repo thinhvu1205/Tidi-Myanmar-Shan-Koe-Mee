@@ -61,11 +61,7 @@ public class WebSocketManager : MonoBehaviour
         Debug.Log("Try connect to: " + url);
 
         ws = new WebSocket(url);
-
-        // ⚡️ BẮT BUỘC CHO UNITY 6: ép TLS 1.2
         ws.SslConfiguration.EnabledSslProtocols = System.Security.Authentication.SslProtocols.Tls12;
-
-        // ⚠️ Nếu chỉ test nội bộ, bỏ validate SSL (đừng dùng cho production)
         ws.SslConfiguration.ServerCertificateValidationCallback = (sender, certificate, chain, sslPolicyErrors) => true;
 
         ws.EmitOnPing = true;

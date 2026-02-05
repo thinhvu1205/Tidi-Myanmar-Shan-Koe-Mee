@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using Spine;
 using Spine.Unity;
+using TMPro;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,23 +10,38 @@ using UnityEngine.UI;
 [DisallowMultipleComponent, ExecuteInEditMode]
 public class BundleLoader : MonoBehaviour
 {
-    public enum TYPE_ASSET { NONE, IMAGE, SKELETON_GRAPHIC };
+    public enum TYPE_ASSET { NONE, IMAGE, SKELETON_GRAPHIC, TEXT };
     [SerializeField, HideInInspector] public TYPE_ASSET Type = TYPE_ASSET.IMAGE;
+    [HideInInspector] public TextMeshProUGUI ThisTMPUGUI;
     [NonSerialized] public Image ThisImg;
     [NonSerialized] public SkeletonGraphic ThisSG;
-    [SerializeField, HideInInspector] public string BundleLabel, AssetName, AnimName;
-    [SerializeField, HideInInspector] public bool SetNativeSize;
+    [SerializeField, HideInInspector] public string BundleLabel, AssetName, AnimName, FontName, FontMaterialName;
+    [SerializeField, HideInInspector] public bool IsSetNativeSize, IsTextUpper;
 
     public void RefreshUI()
     {
         switch (Type)
         {
+            case TYPE_ASSET.TEXT:
+                {
+                    if (ThisTMPUGUI == null) ThisTMPUGUI = GetComponent<TextMeshProUGUI>();
+                    if (ThisTMPUGUI == null || !ThisTMPUGUI.enabled) return;
+                    if (!AssetName.Equals(""))
+                        ThisTMPUGUI.text = IsTextUpper ? Globals.Config.getTextConfig(AssetName).ToUpper() : Globals.Config.getTextConfig(AssetName);
+                    if (BundleLabel.Equals("")) return;
+                    TMP_FontAsset aFA = BundleHandler.LoadFontAsset(FontName);
+                    if (aFA == null) return;
+                    ThisTMPUGUI.font = aFA;
+                    ThisTMPUGUI.fontSharedMaterial = !FontMaterialName.Equals("") ? BundleHandler.LoadMaterial(FontMaterialName) : aFA.material;
+                    ThisTMPUGUI.fontSharedMaterial.shader = BundleHandler.GetFontShader(aFA.material.shader.name);
+                    break;
+                }
             case TYPE_ASSET.IMAGE:
                 {
                     if (ThisImg == null) ThisImg = GetComponent<Image>();
                     if (ThisImg == null || !ThisImg.enabled) return;
                     ThisImg.sprite = BundleHandler.LoadSprite(AssetName);
-                    if (SetNativeSize) ThisImg.SetNativeSize();
+                    if (IsSetNativeSize) ThisImg.SetNativeSize();
                     break;
                 }
             case TYPE_ASSET.SKELETON_GRAPHIC:
@@ -78,6 +94,7 @@ public class BundleLoader : MonoBehaviour
     }
     private void Awake()
     {
+        ThisTMPUGUI = GetComponent<TextMeshProUGUI>();
         ThisSG = GetComponent<SkeletonGraphic>();
         ThisImg = GetComponent<Image>();
         BundleHandler.MAIN.AddLoader(this);
@@ -88,19 +105,31 @@ public class BundleLoader : MonoBehaviour
 [CustomEditor(typeof(BundleLoader))]
 public class LoaderEditor : Editor
 {
-    private SerializedProperty _AssetName, _BundleLabel, _AnimName, _SetNativeSize, _Type;
+    private SerializedProperty _AssetName, _BundleLabel, _AnimName, _IsSetNativeSize, _FontName, _FontMaterialName, _Type,
+        _IsTextUpper;
     private string[] _AnimNames;
     private SkeletonData _LastSD;
 
     public override void OnInspectorGUI()
     {
         BundleLoader thisBL = (BundleLoader)target;
+        if (thisBL.GetComponent<CCFS>() != null)
+        {
+            EditorGUILayout.HelpBox("There is CCFS here", MessageType.Error);
+            return;
+        }
         serializedObject.Update();
         if (Application.isPlaying)
         {
             EditorGUILayout.LabelField("Asset Name", _AssetName.stringValue);
             if ((BundleLoader.TYPE_ASSET)_Type.enumValueIndex == BundleLoader.TYPE_ASSET.SKELETON_GRAPHIC)
                 EditorGUILayout.LabelField("Anim Name", _AnimName.stringValue);
+            else if ((BundleLoader.TYPE_ASSET)_Type.enumValueIndex == BundleLoader.TYPE_ASSET.TEXT)
+            {
+                EditorGUILayout.LabelField("Upper", _IsTextUpper.boolValue + "");
+                EditorGUILayout.LabelField("Font", _FontName.stringValue);
+                EditorGUILayout.LabelField("Material", _FontMaterialName.stringValue);
+            }
             serializedObject.ApplyModifiedProperties();
             return; // test in editor play mode will cause error, only work with this in editor idle mode
         }
@@ -112,30 +141,93 @@ public class LoaderEditor : Editor
         {
             thisBL.ThisSG = thisBL.GetComponent<SkeletonGraphic>();
             if (thisBL.ThisSG != null) _Type.enumValueIndex = (int)BundleLoader.TYPE_ASSET.SKELETON_GRAPHIC;
+            else
+            {
+                thisBL.ThisTMPUGUI = thisBL.GetComponent<TextMeshProUGUI>();
+                if (thisBL.ThisTMPUGUI != null) _Type.enumValueIndex = (int)BundleLoader.TYPE_ASSET.TEXT;
+            }
         }
         EditorGUILayout.LabelField("Type: " + ((BundleLoader.TYPE_ASSET)_Type.enumValueIndex), EditorStyles.boldLabel);
         switch ((BundleLoader.TYPE_ASSET)_Type.enumValueIndex)
         {
             case BundleLoader.TYPE_ASSET.NONE:
                 {
-                    EditorGUILayout.HelpBox("YOU MUST ADD A COMPONENT FIRST!", MessageType.Warning);
+                    EditorGUILayout.HelpBox("YOU MUST ADD A COMPONENT FIRST!", MessageType.Error);
+                    break;
+                }
+            case BundleLoader.TYPE_ASSET.TEXT:
+                {
+                    if (!thisBL.ThisTMPUGUI.enabled)
+                    {
+                        EditorGUILayout.HelpBox("You must have an active TextMeshPro!", MessageType.Error);
+                        return;
+                    }
+                    if (thisBL.ThisTMPUGUI.font == null)
+                    {
+                        EditorGUILayout.HelpBox("No Font asset found!", MessageType.Error);
+                        EditorGUILayout.LabelField("Label", _BundleLabel.stringValue);
+                        EditorGUILayout.LabelField("Key", _AssetName.stringValue);
+                        EditorGUILayout.LabelField("Upper", _IsTextUpper.boolValue + "");
+                        EditorGUILayout.LabelField("Font", _FontName.stringValue);
+                        EditorGUILayout.LabelField("Material", _FontMaterialName.stringValue);
+                        if (_BundleLabel.stringValue.Equals("")) EditorGUILayout.HelpBox("This Font is not in any bundle!", MessageType.Error);
+                        return;
+                    }
+                    _FontName.stringValue = AssetDatabase.GetAssetPath(thisBL.ThisTMPUGUI.font);
+                    string path = _FontName.stringValue;
+                    do
+                    {
+                        _BundleLabel.stringValue = AssetImporter.GetAtPath(path).assetBundleName;
+                        if (_BundleLabel.stringValue.Equals("")) path = Path.GetDirectoryName(path);
+                        else path = "";
+                    } while (!path.Equals(""));
+                    bool hasNoLabel = _BundleLabel.stringValue.Equals("");
+                    string materialBundleLabel = "";
+                    _FontMaterialName.stringValue = "";
+                    if (!hasNoLabel)
+                    {
+                        if (thisBL.ThisTMPUGUI.fontSharedMaterial == thisBL.ThisTMPUGUI.font.material) materialBundleLabel = _BundleLabel.stringValue;
+                        else
+                        {
+                            _FontMaterialName.stringValue = AssetDatabase.GetAssetPath(thisBL.ThisTMPUGUI.fontSharedMaterial);
+                            path = _FontMaterialName.stringValue;
+                            do
+                            {
+                                materialBundleLabel = AssetImporter
+                                .GetAtPath(path)
+                                .assetBundleName;
+                                if (materialBundleLabel.Equals("")) path = Path.GetDirectoryName(path);
+                                else path = "";
+                            } while (!path.Equals(""));
+                        }
+                    }
+                    _AssetName.stringValue = EditorGUILayout.TextField("Key", _AssetName.stringValue);
+                    _IsTextUpper.boolValue = EditorGUILayout.Toggle("Upper", _IsTextUpper.boolValue);
+                    EditorGUILayout.LabelField("Font", _FontName.stringValue);
+                    EditorGUILayout.LabelField("Material", _FontMaterialName.stringValue);
+                    EditorGUILayout.LabelField("Label", _BundleLabel.stringValue);
+                    if (hasNoLabel) EditorGUILayout.HelpBox("This Font is not in any bundle!", MessageType.Error);
+                    else
+                    {
+                        if (!materialBundleLabel.Equals(_BundleLabel.stringValue))
+                            EditorGUILayout.HelpBox("This Material is not in the same bundle of the Font!", MessageType.Error);
+                    }
                     break;
                 }
             case BundleLoader.TYPE_ASSET.IMAGE:
                 {
                     if (!thisBL.ThisImg.enabled)
                     {
-                        EditorGUILayout.HelpBox("You must have an active Image!", MessageType.Warning);
+                        EditorGUILayout.HelpBox("You must have an active Image!", MessageType.Error);
                         return;
                     }
                     if (thisBL.ThisImg.sprite == null)
                     {
-                        EditorGUILayout.HelpBox("No Image asset found!", MessageType.Warning);
+                        EditorGUILayout.HelpBox("No Image asset found!", MessageType.Error);
                         EditorGUILayout.LabelField("Label", _BundleLabel.stringValue);
-                        if (_BundleLabel.stringValue.Equals(""))
-                            EditorGUILayout.HelpBox("No label, this asset is not in any bundle!", MessageType.Warning);
+                        if (_BundleLabel.stringValue.Equals("")) EditorGUILayout.HelpBox("This asset is not in any bundle!", MessageType.Error);
                         EditorGUILayout.LabelField("Asset Name", _AssetName.stringValue);
-                        EditorGUILayout.LabelField("Set Native Size", _SetNativeSize.boolValue ? "True" : "False");
+                        EditorGUILayout.LabelField("Set Native Size", _IsSetNativeSize.boolValue ? "True" : "False");
                         return;
                     }
                     _AssetName.stringValue = AssetDatabase.GetAssetPath(thisBL.ThisImg.sprite);
@@ -146,26 +238,24 @@ public class LoaderEditor : Editor
                         if (_BundleLabel.stringValue.Equals("")) path = Path.GetDirectoryName(path);
                         else path = "";
                     } while (!path.Equals(""));
-                    EditorGUILayout.TextField("Bundle Label", _BundleLabel.stringValue);
-                    if (_BundleLabel.stringValue.Equals(""))
-                        EditorGUILayout.HelpBox("No label, this asset is not in any bundle!", MessageType.Warning);
-                    EditorGUILayout.TextField("Asset Name", _AssetName.stringValue);
-                    _SetNativeSize.boolValue = EditorGUILayout.Toggle("Set Native Size", _SetNativeSize.boolValue);
+                    EditorGUILayout.LabelField("Label", _BundleLabel.stringValue);
+                    if (_BundleLabel.stringValue.Equals("")) EditorGUILayout.HelpBox("This asset is not in any bundle!", MessageType.Error);
+                    EditorGUILayout.LabelField("Asset Name", _AssetName.stringValue);
+                    _IsSetNativeSize.boolValue = EditorGUILayout.Toggle("Set Native Size", _IsSetNativeSize.boolValue);
                     break;
                 }
             case BundleLoader.TYPE_ASSET.SKELETON_GRAPHIC:
                 {
                     if (!thisBL.ThisSG.enabled)
                     {
-                        EditorGUILayout.HelpBox("You must have an active SkeletonGraphic!", MessageType.Warning);
+                        EditorGUILayout.HelpBox("You must have an active SkeletonGraphic!", MessageType.Error);
                         return;
                     }
                     if (thisBL.ThisSG.SkeletonDataAsset == null)
                     {
-                        EditorGUILayout.HelpBox("No SkeletonData asset found!", MessageType.Warning);
+                        EditorGUILayout.HelpBox("No SkeletonData asset found!", MessageType.Error);
                         EditorGUILayout.LabelField("Label", _BundleLabel.stringValue);
-                        if (_BundleLabel.stringValue.Equals(""))
-                            EditorGUILayout.HelpBox("No label, this asset is not in any bundle!", MessageType.Warning);
+                        if (_BundleLabel.stringValue.Equals("")) EditorGUILayout.HelpBox("This asset is not in any bundle!", MessageType.Error);
                         EditorGUILayout.LabelField("Asset Name", _AssetName.stringValue);
                         EditorGUILayout.LabelField("Anim Name", _AnimName.stringValue);
                         return;
@@ -182,10 +272,9 @@ public class LoaderEditor : Editor
                         else path = "";
                     }
                     while (!path.Equals(""));
-                    EditorGUILayout.TextField("Bundle Label", _BundleLabel.stringValue);
-                    if (_BundleLabel.stringValue.Equals(""))
-                        EditorGUILayout.HelpBox("No label, this asset is not in any bundle!", MessageType.Warning);
-                    EditorGUILayout.TextField("Asset Name", _AssetName.stringValue);
+                    EditorGUILayout.LabelField("Label", _BundleLabel.stringValue);
+                    if (_BundleLabel.stringValue.Equals("")) EditorGUILayout.HelpBox("This asset is not in any bundle!", MessageType.Error);
+                    EditorGUILayout.LabelField("Asset Name", _AssetName.stringValue);
                     if (_LastSD != thisSD)
                     {
                         _LastSD = thisSD;
@@ -206,7 +295,10 @@ public class LoaderEditor : Editor
         _AssetName = serializedObject.FindProperty("AssetName");
         _BundleLabel = serializedObject.FindProperty("BundleLabel");
         _AnimName = serializedObject.FindProperty("AnimName");
-        _SetNativeSize = serializedObject.FindProperty("SetNativeSize");
+        _FontName = serializedObject.FindProperty("FontName");
+        _FontMaterialName = serializedObject.FindProperty("FontMaterialName");
+        _IsSetNativeSize = serializedObject.FindProperty("IsSetNativeSize");
+        _IsTextUpper = serializedObject.FindProperty("IsTextUpper");
         _Type = serializedObject.FindProperty("Type");
     }
 }

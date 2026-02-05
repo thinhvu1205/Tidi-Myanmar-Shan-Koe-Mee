@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using SimpleJSON;
-using Spine.Unity;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -20,35 +19,34 @@ public class BundleDownloader : MonoBehaviour
     private Action _OnFailCb, _OnCompleteCb;
     private int _TotalBundles, _CachedBundles;
 
-    public void CheckAndDownloadAssets(string url, float delay = 0, Action onFailCb = null, Action onCompleteCb = null)
+    public void CheckAndDownloadAssets(string _url, float _delay = 0, Action _onFailCb = null, Action _onCompleteCb = null)
     {
-        // string platformFolder = "";
-        if (url.Equals(""))
+        if (_url.Equals(""))
         {
-            onFailCb?.Invoke();
+            _onFailCb?.Invoke();
             return;
         }
-        if (!url[^1].Equals('/')) url += "/"; // if it does not end with "/" then add it
+        if (!_url[^1].Equals('/')) _url += "/"; // if it does not end with "/" then add it
 #if UNITY_ANDROID
         string platformFolder = "/" + BundleHandler.PLATFORM.Android.ToString() + "/";
 #elif UNITY_IOS
-      string platformFolder  = "/" + BundleHandler.PLATFORM.iOS.ToString() + "/";
+        string platformFolder = "/" + BundleHandler.PLATFORM.iOS.ToString() + "/";
 #endif
-        if (!url.EndsWith(platformFolder)) url += platformFolder.Remove(0, 1);
-        PlayerPrefs.SetString(STORED_BUNDLE_URL, url);
+        if (!_url.EndsWith(platformFolder)) _url += platformFolder.Remove(0, 1);
+        PlayerPrefs.SetString(STORED_BUNDLE_URL, _url);
         PlayerPrefs.Save();
         AssetBundle.UnloadAllAssetBundles(true);
-        if (!url.Contains("://")) url = "file:///" + url;
-        _OnFailCb = onFailCb;
-        _OnCompleteCb = onCompleteCb;
-        StartCoroutine(_GetAssetBundles(url, delay));
+        if (!_url.Contains("://")) _url = "file:///" + _url;
+        _OnFailCb = _onFailCb;
+        _OnCompleteCb = _onCompleteCb;
+        StartCoroutine(_GetAssetBundles(_url, _delay));
     }
-    public void SetProgressValue(float value) => m_ProgressImg.fillAmount = (_CachedBundles + value) / _TotalBundles;
-    public void SetProgressText(string content) => m_ProgressTMPUI.text = content;
-    private IEnumerator _GetAssetBundles(string url, float delay)
+    public void SetProgressValue(float _value) => m_ProgressImg.fillAmount = (_CachedBundles + _value) / _TotalBundles;
+    public void SetProgressText(string _content) => m_ProgressTMPUI.text = _content;
+    private IEnumerator _GetAssetBundles(string _url, float _delay)
     {
-        if (delay > 0) yield return new WaitForSeconds(delay);
-        using UnityWebRequest aUWR = UnityWebRequest.Get(url + BundleHandler.CATEGORY); // get new category content from server
+        if (_delay > 0) yield return new WaitForSeconds(_delay);
+        using UnityWebRequest aUWR = UnityWebRequest.Get(_url + BundleHandler.CATEGORY); // get new category content from server
         yield return aUWR.SendWebRequest();
 
         if (aUWR.result != UnityWebRequest.Result.Success)
@@ -60,7 +58,7 @@ public class BundleDownloader : MonoBehaviour
         {
             BundleHandler.MAIN.ClearAssetsDictionary();
             string newContent = aUWR.downloadHandler.text, storedPath = Application.persistentDataPath + "/" + BundleHandler.CATEGORY;
-            if (!_TryParseCategory(_NewDataBVs, _TryParseJsonArray(newContent), url))
+            if (!_TryParseCategory(_NewDataBVs, _TryParseJsonArray(newContent), _url))
             {
                 Debug.Log("|   ) )=3 Wrong latest bundle info!");
                 _OnFailCb?.Invoke();
@@ -121,21 +119,21 @@ public class BundleDownloader : MonoBehaviour
         }
         else _CompleteLoadingAssets();
     }
-    private JSONArray _TryParseJsonArray(string input)
+    private JSONArray _TryParseJsonArray(string _input)
     {
-        try { return JSON.Parse(input).AsArray; }
+        try { return JSON.Parse(_input).AsArray; }
         catch (Exception e) { Debug.Log("|   ) )=3 Error parsing array: " + e); return null; }
     }
-    private bool _TryParseCategory(List<BundleVersion> storedBVs, JSONArray categoryJA, string url)
+    private bool _TryParseCategory(List<BundleVersion> _storedBVs, JSONArray _categoryJA, string _url)
     {
         try
         {
-            storedBVs.Clear();
-            for (int i = 0; i < categoryJA.Count; i++)
+            _storedBVs.Clear();
+            for (int i = 0; i < _categoryJA.Count; i++)
             {
-                string[] split = categoryJA[i].Value.Split(BundleHandler.SPLIT, StringSplitOptions.RemoveEmptyEntries);
+                string[] split = _categoryJA[i].Value.Split(BundleHandler.SPLIT, StringSplitOptions.RemoveEmptyEntries);
                 if (split.Length <= 1) continue;
-                storedBVs.Add(new() { Name = split[0], HashH128 = Hash128.Parse(split[1]), Url = url + categoryJA[i].Value });
+                _storedBVs.Add(new() { Name = split[0], HashH128 = Hash128.Parse(split[1]), Url = _url + _categoryJA[i].Value });
             }
             return true;
         }
@@ -147,11 +145,11 @@ public class BundleDownloader : MonoBehaviour
             if (_NewDataBVs.Find(x => x.Name.Equals(aBV.Name) && x.HashH128 != aBV.HashH128) != null)
                 Caching.ClearCachedVersion(aBV.Name, aBV.HashH128);
     }
-    private void _SetProgressUI(float value)
+    private void _SetProgressUI(float _value)
     {
-        SetProgressValue(value);
+        SetProgressValue(_value);
         // SetProgressText((value >= 1 ? _TotalBundles : _CachedBundles) + "/" + _TotalBundles);
-        SetProgressText("Loading " + (value >= 1 ? "100%" : (m_ProgressImg.fillAmount * 100).ToString("F0") + "%"));
+        SetProgressText("Loading " + (_value >= 1 ? "100%" : (m_ProgressImg.fillAmount * 100).ToString("F0") + "%"));
     }
     private void _CompleteLoadingAssets()
     {

@@ -466,6 +466,7 @@ GameObject:
   - component: {fileID: 5553700445182791271}
   - component: {fileID: 3349775010343786244}
   - component: {fileID: 5125003981990427946}
+  - component: {fileID: 7637175301011595026}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -607,6 +608,27 @@ MonoBehaviour:
   isFormatMoney: 1
   scale: 1
   FormatType: 0
+--- !u!114 &7637175301011595026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 988538614193948997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Win/font_win SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &997648763496911893
 GameObject:
   m_ObjectHideFlags: 0
