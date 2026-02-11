@@ -808,6 +808,7 @@ GameObject:
   - component: {fileID: 2062467717063764256}
   - component: {fileID: 1504459481864324565}
   - component: {fileID: 7340720226341133653}
+  - component: {fileID: 6719324040846520135}
   m_Layer: 0
   m_Name: Anim_Draw
   m_TagString: Untagged
@@ -888,6 +889,27 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &6719324040846520135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2784563697135002752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--anim_shankoemee
+  AssetName: Assets/Resources/GameView/Anim_ShanKoeMee/win/skeleton_SkeletonData.asset
+  AnimName: win_myr
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &2828710875473405442
 GameObject:
   m_ObjectHideFlags: 0
@@ -2308,6 +2330,7 @@ GameObject:
   - component: {fileID: 2238326974188425682}
   - component: {fileID: 6640468120739955576}
   - component: {fileID: 2961331214965306492}
+  - component: {fileID: 2462755018293593476}
   m_Layer: 0
   m_Name: Anim_Win
   m_TagString: Untagged
@@ -2388,6 +2411,27 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &2462755018293593476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6468244129830438998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--anim_shankoemee
+  AssetName: Assets/Resources/GameView/Anim_ShanKoeMee/win/skeleton_SkeletonData.asset
+  AnimName: win_myr
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &6709359362130955899
 GameObject:
   m_ObjectHideFlags: 0
@@ -2826,6 +2870,7 @@ GameObject:
   - component: {fileID: 8290404191779507691}
   - component: {fileID: 3187232232940917880}
   - component: {fileID: 6737044765844035284}
+  - component: {fileID: 3134500924149095994}
   m_Layer: 0
   m_Name: Anim_Lose
   m_TagString: Untagged
@@ -2906,6 +2951,27 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &3134500924149095994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8243876139751665508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--anim_shankoemee
+  AssetName: Assets/Resources/GameView/Anim_ShanKoeMee/lose/skeleton_SkeletonData.asset
+  AnimName: lose
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &9077151782721144055
 GameObject:
   m_ObjectHideFlags: 0
