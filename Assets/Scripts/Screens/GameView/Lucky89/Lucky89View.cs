@@ -125,51 +125,51 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
         switch ((string)jData["evt"]) //timeToStart//banker_info//bm//lc//bc//cbc//cdco//finish
         {
             case "timeToStart":
-                Debug.Log($"Tinh=))timeToStart: {jData.ToString(Newtonsoft.Json.Formatting.None)}");
+                // Debug.Log($"Tinh=))timeToStart: {jData.ToString(Newtonsoft.Json.Formatting.None)}");
                 _HandleStartGame(jData);
                 break;
             case "banker_info":
                 _HandleBankerInfor(jData);
-                Debug.Log($"Tinh=))banker_info: {jData.ToString(Newtonsoft.Json.Formatting.None)}");
+                // Debug.Log($"Tinh=))banker_info: {jData.ToString(Newtonsoft.Json.Formatting.None)}");
                 break;
             case "bm":
-                Debug.Log($"Tinh=))bm: {jData.ToString(Newtonsoft.Json.Formatting.None)}");
+                // Debug.Log($"Tinh=))bm: {jData.ToString(Newtonsoft.Json.Formatting.None)}");
                 _HandleAnyoneBets(jData);
                 break;
             case "lc":
-                Debug.Log($"Tinh=))lc: {jData.ToString(Newtonsoft.Json.Formatting.None)}");
+                // Debug.Log($"Tinh=))lc: {jData.ToString(Newtonsoft.Json.Formatting.None)}");
                 _HandleReceiveMyCards(jData);
                 break;
             case "cShan":
-                Debug.Log($"Tinh=))cShan: {jData.ToString(Newtonsoft.Json.Formatting.None)}");
+                // Debug.Log($"Tinh=))cShan: {jData.ToString(Newtonsoft.Json.Formatting.None)}");
                 _HandleAnyoneReceivesLuckyCards(jData);
                 break;
             case "bc":
-                Debug.Log($"Tinh=))bc: {jData.ToString(Newtonsoft.Json.Formatting.None)}");
+                // Debug.Log($"Tinh=))bc: {jData.ToString(Newtonsoft.Json.Formatting.None)}");
                 _HandleAnyoneDrawsCard(jData);
                 break;
             case "cbc":
                 _HandleCBC(jData);
-                Debug.Log($"Tinh=))cbc: {jData.ToString(Newtonsoft.Json.Formatting.None)}");
+                // Debug.Log($"Tinh=))cbc: {jData.ToString(Newtonsoft.Json.Formatting.None)}");
                 break;
             case "cdco":
                 _HandleCDCO(jData);
-                Debug.Log($"Tinh=))cdco: {jData.ToString(Newtonsoft.Json.Formatting.None)}");
+                // Debug.Log($"Tinh=))cdco: {jData.ToString(Newtonsoft.Json.Formatting.None)}");
                 break;
             case "finish":
-                Debug.Log($"Tinh=))finish: {jData.ToString(Newtonsoft.Json.Formatting.None)}");
+                // Debug.Log($"Tinh=))finish: {jData.ToString(Newtonsoft.Json.Formatting.None)}");
                 _HandleFinishGame(jData);
                 break;
             case "finish_opt1":
-                Debug.Log($"Tinh=))finish_opt1: {jData.ToString(Newtonsoft.Json.Formatting.None)}");
+                // Debug.Log($"Tinh=))finish_opt1: {jData.ToString(Newtonsoft.Json.Formatting.None)}");
                 _HandleFinishOtp1(jData);
                 break;
             case "tip":
-                Debug.Log($"Tinh=))tip: {jData.ToString(Newtonsoft.Json.Formatting.None)}");
+                // Debug.Log($"Tinh=))tip: {jData.ToString(Newtonsoft.Json.Formatting.None)}");
                 HandlerTip(jData);
                 break;
             case "banker_old_update":
-                Debug.Log($"Tinh=))banker_old_update: {jData.ToString(Newtonsoft.Json.Formatting.None)}");
+                // Debug.Log($"Tinh=))banker_old_update: {jData.ToString(Newtonsoft.Json.Formatting.None)}");
                 thisPlayer.ag = (long)jData["ag"];
                 thisPlayer.setAg();
                 break;
@@ -209,7 +209,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
     }
     public override void handleVTable(string strData)
     {
-        Debug.Log($"Tinh=))handleVTable: {strData}");
+        // Debug.Log($"Tinh=))handleVTable: {strData}");
 
         stateGame = STATE_GAME.VIEWING;
         JObject data = JObject.Parse(strData);
@@ -256,7 +256,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
         JArray dataPlayers = (JArray)data["ArrP"];
         if (dataPlayers == null)
         {
-            Debug.LogWarning("handleVTable: ArrP null!");
+            // Debug.LogWarning("handleVTable: ArrP null!");
             return;
         }
         foreach (JObject jPl in dataPlayers)
@@ -279,7 +279,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
                 pv = getPlayerView(player);
                 if (pv == null)
                 {
-                    Debug.LogError("handleVTable: cannot create PlayerViewLucky89 for player id " + player.id);
+                    // Debug.LogError("handleVTable: cannot create PlayerViewLucky89 for player id " + player.id);
                     continue;
                 }
             }
@@ -347,7 +347,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
         JArray dataPlayers = (JArray)data["ArrP"];
         if (dataPlayers == null)
         {
-            Debug.LogWarning("[handleSTable] ArrP null!");
+            // Debug.LogWarning("[handleSTable] ArrP null!");
             return;
         }
 
@@ -449,7 +449,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
     }
     public override void handleRJTable(string strData)
     {
-        Debug.Log($"handleRJTable: {strData}");
+        // Debug.Log($"handleRJTable: {strData}");
 
         stateGame = STATE_GAME.PLAYING;
 
@@ -469,7 +469,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
         JArray arrPlayers = data.Value<JArray>("ArrP");
         if (arrPlayers == null || arrPlayers.Count == 0)
         {
-            Debug.LogWarning("handleRJTable: ArrP empty");
+            // Debug.LogWarning("handleRJTable: ArrP empty");
             return;
         }
 
@@ -600,7 +600,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
         });
         if ((string)data["Name"] == bankerName)
         {
-            Debug.Log($"Banker_Out");
+            // Debug.Log($"Banker_Out");
             handleUpdatePot(0);
             for (int i = 0; i < players.Count; i++)
             {
@@ -836,7 +836,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
         var view = player.playerView as PlayerViewLucky89;
         if (view == null)
         {
-            Debug.LogWarning($"[Lucky89] PlayerView is null or wrong type for pid={player.id}");
+            // Debug.LogWarning($"[Lucky89] PlayerView is null or wrong type for pid={player.id}");
         }
         return view;
     }
@@ -1014,7 +1014,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
     {
         if (data == null)
         {
-            Debug.LogWarning("_HandleAnyoneDrawsCard called with null data");
+            // Debug.LogWarning("_HandleAnyoneDrawsCard called with null data");
             return;
         }
         if (data.ContainsKey("timeAction"))
@@ -1045,7 +1045,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
         }
         if (!data.ContainsKey("N"))
         {
-            Debug.LogWarning("_HandleAnyoneDrawsCard missing 'N' field");
+            // Debug.LogWarning("_HandleAnyoneDrawsCard missing 'N' field");
             return;
         }
 
@@ -1057,7 +1057,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
 
         if (playerView == null)
         {
-            Debug.LogError($"_HandleAnyoneDrawsCard: playerView NULL for {name} (isDealer={isDealer})");
+            // Debug.LogError($"_HandleAnyoneDrawsCard: playerView NULL for {name} (isDealer={isDealer})");
             return;
         }
         int cardCode = data["C"] != null ? data["C"].Value<int>() : 0;
@@ -1090,7 +1090,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
     {
         if (thisPlayerView != null && thisPlayerView.isBanker && thisPlayerView.isLucky)
         {
-            Debug.Log($"Tinh=))thisPlayerView.isBanker: {thisPlayerView.isBanker}");
+            // Debug.Log($"Tinh=))thisPlayerView.isBanker: {thisPlayerView.isBanker}");
             ShowPanelActionBankerLucky();
         }
     }
@@ -1291,7 +1291,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
     }
     private void ClickButtonShowCard()
     {
-        Debug.Log("ClickButtonShowCard");
+        // Debug.Log("ClickButtonShowCard");
         SocketSend.SendShowCard();
     }
     private void ActiveButtonDone()
@@ -1407,7 +1407,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
                                 // DisablePanelAction();
                                 ActiveButtonDone();
                             }
-                            Debug.Log("aaaaa");
+                            // Debug.Log("aaaaa");
                             isTrackingSwipe = false;
                         }
                     }
@@ -1447,7 +1447,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
             JArray playerResults = (JArray)data["declarePlayerTransferList"];
             if (playerResults == null)
             {
-                Debug.LogError("[Lucky89] declarePlayerTransferList is null!");
+                // Debug.LogError("[Lucky89] declarePlayerTransferList is null!");
                 yield break;
             }
             // long totalChipWin = 0;
@@ -1467,12 +1467,12 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
                 Player player = players.Find(x => x.id == pid);
                 if (player == null)
                 {
-                    Debug.LogWarning($"[Lucky89] Player not found for pid={pid}, skip display.");
+                    // Debug.LogWarning($"[Lucky89] Player not found for pid={pid}, skip display.");
                     continue;
                 }
                 if (playerView == null)
                 {
-                    Debug.LogWarning($"[Lucky89] PlayerView is null for pid={pid}, skip.");
+                    // Debug.LogWarning($"[Lucky89] PlayerView is null for pid={pid}, skip.");
                     continue;
                 }
 
@@ -1492,7 +1492,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
                     }
                     catch (Exception ex)
                     {
-                        Debug.LogError($"[Lucky89] Error ShowScore pid={pid}: {ex}");
+                        // Debug.LogError($"[Lucky89] Error ShowScore pid={pid}: {ex}");
                     }
 
                     try
@@ -1501,7 +1501,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
                     }
                     catch (Exception ex)
                     {
-                        Debug.LogError($"[Lucky89] Error ShowRate pid={pid}: {ex}");
+                        // Debug.LogError($"[Lucky89] Error ShowRate pid={pid}: {ex}");
                     }
                     try
                     {
@@ -1509,12 +1509,12 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
                     }
                     catch (Exception ex)
                     {
-                        Debug.LogError($"[Lucky89] Error ShowRate pid={pid}: {ex}");
+                        // Debug.LogError($"[Lucky89] Error ShowRate pid={pid}: {ex}");
                     }
                 }
                 else
                 {
-                    Debug.LogWarning($"[Lucky89] Cannot show score, playerView is null for pid={pid}");
+                    // Debug.LogWarning($"[Lucky89] Cannot show score, playerView is null for pid={pid}");
                 }
             }
             DOVirtual.DelayedCall(0.5f, () =>
@@ -1560,7 +1560,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
             JArray playerResults = (JArray)data["declarePlayerTransferList"];
             if (playerResults == null)
             {
-                Debug.LogError("[Lucky89] declarePlayerTransferList is null!");
+                // Debug.LogError("[Lucky89] declarePlayerTransferList is null!");
                 yield break;
             }
             long totalChipWin = 0;
@@ -1580,12 +1580,12 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
                 Player player = players.Find(x => x.id == pid);
                 if (player == null)
                 {
-                    Debug.LogWarning($"[Lucky89] Player not found for pid={pid}, skip display.");
+                    // Debug.LogWarning($"[Lucky89] Player not found for pid={pid}, skip display.");
                     continue;
                 }
                 if (playerView == null)
                 {
-                    Debug.LogWarning($"[Lucky89] PlayerView is null for pid={pid}, skip.");
+                    // Debug.LogWarning($"[Lucky89] PlayerView is null for pid={pid}, skip.");
                     continue;
                 }
 
@@ -1599,14 +1599,14 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
                 }
                 if (playerView != null)
                 {
-                    Debug.Log($"ChayVaoDay: chipwwin: {chipWin}");
+                    // Debug.Log($"ChayVaoDay: chipwwin: {chipWin}");
                     playerView.ShowScore(true, score, arrCard.Count, rate);
                     playerView.ShowRate(rate);
                     playerView.ShowAnimResult(true, chipWin);
                 }
                 else
                 {
-                    Debug.LogWarning($"[Lucky89] Cannot show score, playerView is null for pid={pid}");
+                    // Debug.LogWarning($"[Lucky89] Cannot show score, playerView is null for pid={pid}");
                 }
                 if (!isBanker)
                 {
@@ -1670,7 +1670,7 @@ public class Lucky89View : GameView // Lucky89_ShanKoeMee
                 });
             }
             if (bankerPlayer == null)
-                Debug.LogWarning("[Lucky89] BankerPlayer not found in player list.");
+                // Debug.LogWarning("[Lucky89] BankerPlayer not found in player list.");
             foreach (Action cb in playerLoseCbs) cb.Invoke();
             if (playerLoseCbs.Count > 0) yield return new WaitForSeconds(2 * LOSE_CHIP_DURATION + 1);
             foreach (Action cb in playerWinCbs) cb.Invoke();
