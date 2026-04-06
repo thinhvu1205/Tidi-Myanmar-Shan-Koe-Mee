@@ -9,7 +9,6 @@ using Newtonsoft.Json.Linq;
 using UnityEngine.EventSystems;
 using System;
 using Globals;
-using System.Text.RegularExpressions;
 
 public class LoginView : BaseView
 {
@@ -263,24 +262,7 @@ public class LoginView : BaseView
         var strPass = m_PasswordTMPIF.text;
         if (strAcc.Equals("") || strPass.Equals(""))
         {
-            UIManager.instance.showToast("အသုံးပြုသူအမည်နှင့် စကားဝှက် မလွတ်လပ်ရပါ!");
-            return;
-        }
-        if (strAcc.Length < 6)
-        {
-            UIManager.instance.showToast("အသုံးပြုသူအမည်သည် အနည်းဆုံး အက္ခရာ ၆ လုံး ရှိရပါမည်");
-            return;
-        }
-
-        if (strAcc.Length > 30)
-        {
-            UIManager.instance.showToast("အသုံးပြုသူအမည်သည် အက္ခရာ ၃၀ လုံးထက် မပိုရပါ");
-            return;
-        }
-        Regex regex = new Regex("^[a-zA-Z0-9_]+$");
-        if (!regex.IsMatch(strAcc))
-        {
-            UIManager.instance.showToast("အသုံးပြုသူအမည်တွင် အထူးအက္ခရာများ မပါဝင်ရပါ");
+            UIManager.instance.showToast("Username and Password must not be empty");
             return;
         }
         Globals.Config.user_name = strAcc;
@@ -297,24 +279,7 @@ public class LoginView : BaseView
         var strPass = m_PasswordTMPIF.text;
         if (strAcc.Equals("") || strPass.Equals(""))
         {
-            UIManager.instance.showToast("အသုံးပြုသူအမည်နှင့် စကားဝှက် မလွတ်လပ်ရပါ!");
-            return;
-        }
-        if (strAcc.Length < 6)
-        {
-            UIManager.instance.showToast("အသုံးပြုသူအမည်သည် အနည်းဆုံး အက္ခရာ ၆ လုံး ရှိရပါမည်");
-            return;
-        }
-
-        if (strAcc.Length > 30)
-        {
-            UIManager.instance.showToast("အသုံးပြုသူအမည်သည် အက္ခရာ ၃၀ လုံးထက် မပိုရပါ");
-            return;
-        }
-        Regex regex = new Regex("^[a-zA-Z0-9_]+$");
-        if (!regex.IsMatch(strAcc))
-        {
-            UIManager.instance.showToast("အသုံးပြုသူအမည်တွင် အထူးအက္ခရာများ မပါဝင်ရပါ");
+            UIManager.instance.showToast("Username and Password must not be empty!");
             return;
         }
         Globals.Config.user_name = strAcc;

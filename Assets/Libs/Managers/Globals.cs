@@ -562,6 +562,7 @@ namespace Globals
     }
     public class Config
     {
+        public static string url_GraphCall = "";
         public static string linkRuleFriend = "";
         public static string RuleFortuneGift = "";
         public static bool is_show_chat = false;

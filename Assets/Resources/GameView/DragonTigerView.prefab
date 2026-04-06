@@ -2127,7 +2127,7 @@ MonoBehaviour:
   freeze: 0
   updateWhenInvisible: 3
   unscaledTime: 0
-  allowMultipleCanvasRenderers: 1
+  allowMultipleCanvasRenderers: 0
   canvasRenderers:
   - {fileID: 8017966254399636347}
   separatorSlotNames: []
@@ -2157,15 +2157,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 2210140520093551730}
   BundleLabel: assets--resources--gameview--dragontiger--spine
   AssetName: Assets/Resources/GameView/DragonTiger/spine/Tiger/skeleton_SkeletonData.asset
   AnimName: challenge
   SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &1652959510951145405
 GameObject:
   m_ObjectHideFlags: 0
@@ -2699,15 +2694,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 4064301895374491466}
   BundleLabel: assets--resources--gameview--dragontiger--spine
   AssetName: Assets/Resources/GameView/DragonTiger/spine/win/skeleton_SkeletonData.asset
   AnimName: eng
   SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &2085905595809763246
 GameObject:
   m_ObjectHideFlags: 0
@@ -3057,7 +3047,7 @@ MonoBehaviour:
   freeze: 0
   updateWhenInvisible: 3
   unscaledTime: 0
-  allowMultipleCanvasRenderers: 1
+  allowMultipleCanvasRenderers: 0
   canvasRenderers:
   - {fileID: 1317091938944690675}
   separatorSlotNames: []
@@ -3087,15 +3077,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 9121027108489077409}
   BundleLabel: assets--resources--gameview--dragontiger--spine
   AssetName: Assets/Resources/GameView/DragonTiger/spine/Dragon/skeleton_SkeletonData.asset
   AnimName: challenge
   SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &2313255866401292036
 GameObject:
   m_ObjectHideFlags: 0
@@ -6699,15 +6684,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 7346395309650766182}
   BundleLabel: assets--resources--gameview--dragontiger--spine
   AssetName: Assets/Resources/GameView/DragonTiger/spine/fight/skeleton_SkeletonData.asset
   AnimName: animation
   SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &4829429814668755814
 GameObject:
   m_ObjectHideFlags: 0
@@ -7197,15 +7177,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 498567618589767478}
   BundleLabel: assets--resources--gameview--dragontiger--spine
   AssetName: Assets/Resources/GameView/DragonTiger/spine/lose/skeleton_SkeletonData.asset
   AnimName: eng
   SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &5115437900961093085
 GameObject:
   m_ObjectHideFlags: 0
@@ -9882,15 +9857,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 2935282715941924096}
   BundleLabel: assets--resources--gameview--dragontiger--spine
   AssetName: Assets/Resources/GameView/DragonTiger/spine/anim_vetcao/skeleton_SkeletonData.asset
   AnimName: animation
   SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &6680005275549478497
 GameObject:
   m_ObjectHideFlags: 0
@@ -10780,15 +10750,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 1318914995551735339}
   BundleLabel: assets--resources--gameview--dragontiger--spine
   AssetName: Assets/Resources/GameView/DragonTiger/spine/anim_vetcao/skeleton_SkeletonData.asset
   AnimName: animation
   SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &7043974749461751422
 GameObject:
   m_ObjectHideFlags: 0
@@ -13464,15 +13429,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 8891978562653142869}
   BundleLabel: assets--resources--gameview--bordeng--spine
   AssetName: Assets/Resources/GameView/bordeng/spine/dealer/skeleton_SkeletonData.asset
   AnimName: normal
   SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &8891978562709474419
 GameObject:
   m_ObjectHideFlags: 0

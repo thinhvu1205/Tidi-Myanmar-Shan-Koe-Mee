@@ -117,7 +117,7 @@ public class BannerView : BaseView
                 btnView.onClick.RemoveAllListeners();
                 btnView.onClick.AddListener(() =>
                 {
-
+                    SocketSend.sendClickViewBanner();
                     SocketIOManager.getInstance().logEventSuggestBanner(2, data);
                     //}
                     string type = (string)dtBtn["type"];

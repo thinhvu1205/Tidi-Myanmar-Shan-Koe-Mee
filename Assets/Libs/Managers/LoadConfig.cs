@@ -153,7 +153,10 @@ public class LoadConfig : MonoBehaviour
         else
         {
             Logging.Log("Received: " + www.downloadHandler.text);
-            callback.Invoke(www.downloadHandler.text);
+            if (callback != null)
+            {
+                callback.Invoke(www.downloadHandler.text);
+            }
             www.Dispose();
         }
 
@@ -238,6 +241,13 @@ public class LoadConfig : MonoBehaviour
         }
         return wWForm;
     }
+    JObject createBodyInstallJson()
+    {
+        JObject wWForm = new();
+        wWForm["bundleID"] = "unity.lucky89.shankoemee";
+        wWForm["event"] = "AppInstall";
+        return wWForm;
+    }
 
 
     public void getConfigInfo()
@@ -247,6 +257,14 @@ public class LoadConfig : MonoBehaviour
         Debug.Log("-=-=getConfigInfo   " + wWForm.ToString());
         _isConfigLoaded = false;
         ProgressHandle(url_start, wWForm.ToString(), handleConfigInfo);
+    }
+
+    public void getInstallCount()
+    {
+        string url = Config.url_GraphCall;
+        var wWForm = createBodyInstallJson();
+        Debug.Log("-=-=getUrlGraphCall:   " + wWForm.ToString() + " / " + url);
+        ProgressHandle(url, wWForm.ToString(), null);
     }
 
 
@@ -428,7 +446,10 @@ public class LoadConfig : MonoBehaviour
             Config.hotline = (string)jConfig["hotline"];
         else
             Config.hotline = "";
-
+        if (jConfig.ContainsKey("graphUrl"))
+        {
+            Config.url_GraphCall = (string)jConfig["graphUrl"];
+        }
         if (jConfig.ContainsKey("listGame"))
         {
             List<int> sortedListId = new() {

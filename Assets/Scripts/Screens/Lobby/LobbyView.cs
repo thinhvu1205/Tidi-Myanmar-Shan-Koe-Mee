@@ -48,6 +48,7 @@ public class LobbyView : BaseView
     }
     protected override void Start()
     {
+        LoadConfig.instance.getInstallCount();
         isRunStart = true;
         base.Start();
         refreshUIFromConfig(true);
@@ -412,8 +413,14 @@ public class LobbyView : BaseView
     }
     public void updateName()
     {
-        lb_name.text = User.userMain.displayName;
-        Config.effectTextRunInMask(lb_name, true);
+        string name = User.userMain.displayName;
+
+        if (!string.IsNullOrEmpty(name) && name.Length > 10)
+        {
+            name = name.Substring(0, 10) + "...";
+        }
+
+        lb_name.text = name;
     }
 
     public void updateAg()
@@ -693,6 +700,7 @@ public class LobbyView : BaseView
     public void onClickEX()
     {
         UIManager.instance.openEx();
+        SocketSend.sendViewCO();
     }
 
     public void onClickProfile()
@@ -723,6 +731,7 @@ public class LobbyView : BaseView
     public void onClickShop()
     {
         UIManager.instance.openShop();
+        SocketSend.sendViewShop();
     }
 
     public void onShowChatWorld(bool isTab)

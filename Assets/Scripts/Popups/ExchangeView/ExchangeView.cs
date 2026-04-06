@@ -510,7 +510,7 @@ public class ExchangeView : BaseView
             SocketSend.sendUAG();
             popupInput.hide(false);
             DoClickButton(m_HistoryTMP.transform.parent.gameObject, null);
-
+            SocketSend.sendCOSuccess();
         }
     }
 }
