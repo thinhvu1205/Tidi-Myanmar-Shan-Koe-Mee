@@ -562,6 +562,15 @@ namespace Globals
     }
     public class Config
     {
+        public static bool isFirstOpenApp
+        {
+            get => PlayerPrefs.GetInt("firstOpenApp", 0) == 1;
+            set
+            {
+                PlayerPrefs.SetInt("firstOpenApp", value ? 1 : 0);
+                PlayerPrefs.Save();
+            }
+        }
         public static string url_GraphCall = "";
         public static string linkRuleFriend = "";
         public static string RuleFortuneGift = "";

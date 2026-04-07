@@ -67,6 +67,5 @@ public class ItemShop : MonoBehaviour
         SoundManager.instance.soundClick();
         string amount = txtAmout.text.Replace("$", "Kyats");
         callback();
-        SocketSend.sendBuyChip(amount);
     }
 }

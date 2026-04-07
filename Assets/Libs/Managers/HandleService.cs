@@ -255,6 +255,7 @@ public class HandleService
                         FreeChipView.instance.dataFreeChipAdmin.Clear();
                     }
                     JArray listFreeChip = JArray.Parse((string)jsonData["data"]);
+                    // Debug.Log("listFreeChip: " + (listFreeChip != null ? listFreeChip.ToString() : "NULL"));
                     foreach (JObject data in listFreeChip)
                     {
                         JObject item = new JObject();
@@ -279,7 +280,7 @@ public class HandleService
                             ;
                             if (FreeChipView.instance != null && FreeChipView.instance.gameObject.activeSelf)
                             {
-                                FreeChipView.instance.pushMailAdmin(7, (string)item["msg"], (int)item["gold"], (int)item["idMsg"]);
+                                FreeChipView.instance.pushMailAdmin(7, (string)item["msg"], (int)item["gold"], (int)item["idMsg"], (int)item["t"]);
                             }
                         }
                     }

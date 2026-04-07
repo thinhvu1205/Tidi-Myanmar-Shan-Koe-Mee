@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class SplashScene : MonoBehaviour
 {
     [SerializeField] private BundleDownloader m_BundleBD;
-    //https://console.cloud.google.com/storage/browser/my-shankoemee/AssetBundles/Android?pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22))
+    //https://console.cloud.google.com/storage/browser/my-shankoemee/AssetBundles/Android)
     private void Awake()
     {
         Application.targetFrameRate = 60;

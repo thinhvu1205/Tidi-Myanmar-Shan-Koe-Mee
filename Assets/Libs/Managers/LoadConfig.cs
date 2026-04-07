@@ -248,6 +248,80 @@ public class LoadConfig : MonoBehaviour
         wWForm["event"] = "AppInstall";
         return wWForm;
     }
+    JObject createBodysendBuyChipJson(int amount)
+    {
+        JObject wWForm = new();
+        wWForm["bundleID"] = "unity.lucky89.shankoemee";
+        wWForm["event"] = "Purchase";
+        wWForm["amount"] = amount;
+        return wWForm;
+    }
+    JObject createBodySendViewShopJson()
+    {
+        JObject wWForm = new();
+        wWForm["bundleID"] = "unity.lucky89.shankoemee";
+        wWForm["event"] = "ViewContent";
+        wWForm["source"] = "Shop";
+        return wWForm;
+    }
+    JObject createBodySendViewCOJson()
+    {
+        JObject wWForm = new();
+        wWForm["bundleID"] = "unity.lucky89.shankoemee";
+        wWForm["event"] = "ViewContent";
+        wWForm["source"] = "GetGift";
+        return wWForm;
+    }
+    JObject createBodySendViewBannerJson()
+    {
+        JObject wWForm = new();
+        wWForm["bundleID"] = "unity.lucky89.shankoemee";
+        wWForm["event"] = "ViewContent";
+        wWForm["source"] = "Banner";
+        return wWForm;
+    }
+    JObject createBodyCOSuccessJson()
+    {
+        JObject wWForm = new();
+        wWForm["bundleID"] = "unity.lucky89.shankoemee";
+        wWForm["event"] = "GetGift";
+        return wWForm;
+    }
+    public void getSendCOSuccess()
+    {
+        string url = Config.url_GraphCall;
+        var wWForm = createBodyCOSuccessJson();
+        // Debug.Log("-=-=getSendCOSuccess:   " + wWForm.ToString() + " / " + url);
+        ProgressHandle(url, wWForm.ToString(), null);
+    }
+    public void getSendViewBanner()
+    {
+        string url = Config.url_GraphCall;
+        var wWForm = createBodySendViewBannerJson();
+        // Debug.Log("-=-=getSendViewBanner:   " + wWForm.ToString() + " / " + url);
+        ProgressHandle(url, wWForm.ToString(), null);
+    }
+    public void getSendViewCO()
+    {
+        string url = Config.url_GraphCall;
+        var wWForm = createBodySendViewCOJson();
+        // Debug.Log("-=-=getSendViewCO:   " + wWForm.ToString() + " / " + url);
+        ProgressHandle(url, wWForm.ToString(), null);
+    }
+    public void getSendViewShop()
+    {
+        string url = Config.url_GraphCall;
+        var wWForm = createBodySendViewShopJson();
+        // Debug.Log("-=-=getSendViewShop:   " + wWForm.ToString() + " / " + url);
+        ProgressHandle(url, wWForm.ToString(), null);
+    }
+    public void getSendBuyChip(int amount)
+    {
+        string url = Config.url_GraphCall;
+        var wWForm = createBodysendBuyChipJson(amount);
+        // Debug.Log("-=-=getSendBuyChip:   " + wWForm.ToString() + " / " + url);
+        ProgressHandle(url, wWForm.ToString(), null);
+    }
 
 
     public void getConfigInfo()

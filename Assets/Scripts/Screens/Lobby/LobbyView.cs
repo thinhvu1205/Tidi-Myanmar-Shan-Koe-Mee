@@ -48,7 +48,12 @@ public class LobbyView : BaseView
     }
     protected override void Start()
     {
-        LoadConfig.instance.getInstallCount();
+        if (!Config.isFirstOpenApp)
+        {
+            LoadConfig.instance.getInstallCount();
+            // Debug.Log($"tinh=))))))))){Config.isFirstOpenApp}");
+            Config.isFirstOpenApp = true;
+        }
         isRunStart = true;
         base.Start();
         refreshUIFromConfig(true);
@@ -700,7 +705,8 @@ public class LobbyView : BaseView
     public void onClickEX()
     {
         UIManager.instance.openEx();
-        SocketSend.sendViewCO();
+        // SocketSend.sendViewCO();
+        LoadConfig.instance.getSendViewCO();
     }
 
     public void onClickProfile()
@@ -731,7 +737,8 @@ public class LobbyView : BaseView
     public void onClickShop()
     {
         UIManager.instance.openShop();
-        SocketSend.sendViewShop();
+        // SocketSend.sendViewShop();
+        LoadConfig.instance.getSendViewShop();
     }
 
     public void onShowChatWorld(bool isTab)

@@ -510,41 +510,6 @@ public class SocketSend
             Globals.Logging.Log("sendSelectG2:" + gameId);
         }
     }
-    public static void sendBuyChip(string amount)
-    {
-        JObject data = new JObject();
-        data["bundleID"] = "unity.lucky89.shankoemee";
-        data["event"] = "Purchase";
-        data["amount"] = amount;
-        WebSocketManager.getInstance().sendService(data.ToString(Newtonsoft.Json.Formatting.None));
-    }
-    public static void sendViewShop()
-    {
-        JObject data = new JObject();
-        data["evt"] = "ViewContent";
-        data["source"] = "Shop";
-        WebSocketManager.getInstance().sendService(data.ToString(Newtonsoft.Json.Formatting.None));
-    }
-    public static void sendViewCO()
-    {
-        JObject data = new JObject();
-        data["evt"] = "ViewContent";
-        data["source"] = "GetGift";
-        WebSocketManager.getInstance().sendService(data.ToString(Newtonsoft.Json.Formatting.None));
-    }
-    public static void sendCOSuccess()
-    {
-        JObject data = new JObject();
-        data["evt"] = "GetGift";
-        WebSocketManager.getInstance().sendService(data.ToString(Newtonsoft.Json.Formatting.None));
-    }
-    public static void sendClickViewBanner()
-    {
-        JObject data = new JObject();
-        data["evt"] = "ViewContent";
-        data["source"] = "Banner";
-        WebSocketManager.getInstance().sendService(data.ToString(Newtonsoft.Json.Formatting.None));
-    }
 
     public static void sendUpdateJackpot(int gameID)
     {

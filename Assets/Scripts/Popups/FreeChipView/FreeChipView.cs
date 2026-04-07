@@ -161,7 +161,8 @@ public class FreeChipView : BaseView
               listData[i].chips,
               listData[i].receiveType,
               i,
-              listData[i]
+              listData[i],
+              listData[i].typePayment
 
             );
         }
@@ -218,13 +219,14 @@ public class FreeChipView : BaseView
     {
         //scrFreeChip.setDataList(setDataItem, listData);
     }
-    public void pushMailAdmin(int type, string mess, int chip, int rec_type)
+    public void pushMailAdmin(int type, string mess, int chip, int rec_type, int typePayment = 0)
     {
         var free = new FreeChipData();
         free.type = type;
         free.message = mess;
         free.chips = chip;
         free.receiveType = rec_type;
+        free.typePayment = typePayment;
         dataFreeChipAdmin.Add(free);
     }
     public void clearMailAdmin()
@@ -255,5 +257,6 @@ public class FreeChipData
     public string message = "";
     public int chips = 0;
     public int receiveType = 0;
+    public int typePayment = 0;
 }
 
