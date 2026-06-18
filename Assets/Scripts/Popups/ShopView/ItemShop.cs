@@ -39,7 +39,7 @@ public class ItemShop : MonoBehaviour
         txtBonus.transform.gameObject.SetActive(!txtBonus.text.Equals(""));
 
         var txtBuy = (string)_dataItem["txtBuy"];
-       if (txtBuy.Contains("USD"))
+        if (txtBuy.Contains("USD"))
         {
             txtAmout.text = Globals.Config.convertStringToNumber(txtBuy).ToString().Replace(",", ".") + "$";
         }
@@ -65,6 +65,7 @@ public class ItemShop : MonoBehaviour
     {
         //shopView.onBuy(dataItem);
         SoundManager.instance.soundClick();
+        string amount = txtAmout.text.Replace("$", "Kyats");
         callback();
     }
 }

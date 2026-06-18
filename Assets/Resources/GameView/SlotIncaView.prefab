@@ -1471,14 +1471,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisTMPUGUI: {fileID: 0}
   BundleLabel: assets--resources--gameview--slotspine
   AssetName: Assets/Resources/GameView/SlotSpine/NearFreeSpin/skeleton_SkeletonData.asset
   AnimName: animation
-  FontName: 
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
+  SetNativeSize: 0
 --- !u!1 &3708434057572883400
 GameObject:
   m_ObjectHideFlags: 0
@@ -5956,7 +5952,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 218.00002, y: -20}
-  m_SizeDelta: {x: 218.00002, y: 40}
+  m_SizeDelta: {x: 0, y: 40}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &7275891223319465665
 MonoBehaviour:

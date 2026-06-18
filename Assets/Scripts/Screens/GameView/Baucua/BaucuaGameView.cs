@@ -725,15 +725,15 @@ public class BaucuaGameView : GameView
             }
             m_ChipBet[intChipSet].transform.GetChild(0).gameObject.SetActive(true);
         }
-        // else
-        // {
-        //     for (int i = 0; i < m_ChipBet.Count; i++)
-        //     {
-        //         m_ChipBet[i].transform.GetChild(0).gameObject.SetActive(false);
-        //         m_ChipBet[i].interactable = true;
-        //     }
-        //     m_ChipBet[PositionChipbet].transform.GetChild(0).gameObject.SetActive(true);
-        // }
+        else
+        {
+            for (int i = 0; i < m_ChipBet.Count; i++)
+            {
+                m_ChipBet[i].transform.GetChild(0).gameObject.SetActive(false);
+                m_ChipBet[i].interactable = true;
+            }
+            m_ChipBet[PositionChipbet].transform.GetChild(0).gameObject.SetActive(true);
+        }
 
     }
     public void ClickCancel()

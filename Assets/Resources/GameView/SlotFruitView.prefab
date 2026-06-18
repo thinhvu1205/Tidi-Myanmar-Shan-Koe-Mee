@@ -527,14 +527,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisTMPUGUI: {fileID: 0}
   BundleLabel: assets--resources--gameview--slotspine
   AssetName: Assets/Resources/GameView/SlotSpine/NearFreeSpin/skeleton_SkeletonData.asset
   AnimName: animation
-  FontName: 
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
+  SetNativeSize: 0
 --- !u!1 &677796681642647116
 GameObject:
   m_ObjectHideFlags: 0

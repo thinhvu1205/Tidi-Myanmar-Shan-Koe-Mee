@@ -48,6 +48,12 @@ public class LobbyView : BaseView
     }
     protected override void Start()
     {
+        if (!Config.isFirstOpenApp)
+        {
+            LoadConfig.instance.getInstallCount();
+            // Debug.Log($"tinh=))))))))){Config.isFirstOpenApp}");
+            Config.isFirstOpenApp = true;
+        }
         isRunStart = true;
         base.Start();
         refreshUIFromConfig(true);
@@ -412,8 +418,14 @@ public class LobbyView : BaseView
     }
     public void updateName()
     {
-        lb_name.text = User.userMain.displayName;
-        Config.effectTextRunInMask(lb_name, true);
+        string name = User.userMain.displayName;
+
+        if (!string.IsNullOrEmpty(name) && name.Length > 10)
+        {
+            name = name.Substring(0, 10) + "...";
+        }
+
+        lb_name.text = name;
     }
 
     public void updateAg()
@@ -693,6 +705,8 @@ public class LobbyView : BaseView
     public void onClickEX()
     {
         UIManager.instance.openEx();
+        // SocketSend.sendViewCO();
+        LoadConfig.instance.getSendViewCO();
     }
 
     public void onClickProfile()
@@ -723,6 +737,8 @@ public class LobbyView : BaseView
     public void onClickShop()
     {
         UIManager.instance.openShop();
+        // SocketSend.sendViewShop();
+        LoadConfig.instance.getSendViewShop();
     }
 
     public void onShowChatWorld(bool isTab)

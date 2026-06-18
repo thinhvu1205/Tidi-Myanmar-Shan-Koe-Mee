@@ -51,12 +51,13 @@ public class ProfileView : BaseView
     public void setInfo()
     {
         string name = User.userMain.displayName;
-
-        if (!string.IsNullOrEmpty(name) && name.Length > 15)
+        if (!string.IsNullOrEmpty(name) && name.Length > 10)
         {
-            name = name.Substring(0, 15) + "...";
+            name = name.Substring(0, 10) + "...";
         }
+
         lbName.text = name;
+        //Config.effectTextRunInMask(lbName);
         lbChips.text = Config.FormatNumber(User.userMain.AG);
         lbAgSafe.text = Config.FormatNumber(User.userMain.agSafe);
         lbId.text = "ID: " + User.userMain.Userid.ToString();
@@ -93,7 +94,7 @@ public class ProfileView : BaseView
                 refContainer.SetActive(false);
                 scrListAvatar.transform.localPosition = new Vector3(
                 scrListAvatar.transform.localPosition.x,
-                -50f,
+                -30f,
                 scrListAvatar.transform.localPosition.z
             );
             }
@@ -105,7 +106,7 @@ public class ProfileView : BaseView
             refContainer.SetActive(false);
             scrListAvatar.transform.localPosition = new Vector3(
                 scrListAvatar.transform.localPosition.x,
-                -50f,
+                -30f,
                 scrListAvatar.transform.localPosition.z
             );
         }
@@ -126,7 +127,7 @@ public class ProfileView : BaseView
                     refContainer.SetActive(false);
                     scrListAvatar.transform.localPosition = new Vector3(
                         scrListAvatar.transform.localPosition.x,
-                        -50f,
+                        -30f,
                         scrListAvatar.transform.localPosition.z
                     );
                 }

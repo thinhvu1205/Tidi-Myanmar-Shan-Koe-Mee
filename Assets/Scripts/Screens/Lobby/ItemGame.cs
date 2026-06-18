@@ -105,7 +105,7 @@ public class ItemGame : MonoBehaviour
             if ((!isShowAllGames && Config.listGameSlot.Contains(GameId))
                 || GameId == (int)GAMEID.SHAN_KOE_MEE)
             {
-                _SetSprite(m_LargeIconImg, iconS, true);
+                _SetSprite(m_LargeIconImg, iconS);
                 Destroy(m_SmallBorderG2.transform.parent.gameObject);
             }
             else
@@ -116,15 +116,11 @@ public class ItemGame : MonoBehaviour
             Destroy(m_LeanBorderG2.transform.parent.gameObject);
         }
     }
-    private void _SetSprite(Image iconImg, Sprite iconS, bool isSetnativeSize = false)
+    private void _SetSprite(Image iconImg, Sprite iconS)
     {
         iconImg.transform.parent.gameObject.SetActive(true);
         iconImg.gameObject.SetActive(true);
         iconImg.sprite = iconS;
-        if (isSetnativeSize)
-        {
-            iconImg.SetNativeSize();
-        }
     }
     public void UpdateJackpot(long number)
     {
