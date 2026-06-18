@@ -64,7 +64,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3267261767416961207
 RectTransform:
   m_ObjectHideFlags: 0
@@ -466,6 +466,7 @@ GameObject:
   - component: {fileID: 5553700445182791271}
   - component: {fileID: 3349775010343786244}
   - component: {fileID: 5125003981990427946}
+  - component: {fileID: 7637175301011595026}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -569,7 +570,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 00000000
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -607,6 +608,27 @@ MonoBehaviour:
   isFormatMoney: 1
   scale: 1
   FormatType: 0
+--- !u!114 &7637175301011595026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 988538614193948997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 3349775010343786244}
+  BundleLabel: assets--resources--fonts--tmpbitmap
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/TMPBitMap/Win/font_win SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &997648763496911893
 GameObject:
   m_ObjectHideFlags: 0
@@ -690,7 +712,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &825091540569867472
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1136,7 +1158,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5292921849165342944
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1421,7 +1443,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5041505163112285123
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1866,7 +1888,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7020580337461695202
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2801,7 +2823,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1451071057866336257
 RectTransform:
   m_ObjectHideFlags: 0

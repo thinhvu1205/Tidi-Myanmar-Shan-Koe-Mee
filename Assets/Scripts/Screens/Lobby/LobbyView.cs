@@ -14,10 +14,10 @@ using System.Linq;
 public class LobbyView : BaseView
 {
     public bool isFull = false;
-    [SerializeField] private GameObject shop, shopFull, exChange;
+    [SerializeField] private GameObject shop, exChange;
     [SerializeField] List<Button> listTabs = new();
     [SerializeField]
-    GameObject objDot, btnEx, btnChatLobby, gameItemObject, modelLobby, iconSafe, btnSafe, btnGiftCode, btnLeaderboard,
+    GameObject objDot, btnEx, btnChatLobby, gameItemObject, iconSafe, btnSafe, btnGiftCode, btnLeaderboard,
         icNotiMail, icNotiFree, icNotiMessage, bannerTemp, btnBannerNews, m_Lottery;
     [SerializeField] RectTransform tfBot, CenterNode;
     [SerializeField] TextMeshProUGUI lb_name, lb_id, lb_ag, lb_safe, lbTimeOnline, lbQuickGame;
@@ -48,12 +48,6 @@ public class LobbyView : BaseView
     }
     protected override void Start()
     {
-        if (!Config.isFirstOpenApp)
-        {
-            LoadConfig.instance.getInstallCount();
-            // Debug.Log($"tinh=))))))))){Config.isFirstOpenApp}");
-            Config.isFirstOpenApp = true;
-        }
         isRunStart = true;
         base.Start();
         refreshUIFromConfig(true);
@@ -418,14 +412,8 @@ public class LobbyView : BaseView
     }
     public void updateName()
     {
-        string name = User.userMain.displayName;
-
-        if (!string.IsNullOrEmpty(name) && name.Length > 10)
-        {
-            name = name.Substring(0, 10) + "...";
-        }
-
-        lb_name.text = name;
+        lb_name.text = User.userMain.displayName;
+        Config.effectTextRunInMask(lb_name, true);
     }
 
     public void updateAg()
@@ -507,76 +495,6 @@ public class LobbyView : BaseView
         foreach (Transform childTf in m_MiniGameIconTf) Destroy(childTf.gameObject);
         foreach (Transform childTf in m_OnlySloticonTf) Destroy(childTf.gameObject);
     }
-    // void _ReloadListGames()
-    // {
-    //     _ClearButtonGames();
-    //     for (int i = 0; i < Config.listGame.Count; i++)
-    //     {
-    //         JObject dt = new()
-    //         {
-    //             ["id"] = (int)Config.listGame[i]["id"],
-    //             ["ip_dm"] = (string)Config.listGame[i]["ip_dm"],
-    //         };
-    //     }
-
-    //     _AllGameIGs.Clear();
-    //     List<int> slotGames = new() { (int)GAMEID.SLOT_SIXIANG, (int)GAMEID.SLOTTARZAN, (int)GAMEID.SLOTNOEL, (int)GAMEID.SLOT_INCA, (int)GAMEID.SLOT_JUICY_GARDEN, (int)GAMEID.SLOT20FRUIT };
-    //     Rect sizeCell = m_GamesSR.GetComponent<RectTransform>().rect;
-    //     List<int> listGameRemove = new() { 1111, 6688, 8011, 8012, 8044, 8088, 8090, 8091, 8808, 9500 };
-
-    //     Config.listGame = new JArray(
-    //         Config.listGame
-    //             .Where(g => !listGameRemove.Contains((int)((JObject)g)["id"]))
-    //     );
-
-    //     for (var i = 0; i < Config.listGame.Count; i++)
-    //     {
-    //         JObject data = (JObject)Config.listGame[i];
-    //         int gameId = (int)data["id"];
-    //         Debug.Log($"GameID: {gameId}");
-    //         Sprite spriteIconGame = Resources.Load<Sprite>("IconGame/" + gameId);
-
-    //         SkeletonDataAsset skeAsset = BundleHandler.LoadSkeletonDataAsset("AnimIconGame/" + gameId + "/skeleton_SkeletonData");
-    //         if (skeAsset == null) continue;
-    //         if (spriteIconGame == null) continue;
-    //         ItemGame item = null;
-    //         switch (gameId)
-    //         {
-    //             // case (int)GAMEID.LUCKY9:
-    //             // case (int)GAMEID.TONGITS_OLD:
-    //             case (int)GAMEID.PUSOY:
-    //                 item = Instantiate(gameItemObject, m_GamesSR.content).GetComponent<ItemGame>();
-    //                 item.transform.SetSiblingIndex(0);
-    //                 break;
-    //             default:
-    //                 item = Instantiate(gameItemObject, m_MiniGameIconTf).GetComponent<ItemGame>();
-
-    //                 break;
-    //         }
-    //         item.name = gameId.ToString();
-    //         item.transform.localScale = Vector3.one;
-    //         item.transform.position = Vector3.zero;
-    //         item.gameObject.SetActive(true);
-    //         item.setInfo(gameId, skeAsset, materialDefault, spriteIconGame, () => onClickGame(item), true);
-    //         if (gameId == (int)GAMEID.PUSOY && UIManager.instance.PusoyJackPot > 0) item.UpdateJackpot(UIManager.instance.PusoyJackPot);
-    //         _AllGameIGs.Add(item);
-    //     }
-    //     foreach (ItemGame ig in _AllGameIGs)
-    //     {
-    //         if (!slotGames.Contains(ig.GameId)) continue;
-    //         Sprite spriteIconGameBig = Resources.Load<Sprite>("IconGame" + ig.GameId + "_Big");
-    //         SkeletonDataAsset bigSlotGameSDA = BundleHandler.LoadSkeletonDataAsset("AnimIconGame/" + ig.GameId + "-big" + "/skeleton_SkeletonData");
-    //         if (bigSlotGameSDA == null) continue;
-    //         ItemGame bigSlotIconIG = Instantiate(gameItemObject, m_OnlySloticonTf).GetComponent<ItemGame>();
-
-    //         bigSlotIconIG.name = ig.GameId.ToString();
-    //         bigSlotIconIG.transform.localScale = Vector3.one;
-    //         bigSlotIconIG.transform.position = Vector3.zero;
-    //         bigSlotIconIG.gameObject.SetActive(true);
-    //         bigSlotIconIG.setInfo(ig.GameId, bigSlotGameSDA, materialDefault, spriteIconGameBig, () => onClickGame(bigSlotIconIG), false);
-    //     }
-    //     _ChangeTabGameProversion();
-    // }
     void _ReloadListGames()
     {
         _ClearButtonGames();
@@ -590,7 +508,6 @@ public class LobbyView : BaseView
                 ["ip_dm"] = (string)Config.listGame[i]["ip_dm"],
             };
         }
-
         _AllGameIGs.Clear();
         List<int> slotGames = new() { (int)GAMEID.SLOT_SIXIANG, (int)GAMEID.SLOTTARZAN, (int)GAMEID.SLOTNOEL, (int)GAMEID.SLOT_INCA, (int)GAMEID.SLOT_JUICY_GARDEN, (int)GAMEID.SLOT20FRUIT };
         Rect sizeCell = m_GamesSR.GetComponent<RectTransform>().rect;
@@ -598,39 +515,40 @@ public class LobbyView : BaseView
         {
             JObject data = (JObject)Config.listGame[i];
             int gameId = (int)data["id"];
-            Sprite iconS = Resources.Load<Sprite>("IconGame/" + gameId);
-            if (iconS == null) continue;
+            SkeletonDataAsset skeAsset = BundleHandler.LoadSkeletonDataAsset("AnimIconGame/" + gameId + "/skeleton_SkeletonData");
+            if (skeAsset == null) continue;
             ItemGame item = null;
             switch (gameId)
             {
                 case (int)GAMEID.SHAN_KOE_MEE:
-                    item = Instantiate(gameItemObject, m_GamesSR.content).GetComponent<ItemGame>();
+                    item = BundleHandler.Instantiate(gameItemObject, m_GamesSR.content).GetComponent<ItemGame>();
                     item.transform.SetSiblingIndex(0);
                     break;
                 default:
-                    item = Instantiate(gameItemObject, m_MiniGameIconTf).GetComponent<ItemGame>();
+                    item = BundleHandler.Instantiate(gameItemObject, m_MiniGameIconTf).GetComponent<ItemGame>();
+
                     break;
             }
             item.name = gameId.ToString();
             item.transform.localScale = Vector3.one;
             item.transform.position = Vector3.zero;
             item.gameObject.SetActive(true);
-            item.setInfo(gameId, null, materialDefault, iconS, () => onClickGame(item), true);
+            item.setInfo(gameId, skeAsset, materialDefault, null, () => onClickGame(item), true);
             if (gameId == (int)GAMEID.PUSOY && UIManager.instance.PusoyJackPot > 0) item.UpdateJackpot(UIManager.instance.PusoyJackPot);
             _AllGameIGs.Add(item);
         }
         foreach (ItemGame ig in _AllGameIGs)
         {
             if (!slotGames.Contains(ig.GameId)) continue;
-            Sprite iconS = Resources.Load<Sprite>("IconGame/" + ig.GameId + "_Big");
-            if (iconS == null) continue;
-            ItemGame bigSlotIconIG = Instantiate(gameItemObject, m_OnlySloticonTf).GetComponent<ItemGame>();
+            SkeletonDataAsset bigSlotGameSDA = BundleHandler.LoadSkeletonDataAsset("AnimIconGame/" + ig.GameId + "-big" + "/skeleton_SkeletonData");
+            if (bigSlotGameSDA == null) continue;
+            ItemGame bigSlotIconIG = BundleHandler.Instantiate(gameItemObject, m_OnlySloticonTf).GetComponent<ItemGame>();
 
             bigSlotIconIG.name = ig.GameId.ToString();
             bigSlotIconIG.transform.localScale = Vector3.one;
             bigSlotIconIG.transform.position = Vector3.zero;
             bigSlotIconIG.gameObject.SetActive(true);
-            bigSlotIconIG.setInfo(ig.GameId, null, materialDefault, iconS, () => onClickGame(bigSlotIconIG), false);
+            bigSlotIconIG.setInfo(ig.GameId, bigSlotGameSDA, materialDefault, null, () => onClickGame(bigSlotIconIG), false);
         }
         _ChangeTabGameProversion();
     }
@@ -705,8 +623,6 @@ public class LobbyView : BaseView
     public void onClickEX()
     {
         UIManager.instance.openEx();
-        // SocketSend.sendViewCO();
-        LoadConfig.instance.getSendViewCO();
     }
 
     public void onClickProfile()
@@ -737,8 +653,6 @@ public class LobbyView : BaseView
     public void onClickShop()
     {
         UIManager.instance.openShop();
-        // SocketSend.sendViewShop();
-        LoadConfig.instance.getSendViewShop();
     }
 
     public void onShowChatWorld(bool isTab)
@@ -846,7 +760,6 @@ public class LobbyView : BaseView
 
         // bool isShow = Config.arrOnlistTrue.Count >= 1;
         shop.SetActive(Config.is_dt);
-        shopFull.SetActive(!Config.is_dt);
         exChange.SetActive(Config.is_dt);
 
         // setDefaultPosBtnMore();
@@ -901,9 +814,6 @@ public class LobbyView : BaseView
 
     public void resetLogout()
     {
-        // modelLobby.SetActive(true);
-        // modelLobby.GetComponent<SkeletonGraphic>().Initialize(true);
-        // modelLobby.GetComponent<SkeletonGraphic>().AnimationState.SetAnimation(0, "animation", true);
         //scrollSnapView.gameObject.SetActive(false);
         m_BannersPS.gameObject.SetActive(false);
         _SetPosWhenBannerActive();

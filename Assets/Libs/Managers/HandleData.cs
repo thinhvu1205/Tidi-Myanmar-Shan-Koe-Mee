@@ -160,6 +160,8 @@ public class HandleData
             if (UIManager.instance.gameView == null) UIManager.instance.showLobbyScreen(true);
             new Thread(new ThreadStart(() =>
             {
+                SocketSend.sendRef();
+                Thread.Sleep(100);
                 SocketSend.sendSelectG2(Config.curGameId);
                 Thread.Sleep(100);
                 SocketSend.getInfoSafe();
@@ -176,8 +178,6 @@ public class HandleData
                 // SocketSend.getChatWorld();
                 // Thread.Sleep(100);
                 // SocketSend.getFarmInfo();
-                Thread.Sleep(100);
-                SocketSend.sendRef();
             })).Start();
 
             tags.Add("deviceid", Config.deviceId);

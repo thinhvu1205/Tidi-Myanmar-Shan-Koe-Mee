@@ -5,17 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class SplashScene : MonoBehaviour
 {
+    //https://console.cloud.google.com/storage/browser/my-shankoemee
     [SerializeField] private BundleDownloader m_BundleBD;
-    //https://console.cloud.google.com/storage/browser/my-shankoemee/AssetBundles/Android)
+
     private void Awake()
     {
         Application.targetFrameRate = 60;
-        // SceneManager.LoadScene("MainScene");
-        // "D:/Unity projects/Tidi-Phil-Win777/Assets/AssetBundles";
-        // https://storage.googleapis.com/tongitswar/AssetBundles;
-        //https://storage.googleapis.com/my-shankoemee/AssetBundles
         string storedUrl = PlayerPrefs.GetString(BundleDownloader.STORED_BUNDLE_URL, "https://storage.googleapis.com/my-shankoemee/AssetBundles");
-        // storedUrl = "D:/Unity projects/Tidi-Phil-Win777/Assets/AssetBundles";
         m_BundleBD.CheckAndDownloadAssets(storedUrl, 1f,
             () =>
             {
