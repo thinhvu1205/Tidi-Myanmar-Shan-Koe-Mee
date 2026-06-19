@@ -20,16 +20,14 @@ public class CertificateWhore : CertificateHandler
 public class LoadConfig : MonoBehaviour
 {
     public static LoadConfig instance;
-    // string url_start = "https://n.cfg.davaogames.com/info";
     string url_start = "https://cfg.mmshan.net/info";
     string config_info = "";
 
-
+    private const string _BUNDLE_ID = "ios.shanplus.com";
     private bool _isConfigLoaded = false;
     void Awake()
     {
-        // Config.publisher = "Luckypusoy_apk_pro";
-        Config.publisher = "unity_lucky89_shankoemee";
+        Config.publisher = "ios_shan_plus";
         if (instance == null) instance = this;
         else
         {
@@ -215,8 +213,7 @@ public class LoadConfig : MonoBehaviour
         JObject wWForm = new JObject();
         wWForm["version"] = Config.versionGame + "";
         wWForm["operatorID"] = Config.OPERATOR + "";
-        // wWForm["bundleID"] = "unity.lucky777.tongitswar.onconfig";
-        wWForm["bundleID"] = "unity.lucky89.shankoemee";
+        wWForm["bundleID"] = _BUNDLE_ID;
         wWForm["publisher"] = Config.publisher;
         wWForm["os"] = osName;
         wWForm["mcc"] = "[0,0]";
@@ -244,14 +241,14 @@ public class LoadConfig : MonoBehaviour
     JObject createBodyInstallJson()
     {
         JObject wWForm = new();
-        wWForm["bundleID"] = "unity.lucky89.shankoemee";
+        wWForm["bundleID"] = _BUNDLE_ID;
         wWForm["event"] = "AppInstall";
         return wWForm;
     }
     JObject createBodysendBuyChipJson(int amount)
     {
         JObject wWForm = new();
-        wWForm["bundleID"] = "unity.lucky89.shankoemee";
+        wWForm["bundleID"] = _BUNDLE_ID;
         wWForm["event"] = "Purchase";
         wWForm["amount"] = amount;
         return wWForm;
@@ -259,7 +256,7 @@ public class LoadConfig : MonoBehaviour
     JObject createBodySendViewShopJson()
     {
         JObject wWForm = new();
-        wWForm["bundleID"] = "unity.lucky89.shankoemee";
+        wWForm["bundleID"] = _BUNDLE_ID;
         wWForm["event"] = "ViewContent";
         wWForm["source"] = "Shop";
         return wWForm;
@@ -267,7 +264,7 @@ public class LoadConfig : MonoBehaviour
     JObject createBodySendViewCOJson()
     {
         JObject wWForm = new();
-        wWForm["bundleID"] = "unity.lucky89.shankoemee";
+        wWForm["bundleID"] = _BUNDLE_ID;
         wWForm["event"] = "ViewContent";
         wWForm["source"] = "GetGift";
         return wWForm;
@@ -275,7 +272,7 @@ public class LoadConfig : MonoBehaviour
     JObject createBodySendViewBannerJson()
     {
         JObject wWForm = new();
-        wWForm["bundleID"] = "unity.lucky89.shankoemee";
+        wWForm["bundleID"] = _BUNDLE_ID;
         wWForm["event"] = "ViewContent";
         wWForm["source"] = "Banner";
         return wWForm;
@@ -283,7 +280,7 @@ public class LoadConfig : MonoBehaviour
     JObject createBodyCOSuccessJson()
     {
         JObject wWForm = new();
-        wWForm["bundleID"] = "unity.lucky89.shankoemee";
+        wWForm["bundleID"] = _BUNDLE_ID;
         wWForm["event"] = "GetGift";
         return wWForm;
     }

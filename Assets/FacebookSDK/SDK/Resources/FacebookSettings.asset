@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedAppIndex: 0
   clientTokens:
-  - 0db041807bab14ce8a2b5800b2bb5b94
+  - a0b700b3042114689ecb6a38635fbe9f
   appIds:
-  - 1349042080312133
+  - 2983621661844192
   appLabels:
-  - wait
+  - Shan Plus
   cookie: 1
   logging: 1
   status: 1
