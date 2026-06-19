@@ -6,7 +6,6 @@ using UnityEngine.UI;
 using TMPro;
 using System.Linq;
 using Globals;
-using ZXing;
 using UnityEngine.Animations;
 public class ShopView : BaseView
 {
@@ -141,15 +140,6 @@ public class ShopView : BaseView
             item0 = (JObject)arrayData[0];
         }
         if (scrTabs.content.childCount > indSelect) onClickTab(scrTabs.content.transform.GetChild(indSelect).gameObject, item0);
-    }
-    private Color32[] EncodeTextToQRCode(string inputText, int width, int height)
-    {
-        BarcodeWriter writer = new()
-        {
-            Format = BarcodeFormat.QR_CODE,
-            Options = new() { Height = height, Width = width }
-        };
-        return writer.Write(inputText);
     }
 
     void getBest(JArray items, string partner, string title)

@@ -5,6 +5,7 @@ using UnityEngine.Networking;
 using UnityEngine.UI;
 using DG.Tweening;
 using TMPro;
+using Gpm.WebView;
 
 
 public class WebViewControl : MonoBehaviour
@@ -16,7 +17,6 @@ public class WebViewControl : MonoBehaviour
   [SerializeField] public TextMeshProUGUI lbTitle;
   [SerializeField] public GameObject titleBar;
   [SerializeField] public RectTransform Rect;
-  WebViewObject webViewObject;
 
   private void Awake()
   {
@@ -24,6 +24,102 @@ public class WebViewControl : MonoBehaviour
   private void Start()
   {
     WebViewControl.instance = this;
+  }
+  public void OpenWebPage(string URL)
+  {
+    GpmWebView.ShowUrl(
+        URL,
+        new GpmWebViewRequest.Configuration()
+        {
+          style = GpmWebViewStyle.POPUP,
+          orientation = GpmOrientation.UNSPECIFIED,
+          isClearCookie = true,
+          isClearCache = true,
+          isNavigationBarVisible = true,
+          isCloseButtonVisible = true,
+          margins = new GpmWebViewRequest.Margins
+          {
+            hasValue = true,
+            left = 0,
+            top = 200,
+            right = 0,
+            bottom = 0
+          },
+          supportMultipleWindows = true,
+#if UNITY_IOS
+          contentMode = GpmWebViewContentMode.MOBILE,
+          isMaskViewVisible = true,
+#endif
+        },
+        OnCallback,
+        new List<string>()
+        {
+              "USER_ CUSTOM_SCHEME"
+        });
+  }
+  private void OnCallback(GpmWebViewCallback.CallbackType callbackType, string data, GpmWebViewError error)
+  {
+    Debug.Log("OnCallback: " + callbackType);
+    switch (callbackType)
+    {
+      case GpmWebViewCallback.CallbackType.Open:
+        if (error != null)
+        {
+          Debug.LogFormat("Fail to open WebView. Error:{0}", error);
+        }
+        break;
+      case GpmWebViewCallback.CallbackType.Close:
+        if (error != null)
+        {
+          Debug.LogFormat("Fail to close WebView. Error:{0}", error);
+        }
+        break;
+      case GpmWebViewCallback.CallbackType.PageStarted:
+        if (string.IsNullOrEmpty(data) == false)
+        {
+          Debug.LogFormat("PageStarted Url : {0}", data);
+        }
+        break;
+      case GpmWebViewCallback.CallbackType.PageLoad:
+        if (string.IsNullOrEmpty(data) == false)
+        {
+          Debug.LogFormat("Loaded Page:{0}", data);
+        }
+        break;
+      case GpmWebViewCallback.CallbackType.MultiWindowOpen:
+        Debug.Log("MultiWindowOpen");
+        break;
+      case GpmWebViewCallback.CallbackType.MultiWindowClose:
+        Debug.Log("MultiWindowClose");
+        break;
+      case GpmWebViewCallback.CallbackType.Scheme:
+        if (error == null)
+        {
+          if (data.Equals("USER_ CUSTOM_SCHEME") == true || data.Contains("CUSTOM_SCHEME") == true)
+          {
+            Debug.Log(string.Format("scheme:{0}", data));
+          }
+        }
+        else
+        {
+          Debug.Log(string.Format("Fail to custom scheme. Error:{0}", error));
+        }
+        break;
+      case GpmWebViewCallback.CallbackType.GoBack:
+        Debug.Log("GoBack");
+        break;
+      case GpmWebViewCallback.CallbackType.GoForward:
+        Debug.Log("GoForward");
+        break;
+      case GpmWebViewCallback.CallbackType.ExecuteJavascript:
+        Debug.LogFormat("ExecuteJavascript data : {0}, error : {1}", data, error);
+        break;
+#if UNITY_ANDROID
+        case GpmWebViewCallback.CallbackType.BackButtonClose:
+          Debug.Log("BackButtonClose");
+          break;
+#endif
+    }
   }
   public void loadUrl(string urlWeb, string title = "")
   {
@@ -38,133 +134,13 @@ public class WebViewControl : MonoBehaviour
   public IEnumerator TaiURL()
   {
     yield return null;
-    webViewObject = (new GameObject("WebViewObject")).AddComponent<WebViewObject>();
-
-    webViewObject.Init(
-        cb: (msg) =>
-        {
-          Globals.Logging.Log(string.Format("CallFromJS[{0}]", msg));
-          //status.text = msg;
-          //status.GetComponent<Animation>().Play();
-        },
-        err: (msg) =>
-        {
-          Globals.Logging.Log(string.Format("CallOnError[{0}]", msg));
-          //status.text = msg;
-          //status.GetComponent<Animation>().Play();
-        },
-        httpErr: (msg) =>
-        {
-          Globals.Logging.Log(string.Format("CallOnHttpError[{0}]", msg));
-          //status.text = msg;
-          //status.GetComponent<Animation>().Play();
-        },
-        started: (msg) =>
-        {
-          Globals.Logging.Log(string.Format("CallOnStarted[{0}]", msg));
-        },
-        hooked: (msg) =>
-        {
-          Globals.Logging.Log(string.Format("CallOnHooked[{0}]", msg));
-        },
-        ld: (msg) =>
-        {
-          Globals.Logging.Log(string.Format("CallOnLoaded[{0}]", msg));
-          showWebView();
-#if UNITY_EDITOR_OSX || (!UNITY_ANDROID && !UNITY_WEBPLAYER && !UNITY_WEBGL)
-                // NOTE: depending on the situation, you might prefer
-                // the 'iframe' approach.
-                // cf. https://github.com/gree/unity-webview/issues/189
-#if true
-                webViewObject.EvaluateJS(@"
-                  if (window && window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.unityControl) {
-                    window.Unity = {
-                      call: function(msg) {
-                        window.webkit.messageHandlers.unityControl.postMessage(msg);
-                      }
-                    }
-                  } else {
-                    window.Unity = {
-                      call: function(msg) {
-                        window.location = 'unity:' + msg;
-                      }
-                    }
-                  }
-                ");
-#else
-                webViewObject.EvaluateJS(@"
-                  if (window && window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.unityControl) {
-                    window.Unity = {
-                      call: function(msg) {
-                        window.webkit.messageHandlers.unityControl.postMessage(msg);
-                      }
-                    }
-                  } else {
-                    window.Unity = {
-                      call: function(msg) {
-                        var iframe = document.createElement('IFRAME');
-                        iframe.setAttribute('src', 'unity:' + msg);
-                        document.documentElement.appendChild(iframe);
-                        iframe.parentNode.removeChild(iframe);
-                        iframe = null;
-                      }
-                    }
-                  }
-                ");
-#endif
-#elif UNITY_WEBPLAYER || UNITY_WEBGL
-          webViewObject.EvaluateJS(
-                  "window.Unity = {" +
-                  "   call:function(msg) {" +
-                  "       parent.unityWebView.sendMessage('WebViewObject', msg)" +
-                  "   }" +
-                  "};");
-#endif
-          webViewObject.EvaluateJS(@"Unity.call('ua=' + navigator.userAgent)");
-        }
-        //transparent: false,
-        //zoom: true,
-        //ua: "custom user agent string",
-        //// android
-        //androidForceDarkMode: 0,  // 0: follow system setting, 1: force dark off, 2: force dark on
-        //// ios
-        //enableWKWebView: true,
-        //wkContentMode: 0,  // 0: recommended, 1: mobile, 2: desktop
-        //wkAllowsLinkPreview: true,
-        //// editor
-        //separated: false
-        );
 #if UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX
-        webViewObject.bitmapRefreshCycle = 1;
+        // webViewObject.bitmapRefreshCycle = 1;
 #endif
-    // cf. https://github.com/gree/unity-webview/pull/512
-    // Added alertDialogEnabled flag to enable/disable alert/confirm/prompt dialogs. by KojiNakamaru � Pull Request #512 � gree/unity-webview
-    //webViewObject.SetAlertDialogEnabled(false);
-
-    // cf. https://github.com/gree/unity-webview/pull/728
-    //webViewObject.SetCameraAccess(true);
-    //webViewObject.SetMicrophoneAccess(true);
-
-    // cf. https://github.com/gree/unity-webview/pull/550
-    // introduced SetURLPattern(..., hookPattern). by KojiNakamaru � Pull Request #550 � gree/unity-webview
-    //webViewObject.SetURLPattern("", "^https://.*youtube.com", "^https://.*google.com");
-
-    // cf. https://github.com/gree/unity-webview/pull/570
-    // Add BASIC authentication feature (Android and iOS with WKWebView only) by takeh1k0 � Pull Request #570 � gree/unity-webview
-    //webViewObject.SetBasicAuthInfo("id", "password");
-
-    //webViewObject.SetScrollbarsVisibility(true);
-
-
-    webViewObject.SetTextZoom(100);  // android only. cf. https://stackoverflow.com/questions/21647641/android-webview-set-font-size-system-default/47017410#47017410
-    webViewObject.SetVisibility(true);
     if (UIManager.instance.gameView != null)
     {
       if (UIManager.instance.gameView.transform.eulerAngles.z == 0)
       {
-
-        webViewObject.SetMargins(0, Screen.currentResolution.height - Mathf.FloorToInt(Screen.safeArea.height) + Mathf.FloorToInt(titleBar.GetComponent<RectTransform>().rect.height), 0, 0);
-        //webViewObject.SetMargins(0, Mathf.FloorToInt(Rect.rect.height), 0, 0);
       }
       else
       {
@@ -172,66 +148,62 @@ public class WebViewControl : MonoBehaviour
         UIManager.instance.changeOrientation(ScreenOrientation.LandscapeLeft);
         Globals.Logging.Log("Webview:Screen.currentResolution2:" + Screen.currentResolution);
         Globals.Logging.Log("Webview:safe area= " + Screen.safeArea);
-        webViewObject.SetMargins(0, (int)titleBar.GetComponent<RectTransform>().sizeDelta.y, 0, 0);
       }
     }
     else
     {
-      webViewObject.SetMargins(0, Screen.currentResolution.height - (int)Screen.safeArea.height + (int)titleBar.GetComponent<RectTransform>().sizeDelta.y, 0, 0);
     }
 
 
 #if !UNITY_WEBPLAYER && !UNITY_WEBGL
-        if (Url.StartsWith("http"))
-        {
-            webViewObject.LoadURL(Url.Replace(" ", "%20"));
-        }
-        else
-        {
-            var exts = new string[]{
+    if (Url.StartsWith("http"))
+    {
+    }
+    else
+    {
+      var exts = new string[]{
                 ".jpg",
                 ".js",
                 ".html"  // should be last
             };
-            foreach (var ext in exts)
-            {
-                var url = Url.Replace(".html", ext);
-                var src = System.IO.Path.Combine(Application.streamingAssetsPath, url);
-                var dst = System.IO.Path.Combine(Application.persistentDataPath, url);
-                byte[] result = null;
-                if (src.Contains("://"))
-                {  // for Android
+      foreach (var ext in exts)
+      {
+        var url = Url.Replace(".html", ext);
+        var src = System.IO.Path.Combine(Application.streamingAssetsPath, url);
+        var dst = System.IO.Path.Combine(Application.persistentDataPath, url);
+        byte[] result = null;
+        if (src.Contains("://"))
+        {  // for Android
 #if UNITY_2018_4_OR_NEWER
-                    // NOTE: a more complete code that utilizes UnityWebRequest can be found in https://github.com/gree/unity-webview/commit/2a07e82f760a8495aa3a77a23453f384869caba7#diff-4379160fa4c2a287f414c07eb10ee36d
-                    var unityWebRequest = UnityWebRequest.Get(src);
-                    yield return unityWebRequest.SendWebRequest();
-                    result = unityWebRequest.downloadHandler.data;
+          // NOTE: a more complete code that utilizes UnityWebRequest can be found in https://github.com/gree/unity-webview/commit/2a07e82f760a8495aa3a77a23453f384869caba7#diff-4379160fa4c2a287f414c07eb10ee36d
+          var unityWebRequest = UnityWebRequest.Get(src);
+          yield return unityWebRequest.SendWebRequest();
+          result = unityWebRequest.downloadHandler.data;
 #else
                     var www = new WWW(src);
                     yield return www;
                     result = www.bytes;
 #endif
-                }
-                else
-                {
-                    result = System.IO.File.ReadAllBytes(src);
-                }
-                System.IO.File.WriteAllBytes(dst, result);
-                if (ext == ".html")
-                {
-                    webViewObject.LoadURL("file://" + dst.Replace(" ", "%20"));
-                    break;
-                }
-            }
         }
+        else
+        {
+          result = System.IO.File.ReadAllBytes(src);
+        }
+        System.IO.File.WriteAllBytes(dst, result);
+        if (ext == ".html")
+        {
+          break;
+        }
+      }
+    }
 #else
     if (Url.StartsWith("http"))
     {
-      webViewObject.LoadURL(Url.Replace(" ", "%20"));
+      // webViewObject.LoadURL(Url.Replace(" ", "%20"));
     }
     else
     {
-      webViewObject.LoadURL("StreamingAssets/" + Url.Replace(" ", "%20"));
+      // webViewObject.LoadURL("StreamingAssets/" + Url.Replace(" ", "%20"));
     }
 #endif
   }
@@ -264,6 +236,7 @@ public class WebViewControl : MonoBehaviour
   }
   public void closeWebView()
   {
+    SocketSend.sendUAG();
     Destroy(gameObject);
     //if (Screen.orientation != ScreenOrientation.Portrait)
     //{

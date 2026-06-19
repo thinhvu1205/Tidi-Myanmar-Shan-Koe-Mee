@@ -14,7 +14,7 @@ using System.Linq;
 public class LobbyView : BaseView
 {
     public bool isFull = false;
-    [SerializeField] private GameObject shop, exChange;
+    [SerializeField] private GameObject exChange;
     [SerializeField] List<Button> listTabs = new();
     [SerializeField]
     GameObject objDot, btnEx, btnChatLobby, gameItemObject, iconSafe, btnSafe, btnGiftCode, btnLeaderboard,
@@ -743,9 +743,7 @@ public class LobbyView : BaseView
 
         if (issket)
             updateAgSafe();
-        btnChatLobby.SetActive(
-                      Config.is_show_chat
-                    );
+        btnChatLobby.SetActive(Config.is_show_chat);
         if (btnLeaderboard != null)
             btnLeaderboard.gameObject.SetActive(Config.listRankGame != null && Config.listRankGame.Count > 0);
         // btnLeaderboard.gameObject.SetActive(isFull);
@@ -759,9 +757,7 @@ public class LobbyView : BaseView
             _ReloadListGames();
 
         // bool isShow = Config.arrOnlistTrue.Count >= 1;
-        shop.SetActive(Config.is_dt);
         exChange.SetActive(Config.is_dt);
-
         // setDefaultPosBtnMore();
     }
 
