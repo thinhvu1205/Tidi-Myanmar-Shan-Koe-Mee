@@ -1071,10 +1071,14 @@ namespace Globals
             //return o.toString().replace(/\B(?= (\d{ 3})+(? !\d))/ g, ",")
             return String.Format("{0:n0}", number);
         }
-        public static string FormatNumber(float number)
+        public static string FormatNumberLobby(long number)
         {
-            //return o.toString().replace(/\B(?= (\d{ 3})+(? !\d))/ g, ",")
-            return String.Format("{0:n0}", number);
+            if (number >= 1_000_000L)
+            {
+                return $"{number / 1_000_000.0:0.00}M";
+            }
+
+            return string.Format("{0:n0}", number);
         }
 
         public static int splitToInt(string number)

@@ -15,8 +15,19 @@ public class ItemGame : MonoBehaviour
     [SerializeField] TextNumberControl m_JackPotTNC;
     [HideInInspector] public int GameId;
     [SerializeField] Image m_LargeIconImg, m_SmallIconImg, m_LeanIconImg;
+    [SerializeField] private SkeletonGraphic animTagHotLarge, animTagHotSmall;
     System.Action callbackClick = null;
-
+    public void setTagHot(bool isShow)
+    {
+        if (animTagHotLarge != null)
+        {
+            animTagHotLarge.gameObject.SetActive(isShow);
+        }
+        if (animTagHotSmall != null)
+        {
+            animTagHotSmall.gameObject.SetActive(isShow);
+        }
+    }
     public void setInfo(int _gameID, SkeletonDataAsset skeAnim, Material material, Sprite iconS, System.Action callback, bool isShowAllGames = true)
     {
         GameId = _gameID;

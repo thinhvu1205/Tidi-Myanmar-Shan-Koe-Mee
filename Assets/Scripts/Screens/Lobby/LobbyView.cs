@@ -14,11 +14,11 @@ using System.Linq;
 public class LobbyView : BaseView
 {
     public bool isFull = false;
-    [SerializeField] private GameObject exChange;
+    // [SerializeField] private GameObject exChange;
     [SerializeField] List<Button> listTabs = new();
     [SerializeField]
-    GameObject objDot, btnEx, btnChatLobby, gameItemObject, iconSafe, btnSafe, btnGiftCode, btnLeaderboard,
-        icNotiMail, icNotiFree, icNotiMessage, bannerTemp, btnBannerNews, m_Lottery;
+    GameObject objDot, btnEx, btnShop, btnShopFull, btnChatLobby, gameItemObject, iconSafe, btnSafe, btnGiftCode, btnLeaderboard,
+        icNotiMail, icNotiFree, icNotiMessage, bannerTemp, btnBannerNews, m_Lottery, btnSocial, btnMail, btnSetting, btnSupport;
     [SerializeField] RectTransform tfBot, CenterNode;
     [SerializeField] TextMeshProUGUI lb_name, lb_id, lb_ag, lb_safe, lbTimeOnline, lbQuickGame;
     [SerializeField] Transform m_MiniGameIconTf, m_OnlySloticonTf;
@@ -31,6 +31,10 @@ public class LobbyView : BaseView
     [SerializeField] PageSlider m_BannersPS;
     [SerializeField] Material materialDefault;
     [SerializeField] Button buttonCheckinBonus;
+    [SerializeField] private RectTransform rTBtnMail, rTBtnSetting, rTBtnSupport, rTBtnSafe, rTBtnGiftCode, rTBtnLeaderboard, rTBtnSocial, rTBtnVipFarm, rTBtnNew;
+    [SerializeField] private TextMeshProUGUI textBtnSocial;
+    [SerializeField] private Image imageBgHeader;
+    [SerializeField] private Sprite spriteHeaderOn, spriteHeaderOff;
     private List<ItemGame> _AllGameIGs = new List<ItemGame>();
     private List<string> listShowPopupNoti = new();
     private Coroutine _GetInfoPusoyJackPotC;
@@ -418,12 +422,12 @@ public class LobbyView : BaseView
 
     public void updateAg()
     {
-        lb_ag.text = Config.FormatNumber(User.userMain.AG);
+        lb_ag.text = Config.FormatNumberLobby(User.userMain.AG);
     }
 
     public void updateAgSafe()
     {
-        lb_safe.text = Config.FormatNumber(User.userMain.agSafe);
+        lb_safe.text = Config.FormatNumberLobby(User.userMain.agSafe);
     }
     public void updateIdUser()
     {
@@ -516,6 +520,7 @@ public class LobbyView : BaseView
             JObject data = (JObject)Config.listGame[i];
             int gameId = (int)data["id"];
             SkeletonDataAsset skeAsset = BundleHandler.LoadSkeletonDataAsset("AnimIconGame/" + gameId + "/skeleton_SkeletonData");
+            // SkeletonDataAsset skeAsset = Resources.Load<SkeletonDataAsset>("AnimIconGame/" + gameId + "/skeleton_SkeletonData");
             if (skeAsset == null) continue;
             ItemGame item = null;
             switch (gameId)
@@ -534,13 +539,18 @@ public class LobbyView : BaseView
             item.transform.position = Vector3.zero;
             item.gameObject.SetActive(true);
             item.setInfo(gameId, skeAsset, materialDefault, null, () => onClickGame(item), true);
-            if (gameId == (int)GAMEID.PUSOY && UIManager.instance.PusoyJackPot > 0) item.UpdateJackpot(UIManager.instance.PusoyJackPot);
+            if (gameId == (int)GAMEID.PUSOY && UIManager.instance.PusoyJackPot > 0)
+            {
+                item.UpdateJackpot(UIManager.instance.PusoyJackPot);
+                item.setTagHot(false);
+            }
             _AllGameIGs.Add(item);
         }
         foreach (ItemGame ig in _AllGameIGs)
         {
             if (!slotGames.Contains(ig.GameId)) continue;
-            SkeletonDataAsset bigSlotGameSDA = BundleHandler.LoadSkeletonDataAsset("AnimIconGame/" + ig.GameId + "-big" + "/skeleton_SkeletonData");
+            SkeletonDataAsset bigSlotGameSDA = BundleHandler.LoadSkeletonDataAsset("AnimIconGame/" + ig.GameId + "_Big" + "/skeleton_SkeletonData");
+            // SkeletonDataAsset bigSlotGameSDA = Resources.Load<SkeletonDataAsset>("AnimIconGame/" + ig.GameId + "_Big" + "/skeleton_SkeletonData");
             if (bigSlotGameSDA == null) continue;
             ItemGame bigSlotIconIG = BundleHandler.Instantiate(gameItemObject, m_OnlySloticonTf).GetComponent<ItemGame>();
 
@@ -717,17 +727,100 @@ public class LobbyView : BaseView
     {
         icNotiMessage.gameObject.SetActive(state);
     }
-
+    public void SetPosBtnInLobby()
+    {
+        if (btnGiftCode.gameObject.activeSelf)
+        {
+            imageBgHeader.sprite = spriteHeaderOn;
+            imageBgHeader.SetNativeSize();
+        }
+        else
+        {
+            imageBgHeader.sprite = spriteHeaderOff;
+            imageBgHeader.SetNativeSize();
+        }
+        float ratio = (float)Screen.width / (float)Screen.height;
+        if (ratio >= 2)
+        {
+            if (btnChatLobby.gameObject.activeSelf)
+            {
+                rTBtnSocial.anchoredPosition = new Vector2(212, -52f);
+                textBtnSocial.color = Color.white;
+            }
+            else
+            {
+                rTBtnSocial.anchoredPosition = new Vector2(1472, -652);
+                textBtnSocial.color = Color.yellow;
+            }
+            rTBtnMail.anchoredPosition = new Vector2(270, -12f);
+            rTBtnSetting.anchoredPosition = new Vector2(440, -12f);
+            rTBtnSupport.anchoredPosition = new Vector2(-448, -12f);
+            rTBtnSafe.anchoredPosition = new Vector2(-288, -12f);
+            if (m_VipFarmBVF.gameObject.activeSelf)
+            {
+                rTBtnGiftCode.anchoredPosition = new Vector2(-380, -52f);
+                // rTBtnSocial.anchoredPosition = new Vector2(268f, -52f);
+                rTBtnLeaderboard.anchoredPosition = new Vector2(442, -52f);
+                rTBtnVipFarm.anchoredPosition = new Vector2(-180, -52f);
+                rTBtnNew.anchoredPosition = new Vector2(82, -52f);
+            }
+            else
+            {
+                rTBtnGiftCode.anchoredPosition = new Vector2(-380, -52f);
+                // rTBtnSocial.anchoredPosition = new Vector2(1422, -52f);
+                rTBtnLeaderboard.anchoredPosition = new Vector2(392, -52f);
+                rTBtnNew.anchoredPosition = new Vector2(172, -52f);
+            }
+        }
+        else
+        {
+            if (btnChatLobby.gameObject.activeSelf)
+            {
+                rTBtnSocial.anchoredPosition = new Vector2(212, -52f);
+                textBtnSocial.color = Color.white;
+            }
+            else
+            {
+                rTBtnSocial.anchoredPosition = new Vector2(1178, -652);
+                textBtnSocial.color = Color.yellow;
+            }
+            if (m_VipFarmBVF.gameObject.activeSelf)
+            {
+                rTBtnNew.anchoredPosition = new Vector2(82, -52f);
+                // rTBtnSocial.anchoredPosition = new Vector2(212, -52f);
+                rTBtnLeaderboard.anchoredPosition = new Vector2(342, -52f);
+                rTBtnGiftCode.anchoredPosition = new Vector2(-254, -52f);
+                rTBtnVipFarm.anchoredPosition = new Vector2(-90, -52f);
+            }
+            else
+            {
+                rTBtnNew.anchoredPosition = new Vector2(124, -52f);
+                // rTBtnSocial.anchoredPosition = new Vector2(1188, -52f);
+                rTBtnLeaderboard.anchoredPosition = new Vector2(292, -52f);
+                rTBtnGiftCode.anchoredPosition = new Vector2(-254, -52f);
+            }
+        }
+    }
     public void refreshUIFromConfig(bool isStart = false)
     {
         if (User.userMain != null && m_VipFarmBVF != null)
         {
             m_VipFarmBVF.gameObject.SetActive(User.userMain.VIP > 1);
+            SetPosBtnInLobby();
             isFull = User.userMain.VIP >= 1;
         }
         if (btnEx != null)
             btnEx.SetActive(Config.is_dt);
-
+        if (Config.is_dt)
+        {
+            btnShopFull.SetActive(false);
+            btnShop.SetActive(true);
+        }
+        else
+        {
+            btnShopFull.SetActive(true);
+            btnShop.SetActive(false);
+        }
         bool issket = Config.ket;
         if (User.userMain != null && User.userMain.VIP == 0)
             issket = false;
@@ -757,7 +850,7 @@ public class LobbyView : BaseView
             _ReloadListGames();
 
         // bool isShow = Config.arrOnlistTrue.Count >= 1;
-        exChange.SetActive(Config.is_dt);
+        // exChange.SetActive(Config.is_dt);
         // setDefaultPosBtnMore();
     }
 

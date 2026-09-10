@@ -1,62 +1,83 @@
 
 skeleton.png
-size: 336,412
+size: 345,345
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
 1l
-  rotate: true
-  xy: 215, 80
+  rotate: false
+  xy: 216, 256
   size: 127, 87
   orig: 127, 130
   offset: 0, 19
   index: -1
 dice1
-  rotate: false
-  xy: 277, 328
-  size: 56, 57
-  orig: 58, 59
-  offset: 1, 1
+  rotate: true
+  xy: 268, 3
+  size: 35, 37
+  orig: 35, 38
+  offset: 0, 1
   index: -1
 dice2
   rotate: false
-  xy: 213, 328
-  size: 62, 61
-  orig: 64, 63
-  offset: 1, 1
+  xy: 268, 40
+  size: 55, 57
+  orig: 55, 57
+  offset: 0, 0
   index: -1
 dice3
   rotate: false
-  xy: 215, 5
-  size: 71, 73
-  orig: 73, 76
-  offset: 1, 2
+  xy: 268, 99
+  size: 62, 60
+  orig: 63, 61
+  offset: 1, 0
+  index: -1
+golda
+  rotate: false
+  xy: 2, 2
+  size: 45, 30
+  orig: 45, 31
+  offset: 0, 1
+  index: -1
+goldb
+  rotate: false
+  xy: 49, 13
+  size: 38, 19
+  orig: 39, 24
+  offset: 0, 5
+  index: -1
+goldc
+  rotate: false
+  xy: 89, 13
+  size: 38, 19
+  orig: 39, 24
+  offset: 0, 5
   index: -1
 iiii
   rotate: false
-  xy: 2, 73
+  xy: 2, 34
   size: 211, 134
   orig: 211, 139
   offset: 0, 5
   index: -1
 nap
-  rotate: true
-  xy: 213, 209
-  size: 117, 114
-  orig: 119, 116
-  offset: 1, 1
+  rotate: false
+  xy: 216, 161
+  size: 121, 93
+  orig: 121, 93
+  offset: 0, 0
   index: -1
 rec
   rotate: false
-  xy: 2, 209
-  size: 209, 201
-  orig: 209, 201
-  offset: 0, 0
+  xy: 2, 170
+  size: 212, 173
+  orig: 214, 174
+  offset: 1, 1
   index: -1
-txt2
-  rotate: false
-  xy: 2, 2
-  size: 201, 69
-  orig: 201, 69
+txt
+  rotate: true
+  xy: 215, 7
+  size: 152, 51
+  orig: 152, 51
   offset: 0, 0
   index: -1

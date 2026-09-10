@@ -47,24 +47,6 @@ TextureImporter:
   - first:
       213: -2150753145709587267
     second: skeleton_14
-  - first:
-      213: 5456910102184981033
-    second: skeleton_15
-  - first:
-      213: 1588906343046635383
-    second: skeleton_16
-  - first:
-      213: 297061580493148339
-    second: skeleton_17
-  - first:
-      213: 5311655696396966444
-    second: skeleton_18
-  - first:
-      213: 1968703191191527569
-    second: skeleton_19
-  - first:
-      213: -3039514967756492387
-    second: skeleton_20
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -158,19 +140,6 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 1
   - serializedVersion: 4
     buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
-  - serializedVersion: 4
-    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1

@@ -164,6 +164,7 @@ public class SocketIOManager
                                     arrOnlistFalse.Add(item);
                             }
                         }
+                        Debug.Log($"Tinh+)): arrOnlistFalse.Count: {arrOnlistFalse.Count}, arrOnlistTrue.Count: {arrOnlistTrue.Count}, arrBannerLobby.Count: {arrBannerLobby.Count}");
                         if (arrBannerLobby.Count > 0) Config.arrBannerLobby = arrBannerLobby;
                         //UIManager.instance.preLoadBaner(data.data);
                         UIManager.instance.handleBannerIO(arrOnlistFalse);

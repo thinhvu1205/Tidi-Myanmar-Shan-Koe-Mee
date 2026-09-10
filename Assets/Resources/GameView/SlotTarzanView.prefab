@@ -306,15 +306,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 973238810940353273}
   BundleLabel: assets--resources--gameview--slotspine
   AssetName: Assets/Resources/GameView/SlotSpine/Tarzan/MiniGame/cuaso/skeleton_SkeletonData.asset
   AnimName: animation
   SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &161854054083774659
 GameObject:
   m_ObjectHideFlags: 0
@@ -556,15 +551,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 37491710057736492}
   BundleLabel: assets--resources--gameview--slotspine
   AssetName: Assets/Resources/GameView/SlotSpine/Tarzan/MiniGame/cuaso/skeleton_SkeletonData.asset
   AnimName: animation
   SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &185357756122164524
 GameObject:
   m_ObjectHideFlags: 0
@@ -2945,15 +2935,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 5168984401738939584}
   BundleLabel: assets--resources--gameview--slotspine
   AssetName: Assets/Resources/GameView/SlotSpine/Tarzan/MiniGame/cuaso/skeleton_SkeletonData.asset
   AnimName: animation
   SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &1797390300851426502
 GameObject:
   m_ObjectHideFlags: 0
@@ -3429,15 +3414,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 820937988567070325}
   BundleLabel: assets--resources--gameview--slotspine
   AssetName: Assets/Resources/GameView/SlotSpine/Tarzan/MiniGame/cuaso/skeleton_SkeletonData.asset
   AnimName: animation
   SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &2255559012561468570
 GameObject:
   m_ObjectHideFlags: 0
@@ -4461,7 +4441,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e77ca172d14a04ea28a8bc5e1c2ffa74, type: 3}
+  m_Sprite: {fileID: 21300000, guid: aa821ce77e3e95f4191cf892fb791381, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5650,15 +5630,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 8480389471935735693}
   BundleLabel: assets--resources--gameview--slotspine
   AssetName: Assets/Resources/GameView/SlotSpine/Tarzan/MiniGame/cuaso/skeleton_SkeletonData.asset
   AnimName: animation
   SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &3959144520911480215
 GameObject:
   m_ObjectHideFlags: 0
@@ -5764,15 +5739,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 7392897268258835454}
   BundleLabel: assets--resources--gameview--slotspine
   AssetName: Assets/Resources/GameView/SlotSpine/Tarzan/MiniGame/cuaso/skeleton_SkeletonData.asset
   AnimName: animation
   SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &4054059971282468269
 GameObject:
   m_ObjectHideFlags: 0
@@ -6936,15 +6906,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 1416854839008788898}
   BundleLabel: assets--resources--gameview--slotspine
   AssetName: Assets/Resources/GameView/SlotSpine/Tarzan/MiniGame/cuaso/skeleton_SkeletonData.asset
   AnimName: animation
   SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &4662380802261794254
 GameObject:
   m_ObjectHideFlags: 0
@@ -7216,15 +7181,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 6406834600020289498}
   BundleLabel: assets--resources--gameview--slotspine
   AssetName: Assets/Resources/GameView/SlotSpine/Tarzan/MiniGame/cuaso/skeleton_SkeletonData.asset
   AnimName: animation
   SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &4828009314304449414
 GameObject:
   m_ObjectHideFlags: 0
@@ -7617,15 +7577,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 6024199431555017255}
   BundleLabel: assets--resources--gameview--slotspine
   AssetName: Assets/Resources/GameView/SlotSpine/Tarzan/MiniGame/cuaso/skeleton_SkeletonData.asset
   AnimName: animation
   SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &5088237717206340620
 GameObject:
   m_ObjectHideFlags: 0
@@ -8825,15 +8780,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 1812957568577952835}
   BundleLabel: assets--resources--gameview--slotspine
   AssetName: Assets/Resources/GameView/SlotSpine/Tarzan/MiniGame/cuaso/skeleton_SkeletonData.asset
   AnimName: animation
   SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &5638691647642896210
 GameObject:
   m_ObjectHideFlags: 0
@@ -9628,15 +9578,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 9215603398204476022}
   BundleLabel: assets--resources--gameview--slotspine
   AssetName: Assets/Resources/GameView/SlotSpine/NearFreeSpin/skeleton_SkeletonData.asset
   AnimName: animation
   SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &6051646376755407792
 GameObject:
   m_ObjectHideFlags: 0
@@ -10210,15 +10155,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 4012986534033541156}
   BundleLabel: assets--resources--gameview--slotspine
   AssetName: Assets/Resources/GameView/SlotSpine/Tarzan/MiniGame/cuaso/skeleton_SkeletonData.asset
   AnimName: animation
   SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &6544519908691667537
 GameObject:
   m_ObjectHideFlags: 0
@@ -11501,15 +11441,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 6841395872793377761}
   BundleLabel: assets--resources--gameview--slotspine
   AssetName: Assets/Resources/GameView/SlotSpine/Tarzan/MiniGame/cuaso/skeleton_SkeletonData.asset
   AnimName: animation
   SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &7244151725849365603
 GameObject:
   m_ObjectHideFlags: 0
@@ -12039,15 +11974,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 1504498985482843920}
   BundleLabel: assets--resources--gameview--slotspine
   AssetName: Assets/Resources/GameView/SlotSpine/Tarzan/MiniGame/cuaso/skeleton_SkeletonData.asset
   AnimName: animation
   SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &7364823192740378596
 GameObject:
   m_ObjectHideFlags: 0
@@ -12770,15 +12700,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 1499256642752885057}
   BundleLabel: assets--resources--gameview--slotspine
   AssetName: Assets/Resources/GameView/SlotSpine/Tarzan/MiniGame/cuaso/skeleton_SkeletonData.asset
   AnimName: animation
   SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &7947603645905693368
 GameObject:
   m_ObjectHideFlags: 0
@@ -13911,15 +13836,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 4576956583734920580}
   BundleLabel: assets--resources--gameview--slotspine
   AssetName: Assets/Resources/GameView/SlotSpine/Tarzan/MiniGame/cuaso/skeleton_SkeletonData.asset
   AnimName: animation
   SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &8753862966779158462
 GameObject:
   m_ObjectHideFlags: 0
@@ -14219,7 +14139,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e77ca172d14a04ea28a8bc5e1c2ffa74, type: 3}
+  m_Sprite: {fileID: 21300000, guid: aa821ce77e3e95f4191cf892fb791381, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

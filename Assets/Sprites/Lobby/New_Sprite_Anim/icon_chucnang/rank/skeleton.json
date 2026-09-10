@@ -1,0 +1,69 @@
+{
+"skeleton": {
+	"hash": "r4sepYngirka9ZWrGiw5OGtAdRw",
+	"spine": "3.8.99",
+	"x": -48,
+	"y": -48,
+	"width": 96,
+	"height": 96,
+	"images": "",
+	"audio": ""
+},
+"bones": [
+	{ "name": "root" },
+	{ "name": "bone", "parent": "root", "length": 22.75, "rotation": 91.22, "x": 0.78, "y": -31.43 }
+],
+"slots": [
+	{ "name": "ef", "bone": "root", "attachment": "ef" },
+	{ "name": "loa", "bone": "bone", "attachment": "loa" },
+	{ "name": "loa2", "bone": "bone", "attachment": "loa", "blend": "additive" },
+	{ "name": "ef2", "bone": "root", "attachment": "ef2" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"ef": {
+				"ef": { "width": 96, "height": 96 }
+			},
+			"ef2": {
+				"ef2": { "width": 95, "height": 95 }
+			},
+			"loa": {
+				"loa": { "x": 28.02, "y": 0.19, "rotation": -91.22, "width": 71, "height": 79 }
+			},
+			"loa2": {
+				"loa": { "x": 28.02, "y": 0.19, "rotation": -91.22, "width": 71, "height": 79 }
+			}
+		}
+	}
+],
+"animations": {
+	"animation": {
+		"slots": {
+			"loa2": {
+				"color": [
+					{ "color": "ffffff1f" },
+					{ "time": 0.4667, "color": "ffffff00" },
+					{ "time": 1, "color": "ffffff1f" }
+				]
+			}
+		},
+		"bones": {
+			"bone": {
+				"translate": [
+					{ "y": -0.57 },
+					{ "time": 0.2 },
+					{ "time": 0.7, "y": -1.44 },
+					{ "time": 1, "y": -0.57 }
+				],
+				"scale": [
+					{},
+					{ "time": 0.5, "x": 0.96, "y": 0.96 },
+					{ "time": 1 }
+				]
+			}
+		}
+	}
+}
+}

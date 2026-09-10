@@ -5,13 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class SplashScene : MonoBehaviour
 {
-    //https://console.cloud.google.com/storage/browser/my-shankoemee
+    //https://console.cloud.google.com/storage/browser/mm-skm
+    //https://storage.googleapis.com/mm-skm/AssetBundles/iOS/assets--resources--animicongame.manifest
     [SerializeField] private BundleDownloader m_BundleBD;
 
     private void Awake()
     {
         Application.targetFrameRate = 60;
-        string storedUrl = PlayerPrefs.GetString(BundleDownloader.STORED_BUNDLE_URL, "https://storage.googleapis.com/my-shankoemee/AssetBundles");
+        // string storedUrl = PlayerPrefs.GetString(BundleDownloader.STORED_BUNDLE_URL, "https://storage.cloud.google.com/mm-skm/AssetBundles");
+        string storedUrl = "https://storage.googleapis.com/mm-skm/AssetBundles";
         m_BundleBD.CheckAndDownloadAssets(storedUrl, 1f,
             () =>
             {

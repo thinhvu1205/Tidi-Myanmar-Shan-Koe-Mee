@@ -1084,15 +1084,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 4354073895302117527}
   BundleLabel: 
   AssetName: Assets/Resources/GameView/Baucua/New folder (4)/win/skeleton_SkeletonData.asset
   AnimName: cam
   SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &612385435575740322
 GameObject:
   m_ObjectHideFlags: 0
@@ -12845,7 +12840,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e77ca172d14a04ea28a8bc5e1c2ffa74, type: 3}
+  m_Sprite: {fileID: 21300000, guid: aa821ce77e3e95f4191cf892fb791381, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -15106,15 +15101,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 4140413979824635554}
   BundleLabel: 
   AssetName: Assets/Resources/GameView/Baucua/New folder (4)/lose/skeleton_SkeletonData.asset
   AnimName: cam
   SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &7082850816829126282
 GameObject:
   m_ObjectHideFlags: 0
@@ -16913,15 +16903,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 1183042295833200728}
   BundleLabel: 
   AssetName: Assets/Resources/GameView/Baucua/New folder (4)/startbet/skeleton_SkeletonData.asset
   AnimName: bet_eng
   SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &7832121930990076531
 GameObject:
   m_ObjectHideFlags: 0

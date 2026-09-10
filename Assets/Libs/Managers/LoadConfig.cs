@@ -23,11 +23,11 @@ public class LoadConfig : MonoBehaviour
     string url_start = "https://cfg.mmshan.net/info";
     string config_info = "";
 
-    private const string _BUNDLE_ID = "ios.shanplus.com";
+    private const string _BUNDLE_ID = "ios.shankoemee.mm.com";
     private bool _isConfigLoaded = false;
     void Awake()
     {
-        Config.publisher = "ios_shan_plus";
+        Config.publisher = "ios_shankoemee_mm";
         if (instance == null) instance = this;
         else
         {
