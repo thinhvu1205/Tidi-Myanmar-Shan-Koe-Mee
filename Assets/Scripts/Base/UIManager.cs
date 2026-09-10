@@ -6,7 +6,6 @@ using Newtonsoft.Json.Linq;
 using TMPro;
 using UnityEngine.UI;
 using Spine.Unity;
-using OneSignalSDK;
 using System.Collections.Generic;
 using UnityEngine.Networking;
 using static Globals.Config;

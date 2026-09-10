@@ -6,7 +6,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using Globals;
 using Newtonsoft.Json.Linq;
-using OneSignalSDK;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -77,12 +76,6 @@ public class LoadConfig : MonoBehaviour
             }
             while (!_isConfigLoaded);
         }
-    }
-    void Start()
-    {
-        OneSignal.Default.Initialize("5f370dfa-dbf5-4c98-a8f4-fad7cb985092");
-        // OneSignal.Default.PromptForPushNotificationsWithUserResponse();
-        OneSignal.Notifications.RequestPermissionAsync(true);
     }
     void init()
     {

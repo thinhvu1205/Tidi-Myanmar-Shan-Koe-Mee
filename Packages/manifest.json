@@ -1,9 +1,6 @@
 {
   "dependencies": {
     "com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask",
-    "com.onesignal.unity.android": "5.1.15",
-    "com.onesignal.unity.core": "5.1.15",
-    "com.onesignal.unity.ios": "5.1.15",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.adaptiveperformance.google.android": "5.1.5",
     "com.unity.ai.navigation": "2.0.8",

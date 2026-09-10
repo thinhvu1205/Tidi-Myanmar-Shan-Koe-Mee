@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Threading;
 using Globals;
 using System.Linq;
-using OneSignalSDK;
 
 public class HandleData
 {
@@ -202,7 +201,6 @@ public class HandleData
             tags.Add("blq7", User.userMain.BLQ7.ToString());
             tags.Add("avg7", User.userMain.AVG7.ToString());
             tags.Add("group", User.userMain.Group.ToString());
-            OneSignal.User.AddTags(tags);
         }
         else
         {
