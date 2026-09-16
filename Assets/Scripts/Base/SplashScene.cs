@@ -12,8 +12,8 @@ public class SplashScene : MonoBehaviour
     private void Awake()
     {
         Application.targetFrameRate = 60;
-        // string storedUrl = PlayerPrefs.GetString(BundleDownloader.STORED_BUNDLE_URL, "https://storage.cloud.google.com/mm-skm/AssetBundles");
-        string storedUrl = "https://storage.googleapis.com/mm-skm/AssetBundles";
+        string storedUrl = PlayerPrefs.GetString(BundleDownloader.STORED_BUNDLE_URL, "https://storage.cloud.google.com/mm-skm/AssetBundles");
+        // string storedUrl = "https://storage.googleapis.com/mm-skm/AssetBundles";
         m_BundleBD.CheckAndDownloadAssets(storedUrl, 1f,
             () =>
             {
