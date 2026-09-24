@@ -1,19 +1,14 @@
 using System.Collections;
-using Globals;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SplashScene : MonoBehaviour
 {
     [SerializeField] private BundleDownloader m_BundleBD;
-    //https://console.cloud.google.com/storage/browser/my-shankoemee/AssetBundles/Android)
+    // https://console.cloud.google.com/storage/browser/my-shankoemee/AssetBundles/
     private void Awake()
     {
         Application.targetFrameRate = 60;
-        // SceneManager.LoadScene("MainScene");
-        // "D:/Unity projects/Tidi-Phil-Win777/Assets/AssetBundles";
-        // https://storage.googleapis.com/tongitswar/AssetBundles;
-        //https://storage.googleapis.com/my-shankoemee/AssetBundles
         string storedUrl = PlayerPrefs.GetString(BundleDownloader.STORED_BUNDLE_URL, "https://storage.googleapis.com/my-shankoemee/AssetBundles");
         // storedUrl = "D:/Unity projects/Tidi-Phil-Win777/Assets/AssetBundles";
         m_BundleBD.CheckAndDownloadAssets(storedUrl, 1f,
@@ -29,7 +24,7 @@ public class SplashScene : MonoBehaviour
 
         IEnumerator retry()
         {
-            while (BundleHandler.MAIN.BundleUrl == null || BundleHandler.MAIN.BundleUrl.Equals(""))
+            while (string.IsNullOrEmpty(BundleHandler.MAIN.BundleUrl))
                 yield return new WaitForSeconds(1f);
             m_BundleBD.CheckAndDownloadAssets(BundleHandler.MAIN.BundleUrl, 0,
                 () =>
