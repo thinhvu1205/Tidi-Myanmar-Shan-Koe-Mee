@@ -606,7 +606,7 @@ RectTransform:
   m_GameObject: {fileID: 751357369}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 568218490}
@@ -638,7 +638,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  skeletonDataAsset: {fileID: 11400000, guid: 65ee23b27db8cff448fd7603c3b7117e, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: f94893f4439b9b448b1332cadf1ef6c8, type: 2}
   initialSkinName: 
   initialFlipX: 0
   initialFlipY: 0

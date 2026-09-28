@@ -806,7 +806,6 @@ public class LobbyView : BaseView
         if (User.userMain != null && m_VipFarmBVF != null)
         {
             m_VipFarmBVF.gameObject.SetActive(User.userMain.VIP > 1);
-            SetPosBtnInLobby();
             isFull = User.userMain.VIP >= 1;
         }
         if (btnEx != null)
@@ -849,6 +848,7 @@ public class LobbyView : BaseView
         if (!isStart)
             _ReloadListGames();
 
+        SetPosBtnInLobby();
         // bool isShow = Config.arrOnlistTrue.Count >= 1;
         // exChange.SetActive(Config.is_dt);
         // setDefaultPosBtnMore();

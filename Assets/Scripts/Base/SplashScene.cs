@@ -1,19 +1,16 @@
 using System.Collections;
-using Globals;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SplashScene : MonoBehaviour
 {
-    //https://console.cloud.google.com/storage/browser/mm-skm
-    //https://storage.googleapis.com/mm-skm/AssetBundles/iOS/assets--resources--animicongame.manifest
+    // https://console.cloud.google.com/storage/browser/mm-skm
     [SerializeField] private BundleDownloader m_BundleBD;
 
     private void Awake()
     {
         Application.targetFrameRate = 60;
-        string storedUrl = PlayerPrefs.GetString(BundleDownloader.STORED_BUNDLE_URL, "https://storage.cloud.google.com/mm-skm/AssetBundles");
-        // string storedUrl = "https://storage.googleapis.com/mm-skm/AssetBundles";
+        string storedUrl = PlayerPrefs.GetString(BundleDownloader.STORED_BUNDLE_URL, "https://storage.googleapis.com/mm-skm/AssetBundles/");
         m_BundleBD.CheckAndDownloadAssets(storedUrl, 1f,
             () =>
             {
@@ -27,7 +24,7 @@ public class SplashScene : MonoBehaviour
 
         IEnumerator retry()
         {
-            while (BundleHandler.MAIN.BundleUrl == null || BundleHandler.MAIN.BundleUrl.Equals(""))
+            while (string.IsNullOrEmpty(BundleHandler.MAIN.BundleUrl))
                 yield return new WaitForSeconds(1f);
             m_BundleBD.CheckAndDownloadAssets(BundleHandler.MAIN.BundleUrl, 0,
                 () =>
