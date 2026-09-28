@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: TIDI
-  productName: Shan Koe Mee MM
+  productName: Ruby MM
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -40,7 +40,7 @@ PlayerSettings:
     width: 1
     height: 1
   m_SplashScreenLogos:
-  - logo: {fileID: -4054111720429725101, guid: e07c26781da48fc4a94909476c29dd01, type: 3}
+  - logo: {fileID: -4054111720429725101, guid: 69dc9d055f628ef45847181d8d77dcaf, type: 3}
     duration: 2
   m_VirtualRealitySplashScreen: {fileID: 0}
   m_HolographicTrackingLossScreen: {fileID: 0}
@@ -173,7 +173,7 @@ PlayerSettings:
   buildNumber:
     Standalone: 0
     VisionOS: 0
-    iPhone: 5
+    iPhone: 6
     tvOS: 0
   overrideDefaultApplicationIdentifier: 1
   AndroidBundleVersionCode: 1
@@ -299,7 +299,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: e07c26781da48fc4a94909476c29dd01, type: 3}
+      m_Icon: {fileID: 2800000, guid: 69dc9d055f628ef45847181d8d77dcaf, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0
