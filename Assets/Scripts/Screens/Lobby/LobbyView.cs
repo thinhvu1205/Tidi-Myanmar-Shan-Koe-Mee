@@ -742,16 +742,16 @@ public class LobbyView : BaseView
         float ratio = (float)Screen.width / (float)Screen.height;
         if (ratio >= 2)
         {
-            if (btnChatLobby.gameObject.activeSelf)
-            {
-                rTBtnSocial.anchoredPosition = new Vector2(212, -52f);
-                textBtnSocial.color = Color.white;
-            }
-            else
-            {
-                rTBtnSocial.anchoredPosition = new Vector2(1472, -652);
-                textBtnSocial.color = Color.yellow;
-            }
+            // if (btnChatLobby.gameObject.activeSelf)
+            // {
+            //     rTBtnSocial.anchoredPosition = new Vector2(212, -52f);
+            //     textBtnSocial.color = Color.white;
+            // }
+            // else
+            // {
+            //     rTBtnSocial.anchoredPosition = new Vector2(1472, -652);
+            //     textBtnSocial.color = Color.yellow;
+            // }
             rTBtnMail.anchoredPosition = new Vector2(270, -12f);
             rTBtnSetting.anchoredPosition = new Vector2(440, -12f);
             rTBtnSupport.anchoredPosition = new Vector2(-448, -12f);
@@ -760,43 +760,43 @@ public class LobbyView : BaseView
             {
                 rTBtnGiftCode.anchoredPosition = new Vector2(-380, -52f);
                 // rTBtnSocial.anchoredPosition = new Vector2(268f, -52f);
-                rTBtnLeaderboard.anchoredPosition = new Vector2(442, -52f);
+                // rTBtnLeaderboard.anchoredPosition = new Vector2(342, -52f);
                 rTBtnVipFarm.anchoredPosition = new Vector2(-180, -52f);
-                rTBtnNew.anchoredPosition = new Vector2(82, -52f);
+                // rTBtnNew.anchoredPosition = new Vector2(82, -52f);
             }
             else
             {
                 rTBtnGiftCode.anchoredPosition = new Vector2(-380, -52f);
                 // rTBtnSocial.anchoredPosition = new Vector2(1422, -52f);
-                rTBtnLeaderboard.anchoredPosition = new Vector2(392, -52f);
-                rTBtnNew.anchoredPosition = new Vector2(172, -52f);
+                // rTBtnLeaderboard.anchoredPosition = new Vector2(342, -52f);
+                rTBtnNew.anchoredPosition = new Vector2(82, -52f);
             }
         }
         else
         {
-            if (btnChatLobby.gameObject.activeSelf)
-            {
-                rTBtnSocial.anchoredPosition = new Vector2(212, -52f);
-                textBtnSocial.color = Color.white;
-            }
-            else
-            {
-                rTBtnSocial.anchoredPosition = new Vector2(1178, -652);
-                textBtnSocial.color = Color.yellow;
-            }
+            // if (btnChatLobby.gameObject.activeSelf)
+            // {
+            //     rTBtnSocial.anchoredPosition = new Vector2(212, -52f);
+            //     textBtnSocial.color = Color.white;
+            // }
+            // else
+            // {
+            //     rTBtnSocial.anchoredPosition = new Vector2(1178, -652);
+            //     textBtnSocial.color = Color.yellow;
+            // }
             if (m_VipFarmBVF.gameObject.activeSelf)
             {
-                rTBtnNew.anchoredPosition = new Vector2(82, -52f);
+                // rTBtnNew.anchoredPosition = new Vector2(82, -52f);
                 // rTBtnSocial.anchoredPosition = new Vector2(212, -52f);
-                rTBtnLeaderboard.anchoredPosition = new Vector2(342, -52f);
+                // rTBtnLeaderboard.anchoredPosition = new Vector2(342, -52f);
                 rTBtnGiftCode.anchoredPosition = new Vector2(-254, -52f);
                 rTBtnVipFarm.anchoredPosition = new Vector2(-90, -52f);
             }
             else
             {
-                rTBtnNew.anchoredPosition = new Vector2(124, -52f);
+                // rTBtnNew.anchoredPosition = new Vector2(124, -52f);
                 // rTBtnSocial.anchoredPosition = new Vector2(1188, -52f);
-                rTBtnLeaderboard.anchoredPosition = new Vector2(292, -52f);
+                // rTBtnLeaderboard.anchoredPosition = new Vector2(292, -52f);
                 rTBtnGiftCode.anchoredPosition = new Vector2(-254, -52f);
             }
         }
@@ -838,6 +838,7 @@ public class LobbyView : BaseView
         btnChatLobby.SetActive(Config.is_show_chat);
         if (btnLeaderboard != null)
             btnLeaderboard.gameObject.SetActive(Config.listRankGame != null && Config.listRankGame.Count > 0);
+        btnSocial.gameObject.SetActive(Config.listRankGame != null && Config.listRankGame.Count > 0);
         // btnLeaderboard.gameObject.SetActive(isFull);
         Debug.Log($"Config.listRankGame.Count = {Config.listRankGame?.Count ?? 0}");
         if (btnGiftCode != null)
